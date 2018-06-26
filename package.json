@@ -1,0 +1,22 @@
+{
+  "name": "arquitectura",
+  "version": "1.0.0",
+  "description": "ejercicio de arquitectura",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Koffee_Developers",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "connect": "^3.6.6",
+    "express": "^4.16.3",
+    "mongoose": "^5.1.5",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.17.5",
+    "path": "^0.12.7",
+    "serve-static": "^1.13.2"
+  }
+}
