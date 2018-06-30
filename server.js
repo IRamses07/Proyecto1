@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/stable
 // Se exporta http dentro de la arquitectura
 const http = require('http');
 // Establecemos un puerto en el que el servidor se va a levantar
@@ -11,7 +15,11 @@ const nodemon = require('nodemon');
 
 // Se establece la conexion y el puerto en el que la aplicación va a correr
 connect().use(serveStatic(__dirname)).listen(port, () => {
+<<<<<<< HEAD
   console.log('El servidor local está levantado dentro del puerto ' + port);
+=======
+  console.log('El servidor esta levantado dentro del puerto ' + port);
+>>>>>>> origin/stable
   nodemon({
     script: 'api/index.js',
     ext: 'js'

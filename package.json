@@ -1,12 +1,19 @@
 {
+<<<<<<< HEAD
   "name": "proyecto1",
   "version": "1.0.0",
   "description": "",
+=======
+  "name": "arquitectura",
+  "version": "1.0.0",
+  "description": "ejercicio de arquitectura",
+>>>>>>> origin/stable
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+<<<<<<< HEAD
   "repository": {
     "type": "git",
     "url": "git+https://github.com/IRamses07/Proyecto1.git"
@@ -17,6 +24,10 @@
     "url": "https://github.com/IRamses07/Proyecto1/issues"
   },
   "homepage": "https://github.com/IRamses07/Proyecto1#readme",
+=======
+  "author": "Koffee_Developers",
+  "license": "ISC",
+>>>>>>> origin/stable
   "dependencies": {
     "body-parser": "^1.18.3",
     "connect": "^3.6.6",
