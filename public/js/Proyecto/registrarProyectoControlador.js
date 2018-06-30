@@ -6,7 +6,18 @@ let botonRegistrar = document.querySelector('#btnRegistrar');
 
 botonRegistrar.addEventListener('click', obtenerDatos);
 
+//declaracion de elementos
+let inputNombreProyecto = document.querySelector('#txtNombreProyecto');
 
+let selectNombreCliente = document.querySelector('#slNombredelCliente');
+
+let inputIdentifiacionJuridica = document.querySelector('#txtIdentifiacionJuridica');
+
+let selectEstadoProyecto = document.querySelector('#sltEstado');
+
+let dateFechaEntrega = document.querySelector('#dtEntregaEstimada');
+
+let inputDescripcion = document.querySelector('#txtDescripcion');
 
 function obtenerDatos() {
 
@@ -14,67 +25,48 @@ function obtenerDatos() {
     let infoProyecto = [];
     let error = false;
 
-    let sNombreProyecto = document.querySelector('#txtNombreProyecto').value;
+    let sNombreProyecto = inputNombreProyecto.value;
 
-    let sNombreCliente = document.querySelector('#slNombredelCliente').value;
+    let sNombreCliente = selectNombreCliente.value;
 
-    let nIdentifiacionJuridica = document.querySelector('#txtIdentifiacionJuridica').value;
+    let nIdentifiacionJuridica = inputIdentifiacionJuridica.value;
 
-    let sEstadoProyecto = document.querySelector('#sltEstado').value;
+    let sEstadoProyecto = selectEstadoProyecto.value;
 
-    let sFechaEntrega = document.querySelector('#dtEntregaEstimada').value;
+    let sFechaEntrega = dateFechaEntrega.value;
 
-    let sDescripcion = document.querySelector('#txtDescripcion').value;
-
-    //
-    let inputNombreProyecto = document.querySelector('#txtNombreProyecto');
-
-    let selectNombreCliente = document.querySelector('#slNombredelCliente');
-
-    let inputIdentifiacionJuridica = document.querySelector('#txtIdentifiacionJuridica');
-
-    let selectEstadoProyecto = document.querySelector('#sltEstado');
-
-    let dateFechaEntrega = document.querySelector('#dtEntregaEstimada');
-
-    let inputDescripcion = document.querySelector('#txtDescripcion');
-
+    let sDescripcion = inputDescripcion.value;
+        
+    infoProyecto.push(sNombreProyecto, sNombreCliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion);
     
 
-    infoProyecto.push(sNombreProyecto, sNombreCliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion);
-
     error = validarCampos();
+    
+ 
 
+}
 
+function    validarCampos() {
+    let error = true;
 
+    let regexNombreDelProyecto = /^[a-z A-ZáéíóúÁÉÍÓÚñÑ 1234567890]+$/;
 
-    function validarCampos() {
-        let error = true;
+    if (inputNombreProyecto.value == '' || (regexNombreDelProyecto.test(inputNombreProyecto.value) == false)) {
+        inputNombreProyecto.classList.add('error_input');
+        error = true;
 
-        let regexNombreDelProyecto = /^[a-z A-ZáéíóúÁÉÍÓÚñÑ 1234567890]+$/;
-
-        if (sNombreProyecto == '' || (regexNombreDelProyecto.test(sNombreProyecto.value) == false)) {
-            inputNombreProyecto.classList.remove('error_input');
-            error = true;
-
-        } else {
-            inputNombreProyecto.classList.add('error_input');
-        }
-
-
-        if (sEstadoProyecto == '') {
-            .classList.add('error_input');
-            error = true;
-            
-        }
-
-      //  return error;
-
-
+    } else {
+        inputNombreProyecto.classList.remove('error_input');
     }
 
 
+   
+
+    //  return error;
+
+
 }
+
 
 
 
