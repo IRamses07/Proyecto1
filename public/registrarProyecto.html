@@ -1,0 +1,68 @@
+<!-- Hecho por david serano  -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registrar Proyecto </title>
+    <link rel="stylesheet" href="css/error.css">
+    
+</head>
+
+<body>
+
+    <header>
+        <!-- Este div contiene el titulo principal  -->
+        <div class="TituloPrincipal">
+            <H1>Registrar un proyecto</H1>
+        </div>
+
+    </header>
+
+    <main>
+        <!-- este va ser el formulario de registrar los proyectos -->
+        <form class="frmRegistrarProyectos ">
+
+            <label for="">Nombre del proyecto:</label>
+            <input type="text" id="txtNombreProyecto">
+
+            <label for="">Nombre del cliente:</label>
+           <select name="slNombredelCliente" id="slNombredelCliente">
+
+
+           </select>
+
+            <label for="">Identificacion Juridica:</label>
+            <input type="text" id="txtIdentifiacionJuridica">
+
+            <label for="">Estado del proyecto:</label>
+            <select name="sltEstado" id="sltEstado">
+
+                <option value="desarrollo">En desarrollo</option>
+                <option value="mantenimento">En mantenimento</option>
+                <option value="finalizado">Finalizado</option>
+                <option value="Desactivo">Desactivo</option>
+            
+            </select>
+
+            <label for="">Fecha de entrega Estimado:</label>
+            <input type="date" id="dtEntregaEstimada">
+
+            <label for="">Descripcion:</label>
+            <input type="text" id="txtDescripcion">
+
+            <input type="button" id="btnRegistrar" value="Registrar">
+
+        </form>
+
+        <script src="js/registrarProyectoControlador.js"></script>
+    </main>
+
+    <footer></footer>
+</body>
+
+</html>
