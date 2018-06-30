@@ -275,3 +275,8 @@ function cargarCantones() {
         }
     }
 }
+function initMap(){
+    let divMap=elm('#map'),
+    map=new ;
+
+}
