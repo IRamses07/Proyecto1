@@ -63,7 +63,7 @@ function obtenerDatos() {
 
 
         if (sEstadoProyecto == '') {
-            sEstadoProyecto.classList.add('error_input');
+            .classList.add('error_input');
             error = true;
             
         }
