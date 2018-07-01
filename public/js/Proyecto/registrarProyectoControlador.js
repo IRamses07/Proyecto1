@@ -36,17 +36,19 @@ function obtenerDatos() {
     let sFechaEntrega = dateFechaEntrega.value;
 
     let sDescripcion = inputDescripcion.value;
-        
+
     infoProyecto.push(sNombreProyecto, sNombreCliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion);
     
+    registrarProyecto(infoProyecto);
+
 
     error = validarCampos();
-    
- 
+
+
 
 }
 
-function    validarCampos() {
+function validarCampos() {
     let error = true;
 
     let regexNombreDelProyecto = /^[a-z A-ZáéíóúÁÉÍÓÚñÑ 1234567890]+$/;
@@ -60,7 +62,7 @@ function    validarCampos() {
     }
 
 
-   
+
 
     //  return error;
 
