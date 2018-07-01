@@ -72,7 +72,7 @@ const proyectos = require('./proyectos/proyecto.route');
  */
 //app.use('/api', usuarios); **Ejemplo**
 
-
+app.use('/api', proyectos );
 // Se guarda todo lo que se ha realizado
 module.exports = app;
 
