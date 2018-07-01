@@ -275,8 +275,18 @@ function cargarCantones() {
         }
     }
 }
-function initMap(){
+function initMap() {
     let divMap = elm('#map'),
-    map;
-
+        map,marker,latLng;
+        latLng={ lat: 9.9333, lng: -84.0833};
+    map = new google.maps.Map(divMap, { center: latLng, zoom: 8 });
+    marker= new google.maps.Marker({
+        map:map,
+        draggable:true,
+        position:new google.maps.LatLng(latLng.lat,latLng.lng)
+    });
+    marker.addListener('dragend',function(event){
+        elm('#place').innerHTML='Latitud: '+this.getPosition().lat()+', Longitud'+this.getPosition().lng();
+        // console.log('Latitud: '+this.getPosition().lat()+', Longitud'+this.getPosition().lng())
+    })
 }
