@@ -17,57 +17,71 @@
     <main>
         <form class="fmr">
 
-            <h1>Registro de cliente</h1>
-            <label for="">Cédula jurídica</label>
-            <input type="text" id="txtCedulaJuridica" value='' required>
-            <label for="" class=hide id="lblCedulaError">*El número de cédula jurídica ingresado ya se encuentra registrado</label>
-
-            <label for="">Nombre</label>
-            <input type="text" id="txtNombre" value='' required>
-
-            <select id="sltProvincia" required>
-                <option value="">-Seleccione una provincia-</option>
-            </select>
-
-            <select name="" id="sltCanton" required>
-                <option value="">-Seleccione un cantón-</option>
-            </select>
-
-            <select name="" id="sltDistrito" required>
-                <option value="">-Seleccione un distrito-</option>
-            </select>
-
-            <label for="">Dirección exacta</label>
-            <input type="text" id="txtDireccion" value='' required>
+            <h2>Registro de cliente</h2>
+            <div>
+                <label for="">Cédula jurídica</label>
+                <input type="text" id="txtCedulaJuridica" value='' required>
+            </div>
+            <div>
+                <label for="">Nombre</label>
+                <input type="text" id="txtNombre" value='' required>
+            </div>
+            <div>
+                <select id="sltProvincia" required>
+                    <option value="">-Seleccione una provincia-</option>
+                </select>
+            </div>
+            <div>
+                <select name="" id="sltCanton" required>
+                    <option value="">-Seleccione un cantón-</option>
+                </select>
+            </div>
+            <div>
+                <select name="" id="sltDistrito" required>
+                    <option value="">-Seleccione un distrito-</option>
+                </select>
+            </div>
+            <div>
+                <label for="">Dirección exacta</label>
+                <input type="text" id="txtDireccion" value='' required>
+            </div>
 
             <h2>Contacto del cliente</h2>
+            <div>
+                <label for="">Primer nombre</label>
+                <input type="text" id="txtPrimerNombre" value='' required>
+            </div>
+            <div>
+                <label for="">Segundo nombre</label>
+                <input type="text" id="txtSegundoNombre" value=''>
+            </div>
+            <div>
+                <label for="">Primer apellido</label>
+                <input type="text" id="txtPrimerApellido" value='' required>
+            </div>
+            <div>
 
-            <label for="">Primer nombre</label>
-            <input type="text" id="txtPrimerNombre" value='' required>
+                <label for="">Segundo apellido</label>
+                <input type="text" id="txtSegundoApellido" value=''>
+            </div>
+            <div>
 
-            <label for="">Segundo nombre</label>
-            <input type="text" id="txtSegundoNombre" value=''>
+                <label for="">Teléfono</label>
+                <input type="text" id="txtTelefono" value='' required>
+            </div>
+            <div>
+                <label for="">Correo electrónico</label>
+                <input type="text" id="txtCorreo" value='' required>
+            </div>
+            <div id="map" style="width: 100%;height: 300px"></div>
 
-            <label for="">Primer apellido</label>
-            <input type="text" id="txtPrimerApellido" value='' required>
-
-            <label for="">Segundo apellido</label>
-            <input type="text" id="txtSegundoApellido" value=''>
-
-            <label for="">Teléfono</label>
-            <input type="text" id="txtTelefono" value='' required>
-
-            <label for="">Correo electrónico</label>
-            <input type="text" id="txtCorreo" value='' required>
-            <label for="" id="lblCorreoError">*Ingresar un correo válido</label>
-            <div id="map" style="width: 500px;height: 500px"></div>
-
-            <button type="button" id="btnRegistrar">Registrar</button>
             <div id="place" style="height: 50px;"></div>
+            <button type="button" id="btnRegistrar">Registrar</button>
         </form>
 
     </main>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqwnxPeSYz_PuUWckCDE54K9GX448uD2k&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqwnxPeSYz_PuUWckCDE54K9GX448uD2k&callback=initMap" async
+        defer></script>
     <script src="./js/servicioRegistroCliente.js"></script>
     <script src="js/controlador.js"></script>
     <script src="./js/controladorRgistroCliente.js"></script>
