@@ -2,10 +2,11 @@
 
 const express = require('express');
 const router = express.Router();
-const users = require('./proyecto.api');
+const proyecto = require('./proyecto.api');
 
-router.route('/registrar_proyecto')
+router.route('/registrar')
     .post(function (req, res) {
         proyecto.registrar(req, res);
     });
 
+    module.exports = router;

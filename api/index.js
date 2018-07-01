@@ -64,7 +64,7 @@ app.use( function(req, res, next) {
  */
 //const usuarios = require('./components/users/users.route'); **Ejemplo**
 
-const proyectos = require('./proyectos/proyecto.route');
+const proyectos = require('./componets/proyectos/proyecto.route');
 
 
 /**
@@ -72,7 +72,7 @@ const proyectos = require('./proyectos/proyecto.route');
  */
 //app.use('/api', usuarios); **Ejemplo**
 
-app.use('/api', proyectos );
+app.use('./api', proyectos );
 // Se guarda todo lo que se ha realizado
 module.exports = app;
 
