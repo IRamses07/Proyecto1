@@ -64,12 +64,12 @@ app.use( function(req, res, next) {
  */
 //const usuarios = require('./components/users/users.route'); **Ejemplo**
 
-
+const clientes= require('./components/clientes/client.route')
 /**
  * Le indicamos que le de acceso externo a las rutas inicializadas
  */
 //app.use('/api', usuarios); **Ejemplo**
-
+app.use('/api',clientes);
 
 // Se guarda todo lo que se ha realizado
 module.exports = app;
