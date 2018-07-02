@@ -5,6 +5,12 @@
     margin-right: auto;
 }
 
+h2 {
+padding-top: 10px;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
 .fmr div:nth-child(2n+1) {
     float: right;
 }
@@ -18,11 +24,12 @@
     width: 42%;
 }
 
-.fmr label+input {
+.fmr label+input, .fmr label+select {
     display: block;
     border-radius: 3px;
     padding-left: 5px;
     outline: none;
+    width: 100%;
 }
 
 .fmr label {
@@ -33,4 +40,13 @@
 .fmr h2 {
     text-align: center;
     clear: both;
+}
+.after{
+    position: relative;
+}
+.after:before {
+    border-left: 3px solid #fbb803;
+    content: "error";
+    position: absolute;
+    top:43px;
 }
