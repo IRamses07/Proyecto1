@@ -1,23 +1,23 @@
 'use strict';
 
-const clientModel = require('./client/client.model');
+const clientModel = require('./client.model');
 
 module.exports.registrar = function(req,res){
 
     let nuevoCliente = new clientModel({
-        rol = req.body.rol,
-        cedula_juridica = req.body.cedula_juridica,
-        nombre = req.body.nombre,
-        provincia = req.body.provincia,
-        canton = req.body.canton,
-        distrito = req.body.distrito,
-        direccion_exacta = req.body.direccion_exacta,
-        primer_nombre = req.body.primer_nombre,
-        segundo_nombre = req.body.segundo_nombre,
-        primer_apellido = req.body.primer_apellido,
-        segundo_apellido = req.body.segundo_apellido,
-        telefono = req.body.telefono,
-        correo_electronico = req.body.correo_electronico
+        rol : req.body.rol,
+        cedula_juridica : req.body.cedula_juridica,
+        nombre : req.body.nombre,
+        provincia : req.body.provincia,
+        canton : req.body.canton,
+        distrito : req.body.distrito,
+        direccion_exacta : req.body.direccion_exacta,
+        primer_nombre : req.body.primer_nombre,
+        segundo_nombre : req.body.segundo_nombre,
+        primer_apellido : req.body.primer_apellido,
+        segundo_apellido : req.body.segundo_apellido,
+        telefono : req.body.telefono,
+        correo_electronico : req.body.correo_electronico
     });
 
     nuevoCliente.save(function(error){

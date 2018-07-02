@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-const clients = require('./users/clients.api');
+const clients = require('./client.api');
 
 router.route('/registrar_cliente')
 .post(function(req,res){
