@@ -14,7 +14,7 @@ const express = require('express'),
  * Se definen las variables necesarias para la conexión con MongoDB
  */
 let db = mongoose.connection,
-    dburl = 'mongodb://admi:1234asd@ds125021.mlab.com:25021/to_test',
+    dburl = 'mongodb://koffee:abc123@ds163330.mlab.com:63330/db_koffee_developers',
     port = 4000;
 
 /**
@@ -72,7 +72,7 @@ const proyectos = require('./componets/proyectos/proyecto.route');
  */
 //app.use('/api', usuarios); **Ejemplo**
 
-app.use('./api', proyectos );
+app.use('/api', proyectos );
 // Se guarda todo lo que se ha realizado
 module.exports = app;
 

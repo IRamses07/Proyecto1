@@ -6,7 +6,7 @@ module.exports.registrar = function (req, res) {
 
     let nuevoProyecto = new proyectoModel({
 
-        nombre_completo: req.body.nombre_completo,
+        nombre_proyecto: req.body.nombre_proyecto,
         nombre_cliente: req.body.nombre_cliente,
         identificacion_juridica: req.body.identificacion_juridica,
         estado_proyecto: req.body.estado_proyecto,
