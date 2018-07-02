@@ -1,12 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Registro de profesores</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/registroProfesores.css">
 </head>
+
 <body>
-    <header></header>
-    <main></main>
+    <header class="mainHeader">
+        <a href="##" class="fLeft">
+            <i class="fas fa-bell"></i> Notificaciones</a>
+        <a href="##" class="fRight">Cerrar sesión
+            <i class="fas fa-cog"></i>
+        </a>
+        
+    </header>
+    <main>
+
+        <form id="fmrRegitroProfesor" class="fmr">
+            <h2>Registro de profesores</h2>
+            <div>
+                <label for="nombre1">Primer nombre</label>
+                <input type="text" id="txtNombre1" required>
+            </div>
+            <div>
+                <label for="nombre2">Segundo nombre</label>
+                <input type="text" id="txtNombre2">
+            </div>
+            <div>
+                <label for="apellido1">Primer apellido</label>
+                <input type="text" id="txtApellido1" required>
+            </div>
+            <div>
+                <label for="apellido2">Segundo apellido</label>
+                <input type="text" id="txtApellido2">
+            </div>
+            <div>
+                <label for="cedula">Cédula</label>
+                <input type="text" id="txtCedula" required>
+                <label for="" class="hide" id="lblCedulaError">*Este número de cedúla ya se encuantra registrado</label>
+            </div>
+            <div>
+                <label for="correoElectronico">Correo electrónico</label>
+                <input type="email" id="txtCorreo" required>
+                <label for="" class="hide" id="lblCorreoError"></label>
+            </div>
+            <div>
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="txtTelefono" required> 
+                <label for="" class="hide" id="lblTelError">*Digite solo números</label>
+            </div>
+            <div>
+                <label for="profesion">Profesión</label>
+                <input type="text" id="txtProfesion" required>
+                <label for="" class="hide" id="lblProfesionError">*Digite solo letras</label>
+            </div>
+            <button type="button" class="fLeft btn" id="btnRegistro">Registrar</button>
+        </form>
+    </main>
     <footer></footer>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/serviciosRegistroProfesor.js"></script>
+    <script src="js/controlador.js"></script>
 </body>
+
 </html>
