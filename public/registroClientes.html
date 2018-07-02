@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/ramsesStyle.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/registrarClientes.css">
     <title>Registro de clientes</title>
 </head>
 
@@ -14,57 +15,80 @@
     <header></header>
 
     <main>
+        <form class="fmr">
 
-        <h1>Registro de cliente</h1>
-        <label for="">Cédula jurídica</label>
-        <input type="text" id="txtCedulaJuridica" value='' required>
-        <label for="" class=hide id="lblCedulaError">*El número de cédula jurídica ingresado ya se encuentra registrado</label>
+            <h2>Registro de cliente</h2>
+            <div>
+                <label for="">Cédula jurídica</label>
+                <input type="text" id="txtCedulaJuridica" value='' required>
+            </div>
+            <div>
+                <label for="">Nombre</label>
+                <input type="text" id="txtNombre" value='' required>
+            </div>
+            <div>
+                <label for="provincia">Provincia</label>
+                <select id="sltProvincia" required>
+                    <option value="">-Seleccione una provincia-</option>
+                </select>
+            </div>
+            <div>
+                <label for="">Cantón</label>
+                <select name="" id="sltCanton" required>
+                    <option value="">-Seleccione un cantón-</option>
+                </select>
+            </div>
+            <div>
+                <label for="" class="after">Distrito</label>
+                <select name="" id="sltDistrito" required>
+                    <option value="">-Seleccione un distrito-</option>
+                </select>
+            </div>
+            <div>
+                <label for="" class="after" >Dirección exacta</label>
+                <input type="text" id="txtDireccion" class="" required>
+            </div>
 
-        <label for="">Nombre</label>
-        <input type="text" id="txtNombre" value='' required>
+            <h2>Contacto del cliente</h2>
+            <div>
+                <label for="">Segundo nombre</label>
+                <input type="text" id="txtSegundoNombre" value=''>
+            </div>
+            <div>
+                <label for="">Primer nombre</label>
+                <input type="text" id="txtPrimerNombre" value='' required>
+            </div>
+            <div>
 
-        <select id="sltProvincia" required>
-            <option value="">-Seleccione una provincia-</option>
-        </select>
+                <label for="">Segundo apellido</label>
+                <input type="text" id="txtSegundoApellido" value=''>
+            </div>
+            <div>
+                <label for="">Primer apellido</label>
+                <input type="text" id="txtPrimerApellido" value='' required>
+            </div>
+            <div>
 
-        <select name="" id="sltCanton" required>
-            <option value="">-Seleccione un cantón-</option>
-        </select>
+                <label for="">Teléfono</label>
+                <input type="text" id="txtTelefono" value='' required>
+            </div>
+            <div>
+                <label for="">Correo electrónico</label>
+                <input type="text" id="txtCorreo" value='' required>
+            </div>
+            <h2>Ubicación</h2>
+            <div id="map" style="width: 100%;height: 300px"></div>
 
-        <select name="" id="sltDistrito" required>
-            <option value="">-Seleccione un distrito-</option>
-        </select>
+            <div id="place" style="height: 50px;"></div>
+            <button type="button" id="btnRegistrar">Registrar</button>
+        </form>
 
-        <label for="">Dirección exacta</label>
-        <input type="text" id="txtDireccion" value='' required>
-
-        <h2>Contacto del cliente</h2>
-
-        <label for="">Primer nombre</label>
-        <input type="text" id="txtPrimerNombre" value='' required>
-
-        <label for="">Segundo nombre</label>
-        <input type="text" id="txtSegundoNombre" value=''>
-
-        <label for="">Primer apellido</label>
-        <input type="text" id="txtPrimerApellido" value='' required>
-
-        <label for="">Segundo apellido</label>
-        <input type="text" id="txtSegundoApellido" value=''>
-
-        <label for="">Teléfono</label>
-        <input type="text" id="txtTelefono" value='' required>
-
-        <label for="">Correo electrónico</label>
-        <input type="text" id="txtCorreo" value='' required>
-        <label for="" id="lblCorreoError">*Ingresar un correo válido</label>
-
-        <button type="button" id="btnRegistrar">Registrar</button>
     </main>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqwnxPeSYz_PuUWckCDE54K9GX448uD2k&callback=initMap"
-    async defer></script>
-    <script src="./js/rClient.service.js"></script>
-    <script src="./js/rClient.controller.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqwnxPeSYz_PuUWckCDE54K9GX448uD2k&callback=initMap" async
+        defer></script>
+    <script src="./js/servicioRegistroCliente.js"></script>
+    <script src="js/controlador.js"></script>
+    <script src="./js/controladorRgistroCliente.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 </body>
