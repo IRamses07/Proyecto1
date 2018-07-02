@@ -6,12 +6,27 @@ let eString = /[A-Za-záéíóúñÑÁÉÍÓÚ+-]+/,
     eDate = /^(0?[1-9]|1[0-2])[\/](0?[1-9]|[12]\d|3[01])[\/](19|20)\d{2}$/,
     ePhone = /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/;
 
+/**
+ * funcion que retorna un elemento html del documento
+ * @param {String} id es la isntruccion para identificar el elemento que se desea extraer
+ *  
+ */
 function elm(id) {
     return document.querySelector(id);
 }
+/**
+ * agrega un evento a un elemento 
+ * @param {*} element elemeto html que se le va a asignar un evento
+ * @param {String} event el tipo de evento al que va a responder
+ * @param {function} action la funcion que se va a ejecutar al detectar el evento
+ */
 function listener(element, event, action) {
     element.addEventListener(event, action);
 }
+/**
+ * comprueba si un elemento html esta vacío
+ * @param {*} element elemento html
+ */
 function blanck(element) {
     let valido = true;
     if (element != null) {
