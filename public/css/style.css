@@ -9,10 +9,12 @@ a{
 }
 .mainHeader{
     max-height: 50px;
-    background: #fbb803;
+    background-color: #fbb803;
     display: flow-root;
     margin-bottom: 10px;
+    padding: 15px 3%;
 }
-.mainHeader a{
-    margin: 15px 5px;
+
+.error{
+    border: 1px solid red;
 }
