@@ -1,19 +1,24 @@
+/* comenten aquí que estilos haen falta para ir agregandolos */
+/* esta hoja se irá actualizando conforme avanza elproyecto */
+/*  si se agregan nuevo estilos deben comentarlos */
 body{
     font-family: 'Roboto', sans-serif;
     background-color: #454545;
     color: #ffffff;
-    scrollbar-arrow-color: #fbb803;
 }
 
+/* id que va dentro del main. estilo del main espacio que da entre el menulateral y el contenido */
 #content{
  padding-left: 20%; 
 }
 
+/* estilos de todos los anchor/links/direcciones por defecto */
 a {
     text-decoration: none;
     color: #ffffff;
 }
 
+/* barra naranja del menu */
 .mainHeader{
     max-height: 50px;
     background-color: #fbb803;
@@ -22,11 +27,12 @@ a {
     padding: 15px 0%;
 }
 
+/* clase del cerrar sesión */
 .fRight{
     float: right;
 }
 
-
+/* estilos del enu lateral (tomen el header entero y lo copian dentro del registroTicket) */
 .menuLateral {
     position: absolute;
     width: 18%; /*6.5%;*/
@@ -38,10 +44,12 @@ a {
 -o-transition:  width 0.5s ease-out, opacity 0.3s ease 0.5s;
 transition:  width 0.5s ease-out, opacity 0.3s ease 0.5s;
 }
-.menuLateral:hover {
+/* .menuLateral:hover {
     width: 18%;
-}
+} */
 
+
+/* estilo de los div que contienen los anchor del menu */
 .option{
     width: 100%;
     height: 40px ;
@@ -51,18 +59,20 @@ transition:  width 0.5s ease-out, opacity 0.3s ease 0.5s;
 
 .option:hover{
  background-color: #fbb803;
-
 }
 
+/* espacio de los anchor dentro de las opciones del menu */
 .option a {
     padding: 20px 0 0 20%;
     margin: 17px 0;
 }
 
+/* estilo del error de los inputs */
 .error{
     border: 1px solid red;
 }
 
+/* estilo de los inputs en general, solo deben de eliminar el width y el height si es necesario */
 input{
     border: 0px ;
     border-radius: 5px;
@@ -70,6 +80,7 @@ input{
     height: 22px;
 }
 
+/* estilos generales de todos lo selects, igualemente ignoren el width  */
 select{
     border: 0px;
     border-radius: 5px;
@@ -81,6 +92,7 @@ select{
     letter-spacing: 0.7pt;
  }
 
+ /* estilo general de los botones de los registros...  */
  .btnRegistro {
      background-color: #fbb803;
      border-radius: 3px;
