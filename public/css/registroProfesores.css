@@ -1,5 +1,6 @@
 
 .fLeft {
+    margin-left: 300px;
     float: left;
 }
 
@@ -9,19 +10,19 @@ input{
     border-radius: 3px;
     padding-left: 5px; 
     outline: none;
+    width: 100%;
 }
 
 h2 {
     font-size: 24px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     text-align: center;
 }
 
 .fmr {
     display: flow-root;
-    width: 35%;
-    margin: 0 auto;
-
+    width: 50%;
+    margin: 100px auto 0 519px;
 }
 
 .fmr div:nth-child(2n+1) {
@@ -37,24 +38,21 @@ h2 {
     width: 42%;
 }
 
-.btn{
-    border: 1px solid;
-    max-width: 100px;
-    margin: 10px;
-    padding: 5px 10px;
-    border-radius: 3px;
-    cursor: pointer;
-    display: inline-block;
+#btnRegistro{
+    margin: 15px 0 0 10px;
 }
 
 .error_input{
     border: 1px solid red;
 }
 .lblHide{
+    border-left: #fbb803 3px solid;
     display: none;
+    
 }
 
 .lblInput{
     display: block;
     margin-bottom: 5px;
+
 }
