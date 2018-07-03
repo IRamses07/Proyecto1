@@ -8,7 +8,7 @@
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/generalStyle.css">
     <link rel="stylesheet" href="css/registroProfesores.css">
 </head>
 
@@ -19,6 +19,18 @@
         <a href="##" class="fRight">Cerrar sesión
             <i class="fas fa-cog"></i>
         </a>
+
+        <div class="menuLateral"><i class="fas fa-align-justify"></i>
+            <div class="option">
+                <a href="registroClientes.html">Registro Cliente</a>
+            </div>
+            <div class="option">
+                <a href="registroProfesores.html">Regsitrar Profesor</a>
+            </div>
+            <div class="option">
+                <a href="registrarProyecto.html">Registrar Proyecto</a>
+            </div>
+        </div>
         
     </header>
     <main>
@@ -26,48 +38,49 @@
         <form id="fmrRegitroProfesor" class="fmr">
             <h2>Registro de profesores</h2>
             <div>
-                <label for="nombre1">Primer nombre</label>
+                <label for="nombre1" class="lblInput">Primer nombre</label>
                 <input type="text" id="txtNombre1" required>
             </div>
             <div>
-                <label for="nombre2">Segundo nombre</label>
+                <label for="nombre2" class="lblInput">Segundo nombre</label>
                 <input type="text" id="txtNombre2">
             </div>
             <div>
-                <label for="apellido1">Primer apellido</label>
+                <label for="apellido1" class="lblInput">Primer apellido</label>
                 <input type="text" id="txtApellido1" required>
             </div>
             <div>
-                <label for="apellido2">Segundo apellido</label>
+                <label for="apellido2" class="lblInput">Segundo apellido</label>
                 <input type="text" id="txtApellido2">
             </div>
             <div>
-                <label for="cedula">Cédula</label>
+                <label for="cedula" class="lblInput">Cédula</label>
                 <input type="text" id="txtCedula" required>
-                <label for="" class="hide" id="lblCedulaError">*Este número de cedúla ya se encuantra registrado</label>
+                <label for="" class="lblHide" id="lblCedulaError">*Este número de cedúla ya se encuentra registrado</label>
             </div>
             <div>
-                <label for="correoElectronico">Correo electrónico</label>
+                <label for="correoElectronico" class="lblInput">Correo electrónico</label>
                 <input type="email" id="txtCorreo" required>
-                <label for="" class="hide" id="lblCorreoError"></label>
+                <label for="" class="lblHide" id="lblCorreoError">*Correo inválido</label>
             </div>
             <div>
-                <label for="telefono">Teléfono</label>
+                <label for="telefono" class="lblInput">Teléfono</label>
                 <input type="tel" id="txtTelefono" required> 
-                <label for="" class="hide" id="lblTelError">*Digite solo números</label>
+                <label for="" class="lblHide" id="lblTelError">*Digite solo números</label>
             </div>
             <div>
-                <label for="profesion">Profesión</label>
+                <label for="profesion" class="lblInput">Profesión</label>
                 <input type="text" id="txtProfesion" required>
-                <label for="" class="hide" id="lblProfesionError">*Digite solo letras</label>
+                <label for="" class="lblHide" id="lblProfesionError">*Digite solo letras</label>
             </div>
-            <button type="button" class="fLeft btn" id="btnRegistro">Registrar</button>
+            <button type="button" class="btnRegistro" id="btnRegistro">Registrar</button>
         </form>
     </main>
     <footer></footer>
     <script src="js/jquery-3.3.1.js"></script>
-    <script src="js/serviciosRegistroProfesor.js"></script>
-    <script src="js/controlador.js"></script>
+    <script src="js/registroProfesor.servicio.js"></script>
+    <script src="js/registroProfesor.controlador.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
 </html>

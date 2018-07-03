@@ -1,23 +1,27 @@
+
 .fLeft {
     float: left;
 }
 
-.fRight {
-    float: right;
-}
 input{
     border: 1px solid;
+    display: block;
+    border-radius: 3px;
+    padding-left: 5px; 
+    outline: none;
 }
+
 h2 {
     font-size: 24px;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .fmr {
     display: flow-root;
-    width: 450px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 35%;
+    margin: 0 auto;
+
 }
 
 .fmr div:nth-child(2n+1) {
@@ -33,16 +37,6 @@ h2 {
     width: 42%;
 }
 
-.fmr label+input {
-    display: block;
-    border-radius: 3px;
-    padding-left: 5px; 
-    outline: none;
-}
-.fmr label{
-    display: block;
-    margin-bottom: 5px;
-}
 .btn{
     border: 1px solid;
     max-width: 100px;
@@ -52,9 +46,15 @@ h2 {
     cursor: pointer;
     display: inline-block;
 }
-.fmr h2{
-    text-align: center;
-}
-.error{
+
+.error_input{
     border: 1px solid red;
+}
+.lblHide{
+    display: none;
+}
+
+.lblInput{
+    display: block;
+    margin-bottom: 5px;
 }

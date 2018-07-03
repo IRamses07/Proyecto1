@@ -15,10 +15,10 @@ function validarRequeridos() {
 
     for (let i = 0; i < aRequeridos.length; i++) {
         if (aRequeridos[i].value == '') {
-            aRequeridos[i].classList.add('empty_input');
+            aRequeridos[i].classList.add('error_input');
             empty = true;
         } else {
-            aRequeridos[i].classList.remove('empty_input');
+            aRequeridos[i].classList.remove('error_input');
         }
     }
     return empty;
@@ -31,9 +31,9 @@ function registrarProfe() {
     let sApellido1 = document.querySelector('#txtApellido1').value;
     let sApellido2 = document.querySelector('#txtApellido2').value;
     let sCedula = document.querySelector('#txtCedula').value;
-    let sCorreo = document.querySelector('#txtTelefono').value;
-    let sTelefono = document.querySelector('#txtProfesion').value;
-    let sProfesion = document.querySelector('#txtCorreo').value;
+    let sCorreo = document.querySelector('#txtCorreo').value;
+    let sTelefono = document.querySelector('#txtTelefono').value;
+    let sProfesion = document.querySelector('#txtProfesion').value;
     let sRol = 'profesor';
 
     let bError = false;
@@ -48,33 +48,44 @@ function registrarProfe() {
             button: "Ok",
         });
     } else {
+        for (let i = 0; i < getProfessorData().length; i++) {
+            if (sCedula != getProfessorData()['cedula']) {
+                document.querySelector('#txtCedula').classList.remove('error_input');
+                document.querySelector('#lblCedulaError').classList.add('lblHide');
+            } else {
+                document.querySelector('#txtCedula').classList.add('error_input');
+                document.querySelector('#lblCedulaError').classList.remove('lblHide');
+                bError = true;
+            }
+        }
+        if (eEmail.test(sCorreo) && !eSpace.test(sCorreo)) {
+            document.querySelector('#txtCorreo').classList.remove('error_input');
+            document.querySelector('#lblCorreoError').classList.add('lblHide');
 
-        if (!eEmail.test(sCorreo) || eSpace.test(sCorreo)) {
-            //AHORITA LO DEFINO la clase para agregar el label
-            sCorreo.classList.remove('error_input');
-            document.querySelector('#lblCorreoError').classList.add('hide');
+        } else {
+            document.querySelector('#txtCorreo').classList.add('error_input');
+            document.querySelector('#lblCorreoError').classList.remove('lblHide');
             bError = true;
-        }else{
-            document.querySelector('#lblCorreoError').classList.remove('hide');
-            sCorreo.classList.add('error_input');
         }
 
-        if (!ePhone.test(sTelefono)) {
-            sTelefono.classList.remove('error_input');
-            document.querySelector('#lblTelError').classList.add('hide');
+        if (ePhone.test(sTelefono)) {
+            document.querySelector('#txtTelefono').classList.remove('error_input');
+            document.querySelector('#lblTelError').classList.add('lblHide');
+
+        } else {
+            document.querySelector('#txtTelefono').classList.add('error_input');
+            document.querySelector('#lblTelError').classList.remove('lblHide');
             bError = true;
-        }else{
-            document.querySelector('#lblTelError').classList.remove('hide');
-            sTelefono.classList.remove('error_input');
         }
 
         if (eString.test(sProfesion)) {
-            sProfesion.classList.remove('error_input');
-            document.querySelector('#lblProfesionError').classList.add('hide');
+            document.querySelector('#txtProfesion').classList.remove('error_input');
+            document.querySelector('#lblProfesionError').classList.add('lblHide');
+
+        } else {
+            document.querySelector('#txtProfesion').classList.add('error_input');
+            document.querySelector('#lblProfesionError').classList.remove('lblHide');
             bError = true;
-        }else{
-            document.querySelector('#lblProfesionError').classList.remove('hide');
-            sProfesion.classList.add('error_input');
         }
 
         if (!bError) {
