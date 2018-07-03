@@ -1,4 +1,3 @@
-
 // Se exporta http dentro de la arquitectura
 const http = require('http');
 // Establecemos un puerto en el que el servidor se va a levantar

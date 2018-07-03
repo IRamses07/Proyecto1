@@ -1,0 +1,61 @@
+
+.fLeft {
+    float: left;
+}
+
+.fRight {
+    float: right;
+}
+input{
+    border: 1px solid;
+}
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.fmr {
+    display: flow-root;
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fmr div:nth-child(2n+1) {
+    float: right;
+}
+
+.fmr div:nth-child(2n) {
+    float: left;
+}
+
+.fmr div {
+    margin: 10px;
+    width: 42%;
+}
+
+.fmr label+input {
+    display: block;
+    border-radius: 3px;
+    padding-left: 5px; 
+    outline: none;
+}
+.fmr label{
+    display: block;
+    margin-bottom: 5px;
+}
+.btn{
+    border: 1px solid;
+    max-width: 100px;
+    margin: 10px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    display: inline-block;
+}
+.fmr h2{
+    text-align: center;
+}
+.error{
+    border: 1px solid red;
+}
