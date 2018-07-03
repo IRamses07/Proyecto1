@@ -66,7 +66,7 @@ const clientes= require('./components/clientes/client.route')
 
 
 
-const tickets = require('./components/tickets/ticket.route.js');
+const tickets = require('./components/tickets/ticket.route');
 /**
  * Le indicamos que le de acceso externo a las rutas inicializadas
  */
