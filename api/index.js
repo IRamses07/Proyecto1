@@ -1,5 +1,4 @@
-'use strict'
-
+'use strict';
 /**
  * Exportamos todas las dependencias necesarias para establecer la conexión
  */
@@ -9,24 +8,24 @@ const express = require('express'),
       bodyParser = require('body-parser'),
       morgan =  require('morgan'),
       mongoose = require('mongoose');
-
 /**
  * Se definen las variables necesarias para la conexión con MongoDB
  */
 let db = mongoose.connection,
-    dburl = 'mongodb://admin:admin12@ds121311.mlab.com:21311/proyecto1',
+
+    dburl = 'mongodb://koffee:abc123@ds163330.mlab.com:63330/db_koffee_developers',
+
+
     port = 4000;
 
 /**
  * Se le indica que cree un servidor extra dentro del puerto 4000 y escuche los cambios que se le hagan a esos archivos
  */
 let server = app.listen(port,_server());
-
 /**
  * Se define la conexión con Mongoose, enviándole como parámetro la url de la base de datos
  */
 mongoose.connect(dburl);
-
 /**
  * Si la conexión falla, imprime en consola el error
  */
@@ -38,7 +37,6 @@ db.on('error', console.error.bind(console, 'Error de conexión: '));
 db.once('open', function () {
   console.log('Base de datos conectada correctamente');
 });
-
 /**
  * Le indicamos a express que envíe las respuestas a la carpeta "public"
  */
@@ -58,19 +56,26 @@ app.use( function(req, res, next) {
   res.setHeader('Access-Control-Allow-Credentials', true);
   next();
 });
-
 /**
  * Exportams todas las rutas dentro del index.js
  */
 //const usuarios = require('./components/users/users.route'); **Ejemplo**
 
 const clientes= require('./components/clientes/client.route')
+const proyectos = require('./componets/proyectos/proyecto.route');
+
+
+
+const tickets = require('./components/tickets/ticket.route.js');
 /**
  * Le indicamos que le de acceso externo a las rutas inicializadas
  */
 //app.use('/api', usuarios); **Ejemplo**
 app.use('/api',clientes);
 
+
+app.use('/api', proyectos );
+app.use('/api', tickets);
 // Se guarda todo lo que se ha realizado
 module.exports = app;
 

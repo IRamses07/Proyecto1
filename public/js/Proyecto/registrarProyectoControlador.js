@@ -6,7 +6,43 @@ let botonRegistrar = document.querySelector('#btnRegistrar');
 
 botonRegistrar.addEventListener('click', obtenerDatos);
 
+//declaracion de elementos
+let inputNombreProyecto = document.querySelector('#txtNombreProyecto');
 
+let selectNombreCliente = document.querySelector('#slNombredelCliente');
+
+let inputIdentifiacionJuridica = document.querySelector('#txtIdentifiacionJuridica');
+
+let selectEstadoProyecto = document.querySelector('#sltEstado');
+
+let dateFechaEntrega = document.querySelector('#dtEntregaEstimada');
+
+let inputDescripcion = document.querySelector('#txtDescripcion');
+
+function obtenerDatos() {
+
+
+    let infoProyecto = [];
+    let error = false;
+
+    let sNombreProyecto = inputNombreProyecto.value;
+
+    let sNombreCliente = selectNombreCliente.value;
+
+    let nIdentifiacionJuridica = inputIdentifiacionJuridica.value;
+
+    let sEstadoProyecto = selectEstadoProyecto.value;
+
+    let sFechaEntrega = dateFechaEntrega.value;
+
+    let sDescripcion = inputDescripcion.value;
+
+    infoProyecto.push(sNombreProyecto, sNombreCliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion);
+    
+    registrarProyecto(infoProyecto);
+
+
+}
 
 function obtenerDatos() {
 
@@ -47,34 +83,31 @@ function obtenerDatos() {
 
 
 
+}
 
-    function validarCampos() {
-        let error = true;
+function validarCampos() {
+    let error = true;
 
-        let regexNombreDelProyecto = /^[a-z A-ZáéíóúÁÉÍÓÚñÑ 1234567890]+$/;
+    let regexNombreDelProyecto = /^[a-z A-ZáéíóúÁÉÍÓÚñÑ 1234567890]+$/;
 
-        if (sNombreProyecto == '' || (regexNombreDelProyecto.test(sNombreProyecto.value) == false)) {
-            inputNombreProyecto.classList.remove('error_input');
-            error = true;
+    if (inputNombreProyecto.value == '' || (regexNombreDelProyecto.test(inputNombreProyecto.value) == false)) {
+        inputNombreProyecto.classList.add('error_input');
+        error = true;
 
-        } else {
-            inputNombreProyecto.classList.add('error_input');
-        }
-
-
-        if (sEstadoProyecto == '') {
-            sEstadoProyecto.classList.add('error_input');
-            error = true;
-            
-        }
-
-      //  return error;
-
-
+    } else {
+        inputNombreProyecto.classList.remove('error_input');
     }
 
 
+
+
+    //  return error;
+
+
 }
+
+
+  
 
 
 

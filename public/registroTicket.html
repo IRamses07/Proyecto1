@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ticket</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/generalStyle.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+        <div class="mainHeader">
+        <a href="##" class="fLeft">
+            <i class="fas fa-bell"></i> Notificaciones</a>
+        <a href="##" class="fRight">Cerrar sesión
+            <i class="fas fa-cog"></i>
+        </a>
+    </div>
+ 
+    <div class="menuLateral"><i class="fas fa-align-justify"></i>
+        <div class="option">
+            <a href="registroClientes.html">Registro Cliente</a>
+        </div>
+        <div class="option">
+            <a href="registroProfesores.html">Regsitrar Profesor</a>
+        </div>
+        <div class="option">
+            <a href="registrarProyecto.html">Registrar Proyecto</a>
+        </div>
+    </div>
+
+    </header>
+    <main id="content">
+        <section>
+            <form action="">
+                <div class="blockLeft">
+                    <label for="">Nombre del cliente</label>
+                    <input type="text" id="txtnombreCliente" value="">
+
+                    <label for="">Urgencia</label>
+                    <select name="urgencia" id="sltUrgencia">
+                        <option value="">seleccione la urgencia</option>
+                        <option value="a">Alta</option>
+                        <option value="m">Media</option>
+                        <option value="b">Baja</option>
+                    </select>
+
+                    <label for="">Proyecto</label>
+                    <select name="proyecto" id="sltProyecto">
+                        <option value="uno">Seleccione su proyecto</option>
+                    </select>
+
+                </div>
+                <div class="blockRight">
+                    <label for="">Subir pantallazo del error:</label>
+                    <input type="file" value="" id="imgPantallazoError">
+
+                    <div class="imgError" id=""></div>
+
+                    <label for="">Referencie un ticket anterior</label>
+                    <select name="" id="sltTicket">
+                        <option value="uno">Seleccione un ticket</option>
+                    </select>
+
+                </div>
+                <div>
+                    <label for="">Descripción</label>
+                    <input type="text" id="txtdescripcion">
+                </div>
+                <button type="button" class='btnRegistro' id="btnRegistrarTicket">Registrar ticket</button>
+            </form>
+        </section>
+    </main>
+
+    
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/Ticket/servicioRegistroTicket.js"></script>
+    <script src="js/Ticket/controladorRegistroTicket.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+
+</html>
