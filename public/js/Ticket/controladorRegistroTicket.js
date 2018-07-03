@@ -30,7 +30,12 @@ function obtenerDatosTicket() {
         console.log('aquí va un sweet alert xD ');
     } else {
         registrarTicket(ticket);
-
+        swal({
+            title: "Good job!",
+            text: "You clicked the button!",
+            icon: "success",
+            button: "Aww yiss!",
+          });
         console.log('aquí va otro sweet alert xDD');
         // listaTickets();
         limpiarFormulario();
@@ -75,7 +80,6 @@ function validar() {
     } else {
         inptDescripcionError.classList.remove('error_input');
     }
-
 }
 
 

@@ -6,22 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ticket</title>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/generalStyle.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
 </head>
 
 <body>
-    <header class="mainHeader">
+    <header>
+        <div class="mainHeader">
         <a href="##" class="fLeft">
             <i class="fas fa-bell"></i> Notificaciones</a>
         <a href="##" class="fRight">Cerrar sesión
             <i class="fas fa-cog"></i>
         </a>
+    </div>
+ 
+    <div class="menuLateral"><i class="fas fa-align-justify"></i>
+        <div class="option">
+            <a href="registroClientes.html">Registro Cliente</a>
+        </div>
+        <div class="option">
+            <a href="registroProfesores.html">Regsitrar Profesor</a>
+        </div>
+        <div class="option">
+            <a href="registrarProyecto.html">Registrar Proyecto</a>
+        </div>
+    </div>
 
     </header>
-    <main>
+    <main id="content">
         <section>
             <form action="">
                 <div class="blockLeft">
@@ -58,14 +73,16 @@
                     <label for="">Descripción</label>
                     <input type="text" id="txtdescripcion">
                 </div>
-                <button type="button" id="btnRegistrarTicket">Registrar ticket</button>
+                <button type="button" class='btnRegistro' id="btnRegistrarTicket">Registrar ticket</button>
             </form>
         </section>
     </main>
+
     
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/Ticket/servicioRegistroTicket.js"></script>
     <script src="js/Ticket/controladorRegistroTicket.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
 </html>

@@ -22,6 +22,7 @@ function registrarTicket(paticket){
        });
      
        peticion.fail(function(response){
+           console.log(response);
         
        });
  
