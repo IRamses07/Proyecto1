@@ -3,14 +3,30 @@
  * Select que contiene la lista de provincias
  */
 let sltProvincia = elm("#sltProvincia");
+listener(sltProvincia, 'change', function () {
+    llenarSelect(sltProvincia, cantones);
+});
 /**
  * Select que contiene la lista de provincias
  */
 let sltCantones = elm("#sltCanton");
+listener(sltCantones, 'change', function () {
+    llenarSelect(sltCantones, distritos);
+});
+/**
+ * Select que contiene la lista de distritos
+ */
+let sltDistrito = elm('#sltDistrito');
+listener(sltDistrito, 'change', function () {
+
+});
 /**
  * Boton que ejecuta la funcion de registro
  */
 let btnRegistrar = elm('#btnRegistrar');
+listener(btnRegistrar, 'click', function () {
+
+});
 /**
  * variable de tipo json que guarda la informacion de los cantones de cada provincia
  */
@@ -117,10 +133,10 @@ let distritos = {
  * @return {void} 
  */
 function llenarSelect(element, data) {
-    let valor = element.value,
+    let valor = this.value,
         lista = data[valor];
     for (let i = 0; i < lista.length; i++) {
-        this.options = new Option(lista[i], lista[i].toLowerCase().replace('á','a').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u').replace('ñ','nn').replace(' ','_'));
+        element.options = new Option(lista[i], lista[i].toLowerCase().replace('á', 'a').replace('é', 'e').replace('í', 'i').replace('ó', 'o').replace('ú', 'u').replace('ñ', 'nn').replace(' ', '_'));
     }
 
 }
