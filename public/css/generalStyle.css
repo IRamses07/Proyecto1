@@ -5,6 +5,7 @@ body{
     font-family: 'Roboto', sans-serif;
     background-color: #454545;
     color: #ffffff;
+    
 }
 
 /* id que va dentro del main. estilo del main espacio que da entre el menulateral y el contenido */
@@ -57,9 +58,10 @@ transition:  width 0.5s ease-out, opacity 0.3s ease 0.5s;
     margin: 1px 0px;
 }
 
-.option:hover{
+ .option:hover {
  background-color: #fbb803;
 }
+
 
 /* espacio de los anchor dentro de las opciones del menu */
 .option a {

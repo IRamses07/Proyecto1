@@ -10,6 +10,7 @@ let inptUrgencia = document.querySelector('#sltUrgencia');
 let inptProyecto = document.querySelector('#sltProyecto');
 let inptPantallazoError = document.querySelector('#imgPantallazoError');
 let inptReferenciaTicket = document.querySelector('#sltTicket');
+
 let inptDescripcionError = document.querySelector('#txtdescripcion');
 
 function obtenerDatosTicket() {
@@ -22,19 +23,18 @@ function obtenerDatosTicket() {
     let pantallazoError = inptPantallazoError.value;
     let referenciaTicket = inptReferenciaTicket.value;
     let descripcionError = inptDescripcionError.value;
-
     ticket.push(nombreCliente, urgencia, proyecto, pantallazoError, referenciaTicket, descripcionError);
 
-    // error = validar();
+    error = validar();
     if (error == true) {
         console.log('aquí va un sweet alert xD ');
     } else {
         registrarTicket(ticket);
         swal({
-            title: "Good job!",
-            text: "You clicked the button!",
+            title: "Registro exitoso",
+            text: "El usuario se ha registrado correctamente",
             icon: "success",
-            button: "Aww yiss!",
+            button: "Ok",
           });
         console.log('aquí va otro sweet alert xDD');
         // listaTickets();
@@ -47,40 +47,41 @@ function validar() {
     let error = false;
 
     if (inptNombreCliente.value == '') {
-        inptNombreCliente.classList.add('error_input');
+        inptNombreCliente.classList.add('error');
         error = true;
     } else {
-        inptNombreCliente.classList.remove('error_input');
+        inptNombreCliente.classList.remove('error');
     }
     if (inptUrgencia.value == '') {
-        inptUrgencia.classList.add('error_input');
+        inptUrgencia.classList.add('error');
         error = true;
     } else {
-        inptUrgencia.classList.remove('error_input');
+        inptUrgencia.classList.remove('error');
     }
     if (inptProyecto.value == '') {
-        inptProyecto.classList.add('error_input');
+        inptProyecto.classList.add('error');
         error = true;
     } else {
-        inptProyecto.classList.remove('error_input');
+        inptProyecto.classList.remove('error');
     }
     if (inptPantallazoError.value == '') {
-        inptPantallazoError.classList.add('error_input');
+        inptPantallazoError.classList.add('error');
         console.log(inptPantallazoError);
 
         error = true;
     } else {
         console.log(inptPantallazoError);
-        inptPantallazoError.classList.remove('error_input');
+        inptPantallazoError.classList.remove('error');
     }
 
     if (inptDescripcionError.value == '') {
-        inptDescripcionError.classList.add('error_input');
+        inptDescripcionError.classList.add('error');
         error = true;
     } else {
-        inptDescripcionError.classList.remove('error_input');
+        inptDescripcionError.classList.remove('error');
     }
-}
+    return error;
+} 
 
 
 function limpiarFormulario() {
