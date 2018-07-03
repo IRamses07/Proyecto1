@@ -1,5 +1,5 @@
 'use strict';
-let gCoder;
+
 /**
  * Select que contiene la lista de provincias
  */
@@ -164,6 +164,11 @@ function initMap() {
     })
     gCoder = new google.maps.Geocoder();
 }
+/**
+ * Posiciona el marker y el mapa en la ubicacion seleccionada por el usuario
+ * @param {*} geocoder objeto que hará de traductor de la direccion física a coordenadas
+ * @param {*} resultsMap mapa que se centrará en la ubicación de la dirección
+ */
 function geocodeAddress(geocoder, resultsMap) {
     var address = 'Costa Rica'+' '+sltProvincia.value+' '+sltCantones.value+' '+sltDistrito.value;
     geocoder.geocode({ 'address': address }, function (results, status) {

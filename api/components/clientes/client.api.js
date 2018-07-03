@@ -17,7 +17,8 @@ module.exports.registrar = function(req,res){
         primer_apellido : req.body.primer_apellido,
         segundo_apellido : req.body.segundo_apellido,
         telefono : req.body.telefono,
-        correo_electronico : req.body.correo_electronico
+        correo_electronico : req.body.correo_electronico,
+        ubicacion:req.body.ubicacion
     });
 
     nuevoCliente.save(function(error){

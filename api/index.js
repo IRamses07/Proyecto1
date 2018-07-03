@@ -62,7 +62,7 @@ app.use( function(req, res, next) {
 //const usuarios = require('./components/users/users.route'); **Ejemplo**
 
 const clientes= require('./components/clientes/client.route')
-const proyectos = require('./componets/proyectos/proyecto.route');
+// const proyectos = require('./componets/proyectos/proyecto.route');
 
 
 
@@ -74,7 +74,7 @@ const tickets = require('./components/tickets/ticket.route.js');
 app.use('/api',clientes);
 
 
-app.use('/api', proyectos );
+// app.use('/api', proyectos );
 app.use('/api', tickets);
 // Se guarda todo lo que se ha realizado
 module.exports = app;
