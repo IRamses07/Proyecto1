@@ -12,7 +12,10 @@ const express = require('express'),
  * Se definen las variables necesarias para la conexión con MongoDB
  */
 let db = mongoose.connection,
+
     dburl = 'mongodb://koffee:abc123@ds163330.mlab.com:63330/db_koffee_developers',
+
+
     port = 4000;
 
 /**
@@ -57,12 +60,18 @@ app.use( function(req, res, next) {
  * Exportams todas las rutas dentro del index.js
  */
 //const usuarios = require('./components/users/users.route'); **Ejemplo**
+
+const proyectos = require('./componets/proyectos/proyecto.route');
+
+
+
 const tickets = require('./components/tickets/ticket.route.js');
 /**
  * Le indicamos que le de acceso externo a las rutas inicializadas
  */
 //app.use('/api', usuarios); **Ejemplo**
 
+app.use('/api', proyectos );
 app.use('/api', tickets);
 // Se guarda todo lo que se ha realizado
 module.exports = app;
