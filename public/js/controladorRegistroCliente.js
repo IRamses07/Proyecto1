@@ -1,24 +1,28 @@
 'use strict';
+let gCoder;
 /**
  * Select que contiene la lista de provincias
  */
 let sltProvincia = elm("#sltProvincia");
 listener(sltProvincia, 'change', function () {
-    llenarSelect(sltProvincia, cantones);
+    llenarSelect(sltCantones, sltProvincia.value, cantones);
+    geocodeAddress(gCoder,map);
 });
 /**
  * Select que contiene la lista de provincias
  */
 let sltCantones = elm("#sltCanton");
 listener(sltCantones, 'change', function () {
-    llenarSelect(sltCantones, distritos);
+    llenarSelect(sltDistrito, sltCantones.value, distritos);
+    geocodeAddress(gCoder,map);
+
 });
 /**
  * Select que contiene la lista de distritos
  */
 let sltDistrito = elm('#sltDistrito');
 listener(sltDistrito, 'change', function () {
-
+    geocodeAddress(gCoder,map);
 });
 /**
  * Boton que ejecuta la funcion de registro
@@ -128,24 +132,25 @@ let distritos = {
 };
 /**
  * Esta funcion llena un elemento HTMLSelectElement con datos dependiendo del valor de otro elemento
- * @param {HTMLSelectElement} element elemento del cual se saca el value
+ * @param {*} element elemento al cual se le van a generar opciones
+ * @param {String} key el valor donde se encuentra la lista
  * @param {JSON} data elemento del cual se sacan los datos dependiendo del value del element
  * @return {void} 
  */
-function llenarSelect(element, data) {
-    let valor = this.value,
-        lista = data[valor];
+function llenarSelect(element, key, data) {
+    key = key.toLowerCase().replace('á', 'a').replace('é', 'e').replace('í', 'i').replace('ó', 'o').replace('ú', 'u').replace('ñ', 'nn').replace(' ', '_');
+    let lista = data[key];
     for (let i = 0; i < lista.length; i++) {
-        element.options = new Option(lista[i], lista[i].toLowerCase().replace('á', 'a').replace('é', 'e').replace('í', 'i').replace('ó', 'o').replace('ú', 'u').replace('ñ', 'nn').replace(' ', '_'));
+        element.options[i] = new Option(lista[i], lista[i]);
     }
-
 }
 /**
  * Funcion necesaria para mostrar un mapa interactivo para seleccionar ubicaciones
  */
 function initMap() {
     let divMap = elm('#map'),
-        map, marker, latLng;
+        latLng;
+
     latLng = { lat: 9.9333, lng: -84.0833 };
     map = new google.maps.Map(divMap, { center: latLng, zoom: 8 });
     marker = new google.maps.Marker({
@@ -157,7 +162,20 @@ function initMap() {
         elm('#place').innerHTML = 'Latitud: ' + this.getPosition().lat() + ', Longitud' + this.getPosition().lng();
         // console.log('Latitud: '+this.getPosition().lat()+', Longitud'+this.getPosition().lng())
     })
+    gCoder = new google.maps.Geocoder();
 }
+function geocodeAddress(geocoder, resultsMap) {
+    var address = 'Costa Rica'+' '+sltProvincia.value+' '+sltCantones.value+' '+sltDistrito.value;
+    geocoder.geocode({ 'address': address }, function (results, status) {
+        if (status === 'OK') {
+            resultsMap.setCenter(results[0].geometry.location);
+            marker.setPosition(results[0].geometry.location);
+        } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+        }
+    });
+}
+
 function registrarCliente() {
 
     // let aClientData = [];
@@ -410,24 +428,24 @@ function cargarDistritos() {
 }
 
 function cargarCantones() {
-    let sltProvincia = document.querySelector("#sltProvincia");
-    let sltCantones = document.querySelector("#sltCanton");
-    sltProv = sltProvincia.value;
-    if (sltProv == "") { } else {
-        let cantonesPertenecientes = obtenerCantones(sltProv);
-        sltCantones.innerHTML = '';
-        let optionSeleccione = document.createElement('option');
-        optionSeleccione.value = "";
-        optionSeleccione.innerHTML = "--Seleccione un cantón--";
-        optionSeleccione.hidden = true;
-        sltCantones.appendChild(optionSeleccione);
-        for (let i = 0; i < cantonesPertenecientes.length; i++) {
-            let nuevaOpcion = document.createElement('option');
-            nuevaOpcion.value = cantonesPertenecientes[i];
-            nuevaOpcion.innerHTML = cantonesPertenecientes[i];
-            sltCantones.appendChild(nuevaOpcion);
+    // let sltProvincia = document.querySelector("#sltProvincia");
+    // let sltCantones = document.querySelector("#sltCanton");
+    // sltProv = sltProvincia.value;
+    // if (sltProv == "") { } else {
+    //     let cantonesPertenecientes = obtenerCantones(sltProv);
+    //     sltCantones.innerHTML = '';
+    //     let optionSeleccione = document.createElement('option');
+    //     optionSeleccione.value = "";
+    //     optionSeleccione.innerHTML = "--Seleccione un cantón--";
+    //     optionSeleccione.hidden = true;
+    //     sltCantones.appendChild(optionSeleccione);
+    //     for (let i = 0; i < cantonesPertenecientes.length; i++) {
+    //         let nuevaOpcion = document.createElement('option');
+    //         nuevaOpcion.value = cantonesPertenecientes[i];
+    //         nuevaOpcion.innerHTML = cantonesPertenecientes[i];
+    //         sltCantones.appendChild(nuevaOpcion);
 
-        }
-    }
+    //     }
+    // }
 }
 
