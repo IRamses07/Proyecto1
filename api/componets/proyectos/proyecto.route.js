@@ -9,4 +9,9 @@ router.route('/registrar')
         proyecto.registrar(req, res);
     });
 
+    router.route('/listar_Proyectos')
+    .get(function(req, res){
+    proyecto.listar(req, res);
+});
+
     module.exports = router;

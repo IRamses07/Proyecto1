@@ -30,3 +30,12 @@ module.exports.registrar = function (req, res) {
     });
 
 }
+
+module.exports.listar = function(req, res){
+    proyectoModel.find().then(
+        function(proyecto){
+            res.send(proyecto);
+        });
+};
+
+
