@@ -185,7 +185,7 @@ function initMap() {
         position: new google.maps.LatLng(latLng.lat, latLng.lng)
     });
     marker.addListener('dragend', function (event) {
-        elm('#place').innerHTML = 'Latitud: ' + this.getPosition().lat() + ', Longitud' + this.getPosition().lng();
+        elm('#btnRegistrar').dataset.ubucacion =  this.getPosition().lat()+','+ this.getPosition().lng();
         // console.log('Latitud: '+this.getPosition().lat()+', Longitud'+this.getPosition().lng())
     })
     gCoder = new google.maps.Geocoder();
