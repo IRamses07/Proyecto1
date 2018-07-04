@@ -51,18 +51,18 @@ listener(btnRegistrar, 'click', function () {
     if (registro(inputs)){
         if(fmrCliente.registrarCliente.dataset.ubucacion!=undefined){
             let data={
-                cedula_juridica:inputs[0],
-                nombre:inputs[1],
-                provincia:inputs[2],
-                canton:inputs[3],
-                distrito:inputs[4],
-                direccion_exacta:inputs[5],
-                segundo_nombre:inputs[6],
-                primer_nombre:inputs[7],
-                primer_apellido:inputs[8],
-                segundo_apellido:inputs[9],
-                telefono:inputs[10],
-                correo_electronico:inputs[11],
+                cedula_juridica:inputs[0].value,
+                nombre:inputs[1].value,
+                provincia:inputs[2].value,
+                canton:inputs[3].value,
+                distrito:inputs[4].value,
+                direccion_exacta:inputs[5].value,
+                segundo_nombre:inputs[6].value,
+                primer_nombre:inputs[7].value,
+                primer_apellido:inputs[8].value,
+                segundo_apellido:inputs[9].value,
+                telefono:inputs[10].value,
+                correo_electronico:inputs[11].value,
                 ubicacion:fmrCliente.registrarCliente.dataset.ubucacion.split(',')
             }
             registrarCliente(data);
