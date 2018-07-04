@@ -15,40 +15,41 @@ input{
 
 h2 {
     font-size: 24px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     text-align: center;
 }
 
 .fmr {
     display: flow-root;
     width: 50%;
-    margin: 100px auto 0 519px;
+    margin: 80px auto 0 519px;
 }
 
-.fmr div:nth-child(2n+1) {
-    float: right;
-}
-
-.fmr div:nth-child(2n) {
+#leftContainer{
+    width: 48%;
     float: left;
 }
 
-.fmr div {
-    margin: 10px;
-    width: 42%;
+#rightContainer{
+    width: 48%;
+    float: right;
+}
+
+.fmr div div {
+    margin: 0 0 25px 0;
 }
 
 #btnRegistro{
-    margin: 15px 0 0 10px;
+    margin: 15px 0 0 0;
 }
 
-.error_input{
-    border: 1px solid red;
-}
-.lblHide{
-    border-left: #fbb803 3px solid;
+.lblHide{  
     display: none;
-    
+
+}
+
+#lblCedulaError, #lblCorreoError, #lblTelError, #lblProfesionError{
+    border-left: #fbb803 3px solid;
 }
 
 .lblInput{

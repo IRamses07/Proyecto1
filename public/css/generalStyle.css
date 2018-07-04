@@ -72,7 +72,7 @@ transition:  width 0.5s ease-out, opacity 0.3s ease 0.5s;
 
 /* estilo del error de los inputs */
 .error, .error_input{
-    border: 2px solid #d63031;
+    border: 1px solid #d63031;
 }
 
 /* estilo de los inputs en general, solo deben de eliminar el width y el height si es necesario */

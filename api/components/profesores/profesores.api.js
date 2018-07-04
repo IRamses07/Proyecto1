@@ -14,6 +14,7 @@ module.exports.registrar = function (req, res) {
         telefono: req.body.telefono,
         profesion: req.body.profesion,
         rol: req.body.rol,
+        password: req.body.password,
         lugarTrabajo:'',
         annosExperiencia:'',
         cursosImpartidos: [],

@@ -40,6 +40,8 @@ function registrarProfe() {
 
     let infoProfesor = [];
 
+   /* let listaProfes = getProfessorData();*/
+
     if (validarRequeridos()) {
         swal({
             title: "Advertencia",
@@ -48,8 +50,8 @@ function registrarProfe() {
             button: "Ok",
         });
     } else {
-        for (let i = 0; i < getProfessorData().length; i++) {
-            if (sCedula != getProfessorData()['cedula']) {
+       /* for (let i = 0; i < listaProfes.length; i++) {*/
+            if (!validarCedula(sCedula)) {
                 document.querySelector('#txtCedula').classList.remove('error_input');
                 document.querySelector('#lblCedulaError').classList.add('lblHide');
             } else {
@@ -57,7 +59,7 @@ function registrarProfe() {
                 document.querySelector('#lblCedulaError').classList.remove('lblHide');
                 bError = true;
             }
-        }
+       
         if (eEmail.test(sCorreo) && !eSpace.test(sCorreo)) {
             document.querySelector('#txtCorreo').classList.remove('error_input');
             document.querySelector('#lblCorreoError').classList.add('lblHide');
@@ -89,13 +91,14 @@ function registrarProfe() {
         }
 
         if (!bError) {
+            let password = generateRandomPassword();
             swal({
                 title: "Registro exitoso",
-                text: "El profesor se ha registrado exitosamente.",
+                text: "El profesor se ha registrado exitosamente.\n Contraseña temporal: "+password,
                 icon: "success",
                 button: "Ok",
             });
-            infoProfesor.push(sNombre1, sNombre2, sApellido1, sApellido2, sCedula, sCorreo, sTelefono, sProfesion, sRol);
+            infoProfesor.push(sNombre1, sNombre2, sApellido1, sApellido2, sCedula, sCorreo, sTelefono, sProfesion, sRol, password);
             setProfessorData(infoProfesor);
             limpiar();
         }

@@ -18,7 +18,8 @@ function setProfessorData(infoProfesor) {
             correo: infoProfesor[5],
             telefono: infoProfesor[6],
             profesion: infoProfesor[7],
-            rol: infoProfesor[8]
+            rol: infoProfesor[8],
+            password: infoProfesor[9]
             /*profesion: infoProfesor.profesion*/
         }
     });
@@ -35,9 +36,10 @@ function setProfessorData(infoProfesor) {
     return respuesta;
 }
 function getProfessorData() {
-    let respuesta = '';
+
+    let respuesta = [];
     let peticion = $.ajax({
-        url: 'http://localhost:4000/api/registrar_profesor',
+        url: 'http://localhost:4000/api/listar_profesores',
         type: 'get',
         contentType: 'application/x-www-form-urlencoded; charset=utf-8',
         dataType: 'json',
@@ -56,4 +58,21 @@ function getProfessorData() {
     });
 
     return respuesta;
+}
+
+function validarCedula(psCedula){
+
+    let aProfesorData = getProfessorData();
+
+    for (let i = 0; i < aProfesorData.length; i++) {
+        if(aProfesorData[i]['cedula']==psCedula){
+            return true;
+        }else{
+            return false;
+        }  
+    }
+}
+function generateRandomPassword(){
+	let pw = Math.random().toString(36).substring(2, 10);
+	return pw;
 }
