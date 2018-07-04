@@ -1,16 +1,13 @@
-<!-- Hecho por david serano  -->
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-        
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Registrar Proyecto </title>
     <link rel="stylesheet" href="css/error.css">
-    
 </head>
 
 <body>
@@ -31,10 +28,17 @@
             <input type="text" id="txtNombreProyecto">
 
             <label for="">Nombre del cliente:</label>
+
+            <select name="slNombredelCliente" id="slNombredelCliente">
+                <option value="seleccioneUno">Seleccione Uno</option>
+
+            </select>
+
            <select name="slNombredelCliente" id="slNombredelCliente">
 
 
            </select>
+
 
             <label for="">Identificacion Juridica:</label>
             <input type="text" id="txtIdentifiacionJuridica">
@@ -46,7 +50,8 @@
                 <option value="mantenimento">En mantenimento</option>
                 <option value="finalizado">Finalizado</option>
                 <option value="Desactivo">Desactivo</option>
-            
+
+
             </select>
 
             <label for="">Fecha de entrega Estimado:</label>
@@ -59,7 +64,10 @@
 
         </form>
 
-        <script src="js/registrarProyectoControlador.js"></script>
+        <script src="js/Proyecto/jquery-3.3.1.js"></script>
+        <script src="js/Proyecto/registrarProyectoServicio.js"></script>
+        <script src="js/Proyecto/registrarProyectoControlador.js"></script>
+
     </main>
 
     <footer></footer>
