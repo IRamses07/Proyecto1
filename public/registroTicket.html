@@ -8,6 +8,7 @@
     <title>Ticket</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/generalStyle.css">
+    <link rel="stylesheet" href="css/registrarTicket.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -27,55 +28,74 @@
         <div class="menuLateral">
             <i class="fas fa-align-justify"></i>
             <div class="option">
-                <a href="registroClientes.html">Registro Cliente</a>
+                <a href="registroTicket.html">Registro tickets</a>
             </div>
             <div class="option">
-                <a href="registroProfesores.html">Regsitrar Profesor</a>
+                <a href="listarTickets.html">Lista de tickets</a>
             </div>
-            <div class="option">
-                <a href="registrarProyecto.html">Registrar Proyecto</a>
-            </div>
+            <!-- <div class="option">
+            <a href="registrarProyecto.html">Registrar Proyecto</a>
+        </div> -->
         </div>
 
     </header>
     <main id="content">
         <section>
-            <form action="">
+
+            <div class="title">
+                <h1>Registro de Ticket</h1>
+                <p>Rellene los datos solicitados y seleccione las opciones que necesita para completar su registro.</p>
+            </div>
+            <form action="" class="formBox">
+               <div class="container"> 
                 <div class="blockLeft">
-                    <label for="">Nombre del cliente</label>
-                    <input type="text" id="txtnombreCliente" value="">
+                    <div class="boxInpt">
+                        <label for="">Nombre del cliente</label>
+                        <input type="text" id="txtnombreCliente" value="">
+                    </div>
+                    <div class="boxInpt">
 
-                    <label for="">Urgencia</label>
-                    <select name="urgencia" id="sltUrgencia">
-                        <option value="">seleccione la urgencia</option>
-                        <option value="a">Alta</option>
-                        <option value="m">Media</option>
-                        <option value="b">Baja</option>
-                    </select>
+                        <label for="">Urgencia</label>
+                        <select name="urgencia" id="sltUrgencia">
+                            <option value="">seleccione la urgencia</option>
+                            <option value="a">Alta</option>
+                            <option value="m">Media</option>
+                            <option value="b">Baja</option>
+                        </select>
+                    </div>
 
-                    <label for="">Proyecto</label>
-                    <select name="proyecto" id="sltProyecto">
-                        <option value="uno">Seleccione su proyecto</option>
-                    </select>
-
+                    <div class="boxInpt">
+                        <label for="">Proyecto</label>
+                        <select name="proyecto" id="sltProyecto">
+                            <option value="uno">Seleccione su proyecto</option>
+                        </select>
+                    </div>
                 </div>
+
+
                 <div class="blockRight">
+                        <div class="boxInpt">
                     <label for="">Subir pantallazo del error:</label>
                     <input type="file" value="" id="imgPantallazoError">
-
+                </div>
+                <div class="boxInpt">
                     <div class="imgError" id=""></div>
-
+                </div>
+                <div class="boxInpt">
                     <label for="">Referencie un ticket anterior</label>
                     <select name="" id="sltTicket">
                         <option value="uno">Seleccione un ticket</option>
                     </select>
+                  </div>  
 
                 </div>
-                <div>
+            </div>
+                <div class="description">
                     <label for="">Descripción</label>
-                    <input type="text" id="txtdescripcion">
+                    <input type="text" id="txtdescripcion" value="">
+                    <button type="button" class='btnRegistro' id="btnRegistrarTicket">Registrar ticket</button>
                 </div>
-                <button type="button" class='btnRegistro' id="btnRegistrarTicket">Registrar ticket</button>
+                
             </form>
         </section>
     </main>

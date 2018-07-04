@@ -19,3 +19,10 @@ module.exports.registrar = function (req, res) {
         }
     })
 };
+
+module.exports.listarTicketAdmin = function(req, res){
+    ticketModel.find().then(
+        function(ticket){
+            res.send(ticket);
+        });
+};
