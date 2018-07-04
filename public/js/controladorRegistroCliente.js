@@ -1,11 +1,15 @@
 'use strict';
-
+/**
+ * Formulario de registro del cliente
+ */
+let fmrCliente=elm('#fmrRegistroCliente')
 /**
  * Select que contiene la lista de provincias
  */
 let sltProvincia = elm("#sltProvincia");
 listener(sltProvincia, 'change', function () {
     llenarSelect(sltCantones, sltProvincia.value, cantones);
+    llenarSelect(sltDistrito, sltCantones.value, distritos);
     geocodeAddress(gCoder,map);
 });
 /**
@@ -29,6 +33,24 @@ listener(sltDistrito, 'change', function () {
  */
 let btnRegistrar = elm('#btnRegistrar');
 listener(btnRegistrar, 'click', function () {
+    let inputs=[
+        fmrCliente.cedulaJuridica,
+        fmrCliente.nombre,
+        fmrCliente.provincia,
+        fmrCliente.canton,
+        fmrCliente.distrito,
+        fmrCliente.direccionExacta,
+        fmrCliente.segundoNombre,
+        fmrCliente.primerNombre,
+        fmrCliente.segundoApellido,
+        fmrCliente.primerApellido,
+        fmrCliente.telefono,
+        fmrCliente.correoElectronico
+    ];
+    console.log(inputs);
+    if (registro(inputs)){
+
+    }
 
 });
 /**
@@ -49,7 +71,7 @@ let cantones = {
  * variable de tipo json que guarda la informacion de los distritos de cada canton
  */
 let distritos = {
-    san_Jose: ["Carmen", "Merced", "Hospital", "Catedral", "Zapote", "San Francisco de Dos Ríos", "La Uruca", "Mata Redonda", "Pavas", "Hatillo", "San Sebastián"],
+    san_jose: ["Carmen", "Merced", "Hospital", "Catedral", "Zapote", "San Francisco de Dos Ríos", "La Uruca", "Mata Redonda", "Pavas", "Hatillo", "San Sebastián"],
     escazu: ["Escazú Centro", "San Rafael", "San Antonio"],
     desamparados: ["Desamparados", "San Miguel", "San Juan de Dios", "San Rafael Arriba", "San Antonio", "Frailes", "Patarrá", "San Cristóbal", "Rosario", "Damas", "San Rafael Abajo", "Gravilias", "Los Guido"],
     puriscal: ["Santiago", "Mercedes Sur", "Barbacoas", "Grifo Alto", "San Rafael", "Candelarita", "Desamparaditos", "San Antonio", "Chires"],
@@ -138,10 +160,14 @@ let distritos = {
  * @return {void} 
  */
 function llenarSelect(element, key, data) {
-    key = key.toLowerCase().replace('á', 'a').replace('é', 'e').replace('í', 'i').replace('ó', 'o').replace('ú', 'u').replace('ñ', 'nn').replace(' ', '_');
+    key = key.toLowerCase().replace(/á/g, 'a').replace(/é/g, 'e').replace(/í/g, 'i').replace(/ó/g, 'o').replace(/ú/g, 'u').replace(/ñ/g, 'nn').replace(/ /g, '_');
+    element.innerHTML='';
     let lista = data[key];
-    for (let i = 0; i < lista.length; i++) {
-        element.options[i] = new Option(lista[i], lista[i]);
+    element.options[0]=new Option('-Seleccione un '+element.name+'-','');
+    if (key!='') {
+        for (let i = 1; i < lista.length; i++) {
+            element.options[i] = new Option(lista[i], lista[i]);
+        }
     }
 }
 /**
