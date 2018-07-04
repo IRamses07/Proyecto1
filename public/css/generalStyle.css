@@ -26,6 +26,7 @@ a {
     /* display: flow-root; */
     /* margin-bottom: 10px; */
     padding: 15px 0%;
+    float: unset;
 }
 
 /* clase del cerrar sesión */
@@ -44,6 +45,7 @@ a {
     -moz-transition:  width 0.5s ease-out, opacity 0.3s ease 0.5s;
 -o-transition:  width 0.5s ease-out, opacity 0.3s ease 0.5s;
 transition:  width 0.5s ease-out, opacity 0.3s ease 0.5s;
+
 }
 /* .menuLateral:hover {
     width: 18%;
@@ -78,7 +80,7 @@ transition:  width 0.5s ease-out, opacity 0.3s ease 0.5s;
 input{
     border: 0px ;
     border-radius: 5px;
-    /* width: 17%; */
+    
     height: 22px;
 }
 
@@ -86,7 +88,6 @@ input{
 select{
     border: 0px;
     border-radius: 5px;
-    /* width: 18%; */
     height: 22px;
     font-family: 'Roboto' sans-serif;
     font-size: 14px;
@@ -102,5 +103,18 @@ select{
      padding: 5px 2%;
      font-family: 'Roboto' sans-serif;
      color: #fff;
-     font-size: 12pt;
+     font-size: 1em;
  }
+
+ .btnRegistro:hover {
+    background-color: #fbb876;
+    
+ }
+
+ .swal-button {
+     background-color: #fbb803;
+ }
+
+ .swal-button:hover {
+    background-color: #fbb876;
+}

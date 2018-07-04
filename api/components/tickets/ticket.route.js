@@ -8,4 +8,8 @@ router.route('/registrar_ticket')
     tickets.registrar(req,res);
 });
 
+router.route('/listar_tickets')
+.get(function(req,res){
+    tickets.listarTicketAdmin(req,res);
+})
 module.exports = router;

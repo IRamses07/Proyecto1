@@ -28,16 +28,21 @@ function obtenerDatosTicket() {
     error = validar();
     if (error == true) {
         console.log('aquí va un sweet alert xD ');
+        swal({
+            title: "Registro fallido",
+            text: "El ticket no se ha podido registrar",
+            icon: "error",
+            button: "Ok",
+          });
     } else {
         registrarTicket(ticket);
         swal({
             title: "Registro exitoso",
-            text: "El usuario se ha registrado correctamente",
+            text: "El ticket se ha registrado correctamente",
             icon: "success",
             button: "Ok",
           });
         console.log('aquí va otro sweet alert xDD');
-        // listaTickets();
         limpiarFormulario();
     }
 
