@@ -38,7 +38,7 @@ function obtenerDatos() {
     let sDescripcion = inputDescripcion.value;
 
     infoProyecto.push(sNombreProyecto, sNombreCliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion);
-    
+
     registrarProyecto(infoProyecto);
 
 
@@ -75,11 +75,33 @@ function obtenerDatos() {
 
     let inputDescripcion = document.querySelector('#txtDescripcion');
 
-    
+
 
     infoProyecto.push(sNombreProyecto, sNombreCliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion);
 
     error = validarCampos();
+
+    console.log(error);
+
+    if (error == true) {
+        swal({
+            type: 'warning',
+            title: 'No se pudo registrar el usuario',
+            text: 'Por favor revise los campos en rojo',
+            confirmButtonText: 'Entendido'
+        });
+        console.log('No se pudo registrar el usuario');
+    } else {
+        registrarProyecto(infoProyecto);
+        swal({
+            type: 'success',
+            title: 'Registro exitoso',
+            text: 'El usuario se registró adecuadamente',
+            confirmButtonText: 'Entendido'
+        });
+
+
+    }
 
 
 
@@ -96,18 +118,19 @@ function validarCampos() {
 
     } else {
         inputNombreProyecto.classList.remove('error_input');
+        error = false
     }
 
 
+    console.log(error);
 
-
-    //  return error;
+    return error;
 
 
 }
 
 
-  
+
 
 
 
