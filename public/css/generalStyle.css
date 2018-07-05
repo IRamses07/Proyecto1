@@ -124,3 +124,15 @@ select{
  .swal-button:hover {
     background-color: #fbb876;
 }
+
+th , td {
+    width: 3%;
+    height: 26px;
+    border-bottom: 1px solid #fff;
+    padding-top: 7px;
+}
+
+th {
+    font-weight: 500;
+    font-size: 1.035em;
+}
