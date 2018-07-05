@@ -1,6 +1,6 @@
 
 .fLeft {
-    margin-left: 300px;
+    /*margin-left: 300px;*/
     float: left;
 }
 
@@ -22,7 +22,9 @@ h2 {
 .fmr {
     display: flow-root;
     width: 50%;
-    margin: 80px auto 0 519px;
+    /* margin: 0 auto; */
+    margin: 80px auto 0 auto;
+   /* margin: 80px auto 0 519px;*/
 }
 
 #leftContainer{
