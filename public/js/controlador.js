@@ -5,7 +5,7 @@ let eString = /[A-Za-záéíóúñÑÁÉÍÓÚ+-]+/,
     eEmail = /([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}/,
     eDate = /^(0?[1-9]|1[0-2])[\/](0?[1-9]|[12]\d|3[01])[\/](19|20)\d{2}$/,
     ePhone = /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/;
-let map, marker,gCoder;
+let map, marker, gCoder;
 /**
  * funcion que retorna un elemento html del documento
  * @param {String} id es la isntruccion para identificar el elemento que se desea extraer
@@ -47,6 +47,8 @@ function registro(inputs) {
             case 'apellido1':
             case 'nombre1':
             case 'profesion':
+            case 'primerApellido':
+            case 'primerNombre':
                 if (blanck(element)) {
                     if (test(eNumber, element) || test(eSpace, element)) {
                         addClass(element, 'error');
@@ -93,6 +95,12 @@ function registro(inputs) {
 
                 break;
             case 'cedula':
+            case 'direccionExacta':
+            case 'nombre':
+            case 'cedulaJuridica':
+            case 'canton':
+            case 'provincia':
+            case 'distrito':
                 if (blanck(element)) {
 
                 } else {

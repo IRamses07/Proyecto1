@@ -59,7 +59,7 @@ app.use( function(req, res, next) {
 /**
  * Exportams todas las rutas dentro del index.js
  */
-//const usuarios = require('./components/users/users.route'); **Ejemplo**
+const profesores = require('./components/profesores/profesores.route');
 
 const clientes= require('./components/clientes/client.route')
 // const proyectos = require('./componets/proyectos/proyecto.route');
@@ -70,6 +70,7 @@ const tickets = require('./components/tickets/ticket.route');
 /**
  * Le indicamos que le de acceso externo a las rutas inicializadas
  */
+app.use('/api', profesores);
 //app.use('/api', usuarios); **Ejemplo**
 app.use('/api',clientes);
 

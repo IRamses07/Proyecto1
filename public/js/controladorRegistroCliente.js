@@ -1,11 +1,15 @@
 'use strict';
-
+/**
+ * Formulario de registro del cliente
+ */
+let fmrCliente=elm('#fmrRegistroCliente')
 /**
  * Select que contiene la lista de provincias
  */
 let sltProvincia = elm("#sltProvincia");
 listener(sltProvincia, 'change', function () {
     llenarSelect(sltCantones, sltProvincia.value, cantones);
+    llenarSelect(sltDistrito, sltCantones.value, distritos);
     geocodeAddress(gCoder,map);
 });
 /**
@@ -29,6 +33,41 @@ listener(sltDistrito, 'change', function () {
  */
 let btnRegistrar = elm('#btnRegistrar');
 listener(btnRegistrar, 'click', function () {
+    let inputs=[
+        fmrCliente.cedulaJuridica,
+        fmrCliente.nombre,
+        fmrCliente.provincia,
+        fmrCliente.canton,
+        fmrCliente.distrito,
+        fmrCliente.direccionExacta,
+        fmrCliente.segundoNombre,
+        fmrCliente.primerNombre,
+        fmrCliente.primerApellido,
+        fmrCliente.segundoApellido,
+        fmrCliente.telefono,
+        fmrCliente.correoElectronico
+    ];
+    console.log(inputs);
+    if (registro(inputs)){
+        if(fmrCliente.registrarCliente.dataset.ubucacion!=undefined){
+            let data={
+                cedula_juridica:inputs[0].value,
+                nombre:inputs[1].value,
+                provincia:inputs[2].value,
+                canton:inputs[3].value,
+                distrito:inputs[4].value,
+                direccion_exacta:inputs[5].value,
+                segundo_nombre:inputs[6].value,
+                primer_nombre:inputs[7].value,
+                primer_apellido:inputs[8].value,
+                segundo_apellido:inputs[9].value,
+                telefono:inputs[10].value,
+                correo_electronico:inputs[11].value,
+                ubicacion:fmrCliente.registrarCliente.dataset.ubucacion.split(',')
+            }
+            registrarCliente(data);
+        }
+    }
 
 });
 /**
@@ -49,7 +88,7 @@ let cantones = {
  * variable de tipo json que guarda la informacion de los distritos de cada canton
  */
 let distritos = {
-    san_Jose: ["Carmen", "Merced", "Hospital", "Catedral", "Zapote", "San Francisco de Dos Ríos", "La Uruca", "Mata Redonda", "Pavas", "Hatillo", "San Sebastián"],
+    san_jose: ["Carmen", "Merced", "Hospital", "Catedral", "Zapote", "San Francisco de Dos Ríos", "La Uruca", "Mata Redonda", "Pavas", "Hatillo", "San Sebastián"],
     escazu: ["Escazú Centro", "San Rafael", "San Antonio"],
     desamparados: ["Desamparados", "San Miguel", "San Juan de Dios", "San Rafael Arriba", "San Antonio", "Frailes", "Patarrá", "San Cristóbal", "Rosario", "Damas", "San Rafael Abajo", "Gravilias", "Los Guido"],
     puriscal: ["Santiago", "Mercedes Sur", "Barbacoas", "Grifo Alto", "San Rafael", "Candelarita", "Desamparaditos", "San Antonio", "Chires"],
@@ -128,7 +167,8 @@ let distritos = {
     tilaran: ["Tilarán", "Quebrada Grande", "Tronadora", "Santa Rosa", "Líbano", "Tierras Morenas", "Arenal"],
     nandayure: ["Carmona", "Santa Rita", "Zapotal", "San Pablo", "Porvenir", "Bejuco"],
     la_cruz: ["La Cruz", "Santa Cecilia", "La Garita", "Santa Elena"],
-    hojancha: ["Hojancha", "Monte Romo", "Puerto Carrillo", "Huacas", "Matambú"]
+    hojancha: ["Hojancha", "Monte Romo", "Puerto Carrillo", "Huacas", "Matambú"],
+    tarrazu:["San Marcos", "San Lorenzo", "San Carlos"]
 };
 /**
  * Esta funcion llena un elemento HTMLSelectElement con datos dependiendo del valor de otro elemento
@@ -138,10 +178,14 @@ let distritos = {
  * @return {void} 
  */
 function llenarSelect(element, key, data) {
-    key = key.toLowerCase().replace('á', 'a').replace('é', 'e').replace('í', 'i').replace('ó', 'o').replace('ú', 'u').replace('ñ', 'nn').replace(' ', '_');
+    key = key.toLowerCase().replace(/á/g, 'a').replace(/é/g, 'e').replace(/í/g, 'i').replace(/ó/g, 'o').replace(/ú/g, 'u').replace(/ñ/g, 'nn').replace(/ /g, '_');
+    element.innerHTML='';
     let lista = data[key];
-    for (let i = 0; i < lista.length; i++) {
-        element.options[i] = new Option(lista[i], lista[i]);
+    element.options[0]=new Option('-Seleccione un '+element.name+'-','');
+    if (key!='') {
+        for (let i = 1; i < lista.length; i++) {
+            element.options[i] = new Option(lista[i-1], lista[i-1]);
+        }
     }
 }
 /**
@@ -159,7 +203,7 @@ function initMap() {
         position: new google.maps.LatLng(latLng.lat, latLng.lng)
     });
     marker.addListener('dragend', function (event) {
-        elm('#place').innerHTML = 'Latitud: ' + this.getPosition().lat() + ', Longitud' + this.getPosition().lng();
+        elm('#btnRegistrar').dataset.ubucacion =  this.getPosition().lat()+','+ this.getPosition().lng();
         // console.log('Latitud: '+this.getPosition().lat()+', Longitud'+this.getPosition().lng())
     })
     gCoder = new google.maps.Geocoder();
@@ -181,55 +225,6 @@ function geocodeAddress(geocoder, resultsMap) {
     });
 }
 
-function registrarCliente() {
-
-    // let aClientData = [];
-
-    // let sRol = 'cliente';
-    // let sCedulaJuridica = document.querySelector('#txtCedulaJuridica');
-    // let sNombre = document.querySelector('#txtNombre');
-    // let sProvincia = document.querySelector('#sltProvincia');
-    // let sCanton = document.querySelector('#sltCanton');
-    // let sDistrito = document.querySelector('#sltDistrito');
-    // let sDireccion = document.querySelector('#txtDireccion');
-    // let sPrimerNombre = document.querySelector('#txtPrimerNombre');
-    // let sSegundoNombre = document.querySelector('#txtSegundoNombre');
-    // let sPrimerApellido = document.querySelector('#txtPrimerApellido');
-    // let sSegundoApellido = document.querySelector('#txtSegundoApellido');
-    // let sTelefono = document.querySelector('#txtTelefono');
-    // let eCorreo = document.querySelector('#txtCorreo');
-
-    // aClientData.push(sRol, sCedulaJuridica, sNombre, sProvincia, sCanton, sDistrito,
-    //     sDireccion, sPrimerNombre, sSegundoNombre, sPrimerApellido, sSegundoApellido,
-    //     sTelefono, eCorreo);
-
-    // setClient(aClientData);
-
-    // //let requeridos = validarRequeridos();
-
-    // if (!validarRequeridos()) {
-
-    //     if (!validarCedula(sCedulaJuridica) || !validarCorreo(eCorreo)) {
-    //         swal({
-    //             type: 'success',
-    //             title: 'Registro exitoso',
-    //             text: 'Se ha registrado al cliente exitosamente.'
-    //         });
-
-    //         aclientData.push(sRol, sCedulaJuridica, sNombre, sProvincia, sCanton, sDistrito,
-    //             sDireccion, sPrimerNombre, sSegundoNombre, sPrimerApellido, sSegundoApellido,
-    //             sTelefono, eCorreo);
-    //     }
-
-
-    // } else {
-    //     swal({
-    //         type: 'warning',
-    //         title: 'Advertencia',
-    //         text: 'Por favor completar todos los espacios marcados en rojo.',
-    //     });
-    // }
-}
 
 function validarRequeridos() {
 

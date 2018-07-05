@@ -11,11 +11,11 @@ let clientSchema = new mongoose.Schema({
     distrito: {type: String, require: true},
     direccion_exacta: {type:String, required:false},
     primer_nombre:{type:String, required:true},
-    segundo_nombre:{type:String, required:true},
+    segundo_nombre:{type:String, required:false},
     primer_apellido:{type:String, required:true },
-    segundo_apellido:{type:String, required:true},
+    segundo_apellido:{type:String, required:false},
     telefono: {type:String, required:true},
     correo_electronico:{type:String, required:true},
-    ubicacion:{type: String,required:true}
+    ubicacion:{type: Array,required:true}
 });
 module.exports = mongoose.model('Cliente', clientSchema)

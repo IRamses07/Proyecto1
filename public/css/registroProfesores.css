@@ -1,61 +1,59 @@
 
 .fLeft {
+    margin-left: 300px;
     float: left;
 }
 
-.fRight {
-    float: right;
-}
 input{
     border: 1px solid;
-}
-h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.fmr {
-    display: flow-root;
-    width: 450px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.fmr div:nth-child(2n+1) {
-    float: right;
-}
-
-.fmr div:nth-child(2n) {
-    float: left;
-}
-
-.fmr div {
-    margin: 10px;
-    width: 42%;
-}
-
-.fmr label+input {
     display: block;
     border-radius: 3px;
     padding-left: 5px; 
     outline: none;
+    width: 100%;
 }
-.fmr label{
-    display: block;
-    margin-bottom: 5px;
-}
-.btn{
-    border: 1px solid;
-    max-width: 100px;
-    margin: 10px;
-    padding: 5px 10px;
-    border-radius: 3px;
-    cursor: pointer;
-    display: inline-block;
-}
-.fmr h2{
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 50px;
     text-align: center;
 }
-.error{
-    border: 1px solid red;
+
+.fmr {
+    display: flow-root;
+    width: 50%;
+    margin: 80px auto 0 519px;
+}
+
+#leftContainer{
+    width: 48%;
+    float: left;
+}
+
+#rightContainer{
+    width: 48%;
+    float: right;
+}
+
+.fmr div div {
+    margin: 0 0 25px 0;
+}
+
+#btnRegistro{
+    margin: 15px 0 0 0;
+}
+
+.lblHide{  
+    display: none;
+
+}
+
+#lblCedulaError, #lblCorreoError, #lblTelError, #lblProfesionError{
+    border-left: #fbb803 3px solid;
+}
+
+.lblInput{
+    display: block;
+    margin-bottom: 5px;
+
 }
