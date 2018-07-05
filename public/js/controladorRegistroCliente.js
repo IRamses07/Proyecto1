@@ -167,7 +167,8 @@ let distritos = {
     tilaran: ["Tilarán", "Quebrada Grande", "Tronadora", "Santa Rosa", "Líbano", "Tierras Morenas", "Arenal"],
     nandayure: ["Carmona", "Santa Rita", "Zapotal", "San Pablo", "Porvenir", "Bejuco"],
     la_cruz: ["La Cruz", "Santa Cecilia", "La Garita", "Santa Elena"],
-    hojancha: ["Hojancha", "Monte Romo", "Puerto Carrillo", "Huacas", "Matambú"]
+    hojancha: ["Hojancha", "Monte Romo", "Puerto Carrillo", "Huacas", "Matambú"],
+    tarrazu:["San Marcos", "San Lorenzo", "San Carlos"]
 };
 /**
  * Esta funcion llena un elemento HTMLSelectElement con datos dependiendo del valor de otro elemento
@@ -183,7 +184,7 @@ function llenarSelect(element, key, data) {
     element.options[0]=new Option('-Seleccione un '+element.name+'-','');
     if (key!='') {
         for (let i = 1; i < lista.length; i++) {
-            element.options[i-1] = new Option(lista[i-1], lista[i-1]);
+            element.options[i] = new Option(lista[i-1], lista[i-1]);
         }
     }
 }
