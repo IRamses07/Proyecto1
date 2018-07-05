@@ -1,0 +1,86 @@
+
+  input{
+      border: 1px solid #ffffff;
+  }
+ header .TituloPrincipal{
+     margin-bottom: 20px;
+     text-align: center;
+     font-size: 30px;
+     margin-left: 41%;
+     margin-right:40%; 
+     width: 30%;
+ }
+
+ .frmRegistrarProyectos {
+    margin: 0 auto;
+    width: 70%;
+ }
+
+ main .colupna1{
+    margin-top: 40px;
+    width: 45%;
+     float: left;
+ }
+ main .colupna1 input{
+    margin-top: 5px;
+    margin-bottom: 20px;
+    display: block; 
+    width: 100%;
+
+} 
+
+main .colupna1 select{
+    display: block;
+    margin-top: 5px;
+    margin-bottom:20px;
+    width: 100%;
+   
+    
+}
+
+main .colupna1 .slDescripcion select{
+    padding-right: 77px;
+}
+
+main .colupna1 label{
+    
+    margin-bottom: 5px; 
+
+}
+
+main .colupna2{
+    margin-top: 40px;
+    float: right;
+    width: 50%;
+
+}
+
+main .colupna2 input{
+    margin-top: 5px;
+    margin-bottom:20px;
+    margin-top: 5px;
+
+    display: block;
+    width: 90%;
+}
+
+main .colupna2 .fecha input{
+  
+    display: block;
+    
+}
+
+main .colupna2 .inpDescripcion input{
+    height: 150px;
+}
+
+main .button{
+
+
+}
+
+.btnRegistro{
+     
+}
+
+

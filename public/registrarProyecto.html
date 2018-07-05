@@ -7,64 +7,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Registrar Proyecto </title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/generalStyle.css">
+    <link rel="stylesheet" href="css/registraProyecto.css">
     <link rel="stylesheet" href="css/error.css">
+
+
+
 </head>
 
 <body>
 
     <header>
+
+        <div class="mainHeader">
+            <a href="##" class="fLeft">
+                <i class="fas fa-bell"></i> Notificaciones</a>
+            <a href="##" class="fRight">Cerrar sesión
+                <i class="fas fa-cog"></i>
+            </a>
+        </div>
+        <div class="menuLateral">
+            <i class="fas fa-align-justify"></i>
+            <div class="option">
+                <a href="registrarProyecto.html">Registrar Proyecto</a>
+            </div>
+            <div class="option">
+                <a href="listarProyectos.html">Listar Proyectos</a>
+            </div>
+
+        </div>
+
         <!-- Este div contiene el titulo principal  -->
         <div class="TituloPrincipal">
             <H1>Registrar un proyecto</H1>
         </div>
 
+
+
+
+
     </header>
 
-    <main>
+    <main id="content">
         <!-- este va ser el formulario de registrar los proyectos -->
+
         <form class="frmRegistrarProyectos ">
+            <div class="colupna1">
+                <label for="">Nombre del proyecto:</label>
+                <input type="text" id="txtNombreProyecto">
 
-            <label for="">Nombre del proyecto:</label>
-            <input type="text" id="txtNombreProyecto">
+                <label for="">Nombre del cliente:</label>
+                <select name="slNombredelCliente" id="slNombredelCliente">
+                    <option value="seleccioneUno">Seleccione Uno</option>
+                </select>
 
-            <label for="">Nombre del cliente:</label>
+                <label for="">Identificacion Juridica:</label>
+                <input type="text" id="txtIdentifiacionJuridica">
 
-            <select name="slNombredelCliente" id="slNombredelCliente">
-                <option value="seleccioneUno">Seleccione Uno</option>
+                <div class="slDescripcion">
+                    <label for="">Estado del proyecto:</label>
+                    <select name="sltEstado" id="sltEstado">
 
-            </select>
-
-           <select name="slNombredelCliente" id="slNombredelCliente">
-
-
-           </select>
-
-
-            <label for="">Identificacion Juridica:</label>
-            <input type="text" id="txtIdentifiacionJuridica">
-
-            <label for="">Estado del proyecto:</label>
-            <select name="sltEstado" id="sltEstado">
-
-                <option value="desarrollo">En desarrollo</option>
-                <option value="mantenimento">En mantenimento</option>
-                <option value="finalizado">Finalizado</option>
-                <option value="Desactivo">Desactivo</option>
+                        <option value="desarrollo">En desarrollo</option>
+                        <option value="mantenimento">En mantenimento</option>
+                        <option value="finalizado">Finalizado</option>
+                        <option value="Desactivo">Desactivo</option>
 
 
-            </select>
+                    </select>
+                </div>
 
-            <label for="">Fecha de entrega Estimado:</label>
-            <input type="date" id="dtEntregaEstimada">
+            </div>
 
-            <label for="">Descripcion:</label>
-            <input type="text" id="txtDescripcion">
+            <div class="colupna2">
+                <div class="fecha">
+                    <label for="">Fecha de entrega Estimado:</label>
+                    <input type="date" id="dtEntregaEstimada">
+                </div>
 
-            <input type="button" id="btnRegistrar" value="Registrar">
+                <div class="inpDescripcion">
+                    <label for="">Descripcion:</label>
+                    <input type="text" id="txtDescripcion">
+                </div>
+
+
+            </div>
+
+            <div class="button">
+                <button type="button" class="btnRegistro" id="btnRegistrar">Registrar</button>
+            </div>
+
 
         </form>
 
         <script src="js/Proyecto/jquery-3.3.1.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
         <script src="js/Proyecto/registrarProyectoServicio.js"></script>
         <script src="js/Proyecto/registrarProyectoControlador.js"></script>
 
