@@ -49,7 +49,24 @@ listener(btnRegistrar, 'click', function () {
     ];
     console.log(inputs);
     if (registro(inputs)){
-
+        if(fmrCliente.registrarCliente.dataset.ubucacion!=undefined){
+            let data={
+                cedula_juridica:inputs[0],
+                nombre:inputs[1],
+                provincia:inputs[2],
+                canton:inputs[3],
+                distrito:inputs[4],
+                direccion_exacta:inputs[5],
+                segundo_nombre:inputs[6],
+                primer_nombre:inputs[7],
+                primer_apellido:inputs[8],
+                segundo_apellido:inputs[9],
+                telefono:inputs[10],
+                correo_electronico:inputs[11],
+                ubicacion:fmrCliente.registrarCliente.dataset.ubucacion.split(',')
+            }
+            registrarCliente(data);
+        }
     }
 
 });
@@ -166,7 +183,7 @@ function llenarSelect(element, key, data) {
     element.options[0]=new Option('-Seleccione un '+element.name+'-','');
     if (key!='') {
         for (let i = 1; i < lista.length; i++) {
-            element.options[i] = new Option(lista[i], lista[i]);
+            element.options[i-1] = new Option(lista[i-1], lista[i-1]);
         }
     }
 }
@@ -185,7 +202,7 @@ function initMap() {
         position: new google.maps.LatLng(latLng.lat, latLng.lng)
     });
     marker.addListener('dragend', function (event) {
-        elm('#place').innerHTML = 'Latitud: ' + this.getPosition().lat() + ', Longitud' + this.getPosition().lng();
+        elm('#btnRegistrar').dataset.ubucacion =  this.getPosition().lat()+','+ this.getPosition().lng();
         // console.log('Latitud: '+this.getPosition().lat()+', Longitud'+this.getPosition().lng())
     })
     gCoder = new google.maps.Geocoder();
@@ -207,55 +224,6 @@ function geocodeAddress(geocoder, resultsMap) {
     });
 }
 
-function registrarCliente() {
-
-    // let aClientData = [];
-
-    // let sRol = 'cliente';
-    // let sCedulaJuridica = document.querySelector('#txtCedulaJuridica');
-    // let sNombre = document.querySelector('#txtNombre');
-    // let sProvincia = document.querySelector('#sltProvincia');
-    // let sCanton = document.querySelector('#sltCanton');
-    // let sDistrito = document.querySelector('#sltDistrito');
-    // let sDireccion = document.querySelector('#txtDireccion');
-    // let sPrimerNombre = document.querySelector('#txtPrimerNombre');
-    // let sSegundoNombre = document.querySelector('#txtSegundoNombre');
-    // let sPrimerApellido = document.querySelector('#txtPrimerApellido');
-    // let sSegundoApellido = document.querySelector('#txtSegundoApellido');
-    // let sTelefono = document.querySelector('#txtTelefono');
-    // let eCorreo = document.querySelector('#txtCorreo');
-
-    // aClientData.push(sRol, sCedulaJuridica, sNombre, sProvincia, sCanton, sDistrito,
-    //     sDireccion, sPrimerNombre, sSegundoNombre, sPrimerApellido, sSegundoApellido,
-    //     sTelefono, eCorreo);
-
-    // setClient(aClientData);
-
-    // //let requeridos = validarRequeridos();
-
-    // if (!validarRequeridos()) {
-
-    //     if (!validarCedula(sCedulaJuridica) || !validarCorreo(eCorreo)) {
-    //         swal({
-    //             type: 'success',
-    //             title: 'Registro exitoso',
-    //             text: 'Se ha registrado al cliente exitosamente.'
-    //         });
-
-    //         aclientData.push(sRol, sCedulaJuridica, sNombre, sProvincia, sCanton, sDistrito,
-    //             sDireccion, sPrimerNombre, sSegundoNombre, sPrimerApellido, sSegundoApellido,
-    //             sTelefono, eCorreo);
-    //     }
-
-
-    // } else {
-    //     swal({
-    //         type: 'warning',
-    //         title: 'Advertencia',
-    //         text: 'Por favor completar todos los espacios marcados en rojo.',
-    //     });
-    // }
-}
 
 function validarRequeridos() {
 
