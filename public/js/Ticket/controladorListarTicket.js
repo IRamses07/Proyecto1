@@ -13,11 +13,11 @@ function listarTicketsAdmin (){
 
     for(let i = 0; i < nTamanno; i++){
 
-        if(tickets[i][0] == nombre ){}
+        // if(tickets[i][0] == nombre ){}
         let fila = tbody.insertRow();
         // let codigo = fila.insertCell();
         let urgencia = fila.insertCell();
-        let descripción = fila.insertCell();
+        let descripcion = fila.insertCell();
         let verMas = fila.insertCell();
 
         let boton = document.createElement("input");
@@ -28,8 +28,20 @@ function listarTicketsAdmin (){
         // boton.appendChild(nombreBoton);
 
         urgencia.innerHTML = tickets[i]['urgencia'];
-        descripción.innerHTML = tickets[i]['descripcion'];
+        descripcion.innerHTML = tickets[i]['descripcion'];
         verMas.innerHTML = boton;
+
+        //         for (let j = 0; j < canColumns; j++) {
+//           var celda = fila.insertCell(j);
+//           celda.innerHTML = listaCuerposCelestes[i][j];
+//         }
+  
+//         botonEditar.addEventListener('click', mostrarDatosParaActuralizarPlanetas);
+  
+//         celdaBotones.appendChild(botonEditar);
+//         fila.appendChild(celdaBotones);
+//         tbody.appendChild(fila);
+        
     }
 };
 // lo logramos

@@ -84,3 +84,33 @@ input[type=”file”]#imgPantallazoError {
     textarea::-webkit-input-placeholder {
          font-family: 'Roboto', sans-serif, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial;
         }
+
+
+/* Estilos del Listar */
+
+#listaTickets {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.tblTicketAdmin {
+    width: 100%;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px auto;
+}
+
+th , td {
+    width: 3%;
+    height: 26px;
+    border-bottom: 1px solid #fff;
+    padding-top: 7px;
+}
+
+th {
+    font-weight: 500;
+    font-size: 1.035em;
+}
