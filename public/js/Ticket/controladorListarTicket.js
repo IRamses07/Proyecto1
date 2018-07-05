@@ -32,6 +32,7 @@ function listarTicketsAdmin (){
         verMas.innerHTML = boton;
     }
 };
+// lo logramos
 
 // function mostrarDatosPlanetas(){
 //     var listaCuerposCelestes = getCuerposCelestes(),
