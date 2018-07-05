@@ -17,7 +17,7 @@ let selectEstadoProyecto = document.querySelector('#sltEstado');
 
 let dateFechaEntrega = document.querySelector('#dtEntregaEstimada');
 
-let inputDescripcion = document.querySelector('#txtDescripcion');
+let txtaDescripcion = document.querySelector('#txtDescripcion');
 
 
 
@@ -27,17 +27,17 @@ function obtenerDatos() {
     let infoProyecto = [];
     let error = false;
 
-    let sNombreProyecto = document.querySelector('#txtNombreProyecto').value;
+    let sNombreProyecto = inputNombreProyecto.value;
 
-    let sNombreCliente = document.querySelector('#slNombredelCliente').value;
+    let sNombreCliente = selectNombreCliente.value;
 
-    let nIdentifiacionJuridica = document.querySelector('#txtIdentifiacionJuridica').value;
+    let nIdentifiacionJuridica = inputIdentifiacionJuridica.value;
 
-    let sEstadoProyecto = document.querySelector('#sltEstado').value;
+    let sEstadoProyecto = selectEstadoProyecto.value;
 
-    let sFechaEntrega = document.querySelector('#dtEntregaEstimada').value;
+    let sFechaEntrega = dateFechaEntrega.value;
 
-    let sDescripcion = document.querySelector('#txtDescripcion').value;
+    let sDescripcion = txtaDescripcion.value;
 
     infoProyecto.push(sNombreProyecto, sNombreCliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion);
 
@@ -73,6 +73,7 @@ function validarCampos() {
     let error = true;
 
     let regexNombreDelProyecto = /^[a-z A-ZáéíóúÁÉÍÓÚñÑ 1234567890]+$/;
+    let regexCedulaJuridica = /^[1234567890 ]+$/;
 
     if (inputNombreProyecto.value == '' || (regexNombreDelProyecto.test(inputNombreProyecto.value) == false)) {
         inputNombreProyecto.classList.add('error_input');
@@ -83,10 +84,41 @@ function validarCampos() {
         error = false
     }
 
-    if ()
+    if (selectNombreCliente.value == '') {
+        selectNombreCliente.classList.add('error_input');
+        error = true;
+    } else {
+
+        selectNombreCliente.classList.remove('error_input');
+        error = false
+
+    }
+
+    if (inputIdentifiacionJuridica.value == '' || (regexCedulaJuridica.test(inputIdentifiacionJuridica.value) == false)) {
+        inputIdentifiacionJuridica.classList.add('error_input');
+        error = true;
+    } else {
+        inputIdentifiacionJuridica.classList.remove('error_input');
+        error = false
+    }
+
+    if (selectEstadoProyecto.value == '') {
+        selectEstadoProyecto.classList.add('error_input');
+        error = true;
+    } else {
+        selectEstadoProyecto.classList.remove('error_input');
+        error = false;
+    }
+    if (dateFechaEntrega.value == '') {
+        dateFechaEntrega.classList.add('error_input');
+        error = true;
+    } else {
+        dateFechaEntrega.classList.remove('error_input');
+        error = false;
+    }
 
 
-        console.log(error);
+
 
     return error;
 
