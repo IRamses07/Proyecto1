@@ -36,6 +36,7 @@ let inputCorreo = document.querySelector('#estcorreo');
 let inputDireccion = document.querySelector('#estDireccion');
 let selectCanton = document.querySelector('#selectCanton');
 let selectDistrito = document.querySelector('#selectDistrito');
+let selectProvincia = document.querySelector('#selecProvincia');
 
 //DatosCurso
 let selectCarrera = document.querySelector('#selectCarrera');
@@ -141,6 +142,12 @@ function validar(){
         sError = true;
     }else{
         inputDireccion.classList.remove('error_input');
+    }
+    if(selectProvincia.value == '' ){
+        selectProvincia.classList.add('error_input');
+        sError = true;
+    }else{
+        selectProvincia.classList.remove('error_input');
     }
     //Validar Seleccion de Canton
     if(selectCanton.value == '' ){
