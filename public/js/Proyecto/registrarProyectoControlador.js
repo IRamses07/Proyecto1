@@ -117,6 +117,13 @@ function validarCampos() {
         error = false;
     }
 
+    if (txtaDescripcion.value == '') {
+        txtaDescripcion.classList.add('error_input');
+        error = true;
+    } else {
+        txtaDescripcion.classList.remove('error_input');
+    }
+
 
 
 
