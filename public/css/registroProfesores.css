@@ -38,15 +38,17 @@ h2 {
 }
 
 .fmr div div {
-    margin: 0 0 25px 0;
+    /*margin: 0 0 25px 0;*/
 }
 
 #btnRegistro{
-    margin: 15px 0 0 0;
+    display:block;
+    /*margin: 15px 0 0 0;*/
 }
 
 .lblHide{  
-    display: none;
+    /*display: none;*/
+    visibility: hidden;
 
 }
 

@@ -32,11 +32,12 @@ a {
 /* clase del cerrar sesión */
 .fRight{
     float: right;
-    margin-right: 20px;/******************Nuevo*******************/
+    padding-right: 20px;/******************Nuevo*******************/
 }
 
 /* estilos del enu lateral (tomen el header entero y lo copian dentro del registroTicket) */
 .menuLateral {
+    
     /*top: 0px;*/
     position: absolute;
     width: 18%; /*6.5%;*/
