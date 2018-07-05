@@ -23,7 +23,7 @@ a {
 .mainHeader{
     max-height: 50px;
     background-color: #fbb803;
-    /* display: flow-root; */
+    display: flow-root;
     /* margin-bottom: 10px; */
     padding: 15px 0%;
     float: unset;
@@ -32,6 +32,7 @@ a {
 /* clase del cerrar sesión */
 .fRight{
     float: right;
+    margin-right: 20px;/******************Nuevo*******************/
 }
 
 /* estilos del enu lateral (tomen el header entero y lo copian dentro del registroTicket) */
@@ -46,7 +47,6 @@ a {
     -moz-transition:  width 0.5s ease-out, opacity 0.3s ease 0.5s;
 -o-transition:  width 0.5s ease-out, opacity 0.3s ease 0.5s;
 transition:  width 0.5s ease-out, opacity 0.3s ease 0.5s;
-
 }
 /* .menuLateral:hover {
     width: 18%;
@@ -61,10 +61,9 @@ transition:  width 0.5s ease-out, opacity 0.3s ease 0.5s;
     margin: 1px 0px;
 }
 
- .option:hover {
+.option:hover{
  background-color: #fbb803;
 }
-
 
 /* espacio de los anchor dentro de las opciones del menu */
 .option a {
@@ -73,8 +72,8 @@ transition:  width 0.5s ease-out, opacity 0.3s ease 0.5s;
 }
 
 /* estilo del error de los inputs */
-.error{
-    border: 1px solid red;
+.error, .error_input{
+    border: 1px solid #d63031;
 }
 
 /* estilo de los inputs en general, solo deben de eliminar el width y el height si es necesario */

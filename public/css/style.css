@@ -1,0 +1,18 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #454545;
+    color: #ffffff;
+}
+a{
+    text-decoration: none;
+    color: #ffffff;
+}
+.mainHeader{
+    max-height: 50px;
+    background: #999999;
+    display: flow-root;
+    margin-bottom: 10px;
+}
+.mainHeader a{
+    margin: 15px 5px;
+}
