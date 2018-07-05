@@ -26,7 +26,7 @@ a {
     /* display: flow-root; */
     /* margin-bottom: 10px; */
     padding: 15px 0%;
-    float: unset;
+
 }
 
 /* clase del cerrar sesión */
@@ -34,25 +34,29 @@ a {
     float: right;
 }
 
-/* estilos del enu lateral (tomen el header entero y lo copian dentro del registroTicket) */
+/* estilos del menu lateral (tomen el header entero y lo copian dentro del registroTicket) */
 .menuLateral {
-    /*top: 0px;*/
     position: absolute;
     width: 18%; /*6.5%;*/
     height: 100%;
     background-color: #2f3030;
-    overflow: hidden;
-    -webkit-transition: width 0.5s;
+    /* overflow: hidden; */
+    /* -webkit-transition: width 0.5s;
     -moz-transition:  width 0.5s ease-out, opacity 0.3s ease 0.5s;
 -o-transition:  width 0.5s ease-out, opacity 0.3s ease 0.5s;
-transition:  width 0.5s ease-out, opacity 0.3s ease 0.5s;
+transition:  width 0.5s ease-out, opacity 0.3s ease 0.5s; */
 
 }
 /* .menuLateral:hover {
     width: 18%;
 } */
-
-
+.menuLateral h2 {
+    font-size: 1.35em;
+    color: #fff; 
+}
+.fas .fa-align-justify {
+    font-size: 2em;
+}
 /* estilo de los div que contienen los anchor del menu */
 .option{
     width: 100%;
