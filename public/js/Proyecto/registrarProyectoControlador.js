@@ -19,30 +19,7 @@ let dateFechaEntrega = document.querySelector('#dtEntregaEstimada');
 
 let inputDescripcion = document.querySelector('#txtDescripcion');
 
-function obtenerDatos() {
 
-
-    let infoProyecto = [];
-    let error = false;
-
-    let sNombreProyecto = inputNombreProyecto.value;
-
-    let sNombreCliente = selectNombreCliente.value;
-
-    let nIdentifiacionJuridica = inputIdentifiacionJuridica.value;
-
-    let sEstadoProyecto = selectEstadoProyecto.value;
-
-    let sFechaEntrega = dateFechaEntrega.value;
-
-    let sDescripcion = inputDescripcion.value;
-
-    infoProyecto.push(sNombreProyecto, sNombreCliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion);
-
-    registrarProyecto(infoProyecto);
-
-
-}
 
 function obtenerDatos() {
 
@@ -61,21 +38,6 @@ function obtenerDatos() {
     let sFechaEntrega = document.querySelector('#dtEntregaEstimada').value;
 
     let sDescripcion = document.querySelector('#txtDescripcion').value;
-
-    //
-    let inputNombreProyecto = document.querySelector('#txtNombreProyecto');
-
-    let selectNombreCliente = document.querySelector('#slNombredelCliente');
-
-    let inputIdentifiacionJuridica = document.querySelector('#txtIdentifiacionJuridica');
-
-    let selectEstadoProyecto = document.querySelector('#sltEstado');
-
-    let dateFechaEntrega = document.querySelector('#dtEntregaEstimada');
-
-    let inputDescripcion = document.querySelector('#txtDescripcion');
-
-
 
     infoProyecto.push(sNombreProyecto, sNombreCliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion);
 
@@ -121,8 +83,10 @@ function validarCampos() {
         error = false
     }
 
+    if ()
 
-    console.log(error);
+
+        console.log(error);
 
     return error;
 
