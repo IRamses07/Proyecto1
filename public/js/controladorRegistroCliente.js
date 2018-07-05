@@ -42,8 +42,8 @@ listener(btnRegistrar, 'click', function () {
         fmrCliente.direccionExacta,
         fmrCliente.segundoNombre,
         fmrCliente.primerNombre,
-        fmrCliente.segundoApellido,
         fmrCliente.primerApellido,
+        fmrCliente.segundoApellido,
         fmrCliente.telefono,
         fmrCliente.correoElectronico
     ];
@@ -51,18 +51,18 @@ listener(btnRegistrar, 'click', function () {
     if (registro(inputs)){
         if(fmrCliente.registrarCliente.dataset.ubucacion!=undefined){
             let data={
-                cedula_juridica:inputs[0],
-                nombre:inputs[1],
-                provincia:inputs[2],
-                canton:inputs[3],
-                distrito:inputs[4],
-                direccion_exacta:inputs[5],
-                segundo_nombre:inputs[6],
-                primer_nombre:inputs[7],
-                primer_apellido:inputs[8],
-                segundo_apellido:inputs[9],
-                telefono:inputs[10],
-                correo_electronico:inputs[11],
+                cedula_juridica:inputs[0].value,
+                nombre:inputs[1].value,
+                provincia:inputs[2].value,
+                canton:inputs[3].value,
+                distrito:inputs[4].value,
+                direccion_exacta:inputs[5].value,
+                segundo_nombre:inputs[6].value,
+                primer_nombre:inputs[7].value,
+                primer_apellido:inputs[8].value,
+                segundo_apellido:inputs[9].value,
+                telefono:inputs[10].value,
+                correo_electronico:inputs[11].value,
                 ubicacion:fmrCliente.registrarCliente.dataset.ubucacion.split(',')
             }
             registrarCliente(data);
@@ -167,7 +167,8 @@ let distritos = {
     tilaran: ["Tilarán", "Quebrada Grande", "Tronadora", "Santa Rosa", "Líbano", "Tierras Morenas", "Arenal"],
     nandayure: ["Carmona", "Santa Rita", "Zapotal", "San Pablo", "Porvenir", "Bejuco"],
     la_cruz: ["La Cruz", "Santa Cecilia", "La Garita", "Santa Elena"],
-    hojancha: ["Hojancha", "Monte Romo", "Puerto Carrillo", "Huacas", "Matambú"]
+    hojancha: ["Hojancha", "Monte Romo", "Puerto Carrillo", "Huacas", "Matambú"],
+    tarrazu:["San Marcos", "San Lorenzo", "San Carlos"]
 };
 /**
  * Esta funcion llena un elemento HTMLSelectElement con datos dependiendo del valor de otro elemento
@@ -183,7 +184,7 @@ function llenarSelect(element, key, data) {
     element.options[0]=new Option('-Seleccione un '+element.name+'-','');
     if (key!='') {
         for (let i = 1; i < lista.length; i++) {
-            element.options[i-1] = new Option(lista[i-1], lista[i-1]);
+            element.options[i] = new Option(lista[i-1], lista[i-1]);
         }
     }
 }

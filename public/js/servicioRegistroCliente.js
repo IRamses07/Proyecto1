@@ -4,6 +4,7 @@
  * @param {JSON} infoCliente información del cliente
  */
 function registrarCliente(infoCliente) {
+    console.log(infoCliente);
     let respuesta = '';
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/registro_cliente',
