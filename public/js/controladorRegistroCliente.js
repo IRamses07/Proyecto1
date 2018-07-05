@@ -42,8 +42,8 @@ listener(btnRegistrar, 'click', function () {
         fmrCliente.direccionExacta,
         fmrCliente.segundoNombre,
         fmrCliente.primerNombre,
-        fmrCliente.segundoApellido,
         fmrCliente.primerApellido,
+        fmrCliente.segundoApellido,
         fmrCliente.telefono,
         fmrCliente.correoElectronico
     ];
