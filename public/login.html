@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Listado de profesores</title>
+    <title>Registro de profesores</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/generalStyle.css">
-    <link rel="stylesheet" href="css/listarProfesores.css">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 
 <body>
@@ -22,7 +22,8 @@
             </a>
         </div>
 
-        <div class="menuLateral"><i class="fas fa-align-justify"></i>
+        <div class="menuLateral">
+            <i class="fas fa-align-justify"></i>
             <div class="option">
                 <a href="registroClientes.html">Registro Cliente</a>
             </div>
@@ -33,29 +34,24 @@
                 <a href="registrarProyecto.html">Registrar Proyecto</a>
             </div>
         </div>
-        
+
     </header>
     <main id="content">
-        <h2>Listado de profesores</h2>
-        <table id="tblProfesores">
-            <thead>
-                <th>Primer nombre</th>
-                <th>Primer apellido</th>
-                <th>Cédula</th>
-                <th>Correo electrónico</th>
-                <th>Teléfono</th>
-                <th>Profesión</th>
-            </thead>
-            <tbody>
-                
-            </tbody>
-        </table>
-      
+
+        <div class="loginContainer">
+            <h2>Iniciar sesión</h2>
+            <label for="">Identificación</label>
+            <input type="text" id="txtIdentificacion" required>
+
+            <label for="">Contraseña</label>
+            <input type="text" id="txtContrasenna" required>
+
+            <button type="button" class="btnRegistro" id="btnLogin">Registrar</button>
+        </div>
     </main>
     <footer></footer>
     <script src="js/jquery-3.3.1.js"></script>
-    <script src="js/registroProfesor.servicio.js"></script>
-    <script src="js/listarProfesor.controlador.js"></script>
+    <script src="js/login.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
