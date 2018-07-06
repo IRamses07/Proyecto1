@@ -48,6 +48,7 @@ listener(btnRegistrar, 'click', function () {
         fmrCliente.correoElectronico
     ];
     console.log(inputs);
+    fmrCliente.registrarCliente.dataset.ubucacion=marker.getPosition().lat()+','+ marker.getPosition().lng();
     if (registro(inputs)){
         if(fmrCliente.registrarCliente.dataset.ubucacion!=undefined){
             let data={
@@ -188,9 +189,7 @@ function llenarSelect(element, key, data) {
         }
     }
 }
-/**
- * Funcion necesaria para mostrar un mapa interactivo para seleccionar ubicaciones
- */
+
 
 
 

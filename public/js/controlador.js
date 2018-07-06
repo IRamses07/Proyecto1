@@ -130,6 +130,9 @@ function addClass(element, clase) {
 function removeClass(element, clase) {
     element.classList.remove(clase);
 }
+/**
+ * Funcion necesaria para mostrar un mapa interactivo para seleccionar ubicaciones
+ */
 function initMap() {
     let divMap = elm('#map'),
         latLng;
@@ -141,10 +144,10 @@ function initMap() {
         draggable: true,
         position: new google.maps.LatLng(latLng.lat, latLng.lng)
     });
-    marker.addListener('dragend', function (event) {
-        elm('#btnRegistrar').dataset.ubucacion =  this.getPosition().lat()+','+ this.getPosition().lng();
-        // console.log('Latitud: '+this.getPosition().lat()+', Longitud'+this.getPosition().lng())
-    })
+    // marker.addListener('dragend', function (event) {
+    //     // elm('#btnRegistrar').dataset.ubucacion =  this.getPosition().lat()+','+ this.getPosition().lng();
+    //     // console.log('Latitud: '+this.getPosition().lat()+', Longitud'+this.getPosition().lng())
+    // })
     gCoder = new google.maps.Geocoder();
 }
 /**
@@ -153,7 +156,7 @@ function initMap() {
  * @param {*} resultsMap mapa que se centrará en la ubicación de la dirección
  */
 function geocodeAddress(geocoder, resultsMap) {
-    var address = 'Costa Rica'+' '+sltProvincia.value+' '+sltCantones.value+' '+sltDistrito.value;
+    var address = 'Costa Rica' + ' ' + sltProvincia.value + ' ' + sltCantones.value + ' ' + sltDistrito.value;
     geocoder.geocode({ 'address': address }, function (results, status) {
         if (status === 'OK') {
             resultsMap.setCenter(results[0].geometry.location);
