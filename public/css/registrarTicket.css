@@ -4,7 +4,6 @@
 .title {
     text-align: center;
     margin: 0 auto;
-    margin-top: 20px;
 }
 
 p {
@@ -84,3 +83,61 @@ input[type=”file”]#imgPantallazoError {
     textarea::-webkit-input-placeholder {
          font-family: 'Roboto', sans-serif, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial;
         }
+
+
+/* Estilos del Listar */
+
+#listaTickets {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 35px;
+}
+
+#tblTicketAdmin {
+    width: 100%;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.filtroTicket {
+    margin: 45px 0px;
+    width: 100%;
+}
+
+.filtroTicket input[type='radio'] {
+    /* display: none; */
+     width: 24px; 
+     height: 24px;
+     margin: 5px 0px;
+}
+
+.filtroTicket input[type='radio']:hover {
+    border: #fff 1px solid;
+    -moz-border: #fff 1px solid; 
+}
+
+.filtroTicket label {
+    padding-bottom: 5px; 
+    margin: 8px 0px;
+}
+
+.filtroTicket select {
+    width: 27%;
+}
+
+.btnFiltro {
+    float: right;
+    margin-bottom: 20px;
+}
+
+.btnLista {
+    height: 29px;
+    padding: 5px 0px 5px 0;
+    background-color: #fbb308;
+    color: #fff;
+    margin-bottom: 10px;
+}
