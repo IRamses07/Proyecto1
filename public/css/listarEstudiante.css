@@ -1,0 +1,40 @@
+.btnRegistro{
+    background-color: #fbb803;
+    border-radius: 3px;
+    border: none;
+    padding: 5px 2%;
+    font-family: 'Roboto' sans-serif;
+    color: #fff;
+    font-size: 0.9em;
+    cursor:pointer;
+    outline:none;
+}
+.containerRegistrar{
+    width: 100%;
+    border: 1px solid red;
+    float: right;
+    margin-bottom: 35px;
+}
+.filtrarEstudiante{
+    border: 1px solid blue;
+    width: 50%;
+    margin: auto;
+}
+.buscar{
+    border: 1px solid black;
+    width: 45%;
+    float: right;
+}
+.contFormulario2{
+    width: 100%;
+    border: 1px solid purple;
+    margin-bottom: 35px;
+}
+.seleccionar{
+    width: 45%;
+    border: 1px solid purple;
+    float: left;
+}
+#butBuscarEstudiante{
+    float: right;
+}
