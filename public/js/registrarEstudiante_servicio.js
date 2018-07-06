@@ -49,3 +49,31 @@ function agregaCurso(infoCurso){
 function obtenerListaCursos(){
     return listaCursos;
 }
+
+function obtenerListaEstudiantes(){
+
+    let respuesta = 'respuesta';
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/listar_estudiantes',
+        type : 'get',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            
+        }
+      });
+    
+      peticion.done(function(response){
+          respuesta = response;
+      });
+    
+      peticion.fail(function(response){
+      });
+
+      //console.log(listaEstudiantes);
+
+      return respuesta;
+    
+   //return listaEstudiantes;
+}

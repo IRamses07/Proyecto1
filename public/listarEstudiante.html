@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/error.css">
+    <link rel="stylesheet" href="css/generalStyle.css">
+    <link rel="stylesheet" href="css/registrarEstudiante_style.css">
+    <link rel="stylesheet" href="css/listarEstudiante.css">
+    <title>Registro de Estudiante</title>
+</head>
+<body>
+    <header class="mainHeader">
+        <a href="##" class="fLeft">
+            <i class="fas fa-bell"></i> Notificaciones</a>
+        <a href="##" class="fRight">Cerrar sesión
+            <i class="fas fa-cog"></i>
+        </a>
+    </header>
+    <main>
+
+        <h2>Lista de estudiantes</h2>
+        <div class="filtrarEstudiante">
+            <form action="" class="contFormulario2">
+                <div class="buscarPor">
+                    <label for="cliente">Buscar por:</label>
+                </div>
+                <div class="seleccionar">
+                        <input type="radio" checked="checked"/><label for="cliente">Nombre</label>
+                        <input type="radio"/><label for="cliente">Cédula</label>
+                </div>
+                <div class="buscar">
+                    <input type="text" id="inputBuscar"/>
+                </div>
+            
+                <div class="containerRegistrar">
+                    <button type="button" id="butBuscarEstudiante" class="btnRegistro">Buscar</button>
+                </div>
+            </form>
+        </div>
+
+
+        <div class="tableContainer">
+            
+            <table cellspacing=10px id="tblEstudiantes">
+                <thead>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Carrera</th>
+                    <th>Horas</th>
+                    <th>Perfil</th>
+                    <th>Estado</th>
+                </thead>
+                <tbody> 
+                </tbody>
+            </table>
+            
+    </main>
+    <footer></footer>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
+    <script src="js/registrarEstudiante_servicio.js"></script>
+    <script src="js/Estudiante/listarEstudiante_controlador.js"></script>
+
+</body>
+</html>
