@@ -65,15 +65,12 @@ function obtenerListaEstudiantes(){
       });
     
       peticion.done(function(response){
-        console.log('registra bien');
           respuesta = response;
       });
     
       peticion.fail(function(response){
-        console.log('registra bien');
       });
 
-      console.log(respuesta);
       //console.log(listaEstudiantes);
 
       return respuesta;
