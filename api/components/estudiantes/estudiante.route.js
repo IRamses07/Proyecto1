@@ -8,9 +8,9 @@ router.route('/registrar_estudiante')
     estudiantes.registrar(req, res);
 });
 
-router.route('/listar_estudiante')
+router.route('/listar_estudiantes')
     .get(function(req, res){
-    estudiantes.listarEstudiantes(req, res);
+    estudiantes.listar(req, res);
 });
 
 module.exports = router;

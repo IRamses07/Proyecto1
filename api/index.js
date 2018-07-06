@@ -64,7 +64,7 @@ const profesores = require('./components/profesores/profesores.route');
 const clientes= require('./components/clientes/client.route')
  const proyectos = require('./components/proyectos/proyecto.route');
 
-
+const estudiantes = require('./components/estudiantes/estudiante.route');
 
 const tickets = require('./components/tickets/ticket.route');
 /**
@@ -74,6 +74,8 @@ app.use('/api', profesores);
 //app.use('/api', usuarios); **Ejemplo**
 app.use('/api',clientes);
 
+app.use('/api', estudiantes);
+// app.use('/api', proyectos );
 
 app.use('/api', proyectos );
 app.use('/api', tickets);
