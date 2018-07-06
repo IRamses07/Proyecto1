@@ -10,7 +10,7 @@ body{
 
 /* id que va dentro del main. estilo del main espacio que da entre el menulateral y el contenido */
 #content{
- padding-left: 20%; 
+ padding-left: 15%; 
 }
 
 /* estilos de todos los anchor/links/direcciones por defecto */
