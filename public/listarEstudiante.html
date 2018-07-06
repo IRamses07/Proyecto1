@@ -25,16 +25,21 @@
         <h2>Lista de estudiantes</h2>
         <div class="filtrarEstudiante">
             <form action="" class="contFormulario2">
+                <div class="buscarPor">
+                    <label for="cliente">Buscar por:</label>
+                </div>
                 <div class="seleccionar">
-                        <input type="text"/>
+                        <input type="radio" checked="checked"/><label for="cliente">Nombre</label>
+                        <input type="radio"/><label for="cliente">Cédula</label>
                 </div>
                 <div class="buscar">
-                    <input type="text" id="conNombre1"/>
+                    <input type="text" id="inputBuscar"/>
+                </div>
+            
+                <div class="containerRegistrar">
+                    <button type="button" id="butBuscarEstudiante" class="btnRegistro">Buscar</button>
                 </div>
             </form>
-            <div class="containerRegistrar">
-                <button type="button" id="butBuscarEstudiante" class="btnRegistro">Buscar</button>
-            </div>
         </div>
 
 
