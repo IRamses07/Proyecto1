@@ -14,6 +14,9 @@ let map, marker, gCoder;
 function elm(id) {
     return document.querySelector(id);
 }
+function createElm(tag) {
+    return document.createElement(tag);
+}
 /**
  * agrega un evento a un elemento 
  * @param {*} element elemeto html que se le va a asignar un evento
