@@ -1,0 +1,133 @@
+h2{
+    text-align: center;
+    font-size: 24px;
+    padding: 55px 0 45px 0;
+    clear: both;
+}
+h3{
+    margin-left: 12.5%;
+    font-size: 20px;
+    padding-bottom: 20px;
+    padding-top: 40px;
+}
+.contFormulario{
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+.contFormulario label {
+    font-size: 15px;
+    display: block;
+}
+.contFormulario input {
+    display: block;
+}
+.contFormulario div{
+    margin-top: 15px;
+}
+.layer1{
+    float: left;
+    width: 50%;
+}
+.layer3 select{
+    width: 75%;
+    display: block;
+    float: right;
+}
+.layer2{
+    float: left;
+    width: 50%;
+}
+.layer3{
+     float: left;
+     width: 50%;
+}
+.layer4, br{
+    width: 100%;
+    clear: both;
+}
+.layer5{
+    float: left;
+    width: 33%;
+    padding-bottom: 15px;
+}
+.layer5 select{
+    width: 50%;
+    display: block;
+}
+#selectCurso{
+    width: 100%;
+}
+.labelcenter{
+    text-align: left;
+    margin-left: 0;
+}
+input, label, select{
+    margin: 0 auto;
+    width: 50%;
+    padding-bottom: 5px;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+}
+input{
+     border: 1px solid;
+}
+textarea, .layer4 label{
+    margin: 0 auto;
+    width: 75%;
+    padding-bottom: 5px;
+    display: block;
+    border-radius: 3px;
+}
+#optionsTT{
+    margin: 0 5% 0 5%;
+}
+#optionsTT {
+
+}
+#butRegistrar{
+    float: right;
+    clear: both;
+    text-align: center;
+    outline: none;
+    margin: 25px 12% 25px;
+    border-radius: 3px;
+}
+#butAgregar{
+    display: block;
+    margin: 0 auto;
+    margin-top: 22px;
+    outline: none;
+    outline: none;
+    padding: 5px 10px;
+}
+table{
+    width: 100%;
+    border-top: 1px black;
+}
+thead th {
+    display: table-cell;
+    vertical-align: inherit;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid white;
+}
+.tableContainer{
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+    font-size: 15px;
+    font-weight: bold;
+}
+.tableContainer tbody{
+    text-align: center;
+    min-height:100px;
+    overflow: auto;
+}
+.tableContainer tbody tr{
+   border-top: 2px solid white;
+}
+.tableContainer tbody td{
+   padding: 10px 0 10px 0;
+}

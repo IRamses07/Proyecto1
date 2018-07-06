@@ -1,5 +1,6 @@
 "use strict";
 
+
 //declaracion del boton y declaracion del event listener para dicho boton
 
 let botonRegistrar = document.querySelector('#btnRegistrar');
@@ -17,7 +18,9 @@ let selectEstadoProyecto = document.querySelector('#sltEstado');
 
 let dateFechaEntrega = document.querySelector('#dtEntregaEstimada');
 
-let inputDescripcion = document.querySelector('#txtDescripcion');
+let txtaDescripcion = document.querySelector('#txtDescripcion');
+
+
 
 function obtenerDatos() {
 
@@ -35,60 +38,44 @@ function obtenerDatos() {
 
     let sFechaEntrega = dateFechaEntrega.value;
 
-    let sDescripcion = inputDescripcion.value;
-
-    infoProyecto.push(sNombreProyecto, sNombreCliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion);
-    
-    registrarProyecto(infoProyecto);
-
-
-}
-
-function obtenerDatos() {
-
-
-    let infoProyecto = [];
-    let error = false;
-
-    let sNombreProyecto = document.querySelector('#txtNombreProyecto').value;
-
-    let sNombreCliente = document.querySelector('#slNombredelCliente').value;
-
-    let nIdentifiacionJuridica = document.querySelector('#txtIdentifiacionJuridica').value;
-
-    let sEstadoProyecto = document.querySelector('#sltEstado').value;
-
-    let sFechaEntrega = document.querySelector('#dtEntregaEstimada').value;
-
-    let sDescripcion = document.querySelector('#txtDescripcion').value;
-
-    //
-    let inputNombreProyecto = document.querySelector('#txtNombreProyecto');
-
-    let selectNombreCliente = document.querySelector('#slNombredelCliente');
-
-    let inputIdentifiacionJuridica = document.querySelector('#txtIdentifiacionJuridica');
-
-    let selectEstadoProyecto = document.querySelector('#sltEstado');
-
-    let dateFechaEntrega = document.querySelector('#dtEntregaEstimada');
-
-    let inputDescripcion = document.querySelector('#txtDescripcion');
-
-    
+    let sDescripcion = txtaDescripcion.value;
 
     infoProyecto.push(sNombreProyecto, sNombreCliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion);
 
     error = validarCampos();
 
+    console.log(error);
+
+    if (error == true) {
+        swal({
+            type: 'warning',
+            title: 'No se pudo registrar el usuario',
+            text: 'Por favor revise los campos en rojo',
+            confirmButtonText: 'Entendido'
+        });
+        console.log('No se pudo registrar el usuario');
+    } else {
+        registrarProyecto(infoProyecto);
+        swal({
+            type: 'success',
+            title: 'Registro exitoso',
+            text: 'El usuario se registró adecuadamente',
+            confirmButtonText: 'Entendido'
+        });
+
+
+    }
 
 
 }
+
+
 
 function validarCampos() {
     let error = true;
 
     let regexNombreDelProyecto = /^[a-z A-ZáéíóúÁÉÍÓÚñÑ 1234567890]+$/;
+    let regexCedulaJuridica = /^[1234567890 ]+$/;
 
     if (inputNombreProyecto.value == '' || (regexNombreDelProyecto.test(inputNombreProyecto.value) == false)) {
         inputNombreProyecto.classList.add('error_input');
@@ -96,18 +83,56 @@ function validarCampos() {
 
     } else {
         inputNombreProyecto.classList.remove('error_input');
+        error = false
     }
 
+    if (selectNombreCliente.value == '') {
+        selectNombreCliente.classList.add('error_input');
+        error = true;
+    } else {
 
+        selectNombreCliente.classList.remove('error_input');
+        error = false
 
+    }
 
-    //  return error;
+    if (inputIdentifiacionJuridica.value == '' || (regexCedulaJuridica.test(inputIdentifiacionJuridica.value) == false)) {
+        inputIdentifiacionJuridica.classList.add('error_input');
+        error = true;
+    } else {
+        inputIdentifiacionJuridica.classList.remove('error_input');
+        error = false
+    }
+
+    if (selectEstadoProyecto.value == '') {
+        selectEstadoProyecto.classList.add('error_input');
+        error = true;
+    } else {
+        selectEstadoProyecto.classList.remove('error_input');
+        error = false;
+    }
+    if (dateFechaEntrega.value == '') {
+        dateFechaEntrega.classList.add('error_input');
+        error = true;
+    } else {
+        dateFechaEntrega.classList.remove('error_input');
+        error = false;
+    }
+
+    if (txtaDescripcion.value == '') {
+        txtaDescripcion.classList.add('error_input');
+        error = true;
+    } else {
+        txtaDescripcion.classList.remove('error_input');
+    }
+
+    return error;
 
 
 }
 
 
-  
+
 
 
 

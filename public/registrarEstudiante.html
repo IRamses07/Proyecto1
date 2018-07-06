@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/error.css">
+    <link rel="stylesheet" href="css/generalStyle.css">
+    <link rel="stylesheet" href="css/registrarEstudiante_style.css">
+    <title>Registro de Estudiante</title>
+</head>
+<body>
+    <header class="mainHeader">
+        <a href="##" class="fLeft">
+            <i class="fas fa-bell"></i> Notificaciones</a>
+        <a href="##" class="fRight">Cerrar sesión
+            <i class="fas fa-cog"></i>
+        </a>
+    </header>
+    <main>
+        <form action="" class="contFormulario">
+            <h2>Datos personales</h2>
+            <div class="layer1">
+                <label>Cédula:</label>
+                <input type="text" id="estCedula"/>
+            </div>
+            <br>
+            <div class="layer2">
+                <label>Primer nombre:</label>
+                <input type="text" id="estnombre1"/>
+            </div>
+            <div class="layer3"> 
+                <label>Segundo nombre:</label>
+                <input type="text" id="estnombre2"/>
+            </div>
+            <div class="layer2">
+                <label>Primer apellido:</label>
+                <input type="text" id="estapellido1"/>
+            </div>
+            <div class="layer3"> 
+                <label>Segundo apellido:</label>
+                <input type="text" id="estapellido2"/>
+            </div>
+            <br>
+            <div id="optionsTT">
+                <div class="layer5">
+                    <label>Provincia:</label>
+                    <select id="selecProvincia">
+                        <option> </option>
+                        <option value="0">San José</option>
+                        <option value="1">Alajuela</option>
+                        <option value="2">Cartago</option>
+                        <option value="3">Heredia</option>
+                        <option value="4">Guanacaste</option>
+                        <option value="5">Puntarenas</option>
+                        <option value="6">Limón</option>
+                    </select>
+                </div>
+                <div class="layer5">
+                    <label>Canton:</label>
+                    <select id="selectCanton">
+                        <option> </option>
+                    </select>
+                </div>
+                <div class="layer5">
+                    <label>Distrito:</label>
+                    <select id="selectDistrito">
+                        <option> </option>
+                    </select>
+                </div>
+            </div>
+            <div class="layer4">
+                <label>Dirección:</label>
+                <textarea rows="1" cols="50" id="estDireccion"></textarea>
+            </div>
+            <div class="layer2">
+                <label>Teléfono</label>
+                <input type="text" id="esttelefono"/>
+            </div>
+            <div class="layer3" >
+                <label>Correo</label>
+                <input type="text" id="estcorreo"/>
+            </div>
+        </form>
+        <form action="" class="contFormulario">
+            <h2>Información Académica</h2>
+            <div class="layer3">
+                <label>Carrera: </label>
+                <select id="selectCarrera">
+                    <option></option>
+                    <option>Desarrollo de Software</option>
+                    <option>Tecnologías de la Información y Comunicacines</option>
+                    <option>Desarrollo y Diseño Web</option>
+                </select>
+            </div>
+            <br>
+            <h3>Cursos Aprobados:</h3>
+            <div id="optionsTT">
+                <div class="layer5">
+                    <label>Ciclo:</label>
+                    <select id="selectCiclo">
+                        <option> </option>
+                        <option>1-2017</option>
+                        <option>2-2017</option>
+                        <option>3-2017</option>
+                        <option>1-2018</option>
+                        <option>2-2018</option>
+                    </select>
+                </div>
+                <div class="layer5" >
+                    <label class="labelcenter">Curso:</label>
+                    <select id="selectCurso">
+                        <option> </option>
+                        <option value="cu01">Fundamentos de programación</option>
+                        <option value="cu02">Proyecto de ingenieria del software 1</option>
+                        <option value="cu03">Fundamentos de bases de datos</option>
+                        <option value="cu04">Sistemas operativos 1</option>
+                        <option value="cu05">Programación orientada a objetos</option>
+                        <option value="cu06">Estructuras discretas</option>
+                        <option value="cu07">Redes de computadoras</option>
+                    </select>
+                </div>
+                <div class="layer5">
+                    <button type="button" id="butAgregar" class="btnRegistro">Agregar</button>
+                </div>
+                <br>
+            </div>
+        </form>   
+        <div class="tableContainer">
+            <table cellspacing=10px id="tblCursos">
+                <thead>
+                    <th>Codigo</th>
+                    <th>Ciclo</th>
+                    <th>Nombre</th>
+                    <th>Eliminar</th>
+                </thead>
+                <tbody> 
+                </tbody>
+            </table>
+        </div>
+        <form action="" class="contFormulario">
+            <h2>Contacto de emergencia</h2>
+            <div class="layer2">
+                <label>Primer nombre:</label>
+                <input type="text" id="conNombre1"/>
+            </div>
+            <div class="layer3"> 
+                <label>Segundo nombre:</label>
+                <input type="text" id="conNombre2"/>
+            </div>
+            <div class="layer2">
+                <label>Primer apellido:</label>
+                <input type="text" id="conApellido1"/>
+            </div>
+            <div class="layer3">
+                <label>Segundo apellido:</label> 
+                <input type="text" id="conApellido2"/>
+            </div>
+            <div class="layer2">
+                <label>Teléfono</label>
+                <input type="text" id="conTelefono"/>
+            </div>
+            <div class="layer3">
+                <label>Correo</label>
+                <input type="text" id="conCorreo"/>
+            </div>
+            <button type="button" id="butRegistrar" class="btnRegistro">Registrar</button>  
+        </form>
+    </main>
+    <footer></footer>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
+    <script src="js/registrarEstudiante_controlador.js"></script>
+    <script src="js/registrarEstudiante_servicio.js"></script>
+</body>
+</html>
