@@ -18,4 +18,4 @@ let clientSchema = new mongoose.Schema({
     correo_electronico:{type:String, required:true},
     ubicacion:{type: Array,required:true}
 });
-module.exports = mongoose.model('Cliente', clientSchema)
+module.exports = mongoose.model('Cliente', clientSchema);

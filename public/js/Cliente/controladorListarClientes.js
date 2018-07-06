@@ -1,4 +1,8 @@
 'use strict'
+let modal= elm('#modal');
+listener(modal,'dblclick',function () {
+    modal.classList.add('none')
+})
 let tablaLista = elm('#tablaLista');
 function llenarTabla(filro) {
     let lista;
@@ -8,6 +12,7 @@ function llenarTabla(filro) {
         lista = listarClientes();
     }
     let tbody = tablaLista.querySelector('tbody');
+    tbody.innerHTML='';
     for (let i = 0; i < lista.length; i++) {
         let row = tbody.insertRow(i),
             cedula_juridica = row.insertCell(0),
@@ -21,11 +26,14 @@ function llenarTabla(filro) {
         contacto.innerHTML=lista[i]['primer_nombre']+' '+lista[i]['primer_apellido'];
         proyectos.innerHTML='Comming soon';
         let verUbicacion=createElm('a'),
-        btnModificar=createElm('a'),
-        btnEstado=createElm('a');
+        btnModificar=createElm('button'),
+        btnEstado=createElm('button');
         verUbicacion.dataset.ubicacion=lista[i].ubicacion[1]+','+lista[i].ubicacion[2];
         verUbicacion.innerHTML='Ver ubicacion';
-        btnModificar.classList.add('btnFiltro')
+        listener(verUbicacion,'click',function () {
+           modal.classList.remove('none');
+        });
+        btnModificar.classList.add('btnFiltro');
         btnModificar.innerHTML='Modificar';
         btnEstado.classList.add('btnFiltro');
         btnEstado.innerHTML='Desactivar';

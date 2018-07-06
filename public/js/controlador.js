@@ -166,3 +166,23 @@ function geocodeAddress(geocoder, resultsMap) {
         }
     });
 }
+/**
+ * centra el mapa
+ * @param {String} lat latitud
+ * @param {String} lgn longitud
+ */
+function mapCenter(lat,lng){
+    let position=google.maps.LatLng(lat,lng);
+    map.setCenter(position);
+    marker.setPosition(position);
+}
+function showMap() {
+    let mapContent=elm('#map'),
+    latLng = { lat: 9.9333, lng: -84.0833 };
+    map = new google.maps.Map(mapContent, { center: latLng, zoom: 17 });
+    marker = new google.maps.Marker({
+        map: map,
+        draggable: false,
+        position: new google.maps.LatLng(latLng.lat, latLng.lng)
+    });
+}
