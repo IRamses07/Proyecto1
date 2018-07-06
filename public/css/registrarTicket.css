@@ -4,7 +4,6 @@
 .title {
     text-align: center;
     margin: 0 auto;
-    margin-top: 20px;
 }
 
 p {
@@ -91,9 +90,10 @@ input[type=”file”]#imgPantallazoError {
 #listaTickets {
     width: 70%;
     margin: 0 auto;
+    margin-top: 35px;
 }
 
-.tblTicketAdmin {
+#tblTicketAdmin {
     width: 100%;
     margin: 0 auto;
 }
@@ -103,14 +103,41 @@ h1 {
     margin: 20px auto;
 }
 
-th , td {
-    width: 3%;
-    height: 26px;
-    border-bottom: 1px solid #fff;
-    padding-top: 7px;
+.filtroTicket {
+    margin: 45px 0px;
+    width: 100%;
 }
 
-th {
-    font-weight: 500;
-    font-size: 1.035em;
+.filtroTicket input[type='radio'] {
+    /* display: none; */
+     width: 24px; 
+     height: 24px;
+     margin: 5px 0px;
+}
+
+.filtroTicket input[type='radio']:hover {
+    border: #fff 1px solid;
+    -moz-border: #fff 1px solid; 
+}
+
+.filtroTicket label {
+    padding-bottom: 5px; 
+    margin: 8px 0px;
+}
+
+.filtroTicket select {
+    width: 27%;
+}
+
+.btnFiltro {
+    float: right;
+    margin-bottom: 20px;
+}
+
+.btnLista {
+    height: 29px;
+    padding: 5px 0px 5px 0;
+    background-color: #fbb308;
+    color: #fff;
+    margin-bottom: 10px;
 }

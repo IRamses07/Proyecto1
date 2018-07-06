@@ -117,6 +117,7 @@ select{
     
  }
 
+ /* estilos de los botones del sweetaler  */
  .swal-button {
      background-color: #fbb803;
  }
@@ -124,6 +125,9 @@ select{
  .swal-button:hover {
     background-color: #fbb876;
 }
+
+
+/* estilos de las tablas en general */
 
 th , td {
     width: 3%;
@@ -135,4 +139,21 @@ th , td {
 th {
     font-weight: 500;
     font-size: 1.035em;
+}
+
+/* estilos del boton de filtro/buscar  */
+/* deben agregar esta clase a su boton */
+.btnFiltro {
+    background-color: #fbb803;
+    border-radius: 3px;
+    border:  #fbb803 1px solid;
+    padding: 5px 2%;
+    font-family: 'Roboto' sans-serif;
+    color: #fff;
+    font-size: 1em;
+}
+
+.btnFiltro:hover{
+    border: #fff 1px solid;
+    background-color: #454545;
 }

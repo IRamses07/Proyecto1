@@ -39,10 +39,23 @@
             <main id="content">
                 <section id="listaTickets">
                     <h1>Lista de Tickets</h1>
-                    <table class="tblTicketAdmin">
+
+                    <div class="filtroTicket">
+                        <input type="radio" id="cliente" value="cliente"><label for="cliente">Nombre de cliente</label>
+                        <input type="radio" name="profe" id="profe" value="profesor"><label for="profesor">Profesor</label>
+                        <input type="radio" id="codigo" value="código"><label for="codigo">Código</label>
+                        <select name="urgencia" id="sltUrgencia">
+                            <option value="">Seleccione la urgencia:</option>
+                        </select>
+                        
+                            <button type="button" id="btnFiltrar"  class="btnFiltro">Filtrar</button>
+                    
+                    </div>
+                    <table id="tblTicketAdmin">
                         <thead>
-                            <!-- <th>Código de Proyecto</th> -->
+                            <th>Nombre del cliente</th>
                             <th>Urgencia</th>
+                            <th>Proyecto</th>
                             <th>Descripción</th>
                             <th>Ver más</th>
                         </thead>
