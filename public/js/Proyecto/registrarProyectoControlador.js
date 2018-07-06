@@ -66,8 +66,28 @@ function obtenerDatos() {
     }
 
 
-
 }
+
+function imprimirListaPersonas(){
+    let infoProyecto = obtenerListaPersonas();
+    let tbody = document.querySelector('#tblPersonas tbody');
+    tbody.innerHTML = '';
+
+    for(let i = 0; i < infoProyecto.length; i++){
+        let fila = tbody.insertRow();
+
+        let cNombre = fila.insertCell();
+        let cEmail = fila.insertCell();
+        let cTelefono = fila.insertCell();
+        let cEdad = fila.insertCell();
+
+        cNombre.innerHTML = infoProyecto[i]['nombre_completo'];
+        cEmail.innerHTML = infoProyecto[i]['correo'];
+        cTelefono.innerHTML = infoProyecto[i]['telefono'];
+        cEdad.innerHTML = infoProyecto[i]['edad'];
+    }
+
+};
 
 function validarCampos() {
     let error = true;
@@ -123,9 +143,6 @@ function validarCampos() {
     } else {
         txtaDescripcion.classList.remove('error_input');
     }
-
-
-
 
     return error;
 
