@@ -50,6 +50,7 @@ h2 {
     /*display: none;*/
     visibility: hidden;
 
+
 }
 
 #lblCedulaError, #lblCorreoError, #lblTelError, #lblProfesionError{
@@ -60,4 +61,14 @@ h2 {
     display: block;
     margin-bottom: 5px;
 
+}
+
+.mainConstainer{
+    display: flow-root;
+}
+
+.lblError{
+    display: block;
+    margin-bottom: 10px;
+    /* height: 20px; */
 }

@@ -37,13 +37,15 @@ function validarRequeridos() {
     return empty;
 }
 
-function validarCredenciales(asId, asPassword){
-
-    let founded = false;
-
-    if(getUserPassword(asId) == asPassword){
-        setCurrentUser(asId);
-        founded = true;
+function vaidarCredenciales(psId, psPassword){
+    let userPassword = getUserPassword(psId);
+    let bFound = false;
+    if(userPassword == psPassword){
+        //Okay, usuario y contraseña correcta. Prosigue el sistema.
+        setCurrentUser(id);
+        bFound = true;
+    }else{
+        console.log("[startLogin] Se ingresó una contraseña incorrecta.");
     }
-    return founded;
+    return bFound;
 }
