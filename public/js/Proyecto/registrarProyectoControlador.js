@@ -1,4 +1,5 @@
 "use strict";
+imprimirListaPersonas();
 
 //declaracion del boton y declaracion del event listener para dicho boton
 
@@ -69,22 +70,22 @@ function obtenerDatos() {
 }
 
 function imprimirListaPersonas(){
-    let infoProyecto = obtenerListaPersonas();
-    let tbody = document.querySelector('#tblPersonas tbody');
+    let infoProyecto = obtenerListaProyectos();
+    let tbody = document.querySelector('#tblProyectos tbody');
     tbody.innerHTML = '';
 
     for(let i = 0; i < infoProyecto.length; i++){
         let fila = tbody.insertRow();
 
-        let cNombre = fila.insertCell();
-        let cEmail = fila.insertCell();
-        let cTelefono = fila.insertCell();
-        let cEdad = fila.insertCell();
+        let cCedulaJuridica = fila.insertCell();
+        let cNombreProyecto = fila.insertCell();
+        let cNombreCliente = fila.insertCell();
+        let cFechaEntrega = fila.insertCell();
 
-        cNombre.innerHTML = infoProyecto[i]['nombre_completo'];
-        cEmail.innerHTML = infoProyecto[i]['correo'];
-        cTelefono.innerHTML = infoProyecto[i]['telefono'];
-        cEdad.innerHTML = infoProyecto[i]['edad'];
+        cCedulaJuridica.innerHTML = infoProyecto[i]['identificacion_juridica'];
+        cNombreProyecto.innerHTML = infoProyecto[i]['nombre_proyecto'];
+        cNombreCliente.innerHTML = infoProyecto[i]['nombre_cliente'];
+        cFechaEntrega.innerHTML = infoProyecto[i]['fecha_Entrega'];
     }
 
 };

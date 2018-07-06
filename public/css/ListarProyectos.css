@@ -8,9 +8,8 @@ main h1{
     margin-bottom: 20px;
     text-align: center;
     font-size: 30px;
-    padding-left: 35%;
+   
     
-    width: 30%;;
 }
 
 main .tabla table {
@@ -20,6 +19,6 @@ main .tabla table {
 
 }
 
-main .tabla table th{
+/* main .tabla table th{
     padding-right: 10px;
-}
+} */s

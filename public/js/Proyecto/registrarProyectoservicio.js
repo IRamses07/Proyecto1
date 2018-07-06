@@ -31,8 +31,8 @@ function registrarProyecto(paInfoProyecto) {
     return respuesta;
 }
 
-function obtenerListaPersonas() {
-    let listaPersonas = [];
+function obtenerListaProyectos() {
+    let listaProyectos = [];
 
     let respuesta = '';
     let peticion = $.ajax({
@@ -56,7 +56,7 @@ function obtenerListaPersonas() {
 
     return respuesta;
 
-    return listaPersonas;
+    return listaProyectos;
 }
 
 
