@@ -10,7 +10,11 @@ body{
 
 /* id que va dentro del main. estilo del main espacio que da entre el menulateral y el contenido */
 #content{
+<<<<<<< HEAD
  padding-left: 15%; 
+=======
+ padding-left: 17.6%; 
+>>>>>>> master
 }
 
 /* estilos de todos los anchor/links/direcciones por defecto */
@@ -32,7 +36,7 @@ a {
 /* clase del cerrar sesión */
 .fRight{
     float: right;
-    margin-right: 20px;/******************Nuevo*******************/
+    padding-right: 20px;/******************Nuevo*******************/
 }
 
 /* estilos del menu lateral (tomen el header entero y lo copian dentro del registroTicket) */

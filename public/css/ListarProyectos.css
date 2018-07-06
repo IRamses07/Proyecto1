@@ -1,0 +1,26 @@
+ .tabla .tblPersonas{
+    margin: 0 auto;
+    width: 70%;
+   
+}
+
+main h1{
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 30px;
+   
+    
+}
+
+main .tabla table {
+  
+    margin: 0 auto;
+
+    width: 70%;
+
+
+}
+
+/* main .tabla table th{
+    padding-right: 10px;
+} */
