@@ -12,11 +12,13 @@ let inptPantallazoError = document.querySelector('#imgPantallazoError');
 let inptReferenciaTicket = document.querySelector('#sltTicket');
 
 let inptDescripcionError = document.querySelector('#txtdescripcion');
+listarSelectProyectos();
+
 
 function obtenerDatosTicket() {
     let ticket = [];
     let error = false;
-
+    error = validar();
     let nombreCliente = inptNombreCliente.value;
     let urgencia = inptUrgencia.value;
     let proyecto = inptProyecto.value;
@@ -25,7 +27,7 @@ function obtenerDatosTicket() {
     let descripcionError = inptDescripcionError.value;
     ticket.push(nombreCliente, urgencia, proyecto, pantallazoError, referenciaTicket, descripcionError);
 
-    error = validar();
+  
     if (error == true) {
         console.log('aquí va un sweet alert xD ');
         swal({
@@ -98,3 +100,22 @@ function limpiarFormulario() {
     inptDescripcionError = '';
 }
 
+function listarSelectProyectos(){
+    let sltproyectos = listarProyectos();
+    let select =  document.querySelector('#sltProyecto');
+    select.options[0] = new Option("Seleccione un proyecto...", "");
+
+    for(let i = 0; i < sltproyectos.length; i++){
+        select.options[i+1] = new Option(sltproyectos[i]['nombre_proyecto'], sltproyectos[i]['nombre_proyecto']);
+
+    }
+}
+
+// function ticketsViejos(){
+//     let sltTickets = listarTickets();
+//     let sltReferenciaTicket =  document.querySelector('#sltTicket');
+
+//     for(let i = 0; i < sltTickets.length; i++){
+//         sltReferenciaTicket.options[i] = new Option (sltTickets[i]['codigo'], sltTickets[i]['codigo'])
+//     }
+// }
