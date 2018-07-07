@@ -1,6 +1,10 @@
 /* body {
     font-size: 16px;
 } */
+#contentRegistroTicket {
+    margin-top: 20px 
+}
+
 .title {
     text-align: center;
     margin: 0 auto;
@@ -31,20 +35,24 @@ input, select {
 
 .blockLeft .boxInpt {
         /* width: 17%; */
-        margin: 25px 5%;
+        margin: 25px 5% 25px 1.5%;
         display: block;
 }
 
 div .blockLeft {
-    width: 30%;
+    width: 45%;
     float: left;
 }
 
 .blockRight {
-    width: 30%;
-    float: right;
+    width: 50%;
+    float: left;
     display: flow-root;
+    margin-top: 25px;
+    margin-left: 5%;
 }
+
+
 
 .description {
     width: 100%;
@@ -88,7 +96,7 @@ input[type=”file”]#imgPantallazoError {
 /* Estilos del Listar */
 
 #listaTickets {
-    width: 70%;
+    width: 85%;
     margin: 0 auto;
     margin-top: 35px;
 }
@@ -122,6 +130,8 @@ h1 {
 
 .filtroTicket label {
     padding-bottom: 5px; 
+    padding-left: 20px; 
+    padding-right: 10px;
     margin: 8px 0px;
 }
 
@@ -132,6 +142,8 @@ h1 {
 .btnFiltro {
     float: right;
     margin-bottom: 20px;
+    margin-right: 20px;
+    padding: 5px 3%;
 }
 
 .btnLista {
@@ -140,4 +152,11 @@ h1 {
     background-color: #fbb308;
     color: #fff;
     margin-bottom: 10px;
+}
+
+.imgErrorContainer {
+    width: 100%;
+    height: 190px;
+    background-color: black;
+    margin: 20px 0px 0px 1%;;
 }
