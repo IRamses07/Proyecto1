@@ -14,6 +14,9 @@ let map, marker, gCoder;
 function elm(id) {
     return document.querySelector(id);
 }
+function createElm(tag) {
+    return document.createElement(tag);
+}
 /**
  * agrega un evento a un elemento 
  * @param {*} element elemeto html que se le va a asignar un evento
@@ -126,4 +129,60 @@ function addClass(element, clase) {
 }
 function removeClass(element, clase) {
     element.classList.remove(clase);
+}
+/**
+ * Funcion necesaria para mostrar un mapa interactivo para seleccionar ubicaciones
+ */
+function initMap() {
+    let divMap = elm('#map'),
+        latLng;
+
+    latLng = { lat: 9.9333, lng: -84.0833 };
+    map = new google.maps.Map(divMap, { center: latLng, zoom: 8 });
+    marker = new google.maps.Marker({
+        map: map,
+        draggable: true,
+        position: new google.maps.LatLng(latLng.lat, latLng.lng)
+    });
+    // marker.addListener('dragend', function (event) {
+    //     // elm('#btnRegistrar').dataset.ubucacion =  this.getPosition().lat()+','+ this.getPosition().lng();
+    //     // console.log('Latitud: '+this.getPosition().lat()+', Longitud'+this.getPosition().lng())
+    // })
+    gCoder = new google.maps.Geocoder();
+}
+/**
+ * Posiciona el marker y el mapa en la ubicacion seleccionada por el usuario
+ * @param {*} geocoder objeto que hará de traductor de la direccion física a coordenadas
+ * @param {*} resultsMap mapa que se centrará en la ubicación de la dirección
+ */
+function geocodeAddress(geocoder, resultsMap) {
+    var address = 'Costa Rica' + ' ' + sltProvincia.value + ' ' + sltCantones.value + ' ' + sltDistrito.value;
+    geocoder.geocode({ 'address': address }, function (results, status) {
+        if (status === 'OK') {
+            resultsMap.setCenter(results[0].geometry.location);
+            marker.setPosition(results[0].geometry.location);
+        } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+        }
+    });
+}
+/**
+ * centra el mapa
+ * @param {String} lat latitud
+ * @param {String} lgn longitud
+ */
+function mapCenter(lat,lng){
+    let position=new google.maps.LatLng(lat,lng);
+    map.setCenter(position);
+    marker.setPosition(position);
+}
+function showMap() {
+    let mapContent=elm('#map'),
+    latLng = { lat: 9.9333, lng: -84.0833 };
+    map = new google.maps.Map(mapContent, { center: latLng, zoom: 17 });
+    marker = new google.maps.Marker({
+        map: map,
+        draggable: false,
+        position: new google.maps.LatLng(latLng.lat, latLng.lng)
+    });
 }

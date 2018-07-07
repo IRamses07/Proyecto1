@@ -1,6 +1,6 @@
 
 .fLeft {
-    margin-left: 300px;
+    /*margin-left: 300px;*/
     float: left;
 }
 
@@ -22,7 +22,9 @@ h2 {
 .fmr {
     display: flow-root;
     width: 50%;
-    margin: 80px auto 0 519px;
+    /* margin: 0 auto; */
+    margin: 80px auto 0 auto;
+   /* margin: 80px auto 0 519px;*/
 }
 
 #leftContainer{
@@ -36,15 +38,18 @@ h2 {
 }
 
 .fmr div div {
-    margin: 0 0 25px 0;
+    /*margin: 0 0 25px 0;*/
 }
 
 #btnRegistro{
-    margin: 15px 0 0 0;
+    display:block;
+    /*margin: 15px 0 0 0;*/
 }
 
 .lblHide{  
-    display: none;
+    /*display: none;*/
+    visibility: hidden;
+
 
 }
 
@@ -56,4 +61,14 @@ h2 {
     display: block;
     margin-bottom: 5px;
 
+}
+
+.mainConstainer{
+    display: flow-root;
+}
+
+.lblError{
+    display: block;
+    margin-bottom: 10px;
+    /* height: 20px; */
 }
