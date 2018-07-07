@@ -1,5 +1,11 @@
 imprimirListaEstudiantes();
 
+//llamada a buscar por nombre u cedula
+let buttonFiltrar = document.querySelector('#butBuscarEstudiante');
+buttonFiltrar.addEventListener('click', );
+
+let inputDatoBuscar = document.querySelector('#inputBuscar');
+
 function imprimirListaEstudiantes(){
     let listaEstudiantes = obtenerListaEstudiantes();
     let tbody = document.querySelector('#tblEstudiantes tbody');
@@ -31,3 +37,21 @@ console.log(listaEstudiantes.length);
         }
     }
 };
+
+function getEntrada(){
+    let sError = false;
+
+    sError = validarEntrada();
+}
+
+function validarEntrada(){
+    let checkSoloLetras = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+$/;
+
+    if(inputDato.value == '' || (checkSoloLetras.test(inputDato.value)==false) ){
+        inputDato.classList.add('error_input');
+        sError = true;
+    }else{
+        inputDato.classList.remove('error_input');
+    }
+
+}
