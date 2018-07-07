@@ -31,9 +31,9 @@ module.exports.registrar = function(req,res){
 };
 
 module.exports.listar = function(req,res){
-    clientModel.find().then()(
+    clientModel.find().then(
         function(clientes){
-            res.send(usaurios);
+            res.send(clientes);
         });
 };
 
