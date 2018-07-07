@@ -1,51 +1,22 @@
-document.querySelector('#btnLogin').addEventListener('click', signIn);
 
-function signIn(){
+function getCurrentUserData(){
+    let currentData = JSON.parse(sessionStorage.getItem('currentUser'));
+    if (currentData == null){
+        currentData = false;
+        console.log("[getCurrentUserData] Ningun usuario ha iniciado sesión.");
+    }
+    return currentData;
+}
 
-    let sId = document.querySelector('#txtIdentificacion').value;
-    let sPassword = document.querySelector('#txtContrasenna').value;
+function moveUser(type){
+    
+    let userLoggedIn = getCurrentUserData();
 
-    if(validarRequeridos){
-        swal({
-            title: "Advertencia",
-            text: "Por favor llene los campos en rojo.",
-            icon: "warning",
-            button: "Ok",
-        });
-    }else{
-        if(vaidarCredenciales(sId, sPassword)){
-            
+    if (type == "without"){
+        if (userLoggedIn == false){
+            window.location = "login.html";
+        }else{
         }
     }
 
-
-}
-
-function validarRequeridos() {
-
-    let aRequeridos = document.querySelectorAll('[required]');
-    let empty = false;
-
-    for (let i = 0; i < aRequeridos.length; i++) {
-        if (aRequeridos[i].value == '') {
-            aRequeridos[i].classList.add('error_input');
-            empty = true;
-        } else {
-            aRequeridos[i].classList.remove('error_input');
-        }
-    }
-    return empty;
-}
-
-function vaidarCredenciales(psId, psPassword){
-    let userPassword = getUserPassword(psId);
-    let bFound = false;
-    if(userPassword == psPassword){
-        //Okay, usuario y contraseña correcta. Prosigue el sistema.
-        setCurrentUser(id);
-        bFound = true;
-    }else{
-        console.log("[startLogin] Se ingresó una contraseña incorrecta.");
-    }
-    return bFound;
 }

@@ -8,7 +8,7 @@ function getUsers() {
     let aListaClientes = [];
     let aAllUsers = [];
 
-    let peticion = $.ajax({
+    let peticion1 = $.ajax({
         url: 'http://localhost:4000/api/listar_profesores',
         type: 'get',
         contentType: 'application/x-www-form-urlencoded; charset=utf-8',
@@ -19,16 +19,16 @@ function getUsers() {
         }
     });
 
-    peticion.done(function (response) {
+    peticion1.done(function (response) {
         aListaProfesores = response;
     });
 
-    peticion.fail(function () {
+    peticion1.fail(function () {
 
     });
 
-    let peticion = $.ajax({
-        url: 'http://localhost:4000/api/listar_clientes', //Corregir la ruta del listado de estudiantes
+    let peticion2 = $.ajax({
+        url: 'http://localhost:4000/api/listar_estudiantes', 
         type: 'get',
         contentType: 'application/x-www-form-urlencoded; charset=utf-8',
         dataType: 'json',
@@ -38,16 +38,16 @@ function getUsers() {
         }
     });
 
-    peticion.done(function (response) {
-        aListaProfesores = response;
+    peticion2.done(function (response) {
+        aListaEstudiantes = response;
     });
 
-    peticion.fail(function () {
+    peticion2.fail(function () {
 
     });
 
-    let peticion = $.ajax({
-        url: 'http://localhost:4000/api/listar_clientes', //Corregir la ruta del listado de clientes
+    let peticion3 = $.ajax({
+        url: 'http://localhost:4000/api/listar_clientes', 
         type: 'get',
         contentType: 'application/x-www-form-urlencoded; charset=utf-8',
         dataType: 'json',
@@ -57,11 +57,11 @@ function getUsers() {
         }
     });
 
-    peticion.done(function (response) {
+    peticion3.done(function (response) {
         aListaClientes = response;
     });
 
-    peticion.fail(function () {
+    peticion3.fail(function () {
 
     });
 

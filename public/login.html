@@ -38,20 +38,32 @@
     </header>
     <main id="content">
 
-        <div class="loginContainer">
+        <div class="mainContainer">
+
             <h2>Iniciar sesión</h2>
-            <label for="">Identificación</label>
-            <input type="text" id="txtIdentificacion" required>
 
-            <label for="">Contraseña</label>
-            <input type="text" id="txtContrasenna" required>
+            <div class="container">
 
-            <button type="button" class="btnRegistro" id="btnLogin">Registrar</button>
+                <div class="divDatos">
+                    <label for="" class="lblDatos">Identificación</label>
+                    <input type="text" class="inputDatos" id="txtIdentificacion" required>
+                </div>
+                <div class="divDatos">
+                    <label for="" class="lblDatos">Contraseña</label>
+                    <input type="text" class="inputDatos" id="txtPassword" required>
+                    <label for="" class="lblHide" id="lblCredencialesError">Contraseña o identificacion inválidas.</label>
+                </div>
+
+                <button type="button" class="btnRegistro" id="btnLogin">Registrar</button>
+            </div>
         </div>
+
     </main>
     <footer></footer>
     <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/login.servicio.js"></script>
     <script src="js/login.js"></script>
+    <script src="js/login.controlador.js"></script>    
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
