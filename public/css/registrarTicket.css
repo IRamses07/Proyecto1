@@ -96,7 +96,7 @@ input[type=”file”]#imgPantallazoError {
 /* Estilos del Listar */
 
 #listaTickets {
-    width: 70%;
+    width: 85%;
     margin: 0 auto;
     margin-top: 35px;
 }
@@ -130,6 +130,8 @@ h1 {
 
 .filtroTicket label {
     padding-bottom: 5px; 
+    padding-left: 20px; 
+    padding-right: 10px;
     margin: 8px 0px;
 }
 
@@ -140,6 +142,8 @@ h1 {
 .btnFiltro {
     float: right;
     margin-bottom: 20px;
+    margin-right: 20px;
+    padding: 5px 3%;
 }
 
 .btnLista {
