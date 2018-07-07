@@ -64,7 +64,7 @@ listener(btnRegistrar, 'click', function () {
                 segundo_apellido:inputs[9].value,
                 telefono:inputs[10].value,
                 correo_electronico:inputs[11].value,
-                ubicacion:fmrCliente.registrarCliente.dataset.ubucacion.split(',')
+                ubicacion:fmrCliente.registrarCliente.dataset.ubucacion
             }
             registrarCliente(data);
         }
