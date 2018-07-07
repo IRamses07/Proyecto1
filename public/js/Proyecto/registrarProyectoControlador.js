@@ -80,8 +80,6 @@ function listarSelectClientes(){
     }
 }
 
-
-
 function validarCampos() {
     let error = true;
 
