@@ -172,7 +172,7 @@ function geocodeAddress(geocoder, resultsMap) {
  * @param {String} lgn longitud
  */
 function mapCenter(lat,lng){
-    let position=google.maps.LatLng(lat,lng);
+    let position=new google.maps.LatLng(lat,lng);
     map.setCenter(position);
     marker.setPosition(position);
 }
