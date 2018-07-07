@@ -15,6 +15,7 @@ module.exports.registrar = function (req, res) {
         profesion: req.body.profesion,
         rol: req.body.rol,
         password: req.body.password,
+        passwordChange: req.body.passwordChange,
         lugarTrabajo:'',
         annosExperiencia:'',
         cursosImpartidos: [],

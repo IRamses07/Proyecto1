@@ -17,17 +17,15 @@ function signIn() {
 
             document.querySelector('#lblCredencialesError').classList.add('lblHide');
 
-            resultadoLogin.classList.remove('esconder');
-
             let infoUser = getCurrentUserData();
-            if (infoUser['password_changed'] == 0) {
+            if (infoUser['passwordChange'] == 0) {
                 console.log("Primer inicio de sesión del usuario! Deberá cambiar su contraseña.");
                 /*window.setTimeout(function(){*/
-                window.location.href = "changePassword.html";
+                window.location.href = "passwordChange.html";
                 /*}, 5000);*/
             } else {
                 /*window.setTimeout(function(){*/
-                window.location.href = ".html"; //DONDE MANDAR A LA GENTE CUANDO SE LOGEA??????????
+                window.location.href = "listarProyectos.html"; //DONDE MANDAR A LA GENTE CUANDO SE LOGEA??????????
                 /*}, 5000);}*/
 
                 swal({
@@ -65,7 +63,7 @@ function validarCredenciales(psId, psPassword) {
     let bFound = false;
     if (userPassword == psPassword) {
         //Usuario y contraseña correcta.
-        setCurrentUser(id);
+        setCurrentUser(psId);
         bFound = true;
     } else {
         console.log("[startLogin] Se ingresó una contraseña incorrecta.");

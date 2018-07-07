@@ -4,24 +4,37 @@ h2 {
     text-align: center;
 }
 
+#content{
+    padding-right: 17.6%;
+}
+
 .mainContainer{
     display: flow-root;
-    width: 40%;
+    width: 37.8%;
+    padding-right: 5px;
     /* margin: 0 auto; */
     margin: 80px auto 0 auto;
    /* margin: 80px auto 0 519px;*/
 }
 
+/*.mainContainer{
+    display: flow-root;
+    width: 30%;
+    padding-right: 5px;
+    margin: 80px auto 0 auto;
+}*/
+
 .container{
     display: flow-root;
-    margin: 0 auto;
-    width: 60%;
+    padding-right: 5px;
+    /*margin: 0 auto;*/
+    width: 100%;
 }
 
-.lblDatos{
+/*.lblDatos{
     display: block;
-    width: 20%;
-}
+    margin-bottom: 5px;
+}*/
 
 .inputDatos{
     width: 100%;
@@ -36,10 +49,10 @@ h2 {
 border-left: #fbb803 3px solid;
 }
 
-.divDatos{
+/* .divDatos{
     margin-bottom: 25px;
-}
+} */
 
-.lblDatos{
-    margin-bottom: 7px;
-}
+/*.fLeft{
+    margin-left: 15px;
+}*/
