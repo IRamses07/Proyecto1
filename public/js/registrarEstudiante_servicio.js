@@ -77,3 +77,33 @@ function obtenerListaEstudiantes(){
     
    //return listaEstudiantes;
 }
+
+
+function filtrarNombreEstudiantes(inputDatoBuscar){
+    console.log('f5');
+    console.log(inputDatoBuscar.value);
+    let respuesta = 'respuesta';
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/filtrarnombre_estudiantes',
+        type : 'get',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            Nombre1 : inputDatoBuscar.value
+        }
+      });
+    
+      peticion.done(function(response){
+          respuesta = response;
+      });
+    
+      peticion.fail(function(response){
+      });
+
+      //console.log(listaEstudiantes);
+    console.log('f6');
+      return respuesta;
+    
+   //return listaEstudiantes;
+}

@@ -13,4 +13,10 @@ router.route('/listar_estudiantes')
     estudiantes.listar(req, res);
 });
 
+router.route('/filtrarnombre_estudiantes')
+    .get(function(req, res){
+        console.log('f7');
+    estudiantes.filtrarNombre(req, res);
+});
+
 module.exports = router;

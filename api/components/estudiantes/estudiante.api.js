@@ -37,7 +37,15 @@ module.exports.registrar = function(req, res){
 };
 
 module.exports.listar = function(req, res){
-    estudianteSchema.find().then(
+    estudianteSchema.find().sort({Nombre1 : 'asc'}).then(
+        function(estudiantes){
+            res.send(estudiantes);
+        });
+};
+
+module.exports.filtrarNombre = function(req, res){
+    console.log(req.query.Nombre1);
+    estudianteSchema.find({'Nombre1':req.query.Nombre1}).then(
         function(estudiantes){
             res.send(estudiantes);
         });

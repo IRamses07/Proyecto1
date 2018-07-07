@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/generalStyle.css">
     <link rel="stylesheet" href="css/registrarEstudiante_style.css">
     <link rel="stylesheet" href="css/listarEstudiante.css">
-    <title>Registro de Estudiante</title>
+    <title>Lista de Estudiante</title>
 </head>
 <body>
     <header class="mainHeader">
@@ -24,16 +24,16 @@
 
         <h2>Lista de estudiantes</h2>
         <div class="filtrarEstudiante">
-            <form action="" class="contFormulario2">
+            <form action="" class="contFormulario2" id="form">
                 <div class="buscarPor">
                     <label for="cliente">Buscar por:</label>
                 </div>
                 <div class="seleccionar">
-                        <input type="radio" checked="checked"/><label for="cliente">Nombre</label>
-                        <input type="radio"/><label for="cliente">Cédula</label>
+                        <input type="radio" checked="checked" value="nombre" name="radioSelect"/><label for="cliente">Nombre</label>
+                        <input type="radio" value="proyecto" name="radioSelect"/><label for="cliente">Proyecto</label>
                 </div>
                 <div class="buscar">
-                    <input type="text" id="inputBuscar"/>
+                    <input type="text" id="inputBuscar"/><label id="errorInput"></label>
                 </div>
             
                 <div class="containerRegistrar">
@@ -41,7 +41,6 @@
                 </div>
             </form>
         </div>
-
 
         <div class="tableContainer">
             
@@ -61,7 +60,7 @@
     </main>
     <footer></footer>
     <script src="js/jquery-3.3.1.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>-->
     <script src="js/registrarEstudiante_servicio.js"></script>
     <script src="js/Estudiante/listarEstudiante_controlador.js"></script>
 

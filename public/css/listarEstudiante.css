@@ -49,3 +49,7 @@
 .buscarPor{
     margin-bottom: 15px;
 }
+#errorInput{
+    font-size: 10px;
+    color: #ff0000;
+}
