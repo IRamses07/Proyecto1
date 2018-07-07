@@ -39,7 +39,7 @@
     <!-- </header> -->
 
     <main id="content">
-        <section>
+        <section >
 
             <div class="title">
                 <h1>Registro de Ticket</h1>
@@ -55,7 +55,7 @@
                     <div class="boxInpt">
 
                         <label for="">Urgencia</label>
-                        <select name="urgencia" id="sltUrgencia">
+                        <select name="urgencia" id="sltUrgencia" required>
                             <option value="">seleccione la urgencia</option>
                             <option value="Alta">Alta</option>
                             <option value="Media">Media</option>
@@ -65,33 +65,34 @@
 
                     <div class="boxInpt">
                         <label for="">Proyecto</label>
-                        <select name="proyecto" id="sltProyecto">
-                            <option value="uno">Seleccione su proyecto</option>
+                        <select name="proyecto" id="sltProyecto" required>
+                            <option value="">Seleccione su proyecto</option>
                         </select>
                     </div>
+
+                    <div class="boxInpt">
+                        <label for="">Referencie un ticket anterior</label>
+                        <select name="" id="sltTicket">
+                            <option value="uno">Seleccione un ticket</option>
+                        </select>
+                      </div> 
                 </div>
 
 
                 <div class="blockRight">
-                        <div class="boxInpt">
-                    <label for="">Subir pantallazo del error:</label>
-                    <input type="file" value="" id="imgPantallazoError">
+                    <div class="boxInpt">
+                    <label for="file-upload">Subir pantallazo del error:</label>
+                    <input type="file"  id="file-upload">
                 </div>
                 <div class="boxInpt">
-                    <div class="imgError" id="imgPantallazoError"></div>
+                    <div class="imgErrorContainer" id="imgPantallazoError"></div>
                 </div>
-                <div class="boxInpt">
-                    <label for="">Referencie un ticket anterior</label>
-                    <select name="" id="sltTicket">
-                        <option value="uno">Seleccione un ticket</option>
-                    </select>
-                  </div>  
-
+            
                 </div>
             </div>
                 <div class="description">
                     <label for="">Descripción</label>
-                    <textarea id="txtdescripcion" value="" placeholder="Escribe una descripción breve del error..."></textarea>
+                    <textarea id="txtdescripcion" value="" placeholder="Escribe una descripción breve del error..." required></textarea>
                     <button type="button" class='btnRegistro' id="btnRegistrarTicket">Registrar ticket</button>
                 </div>
                 
