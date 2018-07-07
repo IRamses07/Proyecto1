@@ -1,6 +1,6 @@
 "use strict";
 
-listarSelectProyectos();
+listarSelectClientes();
 //declaracion del boton y declaracion del event listener para dicho boton
 
 let botonRegistrar = document.querySelector('#btnRegistrar');
@@ -69,7 +69,7 @@ function obtenerDatos() {
 
 }
 
-function listarSelectProyectos(){
+function listarSelectClientes(){
     let slNombredelCliente = listarClientes();
     let select =  document.querySelector('#slNombredelCliente');
     select.options[0] = new Option("Seleccione un cliente...", "");
