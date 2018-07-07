@@ -1,9 +1,10 @@
 'use strict'
 let modal = elm('#modal');
-listener(modal, 'dblclick', function () {
+listener(modal.querySelector('a'), 'click', function () {
     modal.classList.add('none')
-})
+});
 let tablaLista = elm('#tablaLista');
+llenarTabla()
 function llenarTabla(filro) {
     let lista;
     if (filro != undefined) {
@@ -33,7 +34,6 @@ function llenarTabla(filro) {
         listener(verUbicacion, 'click', function () {
             modal.classList.remove('none');
             let ubicacion = verUbicacion.dataset.ubicacion.split(',');
-            console.log(verUbicacion.dataset.ubicacion+'algo');
             mapCenter(ubicacion[0], ubicacion[1]);
         });
         btnModificar.classList.add('btnFiltro');
