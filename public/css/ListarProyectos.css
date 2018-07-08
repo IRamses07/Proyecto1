@@ -16,10 +16,16 @@ main .tabla table {
   
     margin: 0 auto;
 
-    width: 70%;
+    width: 75%;
 
 
 }
+
+td{
+padding-left:5%;
+
+}
+
 
 /* main .tabla table th{
     padding-right: 10px;

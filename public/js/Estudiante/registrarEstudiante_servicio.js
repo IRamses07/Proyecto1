@@ -29,7 +29,8 @@ function registrarEstudiante(infoEstudiante){
                 contApellido1 : infoEstudiante[14],
                 contApellido2 : infoEstudiante[15],
                 contTelefono : infoEstudiante[16],
-                contCorreo : infoEstudiante[17]
+                contCorreo : infoEstudiante[17],
+                estado : infoEstudiante[18]
         }
       });
     
@@ -73,6 +74,36 @@ function obtenerListaEstudiantes(){
 
       //console.log(listaEstudiantes);
 
+      return respuesta;
+    
+   //return listaEstudiantes;
+}
+
+
+function filtrarNombreEstudiantes(inputDatoBuscar){
+    console.log('f5');
+    console.log(inputDatoBuscar.value);
+    let respuesta = 'respuesta';
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/filtrarnombre_estudiantes',
+        type : 'get',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            Nombre1 : inputDatoBuscar.value
+        }
+      });
+    
+      peticion.done(function(response){
+          respuesta = response;
+      });
+    
+      peticion.fail(function(response){
+      });
+
+      //console.log(listaEstudiantes);
+    console.log('f6');
       return respuesta;
     
    //return listaEstudiantes;
