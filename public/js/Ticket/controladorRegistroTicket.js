@@ -1,4 +1,5 @@
 'use strict';
+moveUser(true);
 
 let botonRegistrarTicket = document.querySelector('#btnRegistrarTicket');
 botonRegistrarTicket.addEventListener('click', obtenerDatosTicket);

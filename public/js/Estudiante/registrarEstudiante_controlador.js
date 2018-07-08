@@ -1,4 +1,5 @@
 'use strict';
+moveUser(true);
 //Boton Registrar Estudiante
 let buttonRegistrar = document.querySelector('#butRegistrar');
 buttonRegistrar.addEventListener('click', getDatos);

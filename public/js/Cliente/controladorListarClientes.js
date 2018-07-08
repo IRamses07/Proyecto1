@@ -1,4 +1,5 @@
 'use strict'
+moveUser(true);
 let modal = elm('#modal');
 listener(modal.querySelector('a'), 'click', function () {
     modal.classList.add('none')

@@ -1,3 +1,4 @@
+moveUser(true);
 listadoProfesores();
 
 function listadoProfesores(){
