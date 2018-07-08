@@ -22,7 +22,8 @@ module.exports.registrar = function(req, res){
         contApellido1 : req.body.contApellido1,
         contApellido2 : req.body.contApellido2,
         contTelefono : req.body.contTelefono,
-        contCorreo : req.body.contCorreo
+        contCorreo : req.body.contCorreo,
+        estado : req.body.estado
     });
 
     estudianteNuevo.save(function(error){

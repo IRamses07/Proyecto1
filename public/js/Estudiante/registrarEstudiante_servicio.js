@@ -29,7 +29,8 @@ function registrarEstudiante(infoEstudiante){
                 contApellido1 : infoEstudiante[14],
                 contApellido2 : infoEstudiante[15],
                 contTelefono : infoEstudiante[16],
-                contCorreo : infoEstudiante[17]
+                contCorreo : infoEstudiante[17],
+                estado : infoEstudiante[18]
         }
       });
     

@@ -43,7 +43,7 @@ function imprimirLista(lista){
         cCarrera.innerHTML = listaEstudiantes[i]['carrera'];
         cHoras.innerHTML = '  0  ';                                                 //A definir con el programador engardado de asignar horas al actor
         cPerfil.innerHTML = '<button type="button" class="btnRegistro" value="'+listaEstudiantes[i]['cedula']+'">ver mas</button>';
-        cEstado.innerHTML = '<button type="button" class="btnRegistro" value="'+listaEstudiantes[i]['cedula']+'">modificar</button>'+'   Activo';   //falta agregar el estado a la base de datos de estudiantes para tomar el estado.
+        cEstado.innerHTML = '<button type="button" class="btnRegistro" value="'+listaEstudiantes[i]['cedula']+'">modificar</button>  '+listaEstudiantes[i]['estado']+' ';
     }
 }
 
