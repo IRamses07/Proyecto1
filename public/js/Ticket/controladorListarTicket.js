@@ -4,13 +4,13 @@ listarTicketsAdmin();
 // listarTicketsEstudiante();
 // listarTicketsCliente();
 
-function listarTicketsAdmin (){
+function listarTicketsAdmin() {
     let tickets = listarTickets();
     let nTamanno = tickets.length;
     let tbody = document.querySelector('#tblTicketAdmin tbody');
     tbody.innerHTML = '';
 
-    for(let i = 0; i < nTamanno; i++){
+    for (let i = 0; i < nTamanno; i++) {
 
         let fila = tbody.insertRow();
         let cliente = fila.insertCell();
@@ -24,7 +24,7 @@ function listarTicketsAdmin (){
         boton.value = "Ver más";
         // boton.id = tickets[i][0];
         boton.classList.add("btnLista");
-      
+
         cliente.innerHTML = tickets[i]['nombre_cliente'];
         urgencia.innerHTML = tickets[i]['urgencia'];
         proyecto.innerHTML = tickets[i]['proyecto'];
@@ -34,15 +34,32 @@ function listarTicketsAdmin (){
         // boton.addEventListener('click',mostrarDatosTicketseleccionado);
 
         //         for (let j = 0; j < canColumns; j++) {
-//           var celda = fila.insertCell(j);
-//           celda.innerHTML = listaCuerposCelestes[i][j];
-//         }
-  
-//         botonEditar.addEventListener('click', mostrarDatosParaActuralizarPlanetas);
-  
-//         celdaBotones.appendChild(botonEditar);
-//         fila.appendChild(celdaBotones);
-//         tbody.appendChild(fila);
-        
+        //           var celda = fila.insertCell(j);
+        //           celda.innerHTML = listaCuerposCelestes[i][j];
+        //         }
+
+        //         botonEditar.addEventListener('click', mostrarDatosParaActuralizarPlanetas);
+
+        //         celdaBotones.appendChild(botonEditar);
+        //         fila.appendChild(celdaBotones);
+        //         tbody.appendChild(fila);
+
     }
 };
+
+// function obtenerDatosSelectUrgencia() {
+//     let listaTickets =  listarTickets();
+//     let selectUrgencia = document.querySelector('#sltUrgencia').value;
+//     if (selectUrgencia.value == 'Alta') {
+//         // listaTickets[i]['urgencia'].sort();
+//         console.log("a ver que pasa xD");
+//     } else {
+//         if (selectUrgencia.value == 'Media') {
+
+//         } else {
+//             if (selectUrgencia.value == 'Baja') { }
+//         }
+//     }
+
+
+// }
