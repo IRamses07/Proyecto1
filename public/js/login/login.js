@@ -23,9 +23,8 @@ function moveUser(type){
 function logOut(){
     let usuarioData = getCurrentUserData();
     let logSucessfull = false;
-    if(!usuarioData){}else{
+    if(usuarioData){
         logSucessfull = true;
-        console.log("[logOut] "+usuarioData['cedula']);
         sessionStorage.removeItem('currentUser');
     }
     window.location = 'login.html';

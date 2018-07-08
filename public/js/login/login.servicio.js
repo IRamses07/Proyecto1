@@ -74,7 +74,7 @@ function setCurrentUser(pId) {
     let datosID = [];
     for (let i = 0; i < allUsers.length; i++) {
         for (let j = 0; j < allUsers[i].length; j++) {
-            if (allUsers[i][j]['cedula'] == pId) {
+            if (allUsers[i][j]['cedula'] == pId || allUsers[i][j]['cedula_juridica'] == pId) {
                 console.log("[setCurrentUser] Se colocó/actualizó la información del usuario actual.");
                 datosID = allUsers[i][j];
             }
@@ -90,7 +90,7 @@ function getUserPassword(pId) {
     for (let i = 0; i < allUsers.length; i++) {
         for (let j = 0; j < allUsers[i].length; j++) {
 
-            if (allUsers[i][j]['cedula'] == pId) {
+            if (allUsers[i][j]['cedula'] == pId || allUsers[i][j]['cedula_juridica'] == pId) {
                 thisUserPassword = allUsers[i][j]['password'];
                 console.log("[getUserPassword]  El usuario existe y se encontró la contraseña del usuario.")
             }
