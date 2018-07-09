@@ -35,6 +35,7 @@ function registrarProfe() {
     let sTelefono = document.querySelector('#txtTelefono').value;
     let sProfesion = document.querySelector('#txtProfesion').value;
     let sRol = 'profesor';
+    let passwordChange = 0;
 
     let bError = false;
 
@@ -98,7 +99,7 @@ function registrarProfe() {
                 icon: "success",
                 button: "Ok",
             });
-            infoProfesor.push(sNombre1, sNombre2, sApellido1, sApellido2, sCedula, sCorreo, sTelefono, sProfesion, sRol, password);
+            infoProfesor.push(sNombre1, sNombre2, sApellido1, sApellido2, sCedula, sCorreo, sTelefono, sProfesion, sRol, password,passwordChange);
             setProfessorData(infoProfesor);
             limpiar();
         }

@@ -19,7 +19,8 @@ function setProfessorData(infoProfesor) {
             telefono: infoProfesor[6],
             profesion: infoProfesor[7],
             rol: infoProfesor[8],
-            password: infoProfesor[9]
+            password: infoProfesor[9],
+            passwordChange: infoProfesor[10]
             /*profesion: infoProfesor.profesion*/
         }
     });

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Registro de profesores</title>
+    <title>Login</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -13,45 +13,59 @@
 </head>
 
 <body>
-    <header>
-        <div class="mainHeader">
-            <a href="##" class="fLeft">
-                <i class="fas fa-bell"></i> Notificaciones</a>
-            <a href="##" class="fRight">Cerrar sesión
-                <i class="fas fa-cog"></i>
-            </a>
-        </div>
-
-        <div class="menuLateral">
-            <i class="fas fa-align-justify"></i>
-            <div class="option">
-                <a href="registroClientes.html">Registro Cliente</a>
-            </div>
-            <div class="option">
-                <a href="registroProfesores.html">Regsitrar Profesor</a>
-            </div>
-            <div class="option">
-                <a href="registrarProyecto.html">Registrar Proyecto</a>
-            </div>
-        </div>
-
-    </header>
+        <header>
+                <div class="mainHeader">
+                    <a href="#landing#" class="fLeft">Inicio</a>
+                    <!-- <a href="##" class="fLeft">
+                        <i class="fas fa-bell"></i> Notificaciones</a>
+                    <a href="##" class="fRight">Cerrar sesión
+                        <i class="fas fa-cog"></i> -->
+                    </a>
+                </div>
+        
+                <!-- <div class="menuLateral">
+                    <i class="fas fa-align-justify"></i>
+                    <div class="option">
+                        <a href="registroClientes.html">Registro Cliente</a>
+                    </div>
+                    <div class="option">
+                        <a href="registroProfesores.html">Regsitrar Profesor</a>
+                    </div>
+                    <div class="option">
+                        <a href="registrarProyecto.html">Registrar Proyecto</a>
+                    </div>
+                </div> -->
+        
+            </header>
     <main id="content">
 
-        <div class="loginContainer">
+        <div class="mainContainer">
+
             <h2>Iniciar sesión</h2>
-            <label for="">Identificación</label>
-            <input type="text" id="txtIdentificacion" required>
 
-            <label for="">Contraseña</label>
-            <input type="text" id="txtContrasenna" required>
+            <div class="container">
 
-            <button type="button" class="btnRegistro" id="btnLogin">Registrar</button>
+                <div class="divDatos">
+                    <label for="" class="lblDatos">Identificación</label>
+                    <input type="text" class="inputDatos" id="txtIdentificacion" required>
+                </div>
+
+                <div class="divDatos">
+                    <label for="" class="lblDatos">Contraseña</label>
+                    <input type="text" class="inputDatos" id="txtPassword" required>
+                    <label for="" class="lblHide" id="lblCredencialesError">Contraseña o identificacion inválidas.</label>
+                </div>
+            </div>
+            <button type="button" class="btnRegistro" id="btnLogin">Iniciar sesión</button>
+
         </div>
+
     </main>
     <footer></footer>
     <script src="js/jquery-3.3.1.js"></script>
-    <script src="js/login.js"></script>
+    <script src="js/Login/login.servicio.js"></script>
+    <script src="js/Login/login.js"></script>
+    <script src="js/Login/login.controlador.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
