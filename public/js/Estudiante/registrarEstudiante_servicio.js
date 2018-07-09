@@ -23,7 +23,7 @@ function registrarEstudiante(infoEstudiante){
                 canton : infoEstudiante[9],
                 distrito : infoEstudiante[10],
                 carrera : infoEstudiante[11],
-                scursosAprobados: listaCursos,
+                cursosAprobados: listaCursos,
                 contNombre1 : infoEstudiante[12],
                 contNombre2 : infoEstudiante[13],
                 contApellido1 : infoEstudiante[14],
@@ -92,6 +92,34 @@ function filtrarNombreEstudiantes(inputDatoBuscar){
         async : false,
         data:{
             Nombre1 : inputDatoBuscar.value
+        }
+      });
+    
+      peticion.done(function(response){
+          respuesta = response;
+      });
+    
+      peticion.fail(function(response){
+      });
+
+      //console.log(listaEstudiantes);
+    console.log('f6');
+      return respuesta;
+    
+   //return listaEstudiantes;
+}
+
+function getInfoEstudiante(){
+    console.log('f5');
+    let respuesta = 'respuesta';
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/getInfo_estudiantes',
+        type : 'get',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            cedula : '304870951'
         }
       });
     

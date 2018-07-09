@@ -9,7 +9,7 @@ module.exports.registrar = function(req, res){
         Nombre2 : req.body.Nombre2,
         apellido1 : req.body.apellido1,
         apellido2 : req.body.apellido2,
-        telefono : req.body.apellido2,
+        telefono : req.body.telefono,
         correo : req.body.correo,
         direccion : req.body.direccion,
         provincia : req.body.provincia,
@@ -47,6 +47,14 @@ module.exports.listar = function(req, res){
 module.exports.filtrarNombre = function(req, res){
     console.log(req.query.Nombre1);
     estudianteSchema.find({'Nombre1':req.query.Nombre1}).then(
+        function(estudiantes){
+            res.send(estudiantes);
+        });
+};
+
+module.exports.getInfoEstudiante = function(req, res){
+    console.log(req.query.cedula);
+    estudianteSchema.find({'cedula':req.query.cedula}).then(
         function(estudiantes){
             res.send(estudiantes);
         });

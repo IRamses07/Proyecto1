@@ -37,3 +37,10 @@ module.exports.listar = function(req,res){
         });
 };
 
+//agregado por Esteban:
+module.exports.getInfoCliente = function(req, res){
+    clientModel.find({'cedula_juridica':req.query.cedula_juridica}).then(
+        function(clientes){
+            res.send(clientes);
+        });
+};

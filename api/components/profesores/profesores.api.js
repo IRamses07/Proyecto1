@@ -38,3 +38,11 @@ module.exports.listar = function (req, res) {
             res.send(profesores);
         });
 };
+
+//agregado por Esteban:
+module.exports.getInfoProfesor = function(req, res){
+    profesorModel.find({'cedula':req.query.cedula}).then(
+        function(profesores){
+            res.send(profesores);
+        });
+};
