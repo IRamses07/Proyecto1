@@ -35,3 +35,23 @@ tbody td{
     outline: none;
     
 }
+#txtFiltro{
+    float: left;
+
+    width: 20%;
+}
+
+#rbtnNombre{
+    float: left;
+
+}
+
+.spnRadio{
+    float: left;
+    margin: 5px 10px 0 0;
+}
+
+.floatContainer{
+    margin-left: 5%;
+    display: flow-root;
+}

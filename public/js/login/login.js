@@ -3,7 +3,6 @@ function getCurrentUserData(){
     let currentData = JSON.parse(sessionStorage.getItem('currentUser'));
     if (currentData == null){
         currentData = false;
-        console.log("Ningun usuario ha iniciado sesión.");
     }
     return currentData;
 }

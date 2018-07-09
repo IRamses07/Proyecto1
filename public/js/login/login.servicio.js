@@ -75,12 +75,10 @@ function setCurrentUser(pId) {
     for (let i = 0; i < allUsers.length; i++) {
         for (let j = 0; j < allUsers[i].length; j++) {
             if (allUsers[i][j]['cedula'] == pId || allUsers[i][j]['cedula_juridica'] == pId) {
-                console.log("[setCurrentUser] Se colocó/actualizó la información del usuario actual.");
                 datosID = allUsers[i][j];
             }
         }
     }
-
     sessionStorage.setItem("currentUser", JSON.stringify(datosID));
 }
 

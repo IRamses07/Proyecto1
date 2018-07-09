@@ -22,7 +22,8 @@
             </a>
         </div>
 
-        <div class="menuLateral"><i class="fas fa-align-justify"></i>
+        <div class="menuLateral">
+            <i class="fas fa-align-justify"></i>
             <div class="option">
                 <a href="registroClientes.html">Registro Cliente</a>
             </div>
@@ -33,14 +34,14 @@
                 <a href="registrarProyecto.html">Registrar Proyecto</a>
             </div>
         </div>
-        
+
     </header>
     <main id="content">
         <h2>Listado de profesores</h2>
-        <input type="radio">Nombre
-        <input type="text">
-        <button type="button">Buscar</button>
-
+        <div class="floatContainer">
+            <input type="radio" id="rbtnNombre" name="botonInutil" value="nombre" checked><span class = "spnRadio">Nombre</span>
+            <input type="text" id="txtFiltro" value=''>
+        </div>
         <table id="tblProfesores">
             <thead>
                 <th>Nombre</th>
@@ -51,10 +52,10 @@
                 <!-- <th><i class="fas fa-cog"></i></th> -->
             </thead>
             <tbody>
-                
+
             </tbody>
         </table>
-      
+
     </main>
     <footer></footer>
     <script src="js/jquery-3.3.1.js"></script>
