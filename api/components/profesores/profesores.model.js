@@ -15,7 +15,9 @@ let profesorSchema = new mongoose.Schema({
     annosExperiencia: { type: Number},
     cursosImpartidos: { type: Array},
     informacionAcademica: { type: Array},
-    password: {type: String, required: true}
+    password: {type: String, required: true},
+    passwordChange: {type: String, required: true}
+
 });
 
 module.exports = mongoose.model('Profesor', profesorSchema);

@@ -12,15 +12,30 @@
     <title>Registro de Estudiante</title>
 </head>
 <body>
-    <header class="mainHeader">
-        <a href="##" class="fLeft">
-            <i class="fas fa-bell"></i> Notificaciones</a>
-        <a href="##" class="fRight">Cerrar sesión
-            <i class="fas fa-cog"></i>
-        </a>
+    <header>
+
+        <div class="mainHeader">
+            <a href="##" class="fLeft">
+                <i class="fas fa-bell"></i> Notificaciones</a>
+            <a href="##" class="fRight">Cerrar sesión
+                <i class="fas fa-cog"></i>
+            </a>
+                </div>
+        
+        <div class="menuLateral">
+            <i class="fas fa-align-justify"></i>
+            <div class="option">
+                <a href="registrarEstudiante.html">Registro Estudiantes</a>
+            </div>
+            <div class="option">
+                <a href="listarEstudiante.html">Lista de Estudiantes</a>
+            </div>
+        </div>
+
     </header>
-    <main>
+    <main id="container">
         <form action="" class="contFormulario">
+            <h1>Registro de Estudiantes</h1>
             <h2>Datos personales</h2>
             <div class="layer1">
                 <label>Cédula:</label>
@@ -172,7 +187,7 @@
     <footer></footer>
     <script src="js/jquery-3.3.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
-    <script src="js/registrarEstudiante_controlador.js"></script>
-    <script src="js/registrarEstudiante_servicio.js"></script>
+    <script src="js/Estudiante/registrarEstudiante_controlador.js"></script>
+    <script src="js/Estudiante/registrarEstudiante_servicio.js"></script>
 </body>
 </html>

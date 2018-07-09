@@ -22,7 +22,8 @@ module.exports.registrar = function(req, res){
         contApellido1 : req.body.contApellido1,
         contApellido2 : req.body.contApellido2,
         contTelefono : req.body.contTelefono,
-        contCorreo : req.body.contCorreo
+        contCorreo : req.body.contCorreo,
+        estado : req.body.estado
     });
 
     estudianteNuevo.save(function(error){
@@ -37,7 +38,15 @@ module.exports.registrar = function(req, res){
 };
 
 module.exports.listar = function(req, res){
-    estudianteSchema.find().then(
+    estudianteSchema.find().sort({Nombre1 : 'asc'}).then(
+        function(estudiantes){
+            res.send(estudiantes);
+        });
+};
+
+module.exports.filtrarNombre = function(req, res){
+    console.log(req.query.Nombre1);
+    estudianteSchema.find({'Nombre1':req.query.Nombre1}).then(
         function(estudiantes){
             res.send(estudiantes);
         });

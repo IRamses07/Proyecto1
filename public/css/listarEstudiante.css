@@ -5,14 +5,14 @@
     padding: 5px 2%;
     font-family: 'Roboto' sans-serif;
     color: #fff;
-    font-size: 0.9em;
+    font-size: 1em;
     cursor:pointer;
     outline:none;
 }
 .containerRegistrar{
     width: 20%;
     float: right;
-    margin-bottom: 35px;
+    margin-bottom: 55px;
     margin-top: 10px;
 }
 .filtrarEstudiante{
@@ -48,4 +48,14 @@
 }
 .buscarPor{
     margin-bottom: 15px;
+}
+#errorInput{
+    font-size: 10px;
+    color: #ff0000;
+}
+.tableContainer{
+    width: 75%;
+}
+#container{
+    padding-left: 17.6%;
 }
