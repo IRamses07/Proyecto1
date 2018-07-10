@@ -14,4 +14,6 @@ router.route('/registrar')
     proyecto.listar(req, res);
 });
 
+
+
     module.exports = router;
