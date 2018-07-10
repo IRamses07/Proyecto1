@@ -103,13 +103,6 @@ function validar(){
     }else{
         inputNombre1.classList.remove('error_input');
     } 
-    //Validar Nombre2
-    // if(inputNombre2.value == '' || (checkSoloLetras.test(inputNombre2.value)==false) ){
-    //     inputNombre2.classList.add('error_input');
-    //     sError = true;
-    // }else{
-    //     inputNombre2.classList.remove('error_input');
-    // }
     //Validar Apellido1
     if(inputApellido1.value == '' || (checkSoloLetras.test(inputApellido1.value)==false) ){
         inputApellido1.classList.add('error_input');
@@ -117,13 +110,6 @@ function validar(){
     }else{
         inputApellido1.classList.remove('error_input');
     }
-    //Validar Apellido2
-    // if(inputApellido2.value == '' || (checkSoloLetras.test(inputApellido2.value)==false) ){
-    //     inputApellido2.classList.add('error_input');
-    //     sError = true;
-    // }else{
-    //     inputApellido2.classList.remove('error_input');
-    // }
     //Validar Telefono
     if(inputTelefono.value == '' ){
         inputTelefono.classList.add('error_input');
@@ -173,13 +159,6 @@ function validar(){
     }else{
         inputConNombre1.classList.remove('error_input');
     }
-    //Validar Nombre2 Contacto:
-    // if(inputConNombre2.value == '' || (checkSoloLetras.test(inputConNombre2.value)==false) ){
-    //     inputConNombre2.classList.add('error_input');
-    //     sError = true;
-    // }else{
-    //     inputConNombre2.classList.remove('error_input');
-    // }
     //Validar Apellido1 Contacto:
     if(inputConApellido1.value == '' || (checkSoloLetras.test(inputConApellido1.value)==false) ){
         inputConApellido1.classList.add('error_input');
@@ -187,13 +166,6 @@ function validar(){
     }else{
         inputConApellido1.classList.remove('error_input');
     }
-    //Validar Apellido2 Contacto:
-    // if(inputConApellido2.value == '' || (checkSoloLetras.test(inputConApellido2.value)==false) ){
-    //     inputConApellido2.classList.add('error_input');
-    //     sError = true;
-    // }else{
-    //     inputConApellido2.classList.remove('error_input');
-    // }
     //Validar Telefono Contacto:
     if(inputConTelefono.value == '' ){
         inputConTelefono.classList.add('error_input');

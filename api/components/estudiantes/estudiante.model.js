@@ -14,7 +14,7 @@ let estudianteSchema = new mongoose.Schema({
     canton : {type : Number, required : true},
     distrito : {type : Number, required : true},
     carrera : {type : String, required : true},
-    cursosAprobados: { type: Array, required : true},
+    cursosAprobados: { type: String, required : true},
     contNombre1 : {type : String, required : true},
     contNombre2 : {type : String, required : false},
     contApellido1 : {type : String, required : true},

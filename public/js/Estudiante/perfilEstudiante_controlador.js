@@ -10,6 +10,7 @@ function getInfo(){
     let infoEstudiante = getInfoEstudiante();
     infoPersonal(infoEstudiante);
     infoContacto(infoEstudiante);
+    imprimirListaCursos (infoEstudiante)
 };
 
 function infoPersonal(infoEstudiante){
@@ -49,8 +50,13 @@ function infoContacto(infoEstudiante){
     infoContacto2.innerHTML = contenido;
 }
 
-function imprimirListaCursos (){
-    let listaCursos = infoEstudiante[0]['cursosAprobados'];
+function imprimirListaCursos (infoEstudiante){
+    let CursosString = infoEstudiante[0]['cursosAprobados'];
+    let listaCursos = JSON.parse(CursosString);
+    console.log(listaCursos);
+
+    //[["cu01","2-2017","Fundamentos de programación"],["cu02","2-2017","Proyecto de ingenieria del software 1"]]
+
     let tbody = document.querySelector('#tblCursos tbody');
     tbody.innerHTML = '';
          

@@ -3,6 +3,7 @@ let listaCursos = [];
       
 function registrarEstudiante(infoEstudiante){
     let respuesta = '';
+    let cursos = JSON.stringify(listaCursos);
     console.log("servicelist: "+infoEstudiante);
     let peticion = $.ajax({
         url : 'http://localhost:4000/api/registrar_estudiante',          //los defino en users.route.js
@@ -23,7 +24,7 @@ function registrarEstudiante(infoEstudiante){
                 canton : infoEstudiante[9],
                 distrito : infoEstudiante[10],
                 carrera : infoEstudiante[11],
-                cursosAprobados: listaCursos,
+                cursosAprobados: cursos,
                 contNombre1 : infoEstudiante[12],
                 contNombre2 : infoEstudiante[13],
                 contApellido1 : infoEstudiante[14],
@@ -46,8 +47,10 @@ function registrarEstudiante(infoEstudiante){
 }
 function agregaCurso(infoCurso){
     listaCursos.push(infoCurso);
+
 }
 function obtenerListaCursos(){
+    console.log(JSON.stringify(listaCursos));
     return listaCursos;
 }
 
@@ -110,8 +113,8 @@ function filtrarNombreEstudiantes(inputDatoBuscar){
 }
 
 function getInfoEstudiante(){
-    console.log('f5');
     let respuesta = 'respuesta';
+    let ced = localStorage.getItem('ced');
     let peticion = $.ajax({
         url : 'http://localhost:4000/api/getInfo_estudiantes',
         type : 'get',
@@ -119,7 +122,8 @@ function getInfoEstudiante(){
         dataType : 'json',
         async : false,
         data:{
-            cedula : '304870951'
+            cedula : ced
+            //cedula : '304870951'
         }
       });
     
