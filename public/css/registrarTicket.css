@@ -154,9 +154,14 @@ h1 {
     margin-bottom: 10px;
 }
 
+.btnImgErr{
+    width: 30%;
+    content: 'Subir imagen';
+}
+
 .imgErrorContainer {
     width: 100%;
     height: 190px;
-    background-color: black;
+    /* background-color: black; */
     margin: 20px 0px 0px 1%;;
 }

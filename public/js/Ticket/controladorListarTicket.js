@@ -31,7 +31,7 @@ function listarTicketsAdmin() {
         descripcion.innerHTML = tickets[i]['descripcion'];
         verMas.appendChild(boton);
 
-        // boton.addEventListener('click',mostrarDatosTicketseleccionado);
+        boton.addEventListener('click',mostrarDatosTicketseleccionado);
 
         //         for (let j = 0; j < canColumns; j++) {
         //           var celda = fila.insertCell(j);

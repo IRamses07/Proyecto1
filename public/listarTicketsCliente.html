@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista Tickets</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/generalStyle.css">
+    <link rel="stylesheet" href="css/registrarTicket.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body>
+        <header>
+                <div class="mainHeader">
+                    <a href="##" class="fLeft">
+                        <i class="fas fa-bell"></i> Notificaciones</a>
+                    <a href="##" class="fRight">Cerrar sesión
+                        <i class="fas fa-cog"></i>
+                    </a>
+                </div>
+        
+                <div class="menuLateral">
+                    <i class="fas fa-align-justify"></i>
+                    <div class="option">
+                        <a href="registroTicket.html">Registro tickets</a>
+                    </div>
+                    <div class="option">
+                        <a href="listarTicket.html">Lista de tickets</a>
+                    </div>
+                    <!-- <div class="option">
+                    <a href="registrarProyecto.html">Registrar Proyecto</a>
+                </div> -->
+                </div>
+        
+            </header>
+            <main id="content">
+                <section id="listaTickets">
+                    <h1>Lista de Tickets</h1>
+
+                    <div class="filtroTicket">
+                        <!-- <input type="radio" id="cliente" name="cliente" value="cliente"><label for="cliente">Nombre de cliente</label> -->
+                        <input type="radio" name="profe" id="profe" value="profesor"><label for="profesor">Profesor encargado</label>
+                        <input type="radio" id="codigo" name="codigo" value="código"><label for="codigo">Código</label>
+                        <select name="urgencia" id="sltUrgencia">
+                            <option value="">Seleccione la urgencia:</option>
+                            <option value="Alta">Alta</option>
+                            <option value="Media">Media</option>
+                            <option value="Baja">Baja</option>
+                        </select>
+                        
+                            <button type="button" id="btnFiltrar"  class="btnFiltro">Filtrar</button>
+                    
+                    </div>
+                    <table id="tblTicketAdmin">
+                        <thead>
+                            <th>Urgencia</th>
+                            <th>Proyecto</th>
+                            <th>Descripción</th>
+                            <th>Ver más</th>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </section>
+            </main>
+
+            <script src="js/jquery-3.3.1.js"></script>
+            <script src="js/Ticket/servicioRegistroTicket.js"></script>
+            <script src="js/Ticket/controladorListarTicket.js"></script>
+</body>
+</html>

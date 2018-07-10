@@ -83,10 +83,10 @@
                     <div class="blockRight">
                         <div class="boxInpt">
                             <label for="file-upload">Subir pantallazo del error:</label>
-                            <input type="file" id="file-upload">
+                            <button type="button" id="file-upload" class="btnImgErr">Subir imagen</button>
                         </div>
                         <div class="boxInpt">
-                            <div class="imgErrorContainer" id="imgPantallazoError"></div>
+                            <img alt="Foto" class="imgErrorContainer" id="imgErr">
                         </div>
 
                     </div>
@@ -96,17 +96,17 @@
                     <textarea id="txtdescripcion" value="" placeholder="Escribe una descripción breve del error..." required></textarea>
                     <button type="button" class='btnRegistro' id="btnRegistrarTicket">Registrar ticket</button>
                 </div>
-
             </form>
         </section>
     </main>
 
-    <script src='https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js' type='text/javascript'></script>
-    <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>
-    <!-- <script src="/script.js"></script> -->
-
 
     <script src="js/jquery-3.3.1.js"></script>
+    <script src='https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js' type='text/javascript'></script>
+    <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+    <script src="js/Ticket/servicioImagen.js"></script>
+    
+  
     <script src="js/Ticket/servicioRegistroTicket.js"></script>
     <script src="js/Ticket/controladorRegistroTicket.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

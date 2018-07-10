@@ -8,7 +8,7 @@ botonRegistrarTicket.addEventListener('click', obtenerDatosTicket);
 let inptNombreCliente = document.querySelector('#txtnombreCliente');
 let inptUrgencia = document.querySelector('#sltUrgencia');
 let inptProyecto = document.querySelector('#sltProyecto');
-let inptPantallazoError = document.querySelector('#imgPantallazoError');
+let inptimagenErr = document.querySelector('#file-upload');
 let inptReferenciaTicket = document.querySelector('#sltTicket');
 
 let inptDescripcionError = document.querySelector('#txtdescripcion');
@@ -22,10 +22,11 @@ function obtenerDatosTicket() {
     let nombreCliente = inptNombreCliente.value;
     let urgencia = inptUrgencia.value;
     let proyecto = inptProyecto.value;
-    let pantallazoError = inptPantallazoError.value;
+    let imagenErr = imgUrl;
     let referenciaTicket = inptReferenciaTicket.value;
     let descripcionError = inptDescripcionError.value;
-    ticket.push(nombreCliente, urgencia, proyecto, pantallazoError, referenciaTicket, descripcionError);
+    ticket.push(nombreCliente, urgencia, proyecto, imagenErr, referenciaTicket, descripcionError);
+    // imagenErr   en caso de no servir la prueba sin este dato va dentro del parentesis del push
 
   
     if (error == true) {
@@ -71,14 +72,14 @@ function validar() {
     } else {
         inptProyecto.classList.remove('error');
     }
-    if (inptPantallazoError.value == '') {
-        inptPantallazoError.classList.add('error');
-        console.log(inptPantallazoError);
+    if (inptimagenErr.value == '') {
+        inptimagenErr.classList.add('error');
+        console.log(inptimagenErr);
 
         error = true;
     } else {
-        console.log(inptPantallazoError);
-        inptPantallazoError.classList.remove('error');
+        console.log(inptimagenErr);
+        inptimagenErr.classList.remove('error');
     }
 
     if (inptDescripcionError.value == '') {
@@ -95,9 +96,10 @@ function limpiarFormulario() {
     inptNombreCliente.value = '';
     inptUrgencia.value = '';
     inptProyecto.value = '';
-    inptPantallazoError = '';
-    inptReferenciaTicket = '';
-    inptDescripcionError = '';
+    inptimagenErr.value = '';
+    inptReferenciaTicket.value = '';
+    inptDescripcionError.value = '';
+
 }
 
 function listarSelectProyectos(){
