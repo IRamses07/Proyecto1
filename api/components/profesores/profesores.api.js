@@ -26,7 +26,7 @@ module.exports.registrar = function (req, res) {
         if (error) {
             res.json({ success: false, msg: 'No se pudo registrar el usuario, ocurrió el siguiente error' + error });
         } else {
-            res.json({ success: true, msg: 'El usuario se registró con éxito' });
+            res.json({ success: true, msg: 'El usuario se registró con éxito'});
         }
 
     });
@@ -47,3 +47,14 @@ module.exports.getInfoProfesor = function(req, res){
             res.send(profesores);
         });
 };
+/*module.exports.actualizar_usuario = function(req, res){
+    userModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
+        function(err) {
+            if (err) {
+                res.json({ success: false, msg: 'No se ha actualizado.' + handleError(err) });
+        
+            } else {
+            res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
+            }
+      });
+};*/

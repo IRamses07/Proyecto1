@@ -14,7 +14,7 @@
         <div class="mainHeader">
             <a href="##" class="fLeft">
                 <i class="fas fa-bell"></i> Notificaciones</a>
-            <a href="##" class="fRight">Cerrar sesión
+            <a href="javascript:logOut();" class="fRight">Cerrar sesión
                 <i class="fas fa-cog"></i>
             </a>
         </div>
@@ -34,6 +34,26 @@
     </header>
     <main id="content">
         <h2>Listado de Clientes</h2>
+        <form id="busqueda" class="fmr">
+            <div class="fLeft">
+                <div class="fLeft">
+
+                    <input type="radio" name="filtro" value="nombre">
+                    <label for="">Nombre</label>
+                </div>
+                <div class="fRight">
+
+                    <input type="radio" name="filtro" value="identificacion">
+                    <label for="">Identificación</label>
+                </div>
+            </div>
+            <div class="fRight">
+
+                <input type="text">
+                <button>Buscar</button>
+            </div>
+
+        </form>
         <table class="tbl" id="tablaLista">
             <thead>
                 <th>Cédula jurídica</th>
@@ -76,6 +96,7 @@
     </footer>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/Login/login.js"></script>
     <script src="js/Cliente/servicioListarClientes.js"></script>
     <script src="js/controlador.js"></script>
     <script src="js/Cliente/controladorListarClientes.js"></script>

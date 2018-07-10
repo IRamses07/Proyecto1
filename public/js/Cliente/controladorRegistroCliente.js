@@ -31,6 +31,7 @@ listener(sltDistrito, 'change', function () {
 /**
  * Boton que ejecuta la funcion de registro
  */
+moveUser(true);
 let btnRegistrar = elm('#btnRegistrar');
 listener(btnRegistrar, 'click', function () {
     let inputs=[

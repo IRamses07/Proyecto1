@@ -17,12 +17,13 @@
         <div class="mainHeader">
             <a href="##" class="fLeft">
                 <i class="fas fa-bell"></i> Notificaciones</a>
-            <a href="##" class="fRight">Cerrar sesión
+            <a href="javascript:logOut();" class="fRight">Cerrar sesión
                 <i class="fas fa-cog"></i>
             </a>
         </div>
 
-        <div class="menuLateral"><i class="fas fa-align-justify"></i>
+        <div class="menuLateral">
+            <i class="fas fa-align-justify"></i>
             <div class="option">
                 <a href="registroClientes.html">Registro Cliente</a>
             </div>
@@ -33,28 +34,33 @@
                 <a href="registrarProyecto.html">Registrar Proyecto</a>
             </div>
         </div>
-        
+
     </header>
     <main id="content">
         <h2>Listado de profesores</h2>
+        <div class="floatContainer">
+            <input type="radio" id="rbtnNombre" name="botonInutil" value="nombre" checked><span class = "spnRadio">Nombre</span>
+            <input type="text" id="txtFiltro" value=''>
+        </div>
         <table id="tblProfesores">
             <thead>
-                <th>Primer nombre</th>
-                <th>Primer apellido</th>
+                <th>Nombre</th>
                 <th>Cédula</th>
                 <th>Correo electrónico</th>
                 <th>Teléfono</th>
                 <th>Profesión</th>
+                <!-- <th><i class="fas fa-cog"></i></th> -->
             </thead>
             <tbody>
-                
+
             </tbody>
         </table>
-      
+
     </main>
     <footer></footer>
     <script src="js/jquery-3.3.1.js"></script>
-    <script src="js/Profesor/Profesor.servicio.js"></script>
+    <script src="js/Login/login.js"></script>
+    <script src="js/Profesor/profesor.servicio.js"></script>
     <script src="js/Profesor/listarProfesor.controlador.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>

@@ -1,5 +1,19 @@
 'use strict';
 
+/*function setLocalProfes() {
+    let listaProfes = getProfessorData();
+    localStorage.setItem('listaProfesLS', JSON.stringify(listaProfes));
+}*/
+
+function getLocalProfes() {
+
+    let listaProfes = JSON.parse(localStorage.getItem('listaProfesLS'));
+
+    if (listaProfes == null) {
+        listaProfes = localStorage.setItem('listaProfesLS', JSON.stringify(getProfessorData()));;       
+    }
+    return listaProfes;
+}
 
 function setProfessorData(infoProfesor) {
     let respuesta = '';
