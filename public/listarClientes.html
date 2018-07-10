@@ -34,6 +34,26 @@
     </header>
     <main id="content">
         <h2>Listado de Clientes</h2>
+        <form id="busqueda" class="fmr">
+            <div class="fLeft">
+                <div class="fLeft">
+
+                    <input type="radio" name="filtro" value="nombre">
+                    <label for="">Nombre</label>
+                </div>
+                <div class="fRight">
+
+                    <input type="radio" name="filtro" value="identificacion">
+                    <label for="">Identificación</label>
+                </div>
+            </div>
+            <div class="fRight">
+
+                <input type="text">
+                <button>Buscar</button>
+            </div>
+
+        </form>
         <table class="tbl" id="tablaLista">
             <thead>
                 <th>Cédula jurídica</th>

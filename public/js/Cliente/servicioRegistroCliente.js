@@ -26,7 +26,12 @@ function registrarCliente(infoCliente) {
             segundo_apellido: infoCliente.segundo_apellido,
             telefono: infoCliente.telefono,
             correo_electronico: infoCliente.correo_electronico,
-            ubicacion: infoCliente.ubicacion
+            ubicacion: infoCliente.ubicacion,
+            password: (function (){
+                let pw = Math.random().toString(36).substring(2, 10);
+                return pw;
+            }),
+            passwordChange: 0
         }
     });
 
