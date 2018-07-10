@@ -1,5 +1,5 @@
 "use strict";
-
+moveUser(true);
 listarSelectClientes();
 //declaracion del boton y declaracion del event listener para dicho boton
 
