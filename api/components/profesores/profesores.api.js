@@ -40,6 +40,12 @@ module.exports.listar = function (req, res) {
         });
 };
 
+module.exports.getInfoProfesor = function(req, res){
+    profesorModel.find({'cedula':req.query.cedula}).then(
+        function(profesores){
+            res.send(profesores);
+        });
+};
 /*module.exports.actualizar_usuario = function(req, res){
     userModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
         function(err) {
