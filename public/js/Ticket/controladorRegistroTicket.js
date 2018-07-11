@@ -1,5 +1,5 @@
 'use strict';
-moveUser(true);
+// moveUser(true);
 
 let botonRegistrarTicket = document.querySelector('#btnRegistrarTicket');
 botonRegistrarTicket.addEventListener('click', obtenerDatosTicket);
@@ -73,16 +73,7 @@ function validar() {
     } else {
         inptProyecto.classList.remove('error');
     }
-    if (inptimagenErr.value == '') {
-        inptimagenErr.classList.add('error');
-        console.log(inptimagenErr);
-
-        error = true;
-    } else {
-        console.log(inptimagenErr);
-        inptimagenErr.classList.remove('error');
-    }
-
+    
     if (inptDescripcionError.value == '') {
         inptDescripcionError.classList.add('error');
         error = true;

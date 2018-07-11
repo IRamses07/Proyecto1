@@ -1,12 +1,12 @@
 'use strict';
 // moveUser(true);
 
-listarTicketsAdmin();
+listarTicketsCliente();
 
 let inptBuscarCliente = document.querySelector('#filtrocliente');
 let btnFiltro = document.querySelector('#btnFiltrar');
 btnFiltro.addEventListener('click', function(){
-    listarTicketsAdmin(inptBuscarCliente.value);
+    listarTicketsCliente(inptBuscarCliente.value);
 
     let radioSelected = document.querySelector('input[type="radio"]:checked');
     getEntrada(radioSelected);
@@ -26,7 +26,7 @@ btnFiltro.addEventListener('click', function(){
     
 }) 
 
-function listarTicketsAdmin(pinptBuscarCliente) {
+function listarTicketsCliente(pinptBuscarCliente) {
     let tickets = listarTickets();
     let nTamanno = tickets.length;
     let tbody = document.querySelector('#tblTicketAdmin tbody');
@@ -39,7 +39,6 @@ function listarTicketsAdmin(pinptBuscarCliente) {
         if(tickets[i]['nombre_cliente'].toLowerCase().includes(pinptBuscarCliente.toLowerCase())){
 
         let fila = tbody.insertRow();
-        let cliente = fila.insertCell();
         let urgencia = fila.insertCell();
         let proyecto = fila.insertCell();
         let descripcion = fila.insertCell();
@@ -50,7 +49,6 @@ function listarTicketsAdmin(pinptBuscarCliente) {
         boton.value = "Ver más";
         boton.classList.add("btnLista");
 
-        cliente.innerHTML = tickets[i]['nombre_cliente'];
         urgencia.innerHTML = tickets[i]['urgencia'];
         proyecto.innerHTML = tickets[i]['proyecto'];
         descripcion.innerHTML = tickets[i]['descripcion'];

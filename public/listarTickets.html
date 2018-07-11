@@ -28,11 +28,11 @@
                         <a href="registroTicket.html">Registro tickets</a>
                     </div>
                     <div class="option">
-                        <a href="listarTicket.html">Lista de tickets</a>
+                        <a href="listarTicketsCliente.html">Lista de tickets</a>
                     </div>
-                    <!-- <div class="option">
-                    <a href="registrarProyecto.html">Registrar Proyecto</a>
-                </div> -->
+                    <div class="option">
+                    <a href="listarTickets.html">Listar tickets para Admin</a>
+                </div>
                 </div>
         
             </header>
@@ -41,16 +41,16 @@
                     <h1>Lista de Tickets</h1>
 
                     <div class="filtroTicket">
-                        <input type="radio" id="cliente" name="cliente" value="cliente"><label for="cliente">Nombre de cliente</label>
-                        <input type="radio" name="profe" id="profe" value="profesor"><label for="profesor">Profesor</label>
-                        <input type="radio" id="codigo" name="codigo" value="código"><label for="codigo">Código</label>
+                       <label for="tickets">Buscar por:</label>
+                        <input type="radio" name="radioSelected" checked="checked" id="profe" value=""><label for="tickets">Nombre de cliente</label>
+                        <input type="radio" id="proyecto" name="radioSelected" value="proyecto"><label for="tickets">Proyecto</label>
                         <select name="urgencia" id="sltUrgencia">
                             <option value="">Seleccione la urgencia:</option>
                             <option value="Alta">Alta</option>
                             <option value="Media">Media</option>
                             <option value="Baja">Baja</option>
                         </select>
-                        
+                        <input type="text"  id="filtrocliente" class="inptbuscarCliente">
                             <button type="button" id="btnFiltrar"  class="btnFiltro">Filtrar</button>
                     
                     </div>
@@ -70,7 +70,7 @@
             </main>
 
             <script src="js/jquery-3.3.1.js"></script>
-            <script src="js/Login/login.js"></script>
+            <!-- <script src="js/Login/login.js"></script> -->
             <script src="js/Ticket/servicioRegistroTicket.js"></script>
             <script src="js/Ticket/controladorListarTicket.js"></script>
 </body>

@@ -136,8 +136,13 @@ h1 {
 }
 
 .filtroTicket select {
-    width: 27%;
+    width: 17%;
 }
+
+.filtroTicket  .inptbuscarCliente {
+    width: 17%;
+}
+
 
 .btnFiltro {
     float: right;
