@@ -21,6 +21,13 @@ let dateFechaEntrega = document.querySelector('#dtEntregaEstimada');
 let txtaDescripcion = document.querySelector('#txtDescripcion');
 
 
+function limpiarFormulairo() {
+    inputNombreProyecto.value = '';
+    inputIdentifiacionJuridica.value = '';
+    txtaDescripcion.value ='';
+    dateFechaEntrega.value ='dd/mm/aaaa';
+
+}
 
 function obtenerDatos() {
 
@@ -56,6 +63,7 @@ function obtenerDatos() {
         console.log('No se pudo registrar el usuario');
     } else {
         registrarProyecto(infoProyecto);
+        limpiarFormulairo();
         swal({
             type: 'success',
             title: 'Registro exitoso',
@@ -69,12 +77,12 @@ function obtenerDatos() {
 
 }
 
-function listarSelectClientes(){
+function listarSelectClientes() {
     let slNombredelCliente = listarClientes();
-    let select =  document.querySelector('#slNombredelCliente');
+    let select = document.querySelector('#slNombredelCliente');
     select.options[0] = new Option("Seleccione un cliente...", "");
 
-    for(let i = 0; i < slNombredelCliente.length; i++){
+    for (let i = 0; i < slNombredelCliente.length; i++) {
         select.options[i] = new Option(slNombredelCliente[i]['nombre'], slNombredelCliente[i]['nombre']);
 
     }
