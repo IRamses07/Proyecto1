@@ -42,6 +42,9 @@ function blanck(element) {
     }
     return valido;
 }
+/**
+ * funcion que valida el contenido de un campo de texto
+ */
 function registro(inputs) {
     let valido = true;
     for (let i = 0; i < inputs.length; i++) {

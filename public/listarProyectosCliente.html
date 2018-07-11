@@ -16,7 +16,7 @@
     <header>
         <div class="mainHeader">
             <a href="#" class="fLeft">
-                <i class="fas fa-bfvell"></i> Notificaciones</a>
+                <i class="fas fa-bell"></i> Notificaciones</a>
             <a href="#" class="fRight">Cerrar sesión
                 <i class="fas fa-cog"></i>
             </a>
@@ -24,11 +24,12 @@
 
         <div class="menuLateral">
             <h2>
-                <i class="fas fa-align-justify"></i>Menu</h2>
+                <i class="fas fa-align-justify"></i>
+            </h2>
             <div class="option">
                 <a href="registrarProyecto.html">Registro Proyectos</a>
             </div>
-            
+
 
 
 
@@ -41,14 +42,20 @@
         <div class="tabla">
             <table id="tblProyectos">
                 <thead>
-                    <th>Cedula Juridica</th>
                     <th>Nombre del proyecto</th>
-                    <th>Nombre de cliente</th>
                     <th>Fecha de entrega</th>
-                    <th>Ver mas</th>
+                    <th>
+                        <i class="fas fa-eye"></i>
+                    </th>
                 </thead>
                 <tbody>
-
+                    <tr>
+                        <td>Julianas</td>
+                        <td>22/33/2018</td>
+                        <td>
+                            <a href="##">Ver más</a>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -58,11 +65,13 @@
 
 
     </footer>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <script src="js/Proyecto/jquery-3.3.1.js"></script>
+    <script src="js/Login/login.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
     <script src="js/Proyecto/registrarProyectoServicio.js"></script>
-    <script src="js/Proyecto/controladorListaProyectos.js"></script>
-   
+    <script src="js/controlador.js"></script>
+    <script src="js/Cliente/controladorListarProyectoCliente.js"></script>
 </body>
 
 </html>
