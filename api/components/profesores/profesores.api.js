@@ -40,7 +40,6 @@ module.exports.listar = function (req, res) {
         });
 };
 
-//agregado por Esteban:
 module.exports.getInfoProfesor = function(req, res){
     profesorModel.find({'cedula':req.query.cedula}).then(
         function(profesores){

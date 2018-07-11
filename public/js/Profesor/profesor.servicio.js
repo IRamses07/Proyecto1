@@ -92,7 +92,6 @@ function generateRandomPassword(){
 	return pw;
 }
 
-//Agregado por Esteban:
 function getInfoProfesor(){
     let respuesta = 'respuesta';
     let peticion = $.ajax({

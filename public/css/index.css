@@ -1,16 +1,15 @@
 body {
     font-size: 16px;
     font-family: sans-serif;
+    height: 500px;
 }
-
 nav {
     float: left;
-    background-color: #454545;
+    background-color: #fbb803;
     width: 100%;
-    height: 45px;
-    padding: 25px 0% 0px 0%;
+    height: 30px;
+    padding: 20px 0% 5px 0%;
 }
-
 nav a { 
     text-align: center;
     color: #fff;
@@ -18,16 +17,19 @@ nav a {
     text-decoration: none;
     padding: 0px 2%;
 }
-
 nav .logo {
-     padding-right: 65%;
+     padding-right: 72.5%;
      padding-left: 3%;
 }
-
+nav i{
+    font-size: 17px;
+}
+.noder{
+    padding-right: 0;
+}
 .introduction {
     position: relative;
 }
-
 .intro img {
     width: 100%;
     background-size: 100% ;
@@ -42,21 +44,22 @@ h1, h2{
 .title {
     position: absolute;
     top: 15%;
-    left: 35%;
+    left: 33%;
     color: white;
     padding-left: 20px;
     padding-right: 20px;
     line-height: 1.5;
     border-radius: 5px;
+    letter-spacing: 15px;
 }
 .title h1{
-    font-size: 3.5em;
+    font-size: 4em;
     font-weight: 500;    
 }
 .descripcion{
     position: absolute;
-    top: 45%;
-    left: 5%;
+    top: 55%;
+    left: 7%;
     background-color: rgba(0,0,0,.5);
     color: white;
     padding-left: 20px;
@@ -64,13 +67,14 @@ h1, h2{
     font-size: 15px;
     line-height: 1.5;
     border-radius: 5px;
-    width: 530px;
+    width: 35%;
 }
 .footer{
     position: absolute;
-    top: 110%;
-    background-color: rgba(0,0,0,.5);
+    top: 120%;
+    background-color: rgba(0,0,.0,.6);
     color: white;
+    padding-top: 35px;
     padding-left: 50px;
     padding-right: 50px;
     font-size: 15px;
@@ -78,19 +82,6 @@ h1, h2{
     border-radius: 5px;
     width: 100%;
     padding-bottom: 25px;
-}
-.underfooter{
-    position: absolute;
-    top: 150%;
-    background-color: #454545;
-    color: white;
-    padding-left: 50px;
-    padding-right: 50px;
-    font-size: 15px;
-    line-height: 1.5;
-    border-radius: 5px;
-    width: 100%;
-    height: 50px;
 }
 p{
     display: block;
@@ -106,8 +97,8 @@ p{
     line-height: 0.8;    
     text-align: center;
     position: absolute;
-    top: 47%;
-    left: 50%;
+    top: 56%;
+    left: 52%;
 }
 #CSH h1{
     font-size: 3.5em;
@@ -117,4 +108,57 @@ p{
 }
 i{
     font-size: 35px;
+}
+#footerPart1{
+    margin-left: 5%;
+    width: 45%;
+    float: left;
+}
+#footerPart1 p{
+    width: 80%;
+    float: right;
+}
+#footerPart1 i{
+    width: 120px;
+    height: 50px;
+    float: left;
+    text-align: right;
+}
+h4{
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+#footerPart2{
+    margin-left: 5%;
+    width: 24%;
+    float: left;
+}
+#footerPart2 i{
+    width: 65px;
+    height: 50px;
+    float: left;
+    text-align: right;
+}
+.buttonS{
+    display: block;
+    width: 240px;
+    height: 35px;
+    padding-top: 10px;
+    background-color: #fbb803;
+    text-align: center;
+    border-radius: 3px;
+    border: none;
+    color: #fff;
+    font-size: 1.5em;
+    font-family: 'Roboto' sans-serif;
+}
+.buttonS:hover {
+    background-color: #fbb876;
+}
+#inicioS{
+    position: absolute;
+    top: 35%;
+    left: 42%;
+    border-radius: 3px;
 }

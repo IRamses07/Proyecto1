@@ -21,7 +21,9 @@ let estudianteSchema = new mongoose.Schema({
     contApellido2 : {type : String, required : false},
     contTelefono : {type : String, required : true},
     contCorreo : {type : String, required : true},
-    estado : {type : String, required : true}
+    estado : {type : String, required : true},
+    password: {type: String, required: true},
+    passwordChange: {type: Number, required: true}
 });
 
 module.exports = mongoose.model('Estudiante', estudianteSchema);

@@ -12,28 +12,33 @@ function registrarEstudiante(infoEstudiante){
         dataType : 'json',
         async : false,
         data:{
-                cedula : infoEstudiante[0],
-                Nombre1 : infoEstudiante[1],
-                Nombre2 : infoEstudiante[2],
-                apellido1 : infoEstudiante[3],
-                apellido2 : infoEstudiante[4],
-                telefono : infoEstudiante[5],
-                correo : infoEstudiante[6],
-                direccion : infoEstudiante[7],
-                provincia : infoEstudiante[8],
-                canton : infoEstudiante[9],
-                distrito : infoEstudiante[10],
-                carrera : infoEstudiante[11],
-                cursosAprobados: cursos,
-                contNombre1 : infoEstudiante[12],
-                contNombre2 : infoEstudiante[13],
-                contApellido1 : infoEstudiante[14],
-                contApellido2 : infoEstudiante[15],
-                contTelefono : infoEstudiante[16],
-                contCorreo : infoEstudiante[17],
-                estado : infoEstudiante[18]
+            cedula : infoEstudiante[0],
+            Nombre1 : infoEstudiante[1],
+            Nombre2 : infoEstudiante[2],
+            apellido1 : infoEstudiante[3],
+            apellido2 : infoEstudiante[4],
+            telefono : infoEstudiante[5],
+            correo : infoEstudiante[6],
+            direccion : infoEstudiante[7],
+            provincia : infoEstudiante[8],
+            canton : infoEstudiante[9],
+            distrito : infoEstudiante[10],
+            carrera : infoEstudiante[11],
+            cursosAprobados: cursos,
+            contNombre1 : infoEstudiante[12],
+            contNombre2 : infoEstudiante[13],
+            contApellido1 : infoEstudiante[14],
+            contApellido2 : infoEstudiante[15],
+            contTelefono : infoEstudiante[16],
+            contCorreo : infoEstudiante[17],
+            estado : infoEstudiante[18],
+            password: (function (){
+            let pw = Math.random().toString(36).substring(2, 10);
+            return pw;
+            }),
+            passwordChange: 0
         }
-      });
+    });
     
       peticion.done(function(response){
        respuesta = response;
