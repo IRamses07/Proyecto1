@@ -7,6 +7,7 @@ let botonRegistrar = document.querySelector('#btnRegistrar');
 
 botonRegistrar.addEventListener('click', obtenerDatos);
 
+
 //declaracion de elementos
 let inputNombreProyecto = document.querySelector('#txtNombreProyecto');
 
@@ -21,6 +22,13 @@ let dateFechaEntrega = document.querySelector('#dtEntregaEstimada');
 let txtaDescripcion = document.querySelector('#txtDescripcion');
 
 
+function limpiarFormulairo() {
+    inputNombreProyecto.value = '';
+    inputIdentifiacionJuridica.value = '';
+    txtaDescripcion.value = '';
+    dateFechaEntrega.value = 'dd/mm/aaaa';
+
+}
 
 function obtenerDatos() {
 
@@ -44,7 +52,6 @@ function obtenerDatos() {
 
     error = validarCampos();
 
-    console.log(error);
 
     if (error == true) {
         swal({
@@ -55,7 +62,10 @@ function obtenerDatos() {
         });
         console.log('No se pudo registrar el usuario');
     } else {
+        agregarProyectoCliente();
         registrarProyecto(infoProyecto);
+        limpiarFormulairo();
+
         swal({
             type: 'success',
             title: 'Registro exitoso',
@@ -69,13 +79,13 @@ function obtenerDatos() {
 
 }
 
-function listarSelectClientes(){
+function listarSelectClientes() {
     let slNombredelCliente = listarClientes();
-    let select =  document.querySelector('#slNombredelCliente');
+    let select = document.querySelector('#slNombredelCliente');
     select.options[0] = new Option("Seleccione un cliente...", "");
 
-    for(let i = 0; i < slNombredelCliente.length; i++){
-        select.options[i] = new Option(slNombredelCliente[i]['nombre'], slNombredelCliente[i]['nombre']);
+    for (let i = 0; i < slNombredelCliente.length; i++) {
+        select.options[i] = new Option(slNombredelCliente[i]['nombre'], slNombredelCliente[i]['_id']);
 
     }
 }
@@ -136,6 +146,24 @@ function validarCampos() {
     }
 
     return error;
+
+
+}
+
+function agregarProyectoCliente() {
+    let infoProyecto = [];
+
+    let id = selectNombreCliente.value;
+
+    let identificacionJuridica = inputIdentifiacionJuridica.value;
+    let nombreProyecto = inputNombreProyecto.value;
+    let fechaEntrega = dateFechaEntrega.value;
+    let estadoProyecto = selectEstadoProyecto.value;
+
+    infoProyecto.push(id, identificacionJuridica, nombreProyecto, fechaEntrega, estadoProyecto);
+
+
+    asignarProyecto(infoProyecto);
 
 
 }

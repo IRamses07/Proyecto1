@@ -40,7 +40,7 @@ module.exports.listar = function (req, res) {
 };
 module.exports.asignar_proyecto = function (req, res) {
 
-    userModel.update(
+    clientModel.update(
         { _id: req.body._id },
         {
             $push:
@@ -48,6 +48,7 @@ module.exports.asignar_proyecto = function (req, res) {
                 'proyectos':
                 {
                     id: req.body.id,
+                  
                     nombre_proyecto: req.body.nombre_proyecto,
                     fecha_Entrega: req.body.fecha_Entrega,
                     estado_proyecto: req.body.estado_proyecto
