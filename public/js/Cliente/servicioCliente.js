@@ -27,7 +27,7 @@ function registrarCliente(infoCliente) {
             telefono: infoCliente.telefono,
             correo_electronico: infoCliente.correo_electronico,
             ubicacion: infoCliente.ubicacion,
-            password: (function (){
+            password: (function () {
                 let pw = Math.random().toString(36).substring(2, 10);
                 return pw;
             }),
@@ -65,6 +65,57 @@ function getInfoCliente(){
     
       peticion.fail(function(response){
       });
+
+    return respuesta;
+}
+
+function listarClientes() {
+    let respuesta = '';
+    let peticion = $.ajax({
+        url: 'http://localhost:4000/api/listar_clientes',
+        type: 'get',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
+
+        }
+    });
+
+    peticion.done(function (response) {
+        respuesta = response;
+    });
+
+    peticion.fail(function (response) {
+
+    });
+
+    return respuesta;
+}
+function asignarProyecto(infoProyecto) {
+    let respuesta = '';
+    let peticion = $.ajax({
+        url: 'http://localhost:4000/api/listar_clientes',
+        type: 'get',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
+            _id: infoProyecto._id,
+            id: infoProyecto.id,
+            nombre_proyecto: infoProyecto.nombre_proyecto,
+            fecha_Entrega: infoProyecto.fecha_Entrega,
+            estado_proyecto: infoProyecto.estado_proyecto
+        }
+    });
+
+    peticion.done(function (response) {
+        respuesta = response;
+    });
+
+    peticion.fail(function (response) {
+
+    });
 
     return respuesta;
 }
