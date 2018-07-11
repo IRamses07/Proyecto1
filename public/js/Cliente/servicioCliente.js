@@ -92,6 +92,7 @@ function slistarClientes() {
 
     return respuesta;
 }
+
 function asignarProyecto(infoProyecto) {
     let respuesta = '';
     console.log(infoProyecto);
