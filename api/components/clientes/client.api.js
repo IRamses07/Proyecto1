@@ -40,7 +40,7 @@ module.exports.listar = function (req, res) {
 };
 module.exports.asignar_proyecto = function (req, res) {
 
-    userModel.update(
+    clientModel.update(
         { _id: req.body._id },
         {
             $push:

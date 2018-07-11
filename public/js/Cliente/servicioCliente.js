@@ -96,7 +96,7 @@ function asignarProyecto(infoProyecto) {
     let respuesta = '';
     console.log(infoProyecto);
     let peticion = $.ajax({
-        url: 'http://localhost:4000/api/listar_clientes',
+        url: 'http://localhost:4000/api/asignar_proyecto',
         type: 'post',
         contentType: 'application/x-www-form-urlencoded; charset=utf-8',
         dataType: 'json',

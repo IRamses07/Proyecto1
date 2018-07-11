@@ -5,7 +5,8 @@ listarSelectClientes();
 
 let botonRegistrar = document.querySelector('#btnRegistrar');
 
-botonRegistrar.addEventListener('click', obtenerDatos,agregarProyectoCliente);
+botonRegistrar.addEventListener('click', obtenerDatos);
+botonRegistrar.addEventListener('click',  agregarProyectoCliente);
 
 //declaracion de elementos
 let inputNombreProyecto = document.querySelector('#txtNombreProyecto');
@@ -51,7 +52,6 @@ function obtenerDatos() {
 
     error = validarCampos();
 
-    console.log(error);
 
     if (error == true) {
         swal({
@@ -152,6 +152,7 @@ function agregarProyectoCliente() {
     let infoProyecto = [];
 
     let id = selectNombreCliente.value;
+console.log(id);
     let identificacionJuridica = inputIdentifiacionJuridica.value;
     let nombreProyecto = inputNombreProyecto.value;
     let fechaEntrega = dateFechaEntrega.value;
