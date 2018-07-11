@@ -1,5 +1,5 @@
 'use strict'
-// moveUser(true);
+moveUser(true);
 let eString = /[A-Za-záéíóúñÑÁÉÍÓÚ+-]+/,
     eNumber = /[0-9]+/,
     eSpace = /\s+/,
@@ -42,6 +42,9 @@ function blanck(element) {
     }
     return valido;
 }
+/**
+ * funcion que valida el contenido de un campo de texto
+ */
 function registro(inputs) {
     let valido = true;
     for (let i = 0; i < inputs.length; i++) {
