@@ -24,8 +24,8 @@ let txtaDescripcion = document.querySelector('#txtDescripcion');
 function limpiarFormulairo() {
     inputNombreProyecto.value = '';
     inputIdentifiacionJuridica.value = '';
-    txtaDescripcion.value ='';
-    dateFechaEntrega.value ='dd/mm/aaaa';
+    txtaDescripcion.value = '';
+    dateFechaEntrega.value = 'dd/mm/aaaa';
 
 }
 
