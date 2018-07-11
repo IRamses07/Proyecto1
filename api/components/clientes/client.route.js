@@ -12,4 +12,14 @@ router.route('/listar_clientes')
 .get(function(req,res){
     clients.listar(req,res);
 });
+
+router.route('/getinfo_clientes')
+    .get(function(req, res){
+    clients.getInfoCliente(req, res);
+});
+
+router.route('/asignar_proyecto')
+.post(function(req,res){
+    clients.asignar_proyecto(req,res);
+});
 module.exports = router;

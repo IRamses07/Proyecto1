@@ -19,4 +19,10 @@ router.route('/listar_profesores')
     users.actualizar_usuario(req, res);
 });*/
 
+router.route('/getinfo_profesor')
+    .get(function(req, res){
+        console.log('f7');
+    profesores.getInfoProfesor(req, res);
+});
+
 module.exports = router;

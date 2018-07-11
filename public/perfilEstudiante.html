@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/error.css">
+    <link rel="stylesheet" href="css/generalStyle.css">
+    <link rel="stylesheet" href="css/registrarEstudiante_style.css">
+    <link rel="stylesheet" href="css/listarEstudiante.css">
+    <link rel="stylesheet" href="css/perfil.css">
+    <title>Perfil</title>
+</head>
+<body>
+    <header>
+        <div class="mainHeader">
+            <a href="##" class="fLeft">
+                <i class="fas fa-bell"></i> Notificaciones</a>
+            <a href="javascript:logOut();" class="fRight">Cerrar sesión
+                <i class="fas fa-cog"></i>
+            </a>
+        </div>
+        <div class="menuLateral">
+            <i class="fas fa-align-justify"></i>
+            <div class="option">
+                <a href="perfilEstudiante.html">Perfil</a>
+            </div>
+            <div class="option">
+                <a href="listarEstudiante.html">Lista Estudiantes</a>
+            </div>
+            <div class="option">
+                <a href="listarProyectos">Proyectos</a>
+            </div>
+        </div>
+    </header>
+    <main id="container">
+        <div class="card">
+            <div class="img_container">
+                <img src="https://image.ibb.co/iHyp6o/perfil.png" alt="Foto">
+            </div>
+            <div id="datosUsuario">
+            </div>
+            <div id="infoUsuario" class="infoUsuario">
+            </div>
+        </div>
+        <hr class="underline">
+        <div class="infoContacto">
+            <h4 class="subtitulo">Contacto de Emegencia:</h4>
+            <div id="infoContacto2">
+
+            </div>
+        </div>
+        <h4 class="subtitulo">Cursos Aprobados:</h4>
+        <div class="tableContainer">
+            <table cellspacing=10px id="tblCursos">
+                <thead>
+                    <th>Codigo</th>
+                    <th>Ciclo</th>
+                    <th>Nombre</th>
+                </thead>
+                <tbody> 
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <footer></footer>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/Estudiante/registrarEstudiante_servicio.js"></script>
+    <script src="js/Estudiante/perfilEstudiante_controlador.js"></script>
+
+
+</body>
+</html>

@@ -19,4 +19,10 @@ router.route('/filtrarnombre_estudiantes')
     estudiantes.filtrarNombre(req, res);
 });
 
+router.route('/getInfo_estudiantes')
+    .get(function(req, res){
+        console.log('f7');
+    estudiantes.getInfoEstudiante(req, res);
+});
+
 module.exports = router;
