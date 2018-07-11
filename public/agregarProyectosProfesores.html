@@ -37,7 +37,6 @@
             <div class="option">
                 <a href="agregarProyectosProfesores.html">Asignar Profesores</a>
             </div>
-          
 
 
         </div>
@@ -45,42 +44,53 @@
     </header>
 
     <main id="content">
-        <h1>Listar Proyectos</h1>
 
-        <div class="flitrarProyectos">
-            <div class="opFliltrado">
+        <h1>Asignar Profesores a Proyectos</h1>
 
-                <div class="radio">
-                    <input type="radio" name="filtro" id="filtro">
-                    <label for="">Nombre del Proyecto</label>
+        <div class="frmAsigarProyectoProfesores">
+            <form action="">
 
-                    <input type="radio" name="filtro" id="filtro">
-                    <label for="">Cedula Juridica</label>
+                <div class="slProyecto">
+
+                    <label for="">Selecine un proyecto</label>
+
+                    <select id="slProyecto">
+
+                        <option value="defult">Selecine un proyecto</option>
+
+                    </select>
+
+                </div>
+
+                <div class="slProfesorLider">
+
+                    <label for="">Selecione el profesor lider</label>
+
+                    <select id="">
+                        <option value="defult">Selecine a un profesor</option>
+                    </select>
+
+                </div>
+
+                <div class="slProfesorLider">
+
+                        <label for="">Selecione el profesor tecnico </label>
+    
+                        <select id="">
+                            <option value="defult">Selecine a un profesor</option>
+                        </select>
+    
+                    </div>
+
+                <div>
+
+
                 </div>
 
 
-                <div class="busqueda"></div>
-                <input type="text" id="txtFiltro" placeholder="Escriba el nombre del proyecto...">
-
-
-            </div>
+            </form>
 
         </div>
-
-            <div class="tabla">
-                <table id="tblProyectos">
-                    <thead>
-                        <th>Cedula Juridica</th>
-                        <th>Nombre del proyecto</th>
-                        <th>Nombre de cliente</th>
-                        <th>Fecha de entrega</th>
-                        <th>Ver mas</th>
-                    </thead>
-                    <tbody>
-
-                    </tbody>
-                </table>
-            </div>
 
     </main>
 
@@ -91,8 +101,7 @@
     <script src="js/Proyecto/jquery-3.3.1.js"></script>
     <script src="js/Login/login.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
-    <script src="js/Proyecto/registrarProyectoServicio.js"></script>
-    <script src="js/Proyecto/controladorListaProyectos.js"></script>
+
 
 </body>
 
