@@ -5,7 +5,7 @@ listarSelectClientes();
 
 let botonRegistrar = document.querySelector('#btnRegistrar');
 
-botonRegistrar.addEventListener('click', obtenerDatos);
+botonRegistrar.addEventListener('click', obtenerDatos,agregarProyectoCliente);
 
 //declaracion de elementos
 let inputNombreProyecto = document.querySelector('#txtNombreProyecto');
@@ -83,7 +83,7 @@ function listarSelectClientes() {
     select.options[0] = new Option("Seleccione un cliente...", "");
 
     for (let i = 0; i < slNombredelCliente.length; i++) {
-        select.options[i] = new Option(slNombredelCliente[i]['nombre'], slNombredelCliente[i]['nombre']);
+        select.options[i] = new Option(slNombredelCliente[i]['nombre'], slNombredelCliente[i]['_id']);
 
     }
 }
@@ -144,6 +144,23 @@ function validarCampos() {
     }
 
     return error;
+
+
+}
+
+function agregarProyectoCliente() {
+    let infoProyecto = [];
+
+    let id = selectNombreCliente.value;
+    let identificacionJuridica = inputIdentifiacionJuridica.value;
+    let nombreProyecto = inputNombreProyecto.value;
+    let fechaEntrega = dateFechaEntrega.value;
+    let estadoProyecto = selectEstadoProyecto.value;
+
+    infoProyecto.push(id, identificacionJuridica, nombreProyecto, fechaEntrega, estadoProyecto);
+
+
+    asignarProyecto(infoProyecto);
 
 
 }

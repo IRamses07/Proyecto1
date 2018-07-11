@@ -46,30 +46,30 @@ function registrarCliente(infoCliente) {
     return respuesta;
 }
 
-function getInfoCliente(){
+function getInfoCliente() {
     let respuesta = 'respuesta';
     let peticion = $.ajax({
-        url : 'http://localhost:4000/api/getinfo_clientes',
-        type : 'get',
-        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
-        dataType : 'json',
-        async : false,
-        data:{
-            cedula_juridica : '15515154'
+        url: 'http://localhost:4000/api/getinfo_clientes',
+        type: 'get',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
+            cedula_juridica: '15515154'
         }
-      });
-    
-      peticion.done(function(response){
-          respuesta = response;
-      });
-    
-      peticion.fail(function(response){
-      });
+    });
+
+    peticion.done(function (response) {
+        respuesta = response;
+    });
+
+    peticion.fail(function (response) {
+    });
 
     return respuesta;
 }
 
-function listarClientes() {
+function slistarClientes() {
     let respuesta = '';
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/listar_clientes',
@@ -94,18 +94,21 @@ function listarClientes() {
 }
 function asignarProyecto(infoProyecto) {
     let respuesta = '';
+    console.log(infoProyecto);
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/listar_clientes',
-        type: 'get',
+        type: 'post',
         contentType: 'application/x-www-form-urlencoded; charset=utf-8',
         dataType: 'json',
         async: false,
+
         data: {
-            _id: infoProyecto._id,
-            id: infoProyecto.id,
-            nombre_proyecto: infoProyecto.nombre_proyecto,
-            fecha_Entrega: infoProyecto.fecha_Entrega,
-            estado_proyecto: infoProyecto.estado_proyecto
+
+            _id: infoProyecto[0],
+            id: infoProyecto[0],
+            nombre_proyecto: infoProyecto[1],
+            fecha_Entrega: infoProyecto[2],
+            estado_proyecto: infoProyecto[3]
         }
     });
 
