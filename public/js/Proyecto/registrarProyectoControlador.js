@@ -176,11 +176,27 @@ function validarCampos() {
 function agregarProyectoCliente() {
     let infoProyecto = [];
 
+
+
+
+
     let id = selectNombreCliente.value;
     let id1 = selectNombreCliente.value;
     let nombreProyecto = inputNombreProyecto.value;
     let fechaEntrega = dateFechaEntrega.value;
     let estadoProyecto = selectEstadoProyecto.value;
+    
+    let proyecto = obtenerListaProyectos();
+    
+
+    for (let i = 0; i < proyecto.length; i++) {
+
+        if (proyecto[i]['nombre_proyecto'] == (nombreProyecto)) {
+            id1 = lista[i]['_id'];
+        }
+
+       
+    }
 
     infoProyecto.push(id, id1, nombreProyecto, fechaEntrega, estadoProyecto);
 
