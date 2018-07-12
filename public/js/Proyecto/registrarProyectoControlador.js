@@ -1,6 +1,7 @@
 "use strict";
 moveUser(true);
 listarSelectClientes();
+
 //declaracion del boton y declaracion del event listener para dicho boton
 
 let botonRegistrar = document.querySelector('#btnRegistrar');
@@ -47,8 +48,17 @@ function obtenerDatos() {
     let sFechaEntrega = dateFechaEntrega.value;
 
     let sDescripcion = txtaDescripcion.value;
+    let lista = listarClientes();
+    let cliente;
+    for (let i = 0; i < lista.length; i++) {
 
-    infoProyecto.push(sNombreProyecto, sNombreCliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion);
+        if (lista[i]['_id'] == (sNombreCliente)) {
+            cliente = lista[i]['nombre'];
+        }
+    }
+
+    // obtenerNombre();
+    infoProyecto.push(sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion);
 
     error = validarCampos();
 
@@ -79,6 +89,17 @@ function obtenerDatos() {
 
 }
 
+function obtenerNombre() {
+    let slNombredelCliente = listarClientes();
+    let select = document.querySelector('#slNombredelCliente');
+    select.options[0] = new Option("Seleccione un cliente...", "");
+
+    for (let i = 0; i < slNombredelCliente.length; i++) {
+        select.options[i] = new Option(slNombredelCliente[i]['nombre'], slNombredelCliente[i]['nombre']);
+
+    }
+}
+
 function listarSelectClientes() {
     let slNombredelCliente = listarClientes();
     let select = document.querySelector('#slNombredelCliente');
@@ -89,6 +110,8 @@ function listarSelectClientes() {
 
     }
 }
+
+
 
 function validarCampos() {
     let error = true;
@@ -154,13 +177,12 @@ function agregarProyectoCliente() {
     let infoProyecto = [];
 
     let id = selectNombreCliente.value;
-
-    let identificacionJuridica = inputIdentifiacionJuridica.value;
+    let id1 = selectNombreCliente.value;
     let nombreProyecto = inputNombreProyecto.value;
     let fechaEntrega = dateFechaEntrega.value;
     let estadoProyecto = selectEstadoProyecto.value;
 
-    infoProyecto.push(id, identificacionJuridica, nombreProyecto, fechaEntrega, estadoProyecto);
+    infoProyecto.push(id, id1, nombreProyecto, fechaEntrega, estadoProyecto);
 
 
     asignarProyecto(infoProyecto);

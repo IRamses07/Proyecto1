@@ -1,13 +1,13 @@
 
-
+listarSelectClientes();
 
 function listarSelectClientes() {
-    let slNombredelCliente = listarClientes();
-    let select = document.querySelector('#slNombredelCliente');
+    let slProyecto =obtenerListaProyectos();
+    let select = document.querySelector('#slProyecto');
     select.options[0] = new Option("Seleccione un cliente...", "");
 
-    for (let i = 0; i < slNombredelCliente.length; i++) {
-        select.options[i] = new Option(slNombredelCliente[i]['nombre'], slNombredelCliente[i]['nombre']);
+    for (let i = 0; i < slProyecto.length; i++) {
+        select.options[i] = new Option(slProyecto[i]['nombre_proyecto'], slProyecto[i]['nombre_proyecto']);
 
     }
 }
