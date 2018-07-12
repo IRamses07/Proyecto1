@@ -2,7 +2,7 @@
 /**
  * Formulario de registro del cliente
  */
-let fmrCliente=elm('#fmrRegistroCliente')
+let fmrCliente = elm('#fmrRegistroCliente')
 /**
  * Select que contiene la lista de provincias
  */
@@ -10,7 +10,7 @@ let sltProvincia = elm("#sltProvincia");
 listener(sltProvincia, 'change', function () {
     llenarSelect(sltCantones, sltProvincia.value, cantones);
     llenarSelect(sltDistrito, sltCantones.value, distritos);
-    geocodeAddress(gCoder,map);
+    geocodeAddress(gCoder, map);
 });
 /**
  * Select que contiene la lista de provincias
@@ -18,7 +18,7 @@ listener(sltProvincia, 'change', function () {
 let sltCantones = elm("#sltCanton");
 listener(sltCantones, 'change', function () {
     llenarSelect(sltDistrito, sltCantones.value, distritos);
-    geocodeAddress(gCoder,map);
+    geocodeAddress(gCoder, map);
 
 });
 /**
@@ -26,7 +26,7 @@ listener(sltCantones, 'change', function () {
  */
 let sltDistrito = elm('#sltDistrito');
 listener(sltDistrito, 'change', function () {
-    geocodeAddress(gCoder,map);
+    geocodeAddress(gCoder, map);
 });
 /**
  * Boton que ejecuta la funcion de registro
@@ -34,7 +34,7 @@ listener(sltDistrito, 'change', function () {
 moveUser(true);
 let btnRegistrar = elm('#btnRegistrar');
 listener(btnRegistrar, 'click', function () {
-    let inputs=[
+    let inputs = [
         fmrCliente.cedulaJuridica,
         fmrCliente.nombre,
         fmrCliente.provincia,
@@ -49,26 +49,39 @@ listener(btnRegistrar, 'click', function () {
         fmrCliente.correoElectronico
     ];
     console.log(inputs);
-    fmrCliente.registrarCliente.dataset.ubucacion=marker.getPosition().lat()+','+ marker.getPosition().lng();
-    if (registro(inputs)){
-        if(fmrCliente.registrarCliente.dataset.ubucacion!=undefined){
-            let data={
-                cedula_juridica:inputs[0].value,
-                nombre:inputs[1].value,
-                provincia:inputs[2].value,
-                canton:inputs[3].value,
-                distrito:inputs[4].value,
-                direccion_exacta:inputs[5].value,
-                segundo_nombre:inputs[6].value,
-                primer_nombre:inputs[7].value,
-                primer_apellido:inputs[8].value,
-                segundo_apellido:inputs[9].value,
-                telefono:inputs[10].value,
-                correo_electronico:inputs[11].value,
-                ubicacion:fmrCliente.registrarCliente.dataset.ubucacion
+    fmrCliente.registrarCliente.dataset.ubucacion = marker.getPosition().lat() + ',' + marker.getPosition().lng();
+    if (registro(inputs)) {
+        if (fmrCliente.registrarCliente.dataset.ubucacion != undefined) {
+            let data = {
+                cedula_juridica: inputs[0].value,
+                nombre: inputs[1].value,
+                provincia: inputs[2].value,
+                canton: inputs[3].value,
+                distrito: inputs[4].value,
+                direccion_exacta: inputs[5].value,
+                segundo_nombre: inputs[6].value,
+                primer_nombre: inputs[7].value,
+                primer_apellido: inputs[8].value,
+                segundo_apellido: inputs[9].value,
+                telefono: inputs[10].value,
+                correo_electronico: inputs[11].value,
+                ubicacion: fmrCliente.registrarCliente.dataset.ubucacion
             }
             registrarCliente(data);
+            swal({
+                type: 'success',
+                title: 'Registro exitoso',
+                text: 'El usuario se registró adecuadamente',
+                confirmButtonText: 'Entendido'
+            });
         }
+    } else {
+        swal({
+            type: 'warning',
+            title: 'No se pudo registrar el usuario',
+            text: 'Por favor revise los campos en rojo',
+            confirmButtonText: 'Entendido'
+        });
     }
 
 });
@@ -170,7 +183,7 @@ let distritos = {
     nandayure: ["Carmona", "Santa Rita", "Zapotal", "San Pablo", "Porvenir", "Bejuco"],
     la_cruz: ["La Cruz", "Santa Cecilia", "La Garita", "Santa Elena"],
     hojancha: ["Hojancha", "Monte Romo", "Puerto Carrillo", "Huacas", "Matambú"],
-    tarrazu:["San Marcos", "San Lorenzo", "San Carlos"]
+    tarrazu: ["San Marcos", "San Lorenzo", "San Carlos"]
 };
 /**
  * Esta funcion llena un elemento HTMLSelectElement con datos dependiendo del valor de otro elemento
@@ -181,12 +194,12 @@ let distritos = {
  */
 function llenarSelect(element, key, data) {
     key = key.toLowerCase().replace(/á/g, 'a').replace(/é/g, 'e').replace(/í/g, 'i').replace(/ó/g, 'o').replace(/ú/g, 'u').replace(/ñ/g, 'nn').replace(/ /g, '_');
-    element.innerHTML='';
+    element.innerHTML = '';
     let lista = data[key];
-    element.options[0]=new Option('-Seleccione un '+element.name+'-','');
-    if (key!='') {
+    element.options[0] = new Option('-Seleccione un ' + element.name + '-', '');
+    if (key != '') {
         for (let i = 1; i < lista.length; i++) {
-            element.options[i] = new Option(lista[i-1], lista[i-1]);
+            element.options[i] = new Option(lista[i - 1], lista[i - 1]);
         }
     }
 }

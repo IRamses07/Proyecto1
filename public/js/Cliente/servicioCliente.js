@@ -69,7 +69,7 @@ function getInfoCliente() {
     return respuesta;
 }
 
-function slistarClientes() {
+function listarClientes() {
     let respuesta = '';
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/listar_clientes',
