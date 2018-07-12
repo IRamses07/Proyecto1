@@ -1,6 +1,7 @@
 'use strict';
 
 function registrarTicket(nombreCliente, urgencia, proyecto, imagenErr, referenciaTicket, descripcionError){
+    console.log(nombreCliente, urgencia, proyecto, imagenErr, referenciaTicket, descripcionError);
     let respuesta = '' ;
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/registrar_ticket',
@@ -12,7 +13,7 @@ function registrarTicket(nombreCliente, urgencia, proyecto, imagenErr, referenci
             nombre_cliente : nombreCliente,
             urgencia : urgencia,
             proyecto : proyecto,
-            imagen_error : imgUrl,
+            imagen_error : imagenErr,
             referencia_ticket : referenciaTicket,
             descripcion :descripcionError
         }

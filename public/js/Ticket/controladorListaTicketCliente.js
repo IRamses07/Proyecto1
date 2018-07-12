@@ -9,27 +9,26 @@ btnFiltro.addEventListener('click', function(){
     listarTicketsCliente(inptBuscarCliente.value);
 
     let radioSelected = document.querySelector('input[type="radio"]:checked');
-    getEntrada(radioSelected);
 
-        // let selectUrgencia = document.querySelector('#sltUrgencia').value;
-        // if (selectUrgencia.value == 'Alta') {
-        //     listarTicketsAdmin(selectUrgencia.value = 'Alta');
+        let selectUrgencia = document.querySelector('#sltUrgencia').value;
+        if (selectUrgencia.value == 'Alta') {
+            listarTicketsAdmin(selectUrgencia.value = 'Alta');
     
-        //     console.log("a ver que pasa xD");
-        // } else {
-        //     if (selectUrgencia.value == 'Media') {
+            console.log("a ver que pasa xD");
+        } else {
+            if (selectUrgencia.value == 'Media') {
                 
-        //     } else {
-        //         if (selectUrgencia.value == 'Baja') { }
-        //     }
-        // } 
+            } else {
+                if (selectUrgencia.value == 'Baja') { }
+            }
+        } 
     
-}) 
+}); 
 
 function listarTicketsCliente(pinptBuscarCliente) {
     let tickets = listarTickets();
     let nTamanno = tickets.length;
-    let tbody = document.querySelector('#tblTicketAdmin tbody');
+    let tbody = document.querySelector('#tblTicketCliente tbody');
     tbody.innerHTML = '';
 
     if(!pinptBuscarCliente){

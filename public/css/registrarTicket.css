@@ -152,6 +152,8 @@ h1 {
 }
 
 .btnLista {
+    margin: 0 auto;
+    width: 65%;
     height: 29px;
     padding: 5px 0px 5px 0;
     background-color: #fbb308;

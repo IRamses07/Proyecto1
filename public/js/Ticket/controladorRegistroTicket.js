@@ -39,7 +39,7 @@ function obtenerDatosTicket() {
             button: "Ok",
           });
     } else {
-        registrarTicket(ticket);
+        registrarTicket(nombreCliente, urgencia, proyecto, imagenErr, referenciaTicket, descripcionError);
         swal({
             title: "Registro exitoso",
             text: "El ticket se ha registrado correctamente",

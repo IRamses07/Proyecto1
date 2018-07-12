@@ -6,7 +6,7 @@ module.exports.registrar = function (req, res) {
         nombre_cliente : req.body.nombre_cliente,
         urgencia : req.body.urgencia,
         proyecto : req.body.proyecto,
-        imagen_error : req.body. imgUrl,
+        imagen_error : req.body. imagen_error,
         referencia_ticket : req.body.referencia_ticket,
         descripcion : req.body.descripcion
     });
