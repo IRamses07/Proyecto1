@@ -1,6 +1,7 @@
 'use strict';
 
-function registrarTicket(paticket){
+function registrarTicket(nombreCliente, urgencia, proyecto, imagenErr, referenciaTicket, descripcionError){
+    console.log(nombreCliente, urgencia, proyecto, imagenErr, referenciaTicket, descripcionError);
     let respuesta = '' ;
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/registrar_ticket',
@@ -9,16 +10,17 @@ function registrarTicket(paticket){
         dataType : 'json',
         async : false,
         data:{
-            nombre_cliente : paticket[0],
-            urgencia : paticket[1],
-            proyecto : paticket[2],
-            pantallazo_error : paticket[3],
-            referencia_ticket : paticket[4],
-            descripcion : paticket[5]
+            nombre_cliente : nombreCliente,
+            urgencia : urgencia,
+            proyecto : proyecto,
+            imagen_error : imagenErr,
+            referencia_ticket : referenciaTicket,
+            descripcion :descripcionError
         }
     });
     peticion.done(function(response){
         respuesta = response;
+       
        });
      
        peticion.fail(function(response){
