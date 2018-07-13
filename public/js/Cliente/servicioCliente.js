@@ -55,7 +55,7 @@ function getInfoCliente() {
         dataType: 'json',
         async: false,
         data: {
-            cedula_juridica: '15515154'
+            cedula_juridica: 'jur88tte78'
         }
     });
 

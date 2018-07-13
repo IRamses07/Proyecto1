@@ -23,7 +23,8 @@ let estudianteSchema = new mongoose.Schema({
     contCorreo : {type : String, required : true},
     estado : {type : String, required : true},
     password: {type: String, required: true},
-    passwordChange: {type: Number, required: true}
+    passwordChange: {type: Number, required: true},
+    foto : {type : String}
 });
 
 module.exports = mongoose.model('Estudiante', estudianteSchema);

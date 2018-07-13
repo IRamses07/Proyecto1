@@ -16,6 +16,7 @@ function getInfo(){
 function infoPersonal(infoEstudiante){
     let contenido ='';
     let contenido2 = '';
+    document.querySelector('#perfiImagen').src = infoEstudiante[0]['foto'];
     
     if(infoEstudiante[0]['apellido2'] !== ''){
         contenido+='<h3>'+infoEstudiante[0]['Nombre1']+' '+infoEstudiante[0]['apellido1']+' '+infoEstudiante[0]['apellido2']+'</h3>';

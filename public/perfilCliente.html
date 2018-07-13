@@ -21,7 +21,7 @@
             <a href="javascript:logOut();" class="fRight">Cerrar sesión
                 <i class="fas fa-cog"></i>
             </a>
-                </div>
+        </div>
         
         <div class="menuLateral">
             <i class="fas fa-align-justify"></i>
@@ -54,16 +54,18 @@
 
             </div>
         </div>
-
-    
-
+        
+        <div id="contMap">
+            <div id="map"></div>
+        </div>
 
     </main>
     <footer></footer>
     <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/Login/login.js"></script>
+    <script src="js/controlador.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqwnxPeSYz_PuUWckCDE54K9GX448uD2k&callback=showMap" asyncdefer></script>
     <script src="js/Cliente/servicioCliente.js"></script>
     <script src="js/Cliente/controladorPerfilCliente.js"></script>
-
-
 </body>
 </html>
