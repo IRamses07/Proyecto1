@@ -1,5 +1,5 @@
 'use strict';
-// moveUser(true);
+moveUser(true);
 
 let botonRegistrarTicket = document.querySelector('#btnRegistrarTicket');
 botonRegistrarTicket.addEventListener('click', obtenerDatosTicket);
@@ -103,6 +103,13 @@ function listarSelectProyectos(){
         select.options[i+1] = new Option(sltproyectos[i]['nombre_proyecto'], sltproyectos[i]['nombre_proyecto']);
 
     }
+}
+
+function llenarNombreCliente(){
+    let nombreUsuario = getCurrentUserData(pId);
+    let inptNombreCliente = document.querySelector('#txtnombreCliente');
+    inptNombreCliente = sessionStorage.getItem('nombre');
+
 }
 
 // function ticketsViejos(){

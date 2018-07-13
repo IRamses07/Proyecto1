@@ -29,6 +29,7 @@ function listarTicketsCliente(pinptBuscar, selectUrgencia) {
         tickets[i]['urgencia'].includes(selectUrgencia)){
 
         let fila = tbody.insertRow();
+        // let codigo = fila.insertCell();
         let urgencia = fila.insertCell();
         let proyecto = fila.insertCell();
         let descripcion = fila.insertCell();
@@ -39,6 +40,7 @@ function listarTicketsCliente(pinptBuscar, selectUrgencia) {
         boton.value = "Ver más";
         boton.classList.add("btnLista");
 
+        // codigo.innerHTML = tickets[i]['codigo'];
         urgencia.innerHTML = tickets[i]['urgencia'];
         proyecto.innerHTML = tickets[i]['proyecto'];
         descripcion.innerHTML = tickets[i]['descripcion'];
