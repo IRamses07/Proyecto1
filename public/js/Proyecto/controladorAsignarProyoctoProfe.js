@@ -1,6 +1,8 @@
 
 listarSelectClientes();
 
+let selectProyecto = document.querySelector('#slProyecto')
+
 function listarSelectClientes() {
     let slProyecto =obtenerListaProyectos();
     let select = document.querySelector('#slProyecto');
