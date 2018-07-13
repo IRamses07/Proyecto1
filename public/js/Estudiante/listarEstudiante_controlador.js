@@ -9,6 +9,21 @@ buttonFiltrar.addEventListener('click', function(){
     getEntrada(radioSelected);
 });
 
+// let buttonVerMas = document.getElementsByClassName('btnVerMas');
+// console.log('1'+buttonVerMas);
+// buttonVerMas.addEventListener("click", function(){ alert("Hello World!"); });
+vermas();
+function vermas(){
+    let buttonsVermas = document.querySelectorAll('.btnVerMas');
+    buttonsVermas.forEach(function(elem){
+        elem.addEventListener("click", function(){
+            let ced = elem.value;
+            localStorage.setItem('ced',ced);
+            document.location.href = 'perfilEstudiante.html';
+        })
+    });
+}
+
 let inputDatoBuscar = document.querySelector('#inputBuscar');
 let errorInput = document.querySelector('#errorInput');
 
@@ -43,9 +58,10 @@ function imprimirLista(lista){
         cApellido.innerHTML = listaEstudiantes[i]['apellido1'];
         cCarrera.innerHTML = listaEstudiantes[i]['carrera'];
         cHoras.innerHTML = '  0  ';                                                 //A definir con el programador engardado de asignar horas al actor
-        cPerfil.innerHTML = '<button type="button" class="btnRegistro" value="'+listaEstudiantes[i]['cedula']+'">ver mas</button>';
+        cPerfil.innerHTML = '<button type="button" class="btnVerMas" value="'+listaEstudiantes[i]['cedula']+'">ver mas</button>';
         cEstado.innerHTML = '<button type="button" class="btnRegistro" value="'+listaEstudiantes[i]['cedula']+'">modificar</button>  '+listaEstudiantes[i]['estado']+' ';
     }
+    vermas();
 }
 
 
