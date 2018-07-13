@@ -3,39 +3,30 @@
 
 listarTicketsCliente();
 
-let inptBuscarCliente = document.querySelector('#filtrocliente');
+let inptBuscar = document.querySelector('#filtro');
 let btnFiltro = document.querySelector('#btnFiltrar');
 btnFiltro.addEventListener('click', function(){
-    listarTicketsCliente(inptBuscarCliente.value);
-
-    let radioSelected = document.querySelector('input[type="radio"]:checked');
-
-        let selectUrgencia = document.querySelector('#sltUrgencia').value;
-        if (selectUrgencia.value == 'Alta') {
-            listarTicketsAdmin(selectUrgencia.value = 'Alta');
-    
-            console.log("a ver que pasa xD");
-        } else {
-            if (selectUrgencia.value == 'Media') {
-                
-            } else {
-                if (selectUrgencia.value == 'Baja') { }
-            }
-        } 
-    
+        let selectUrgencia = document.querySelector('#sltUrgencia');
+        listarTicketsCliente(inptBuscar.value,selectUrgencia.value);
 }); 
 
-function listarTicketsCliente(pinptBuscarCliente) {
+function listarTicketsCliente(pinptBuscar, selectUrgencia) {
     let tickets = listarTickets();
     let nTamanno = tickets.length;
     let tbody = document.querySelector('#tblTicketCliente tbody');
     tbody.innerHTML = '';
 
-    if(!pinptBuscarCliente){
-        pinptBuscarCliente = '';
+    if(!pinptBuscar){
+        pinptBuscar = '';
     }
+
+    if (!selectUrgencia) {
+        selectUrgencia = '';
+    }
+
     for (let i = 0; i < nTamanno; i++) {
-        if(tickets[i]['nombre_cliente'].toLowerCase().includes(pinptBuscarCliente.toLowerCase())){
+        if(tickets[i]['proyecto'].toLowerCase().includes(pinptBuscar.toLowerCase())&&
+        tickets[i]['urgencia'].includes(selectUrgencia)){
 
         let fila = tbody.insertRow();
         let urgencia = fila.insertCell();

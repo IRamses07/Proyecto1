@@ -139,7 +139,12 @@ h1 {
     width: 17%;
 }
 
-.filtroTicket  .inptbuscarCliente {
+                    
+.filtroTicket .sltUrgencia2{
+    width: 20%;
+}
+
+.filtroTicket  .inptbuscar {
     width: 17%;
 }
 
@@ -152,13 +157,13 @@ h1 {
 }
 
 .btnLista {
-    margin: 0 auto;
+    margin: 0 auto 10px auto; 
     width: 65%;
     height: 29px;
     padding: 5px 0px 5px 0;
     background-color: #fbb308;
     color: #fff;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 .btnImgErr{
