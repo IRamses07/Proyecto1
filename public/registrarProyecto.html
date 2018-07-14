@@ -67,12 +67,12 @@
                 <input type="text" id="txtNombreProyecto">
 
                 <label for="">Nombre del cliente:</label>
-                <select name="slNombredelCliente" id="slNombredelCliente">
+                <select name="slNombredelCliente" id="slNombredelCliente" onchange="validar()">
                     <option value="seleccioneUno">Seleccione Uno</option>
                 </select>
 
                 <label for="">Identificacion Juridica:</label>
-                <input type="text" id="txtIdentifiacionJuridica">
+                <input type="text" id="txtIdentifiacionJuridica" required disabled>
 
                 <div class="slDescripcion">
                     <label for="">Estado del proyecto:</label>
@@ -115,7 +115,7 @@
         <script src="js/Login/login.js"></script>
         <!-- <script src="js/Cliente/servicioCliente.js"></script>
         <script src="js/Proyecto/cotroladorAgregarProyectoCliente.js"></script> -->
-        <script src="js/Cliente/servicioListarClientes.js"></script>
+        <!-- <script src="js/Cliente/servicioListarClientes.js"></script> -->
         <!-- <script src="js/Proyecto/cotroladorAgregarProyectoCliente.js"></script> -->
         <script src="js/Cliente/servicioCliente.js"></script>
         <script src="js/Proyecto/registrarProyectoServicio.js"></script>
