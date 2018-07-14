@@ -1,25 +1,25 @@
 'use strict';
 // moveUser(true);
 
-listarTicketsAdmin();
+listarTicketsEstudiante();
 
 let inptBuscarCliente = document.querySelector('#filtrocliente');
 let btnFiltro = document.querySelector('#btnFiltrar');
 btnFiltro.addEventListener('click', function () {
-    listarTicketsAdmin(inptBuscarCliente.value);
+    listarTicketsEstudiante(inptBuscarCliente.value);
 
     let radioSelected = document.querySelector('input[type="radio"]:checked');
    
 
     let selectUrgencia = document.querySelector('#sltUrgencia').value;
-    listarTicketsAdmin(inptBuscarCliente.value, selectUrgencia, radioSelected.value);
+    listarTicketsEstudiante(inptBuscarCliente.value, selectUrgencia, radioSelected.value);
 
 })
 
-function listarTicketsAdmin(pinptBuscarCliente, selectUrgencia, radioSelected) {
+function listarTicketsEstudiante(pinptBuscarCliente, selectUrgencia, radioSelected) {
     let tickets = listarTickets();
     let nTamanno = tickets.length;
-    let tbody = document.querySelector('#tblTicketAdmin tbody');
+    let tbody = document.querySelector('#tblTicketEstudiante tbody');
     tbody.innerHTML = '';
 
     if (!pinptBuscarCliente) {

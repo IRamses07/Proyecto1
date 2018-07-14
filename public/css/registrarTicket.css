@@ -136,8 +136,18 @@ h1 {
 }
 
 .filtroTicket select {
-    width: 27%;
+    width: 17%;
 }
+
+                    
+.filtroTicket .sltUrgencia2{
+    width: 20%;
+}
+
+.filtroTicket  .inptbuscar {
+    width: 17%;
+}
+
 
 .btnFiltro {
     float: right;
@@ -147,16 +157,23 @@ h1 {
 }
 
 .btnLista {
+    margin: 0 auto 10px auto; 
+    width: 65%;
     height: 29px;
     padding: 5px 0px 5px 0;
     background-color: #fbb308;
     color: #fff;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
+}
+
+.btnImgErr{
+    width: 30%;
+    content: 'Subir imagen';
 }
 
 .imgErrorContainer {
     width: 100%;
     height: 190px;
-    background-color: black;
+    /* background-color: black; */
     margin: 20px 0px 0px 1%;;
 }

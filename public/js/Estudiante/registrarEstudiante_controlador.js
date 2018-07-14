@@ -65,10 +65,10 @@ function getDatos(){
     sError = validar();
     if(sError==true){
         swal({
-            type : 'warning',
-            title : 'No se pudo registrar el estudiante',
-            text: 'Por favor revise los campos en rojo',
-            confirmButtonText : 'OK'
+            title: "Advertencia",
+            text: "Por favor llene los campos en rojo.",
+            icon: "warning",
+            button: "Ok",
         });
         console.log('No se pudo registrar el usuario');
     }else{

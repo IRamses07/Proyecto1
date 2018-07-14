@@ -4,8 +4,8 @@ let mongoose = require('mongoose');
 let ticketSchema = new mongoose.Schema({
     nombre_cliente : {type : String, required : true},
     urgencia : {type : String, required : true },
-    proyecto : {type : String},
-    pantallazo_error : {type : String},
+    proyecto : {type : String, required : true},
+    imagen_error : {type : String, required: true},
     referencia_ticket : {type : String},
     descripcion : {type : String, required : true}
 });

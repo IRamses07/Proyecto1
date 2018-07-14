@@ -9,12 +9,12 @@ botonRegistrarTicket.addEventListener('click', obtenerDatosTicket);
 let inptNombreCliente = document.querySelector('#txtnombreCliente');
 let inptUrgencia = document.querySelector('#sltUrgencia');
 let inptProyecto = document.querySelector('#sltProyecto');
-let inptPantallazoError = document.querySelector('#imgPantallazoError');
+let inptimagenErr = document.querySelector('#file-upload');
 let inptReferenciaTicket = document.querySelector('#sltTicket');
 
 let inptDescripcionError = document.querySelector('#txtdescripcion');
 listarSelectProyectos();
-
+llenarNombreCliente();
 
 function obtenerDatosTicket() {
     let ticket = [];
@@ -23,10 +23,11 @@ function obtenerDatosTicket() {
     let nombreCliente = inptNombreCliente.value;
     let urgencia = inptUrgencia.value;
     let proyecto = inptProyecto.value;
-    let pantallazoError = inptPantallazoError.value;
+    let imagenErr = imgUrl;
     let referenciaTicket = inptReferenciaTicket.value;
     let descripcionError = inptDescripcionError.value;
-    ticket.push(nombreCliente, urgencia, proyecto, pantallazoError, referenciaTicket, descripcionError);
+    ticket.push(nombreCliente, urgencia, proyecto, imagenErr, referenciaTicket, descripcionError);
+    // imagenErr   en caso de no servir la prueba sin este dato va dentro del parentesis del push
 
   
     if (error == true) {
@@ -38,7 +39,7 @@ function obtenerDatosTicket() {
             button: "Ok",
           });
     } else {
-        registrarTicket(ticket);
+        registrarTicket(nombreCliente, urgencia, proyecto, imagenErr, referenciaTicket, descripcionError);
         swal({
             title: "Registro exitoso",
             text: "El ticket se ha registrado correctamente",
@@ -72,16 +73,7 @@ function validar() {
     } else {
         inptProyecto.classList.remove('error');
     }
-    if (inptPantallazoError.value == '') {
-        inptPantallazoError.classList.add('error');
-        console.log(inptPantallazoError);
-
-        error = true;
-    } else {
-        console.log(inptPantallazoError);
-        inptPantallazoError.classList.remove('error');
-    }
-
+    
     if (inptDescripcionError.value == '') {
         inptDescripcionError.classList.add('error');
         error = true;
@@ -96,9 +88,10 @@ function limpiarFormulario() {
     inptNombreCliente.value = '';
     inptUrgencia.value = '';
     inptProyecto.value = '';
-    inptPantallazoError = '';
-    inptReferenciaTicket = '';
-    inptDescripcionError = '';
+    inptimagenErr.value = '';
+    inptReferenciaTicket.value = '';
+    inptDescripcionError.value = '';
+
 }
 
 function listarSelectProyectos(){
@@ -110,6 +103,13 @@ function listarSelectProyectos(){
         select.options[i+1] = new Option(sltproyectos[i]['nombre_proyecto'], sltproyectos[i]['nombre_proyecto']);
 
     }
+}
+
+function llenarNombreCliente(){
+    let nombreUsuario = getCurrentUserData()['nombre'];
+    let inptNombreCliente = document.querySelector('#txtnombreCliente');
+    inptNombreCliente.value = nombreUsuario;
+
 }
 
 // function ticketsViejos(){

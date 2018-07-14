@@ -36,7 +36,8 @@ function registrarEstudiante(infoEstudiante){
             let pw = Math.random().toString(36).substring(2, 10);
             return pw;
             }),
-            passwordChange: 0
+            passwordChange: 0 ,
+            foto : 'http://res.cloudinary.com/dtz8agoc3/image/upload/v1531452055/perfil.png'
         }
     });
     
@@ -144,4 +145,31 @@ function getInfoEstudiante(){
       return respuesta;
     
    //return listaEstudiantes;
+}
+
+function cambiarFoto(imagenUrl){
+    let respuesta = '';
+    console.log('aqui esta1');
+    let ced = localStorage.getItem('ced');
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/cambiarfoto_estudiantes',
+        type : 'put',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            cedula : ced,
+            foto : imagenUrl
+        }
+      });
+    
+      peticion.done(function(response){
+       respuesta = response;
+      });
+    
+      peticion.fail(function(response){
+       
+      });
+
+      return respuesta;
 }

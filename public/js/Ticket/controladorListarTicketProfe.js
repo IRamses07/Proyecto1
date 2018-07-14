@@ -1,25 +1,25 @@
 'use strict';
-// moveUser(true);
+moveUser(true);
 
-listarTicketsAdmin();
+listarTicketsProfe();
 
 let inptBuscarCliente = document.querySelector('#filtrocliente');
 let btnFiltro = document.querySelector('#btnFiltrar');
 btnFiltro.addEventListener('click', function () {
-    listarTicketsAdmin(inptBuscarCliente.value);
+    listarTicketsProfe(inptBuscarCliente.value);
 
     let radioSelected = document.querySelector('input[type="radio"]:checked');
    
 
     let selectUrgencia = document.querySelector('#sltUrgencia').value;
-    listarTicketsAdmin(inptBuscarCliente.value, selectUrgencia, radioSelected.value);
+    listarTicketsProfe(inptBuscarCliente.value, selectUrgencia, radioSelected.value);
 
 })
 
-function listarTicketsAdmin(pinptBuscarCliente, selectUrgencia, radioSelected) {
+function listarTicketsProfe(pinptBuscarCliente, selectUrgencia, radioSelected) {
     let tickets = listarTickets();
     let nTamanno = tickets.length;
-    let tbody = document.querySelector('#tblTicketAdmin tbody');
+    let tbody = document.querySelector('#tblTicketprofe tbody');
     tbody.innerHTML = '';
 
     if (!pinptBuscarCliente) {
@@ -66,6 +66,6 @@ function listarTicketsAdmin(pinptBuscarCliente, selectUrgencia, radioSelected) {
 
 
 function mostrarDatosTicketseleccionado(){
-document.location(href='verTicket.html');
+document.location('./verTicket.html');
 
 }

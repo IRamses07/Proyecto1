@@ -24,8 +24,10 @@ module.exports.registrar = function(req, res){
         contTelefono : req.body.contTelefono,
         contCorreo : req.body.contCorreo,
         estado : req.body.estado,
-        password: req.body.password,
-        passwordChange: req.body.passwordChange
+        password : req.body.password,
+        passwordChange : req.body.passwordChange,
+        foto : req.body.foto
+
     });
 
     estudianteNuevo.save(function(error){
@@ -60,4 +62,20 @@ module.exports.getInfoEstudiante = function(req, res){
         function(estudiantes){
             res.send(estudiantes);
         });
+};
+
+module.exports.cambiarFoto = function(req, res){
+    console.log('aqui esta2');
+
+    estudianteSchema.findOneAndUpdate(
+        {
+            cedula: req.body.cedula
+        },
+        {  
+            foto: req.body.foto
+        }
+        ).then(
+        function(estudiantes){
+            res.send(estudiantes);
+    });
 };

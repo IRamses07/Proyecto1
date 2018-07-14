@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lista Tickets</title>
-    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png"/>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/generalStyle.css">
     <link rel="stylesheet" href="css/registrarTicket.css">
@@ -34,9 +33,6 @@
                     <div class="option">
                     <a href="listarTickets.html">Listar tickets para Admin</a>
                 </div>
-                <div class="option">
-                    <a href="listarTicketsProfesor.html">Listar tickets profe</a>
-                </div>
                 </div>
         
             </header>
@@ -49,7 +45,6 @@
                         <input type="radio" name="radioSelected" checked="checked" id="cliente" value="nombre_cliente"><label for="tickets">Nombre de cliente</label>
                         <input type="radio" id="proyecto" name="radioSelected" value="proyecto"><label for="tickets">Proyecto</label>
                         <!-- <input type="radio" id="codigo" name="radioSelected" value="codigo"><label for="tickets">Código</label> -->
-                        <!-- <input type="radio" id="profesor" name="radioSelected" value="profesor"><label for="tickets">Profesor</label> -->
                         <select name="urgencia" id="sltUrgencia" >
                             <option value="">Seleccione la urgencia:</option>
                             <option value="Alta">Alta</option>
@@ -60,7 +55,7 @@
                             <button type="button" id="btnFiltrar"  class="btnFiltro">Filtrar</button>
                     
                     </div>
-                    <table id="tblTicketAdmin">
+                    <table id="tblTicketEstudiante">
                         <thead>
                             <th>Nombre del cliente</th>
                             <th>Urgencia</th>
@@ -78,6 +73,6 @@
             <script src="js/jquery-3.3.1.js"></script>
             <script src="js/Login/login.js"></script>
             <script src="js/Ticket/servicioRegistroTicket.js"></script>
-            <script src="js/Ticket/controladorListarTicket.js"></script>
+            <script src="js/Ticket/controladorListarTicketProfe.js"></script>
 </body>
 </html>

@@ -55,7 +55,7 @@ function getInfoCliente() {
         dataType: 'json',
         async: false,
         data: {
-            cedula_juridica: '15515154'
+            cedula_juridica: 'jur88tte78'
         }
     });
 
@@ -69,7 +69,7 @@ function getInfoCliente() {
     return respuesta;
 }
 
-function slistarClientes() {
+function listarClientes() {
     let respuesta = '';
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/listar_clientes',
@@ -106,10 +106,10 @@ function asignarProyecto(infoProyecto) {
         data: {
 
             _id: infoProyecto[0],
-            id: infoProyecto[0],
-            nombre_proyecto: infoProyecto[1],
-            fecha_Entrega: infoProyecto[2],
-            estado_proyecto: infoProyecto[3]
+            id: infoProyecto[1],
+            nombre_proyecto: infoProyecto[2],
+            fecha_Entrega: infoProyecto[3],
+            estado_proyecto: infoProyecto[4]
         }
     });
 
