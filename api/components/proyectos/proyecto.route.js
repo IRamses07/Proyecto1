@@ -14,6 +14,11 @@ router.route('/registrar')
     proyecto.listar(req, res);
 });
 
+router.route('/buscar_id')
+.get(function(req, res){
+proyecto.buscarPorId(req, res);
+})
+
 
 
 

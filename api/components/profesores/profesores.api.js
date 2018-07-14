@@ -16,17 +16,23 @@ module.exports.registrar = function (req, res) {
         rol: req.body.rol,
         password: req.body.password,
         passwordChange: req.body.passwordChange,
-        lugarTrabajo:'',
-        annosExperiencia:'',
+        lugarTrabajo: '',
+        annosExperiencia: '',
         cursosImpartidos: [],
         informacionAcademica: []
     });
 
     nuevoProfesor.save(function (error) {
         if (error) {
-            res.json({ success: false, msg: 'No se pudo registrar el usuario, ocurrió el siguiente error' + error });
+            res.json({
+                success: false,
+                msg: 'No se pudo registrar el usuario, ocurrió el siguiente error' + error
+            });
         } else {
-            res.json({ success: true, msg: 'El usuario se registró con éxito'});
+            res.json({
+                success: true,
+                msg: 'El usuario se registró con éxito'
+            });
         }
 
     });
@@ -40,12 +46,47 @@ module.exports.listar = function (req, res) {
         });
 };
 
-module.exports.getInfoProfesor = function(req, res){
-    profesorModel.find({'cedula':req.query.cedula}).then(
-        function(profesores){
+module.exports.getInfoProfesor = function (req, res) {
+    profesorModel.find({
+        'cedula': req.query.cedula
+    }).then(
+        function (profesores) {
             res.send(profesores);
         });
 };
+
+module.exports.asignar_proyecto = function (req, res) {
+
+    profesorModel.update({
+            _id: req.body._id
+        }, {
+            $push: {
+                'proyecto': {
+
+                    id: req.body.id,
+                    rol: req.body.rol,
+                    nombre_proyecto: req.body.nombre_proyecto,
+                    fecha_Entrega: req.body.fecha_Entrega,
+                    estado_proyecto: req.body.estado_proyecto
+                }
+            }
+        },
+        function (error) {
+            if (error) {
+                res.json({
+                    success: false,
+                    msg: 'No se pudo Signar el proyecto, ocurrió el siguiente error' + error
+                });
+            } else {
+                res.json({
+                    success: true,
+                    msg: 'El Proyecto se asignó con éxito'
+                });
+            }
+        }
+    )
+};
+
 /*module.exports.actualizar_usuario = function(req, res){
     userModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
         function(err) {
