@@ -48,8 +48,33 @@ function listarSelectProfe2() {
 }
 
 function obtenerDatos() {
-    asignaraProfe1();
-    asignaraProfe2();
+
+    let error = false;
+
+    error = validarCampos();
+
+    if (error == true) {
+        swal({
+            type: 'warning',
+            title: 'No se pudo registrar el usuario',
+            text: 'Por favor revise los campos en rojo, o que los datos no sean igulas',
+            confirmButtonText: 'Entendido'
+        });
+        console.log('No se pudo registrar el usuario');
+    } else {
+
+        asignaraProfe1();
+        asignaraProfe2();
+
+        swal({
+            type: 'success',
+            title: 'Registro exitoso',
+            text: 'El usuario se registró adecuadamente',
+            confirmButtonText: 'Entendido'
+        });
+
+
+    }
 }
 
 
@@ -147,6 +172,21 @@ function asignaraProfe2() {
 
 }
 
+function validarCampos() {
+    let error = true;
+
+    if (selectProfe1.value == selectProfe2.value) {
+        selectProfe1.classList.add('error_input');
+        selectProfe2.classList.add('error_input');
+        error = true;
+    } else {
+        selectProfe1.classList.remove('error_input');
+        selectProfe2.classList.remove('error_input');
+        error = false;
+    }
+
+    return error;
+}
 
 // _id: infoProyecto[0],
 //             id: infoProyecto[1],
