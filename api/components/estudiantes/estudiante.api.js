@@ -26,7 +26,8 @@ module.exports.registrar = function(req, res){
         estado : req.body.estado,
         password : req.body.password,
         passwordChange : req.body.passwordChange,
-        foto : req.body.foto
+        foto : req.body.foto,
+        rol : req.body.rol
 
     });
 

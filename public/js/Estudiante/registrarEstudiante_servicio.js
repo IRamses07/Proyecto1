@@ -37,7 +37,8 @@ function registrarEstudiante(infoEstudiante){
             return pw;
             }),
             passwordChange: 0 ,
-            foto : 'http://res.cloudinary.com/dtz8agoc3/image/upload/v1531452055/perfil.png'
+            foto : 'http://res.cloudinary.com/dtz8agoc3/image/upload/v1531452055/perfil.png',
+            rol : 'estudiante'
         }
     });
     
@@ -88,6 +89,16 @@ function obtenerListaEstudiantes(){
    //return listaEstudiantes;
 }
 
+function validarCedulaRepetida(cedula){
+
+    let listaEstudiantes = obtenerListaEstudiantes();
+    for (let i = 0; i < listaEstudiantes.length; i++) {
+        if(listaEstudiantes[i]['cedula']==cedula){
+            return true;
+        }
+    }
+    return false;
+}
 
 function filtrarNombreEstudiantes(inputDatoBuscar){
     console.log('f5');

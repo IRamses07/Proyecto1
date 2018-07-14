@@ -38,6 +38,7 @@ let inputDireccion = document.querySelector('#estDireccion');
 let selectCanton = document.querySelector('#selectCanton');
 let selectDistrito = document.querySelector('#selectDistrito');
 let selectProvincia = document.querySelector('#selecProvincia');
+let labelCed = document.querySelector('#cedExt');
 
 //DatosCurso
 let selectCarrera = document.querySelector('#selectCarrera');
@@ -79,6 +80,7 @@ function getDatos(){
             text: 'El estudiante se registró exitosamente',
             confirmButtonText : 'OK'
         });
+        limpiar();
     }
 }
 
@@ -97,6 +99,18 @@ function validar(){
     }else{
         inputCedula.classList.remove('error_input');
     }
+
+    if (validarCedulaRepetida(inputCedula.value)) {
+        inputCedula.classList.add('error_input');
+        labelCed.classList.remove('lblHide');
+        sError = true;
+        console.log('es repetida');
+    } else {
+        inputCedula.classList.remove('error_input');
+        labelCed.classList.add('lblHide');
+        console.log('no es repetida');
+    }
+    
     //Validar Nombre1
     if(inputNombre1.value == '' || (checkSoloLetras.test(inputNombre1.value)==false) ){
         inputNombre1.classList.add('error_input');
@@ -402,3 +416,30 @@ function seleccionarDistrito(canton,provincia){
     }
     selectDistrito.innerHTML = output;
 };
+
+function limpiar(){
+    let tbody = document.querySelector('#tblCursos tbody');
+    tbody.innerHTML = '';
+
+    inputCedula.value='';
+    inputNombre1.value='';
+    inputNombre2.value='';
+    inputApellido1.value='';
+    inputApellido2.value='';
+    inputTelefono.value='';
+    inputCorreo.value='';
+    inputDireccion.value='';
+    selectCanton.value='';
+    selectDistrito.value='';
+    selectProvincia.value='';
+    labelCed.value='';
+    selectCarrera.value='';
+    selectCiclo.value='';
+    selectCurso.value='';
+    inputConNombre1.value='';
+    inputConNombre1.value='';
+    inputConApellido1.value='';
+    inputConApellido2.value='';
+    inputConTelefono.value='';
+    inputConCorreo.value='';
+}

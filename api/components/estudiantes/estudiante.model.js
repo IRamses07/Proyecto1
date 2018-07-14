@@ -24,7 +24,8 @@ let estudianteSchema = new mongoose.Schema({
     estado : {type : String, required : true},
     password: {type: String, required: true},
     passwordChange: {type: Number, required: true},
-    foto : {type : String}
+    foto : {type : String},
+    rol : {type : String, required : true}
 });
 
 module.exports = mongoose.model('Estudiante', estudianteSchema);
