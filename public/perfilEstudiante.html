@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png"/>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/error.css">
     <link rel="stylesheet" href="css/generalStyle.css">
@@ -31,20 +32,22 @@
                 <a href="listarEstudiante.html">Lista Estudiantes</a>
             </div>
             <div class="option">
-                <a href="listarProyectos">Proyectos</a>
+                <a href="">Proyectos</a>
             </div>
         </div>
     </header>
     <main id="container">
         <div class="card">
             <div class="img_container">
-                <img src="https://image.ibb.co/iHyp6o/perfil.png" alt="Foto">
+                <img id="perfiImagen" src="https://image.ibb.co/iHyp6o/perfil.png" alt="Foto">
             </div>
             <div id="datosUsuario">
             </div>
             <div id="infoUsuario" class="infoUsuario">
             </div>
+            <button type="button" id="btnSeleccionarImagen"><i class="fas fa-edit"></i>
         </div>
+        
         <hr class="underline">
         <div class="infoContacto">
             <h4 class="subtitulo">Contacto de Emegencia:</h4>
@@ -64,12 +67,17 @@
                 </tbody>
             </table>
         </div>
+        
+
+</button>
     </main>
     <footer></footer>
     <script src="js/jquery-3.3.1.js"></script>
+    <script src='https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js' type='text/javascript'></script>
+    <script src="https://widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+    <script src="js/login/login.js"></script>
+    <script src="js/servicioImagenPerfiles.js"></script>
     <script src="js/Estudiante/registrarEstudiante_servicio.js"></script>
     <script src="js/Estudiante/perfilEstudiante_controlador.js"></script>
-
-
 </body>
 </html>

@@ -14,7 +14,7 @@ let inptReferenciaTicket = document.querySelector('#sltTicket');
 
 let inptDescripcionError = document.querySelector('#txtdescripcion');
 listarSelectProyectos();
-
+llenarNombreCliente();
 
 function obtenerDatosTicket() {
     let ticket = [];
@@ -106,9 +106,9 @@ function listarSelectProyectos(){
 }
 
 function llenarNombreCliente(){
-    let nombreUsuario = getCurrentUserData(pId);
+    let nombreUsuario = getCurrentUserData()['nombre'];
     let inptNombreCliente = document.querySelector('#txtnombreCliente');
-    inptNombreCliente = sessionStorage.getItem('nombre');
+    inptNombreCliente.value = nombreUsuario;
 
 }
 
