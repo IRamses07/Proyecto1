@@ -20,9 +20,15 @@ router.route('/listar_profesores')
 });*/
 
 router.route('/getinfo_profesor')
-    .get(function(req, res){
+    .get(function (req, res) {
         console.log('f7');
-    profesores.getInfoProfesor(req, res);
-});
+        profesores.getInfoProfesor(req, res);
+    });
+
+router.route('/asignar_proyecto')
+    .post(function (req, res) {
+        profesores.asignar_proyecto(req, res);
+    });
+
 
 module.exports = router;

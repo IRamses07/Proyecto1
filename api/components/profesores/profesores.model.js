@@ -16,7 +16,17 @@ let profesorSchema = new mongoose.Schema({
     cursosImpartidos: { type: Array},
     informacionAcademica: { type: Array},
     password: {type: String, required: true},
-    passwordChange: {type: String, required: true}
+    passwordChange: {type: String, required: true},
+    proyecto: [
+        {
+            id: { type: String },
+            rol: { type: String},
+            nombre_proyecto: { type: String },
+            fecha_Entrega: { type: String },
+            estado_proyecto: { type: String }
+        }
+    ]  
+
 
 });
 

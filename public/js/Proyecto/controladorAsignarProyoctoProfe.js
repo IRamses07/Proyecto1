@@ -1,15 +1,182 @@
-
 listarSelectClientes();
+listarSelectProfe1();
+listarSelectProfe2();
 
-let selectProyecto = document.querySelector('#slProyecto')
+let botonAgregar = document.querySelector('#btnAgregar');
+botonAgregar.addEventListener('click', obtenerDatos);
+
+
+let selectProyecto = document.querySelector('#slProyecto');
+let selectProfe1 = document.querySelector('#slProfeLider');
+let selectProfe2 = document.querySelector('#slProfesorTecnico');
+
+let proyectoNombre = document.querySelector('#slProyecto').value;
+let nombreProfe1 = document.querySelector('#slProfeLider').value;
+let nombreProfe2 = document.querySelector('#slProfesorTecnico').value;
 
 function listarSelectClientes() {
-    let slProyecto =obtenerListaProyectos();
+    let slProyecto = obtenerListaProyectos();
     let select = document.querySelector('#slProyecto');
     select.options[0] = new Option("Seleccione un cliente...", "");
 
     for (let i = 0; i < slProyecto.length; i++) {
-        select.options[i] = new Option(slProyecto[i]['nombre_proyecto'], slProyecto[i]['nombre_proyecto']);
+        select.options[i] = new Option(slProyecto[i]['nombre_proyecto'], slProyecto[i]['_id']);
 
     }
 }
+
+function listarSelectProfe1() {
+    let selectProfe1 = getProfessorData();
+    let select = document.querySelector('#slProfeLider');
+    select.options[0] = new Option("Seleccione un profesor...", );
+
+    for (let i = 0; i < selectProfe1.length; i++) {
+        select.options[i] = new Option(selectProfe1[i]['nombre1'], selectProfe1[i]['_id']);
+
+    }
+}
+
+function listarSelectProfe2() {
+    let selectProfe2 = getProfessorData();
+    let select = document.querySelector('#slProfesorTecnico');
+    select.options[0] = new Option("Seleccione un profesor...", );
+
+    for (let i = 0; i < selectProfe2.length; i++) {
+        select.options[i] = new Option(selectProfe2[i]['nombre1'], selectProfe2[i]['_id']);
+
+    }
+}
+
+function obtenerDatos() {
+    asignaraProfe1();
+    asignaraProfe2();
+}
+
+
+function asignaraProfe1() {
+    let infoProyecto = [];
+
+    let proyecto = obtenerListaProyectos();
+
+    let id = selectProfe1.value;
+    let idProyecto;
+    let rol = 'lider';
+    let nombreProyecto;
+    let fechaEntrega;
+    let estadoProyecto;
+
+    for (let i = 0; i < proyecto.length; i++) {
+
+        if (proyecto[i]['_id'] == (proyectoNombre)) {
+            idProyecto = proyecto[i]['_id'];
+        }
+    }
+
+    for (let i = 0; i < proyecto.length; i++) {
+
+        if (proyecto[i]['_id'] == (proyectoNombre)) {
+            nombreProyecto = proyecto[i]['nombre_proyecto'];
+        }
+    }
+
+    for (let i = 0; i < proyecto.length; i++) {
+
+        if (proyecto[i]['_id'] == (proyectoNombre)) {
+            fechaEntrega = proyecto[i]['fecha_Entrega'];
+        }
+    }
+
+    for (let i = 0; i < proyecto.length; i++) {
+
+        if (proyecto[i]['_id'] == (proyectoNombre)) {
+            estadoProyecto = proyecto[i]['estado_proyecto'];
+        }
+    }
+
+    infoProyecto.push(id, idProyecto, rol, nombreProyecto, fechaEntrega, estadoProyecto)
+
+    asignarProyecto(infoProyecto);
+
+
+}
+
+function asignaraProfe2() {
+    let infoProyecto = [];
+
+    let proyecto = obtenerListaProyectos();
+
+    let id = selectProfe2.value;
+    let idProyecto;
+    let rol = 'tecnico';
+    let nombreProyecto;
+    let fechaEntrega;
+    let estadoProyecto;
+
+    for (let i = 0; i < proyecto.length; i++) {
+
+        if (proyecto[i]['_id'] == (proyectoNombre)) {
+            idProyecto = proyecto[i]['_id'];
+        }
+    }
+
+    for (let i = 0; i < proyecto.length; i++) {
+
+        if (proyecto[i]['_id'] == (proyectoNombre)) {
+            nombreProyecto = proyecto[i]['nombre_proyecto'];
+        }
+    }
+
+    for (let i = 0; i < proyecto.length; i++) {
+
+        if (proyecto[i]['_id'] == (proyectoNombre)) {
+            fechaEntrega = proyecto[i]['fecha_Entrega'];
+        }
+    }
+
+    for (let i = 0; i < proyecto.length; i++) {
+
+        if (proyecto[i]['_id'] == (proyectoNombre)) {
+            estadoProyecto = proyecto[i]['estado_proyecto'];
+        }
+    }
+
+    infoProyecto.push(id, idProyecto, rol, nombreProyecto, fechaEntrega, estadoProyecto)
+
+    asignarProyecto(infoProyecto);
+
+
+}
+
+
+// _id: infoProyecto[0],
+//             id: infoProyecto[1],
+//             rol: infoProyecto[2],
+//             nombre_proyecto: infoProyecto[3],
+//             fecha_Entrega: infoProyecto[4],
+//             estado_proyecto: infoProyecto[5]
+
+// function agregarProyectoCliente() {
+//     let infoProyecto = [];
+
+//     let id = selectNombreCliente.value;
+//     let id1 = selectNombreCliente.value;
+//     let nombreProyecto = inputNombreProyecto.value;
+//     let fechaEntrega = dateFechaEntrega.value;
+//     let estadoProyecto = selectEstadoProyecto.value;
+
+//     let proyecto = obtenerListaProyectos();
+
+
+//     for (let i = 0; i < proyecto.length; i++) {
+
+//         if (proyecto[i]['nombre_proyecto'] == (nombreProyecto)) {
+//             id1 = lista[i]['_id'];
+//         }
+
+
+//     }
+
+//     infoProyecto.push(id, id1, nombreProyecto, fechaEntrega, estadoProyecto);
+
+
+//     asignarProyecto(infoProyecto);

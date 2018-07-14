@@ -6,7 +6,7 @@ listarSelectClientes();
 
 let botonRegistrar = document.querySelector('#btnRegistrar');
 
-botonRegistrar.addEventListener('click', obtenerDatos);
+botonAgregar.addEventListener('click', obtenerDatos);
 
 
 //declaracion de elementos
@@ -185,17 +185,17 @@ function agregarProyectoCliente() {
     let nombreProyecto = inputNombreProyecto.value;
     let fechaEntrega = dateFechaEntrega.value;
     let estadoProyecto = selectEstadoProyecto.value;
-    
+
     let proyecto = obtenerListaProyectos();
-    
+
 
     for (let i = 0; i < proyecto.length; i++) {
 
         if (proyecto[i]['nombre_proyecto'] == (nombreProyecto)) {
-            id1 = lista[i]['_id'];
+            id1 = proyecto[i]['_id'];
         }
 
-       
+
     }
 
     infoProyecto.push(id, id1, nombreProyecto, fechaEntrega, estadoProyecto);
@@ -205,11 +205,3 @@ function agregarProyectoCliente() {
 
 
 }
-
-
-
-
-
-
-
-

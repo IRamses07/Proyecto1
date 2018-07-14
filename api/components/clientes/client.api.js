@@ -25,9 +25,15 @@ module.exports.registrar = function (req, res) {
 
     nuevoCliente.save(function (error) {
         if (error) {
-            res.json({ succes: false, msj: 'El cliente no pudo ser registrado, ocurrió el siguiente error' + error });
+            res.json({
+                succes: false,
+                msj: 'El cliente no pudo ser registrado, ocurrió el siguiente error' + error
+            });
         } else {
-            res.json({ succes: true, msj: 'El cliente fue registrado con éxito' });
+            res.json({
+                succes: true,
+                msj: 'El cliente fue registrado con éxito'
+            });
         }
     });
 };
@@ -40,15 +46,12 @@ module.exports.listar = function (req, res) {
 };
 module.exports.asignar_proyecto = function (req, res) {
 
-    clientModel.update(
-        { _id: req.body._id },
-        {
-            $push:
-            {
-                'proyectos':
-                {
+    clientModel.update({
+            _id: req.body._id
+        }, {
+            $push: {
+                'proyectos': {
                     id: req.body.id,
-                  
                     nombre_proyecto: req.body.nombre_proyecto,
                     fecha_Entrega: req.body.fecha_Entrega,
                     estado_proyecto: req.body.estado_proyecto
@@ -57,17 +60,25 @@ module.exports.asignar_proyecto = function (req, res) {
         },
         function (error) {
             if (error) {
-                res.json({ success: false, msg: 'No se pudo Signar el proyecto, ocurrió el siguiente error' + error });
+                res.json({
+                    success: false,
+                    msg: 'No se pudo Signar el proyecto, ocurrió el siguiente error' + error
+                });
             } else {
-                res.json({ success: true, msg: 'El Proyecto se asignó con éxito' });
+                res.json({
+                    success: true,
+                    msg: 'El Proyecto se asignó con éxito'
+                });
             }
         }
     )
 };
 
-module.exports.getInfoCliente = function(req, res){
-    clientModel.find({'cedula_juridica':req.query.cedula_juridica}).then(
-        function(clientes){
+module.exports.getInfoCliente = function (req, res) {
+    clientModel.find({
+        'cedula_juridica': req.query.cedula_juridica
+    }).then(
+        function (clientes) {
             res.send(clientes);
         });
 };

@@ -10,7 +10,7 @@ function getLocalProfes() {
     let listaProfes = JSON.parse(localStorage.getItem('listaProfesLS'));
 
     if (listaProfes == null) {
-        listaProfes = localStorage.setItem('listaProfesLS', JSON.stringify(getProfessorData()));;       
+        listaProfes = localStorage.setItem('listaProfesLS', JSON.stringify(getProfessorData()));;
     }
     return listaProfes;
 }
@@ -50,6 +50,7 @@ function setProfessorData(infoProfesor) {
 
     return respuesta;
 }
+
 function getProfessorData() {
 
     let respuesta = [];
@@ -75,42 +76,74 @@ function getProfessorData() {
     return respuesta;
 }
 
-function validarCedula(psCedula){
+function validarCedula(psCedula) {
 
     let aProfesorData = getProfessorData();
 
     for (let i = 0; i < aProfesorData.length; i++) {
-        if(aProfesorData[i]['cedula']==psCedula){
+        if (aProfesorData[i]['cedula'] == psCedula) {
             return true;
-        }else{
+        } else {
             return false;
-        }  
+        }
     }
 }
-function generateRandomPassword(){
-	let pw = Math.random().toString(36).substring(2, 10);
-	return pw;
+
+function generateRandomPassword() {
+    let pw = Math.random().toString(36).substring(2, 10);
+    return pw;
 }
 
-function getInfoProfesor(){
+function getInfoProfesor() {
     let respuesta = 'respuesta';
     let peticion = $.ajax({
-        url : 'http://localhost:4000/api/getinfo_profesor',
-        type : 'get',
-        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
-        dataType : 'json',
-        async : false,
-        data:{
-            cedula : '03586123'
+        url: 'http://localhost:4000/api/getinfo_profesor',
+        type: 'get',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
+            cedula: '03586123'
         }
-      });
-    
-      peticion.done(function(response){
-          respuesta = response;
-      });
-    
-      peticion.fail(function(response){
-      });
+    });
+
+    peticion.done(function (response) {
+        respuesta = response;
+    });
+
+    peticion.fail(function (response) {});
+
+    return respuesta;
+}
+
+function asignarProyecto(infoProyecto) {
+    let respuesta = '';
+    console.log(infoProyecto);
+    let peticion = $.ajax({
+        url: 'http://localhost:4000/api/asignar_proyecto',
+        type: 'post',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+
+        data: {
+
+            _id: infoProyecto[0],
+            id: infoProyecto[1],
+            rol: infoProyecto[2],
+            nombre_proyecto: infoProyecto[3],
+            fecha_Entrega: infoProyecto[4],
+            estado_proyecto: infoProyecto[5]
+        }
+    });
+
+    peticion.done(function (response) {
+        respuesta = response;
+    });
+
+    peticion.fail(function (response) {
+
+    });
 
     return respuesta;
 }
