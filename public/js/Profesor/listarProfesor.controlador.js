@@ -13,7 +13,9 @@ for (let x = 0; x < myRadios.length; x++) {
     }
 }*/
 
-document.querySelector('#txtFiltro').addEventListener('keyup', listadoProfesores);
+/*document.querySelector('#txtFiltro').addEventListener('keyup', listadoProfesores);*/
+document.querySelector('#btnFiltro').addEventListener('click', listadoProfesores);
+
 
 let listaProfes = getLocalProfes();
 listadoProfesores();
@@ -30,7 +32,7 @@ function listadoProfesores() {
         for (let i = 0; i < listaProfes.length; i++) {
             if (listaProfes[i]['nombre1'].toLowerCase().includes(sFiltro.toLowerCase()) ||
                 listaProfes[i]['apellido1'].toLowerCase().includes(sFiltro.toLowerCase()) ||
-        (listaProfes[i]['nombre1'] + " " + listaProfes[i]['apellido1']).toLowerCase().includes(sFiltro.toLowerCase())) {
+                (listaProfes[i]['nombre1'] + " " + listaProfes[i]['apellido1']).toLowerCase().includes(sFiltro.toLowerCase())) {
                 profesFiltrados.push(listaProfes[i]);
             }
         }
@@ -53,15 +55,26 @@ function listadoProfesores() {
         // btnModificar.innerHTML = "Modificar";
         // btnEstado.innerHTML = "Activar"
 
+        let btnVerMas = document.createElement('button');
+        btnVerMas.type = "button";
+        btnVerMas.classList.add('btnRegistro');
+        btnVerMas.id = "btnVerMas";
+        btnVerMas.innerHTML = "Ver mas";
+        btnVerMas.addEventListener('click', function(){setVerMasLS(i,profesFiltrados)});
+
         fila.insertCell().innerHTML = profesFiltrados[i]['nombre1'] + " " + profesFiltrados[i]['apellido1'];
         fila.insertCell().innerHTML = profesFiltrados[i]['cedula'];
         fila.insertCell().innerHTML = profesFiltrados[i]['correo'];
         fila.insertCell().innerHTML = profesFiltrados[i]['telefono'];
         fila.insertCell().innerHTML = profesFiltrados[i]['profesion'];
+        fila.insertCell().appendChild(btnVerMas);
         // let controlCell = fila.insertCell();
         // controlCell.appendChild(btnModificar);
         // controlCell.appendChild(btnEstado);
     }
+
 }
+
+
 
 

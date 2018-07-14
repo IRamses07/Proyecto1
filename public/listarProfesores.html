@@ -23,24 +23,30 @@
         </div>
 
         <div class="menuLateral">
-            <i class="fas fa-align-justify"></i>
-            <div class="option">
-                <a href="registroClientes.html">Registro Cliente</a>
+            
+            <div>
+                <i class="fas fa-align-justify"></i>
+                <div class="option">
+                    <a href="registroClientes.html">Registro Cliente</a>
+                </div>
+                <div class="option">
+                    <a href="registroProfesores.html">Regsitrar Profesor</a>
+                </div>
+                <div class="option">
+                    <a href="registrarProyecto.html">Registrar Proyecto</a>
+                </div>
             </div>
-            <div class="option">
-                <a href="registroProfesores.html">Regsitrar Profesor</a>
-            </div>
-            <div class="option">
-                <a href="registrarProyecto.html">Registrar Proyecto</a>
-            </div>
+
         </div>
 
     </header>
     <main id="content">
         <h2>Listado de profesores</h2>
         <div class="floatContainer">
-            <input type="radio" id="rbtnNombre" name="botonInutil" value="nombre" checked><span class = "spnRadio">Nombre</span>
+            <input type="radio" id="rbtnNombre" name="botonInutil" value="nombre" checked>
+            <span class="spnRadio">Nombre</span>
             <input type="text" id="txtFiltro" value=''>
+            <button type="button" class="btnRegistro" id="btnFiltro">Buscar</button>
         </div>
         <table id="tblProfesores">
             <thead>
@@ -49,6 +55,7 @@
                 <th>Correo electrónico</th>
                 <th>Teléfono</th>
                 <th>Profesión</th>
+                <th>Perfil</th>
                 <!-- <th><i class="fas fa-cog"></i></th> -->
             </thead>
             <tbody>

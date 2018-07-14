@@ -1,3 +1,6 @@
+
+setAdmin1();
+
 document.querySelector('#btnLogin').addEventListener('click', signIn);
 
 function signIn() {
@@ -65,6 +68,7 @@ function validarRequeridos() {
 function validarCredenciales(psId, psPassword) {
     let userPassword = getUserPassword(psId);
     let bFound = false;
+
     if (userPassword == psPassword) {
         //Usuario y contraseña correcta.
         setCurrentUser(psId);
@@ -79,5 +83,11 @@ function limpiar() {
     let inputs = document.querySelectorAll("input");
     for (let i = 0; i < inputs.length; i++) {
         inputs[i].value = '';
+    }
+}
+
+function setAdmin1(){
+    if(getAdminData() == ''){
+        setAdmin();
     }
 }

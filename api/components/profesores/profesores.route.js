@@ -25,4 +25,10 @@ router.route('/getinfo_profesor')
     profesores.getInfoProfesor(req, res);
 });
 
+router.route('/agregar_info_profesor')
+.post(function(req, res){
+    profesores.agregar_info_profesor(req, res);
+});
+
+
 module.exports = router;

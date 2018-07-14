@@ -57,3 +57,28 @@ module.exports.getInfoProfesor = function(req, res){
             }
       });
 };*/
+
+module.exports.agregar_info_profesor = function(req, res){
+    
+    userModel.update({_id: req.body._id}, 
+        {$push: 
+            {'preparacion_academica':
+                {
+                    trabajo: req.body.trabajo,
+                    anno: req.body.anno,
+                    cursos: req.body.cursos,
+                    grado: req.body.grado,
+                    titulo: req.body.titulo,
+                    carrera: req.body.carrera
+                }
+            }
+        },
+        function(error){
+            if(error){
+                res.json({success : false, msg : 'No se pudo registrar el título, ocurrió el siguiente error' + error});
+            }else{
+                res.json({success : true, msg : 'El título se registró con éxito'});
+            }
+        }
+    )
+};
