@@ -1,25 +1,25 @@
 'use strict';
-moveUser(true);
+// moveUser(true);
 
-listarTicketsProfe();
+listarTicketsEstudiante();
 
 let inptBuscarCliente = document.querySelector('#filtrocliente');
 let btnFiltro = document.querySelector('#btnFiltrar');
 btnFiltro.addEventListener('click', function () {
-    listarTicketsProfe(inptBuscarCliente.value);
+    listarTicketsEstudiante(inptBuscarCliente.value);
 
     let radioSelected = document.querySelector('input[type="radio"]:checked');
    
 
     let selectUrgencia = document.querySelector('#sltUrgencia').value;
-    listarTicketsProfe(inptBuscarCliente.value, selectUrgencia, radioSelected.value);
+    listarTicketsEstudiante(inptBuscarCliente.value, selectUrgencia, radioSelected.value);
 
 })
 
-function listarTicketsProfe(pinptBuscarCliente, selectUrgencia, radioSelected) {
+function listarTicketsEstudiante(pinptBuscarCliente, selectUrgencia, radioSelected) {
     let tickets = listarTickets();
     let nTamanno = tickets.length;
-    let tbody = document.querySelector('#tblTicketprofe tbody');
+    let tbody = document.querySelector('#tblTicketEstudiante tbody');
     tbody.innerHTML = '';
 
     if (!pinptBuscarCliente) {
@@ -66,6 +66,6 @@ function listarTicketsProfe(pinptBuscarCliente, selectUrgencia, radioSelected) {
 
 
 function mostrarDatosTicketseleccionado(){
-document.location('./verTicket.html');
+document.location(href='verTicket.html');
 
 }
