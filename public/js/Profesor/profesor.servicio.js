@@ -15,6 +15,16 @@ function getLocalProfes() {
     return listaProfes;
 }
 
+function setVerMasLS(pI,pProfesFiltrados) {
+    let profileData = pProfesFiltrados[pI];
+    localStorage.setItem('professorDataLS',JSON.stringify(profileData));
+    document.location.href = 'perfilProfesor.html';
+}
+
+function getVerMasLS(){
+    return JSON.parse(localStorage.getItem('professorDataLS'));
+}
+
 function setProfessorData(infoProfesor) {
     let respuesta = '';
     let peticion = $.ajax({
@@ -94,7 +104,7 @@ function generateRandomPassword() {
     return pw;
 }
 
-function getInfoProfesor() {
+function getInfoProfesor(){
     let respuesta = 'respuesta';
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/getinfo_profesor',
@@ -106,13 +116,10 @@ function getInfoProfesor() {
             cedula: '03586123'
         }
     });
-
     peticion.done(function (response) {
         respuesta = response;
     });
-
     peticion.fail(function (response) {});
-
     return respuesta;
 }
 
@@ -125,9 +132,7 @@ function asignarProyecto(infoProyecto) {
         contentType: 'application/x-www-form-urlencoded; charset=utf-8',
         dataType: 'json',
         async: false,
-
         data: {
-
             _id: infoProyecto[0],
             id: infoProyecto[1],
             rol: infoProyecto[2],
@@ -136,14 +141,39 @@ function asignarProyecto(infoProyecto) {
             estado_proyecto: infoProyecto[5]
         }
     });
-
     peticion.done(function (response) {
         respuesta = response;
     });
-
     peticion.fail(function (response) {
-
     });
+    return respuesta;
+}
+
+function setExtraData(sTrabajo,nAnno,sCursos,sGrado,dTitulo,sCarrera){
+    let respuesta = '';
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/agregar_info_profesor',
+        type : 'get',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            _id: id,
+            trabajo: sTrabajo,
+            anno: nAnno,
+            cursos: sCursos,
+            grado: sGrado,
+            titulo: dTitulo,
+            carrera: sCarrera    
+        }
+      });
+    
+      peticion.done(function(response){
+          respuesta = response;
+      });
+    
+      peticion.fail(function(response){
+      });
 
     return respuesta;
 }

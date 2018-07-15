@@ -103,11 +103,13 @@ select{
      font-family: 'Roboto' sans-serif;
      color: #fff;
      font-size: 1em;
+     outline: none;
  }
 
  .btnRegistro:hover {
     background-color: #fbb876;
-    
+    cursor: pointer;
+
  }
 
  /* estilos de los botones del sweetaler  */

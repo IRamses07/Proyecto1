@@ -30,5 +30,15 @@ router.route('/asignar_proyecto')
         profesores.asignar_proyecto(req, res);
     });
 
+router.route('/cambiarfoto_profesor')
+    .put(function(req, res){
+    profesores.cambiarFoto(req, res);
+});
+
+router.route('/agregar_info_profesor')
+.post(function(req, res){
+    profesores.agregar_info_profesor(req, res);
+});
+
 
 module.exports = router;

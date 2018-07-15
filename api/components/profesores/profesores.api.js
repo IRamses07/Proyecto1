@@ -19,7 +19,8 @@ module.exports.registrar = function (req, res) {
         lugarTrabajo: '',
         annosExperiencia: '',
         cursosImpartidos: [],
-        informacionAcademica: []
+        informacionAcademica: [],
+        foto : req.body.foto
     });
 
     nuevoProfesor.save(function (error) {
@@ -98,3 +99,42 @@ module.exports.asignar_proyecto = function (req, res) {
             }
       });
 };*/
+
+module.exports.cambiarFoto = function(req, res){
+
+    profesorModel.findOneAndUpdate(
+        {
+            cedula: req.body.cedula
+        },
+        {  
+            foto: req.body.foto
+        }
+        ).then(
+        function(profesores){
+            res.send(profesores);
+    });
+};
+module.exports.agregar_info_profesor = function(req, res){
+    
+    userModel.update({_id: req.body._id}, 
+        {$push: 
+            {'preparacion_academica':
+                {
+                    trabajo: req.body.trabajo,
+                    anno: req.body.anno,
+                    cursos: req.body.cursos,
+                    grado: req.body.grado,
+                    titulo: req.body.titulo,
+                    carrera: req.body.carrera
+                }
+            }
+        },
+        function(error){
+            if(error){
+                res.json({success : false, msg : 'No se pudo registrar el título, ocurrió el siguiente error' + error});
+            }else{
+                res.json({success : true, msg : 'El título se registró con éxito'});
+            }
+        }
+    )
+};

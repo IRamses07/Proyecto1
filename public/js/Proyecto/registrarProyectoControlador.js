@@ -27,9 +27,9 @@ let txtaDescripcion = document.querySelector('#txtDescripcion');
 
 
 
- document.getElementById('#slNombredelCliente').onchange = validar();
+ document.getElementById('#slNombredelCliente').onchange = llenarCedulaJuridica();
 
-function validar () {
+function llenarCedulaJuridica () {
     let listaClientes = listarClientes();
     let nombreCliente = document.querySelector('#slNombredelCliente').value;
     let cedulaJuridica;

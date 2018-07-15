@@ -1,4 +1,4 @@
-moveUser(true);
+moveUser(false);
 imprimirListaEstudiantes();
 
 //llamada a buscar por nombre u cedula
