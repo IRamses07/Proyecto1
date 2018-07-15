@@ -121,6 +121,18 @@ module.exports.agregar_cursos_impartidos = function(req, res){
       });
 };
 
+module.exports.agregar_info_extra_profesor = function(req, res){
+    profesorModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
+        function(err) {
+            if (err) {
+                res.json({ success: false, msg: 'No se ha actualizado.' + handleError(err) });
+        
+            } else {
+            res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
+            }
+      });
+};
+
 /*module.exports.actualizar_usuario = function(req, res){
     userModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
         function(err) {

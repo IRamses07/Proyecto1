@@ -1,18 +1,24 @@
-/*document.querySelector('#btnAgregar').addEventListener('click', preparacionAcademica);*/
 
 document.querySelector('#btnAgregarPrepAcademica').addEventListener('click', preparacionAcademica);
 document.querySelector('#btnCursosImpartidos').addEventListener('click', cursosImpartidos);
+document.querySelector('#btnAgregar').addEventListener('click', extraProfessorData);
+
+listadoCursosImpartidos();
+
+let sTrabajo = document.querySelector('#txtTrabajo').value;
+let nAnno = document.querySelector('#nAnno').value;
+
+document.querySelector('#txtTrabajo').value = getCurrentUserData()['trabajo_anterior'];
+nAnno = document.querySelector('#nAnno').value = getCurrentUserData()['experiencia_docente'];
 
 function preparacionAcademica() {
 
-    let dTitulo = document.querySelector('#dTitulo').value;
-    let sCarrera = document.querySelector('#txtCarrera').value;
     let sltGrado = document.querySelector('#sltGrado');
     let sGrado = sltGrado.options[sltGrado.selectedIndex].text;
 
     if (sltGrado.options[sltGrado.selectedIndex].index == 0) {
         sltGrado.options[sltGrado.selectedIndex].value = '';
-    }else{
+    } else {
         sltGrado.options[sltGrado.selectedIndex].value = sltGrado.options[sltGrado.selectedIndex].text;
     }
 
@@ -23,19 +29,19 @@ function preparacionAcademica() {
             icon: "warning",
             button: "Ok",
         });
-    }else{
+    } else {
         setPreparacionAcademica(getCurrentUserData()['_id'], sGrado, dTitulo, sCarrera);
         limpiarPrepAcademica();
     }
 
-    function validarPrepAcademica(){
+    function validarPrepAcademica() {
 
         let aRequeridos = document.querySelectorAll('[name=prepAcademica');
         let empty = false;
 
         for (let i = 0; i < aRequeridos.length; i++) {
             if (aRequeridos[i].value == '') {
-    
+
                 aRequeridos[i].classList.add('error_input');
                 empty = true;
             } else {
@@ -46,9 +52,7 @@ function preparacionAcademica() {
     }
 }
 
-function cursosImpartidos(){
-    /*let sTrabajo = document.querySelector('#txtTrabajo').value;
-    let nAnno = document.querySelector('#nAnno').value;*/
+function cursosImpartidos() {
 
     let sltCursos = document.querySelector('#sltCursos');
     let sCursos = sltCursos.options[sltCursos.selectedIndex].text;
@@ -66,9 +70,10 @@ function cursosImpartidos(){
             icon: "warning",
             button: "Ok",
         });
-    }else{
+    } else {
         setCursosImpartidos(getCurrentUserData()['_id'], sCursos);
         limpiarCursosImpartidos();
+        listadoCursosImpartidos()
     }
 
     function validarCursosImpartidos() {
@@ -77,7 +82,7 @@ function cursosImpartidos(){
 
         for (let i = 0; i < aRequeridos.length; i++) {
             if (aRequeridos[i].value == '') {
-    
+
                 aRequeridos[i].classList.add('error_input');
                 empty = true;
             } else {
@@ -88,21 +93,44 @@ function cursosImpartidos(){
     }
 }
 
-function validarRequeridos() {
+function extraProfessorData() {
 
-    let aRequeridos = document.querySelectorAll('[required]');
-    let empty = false;
 
-    for (let i = 0; i < aRequeridos.length; i++) {
-        if (aRequeridos[i].value == '') {
+    if (validarExtraData()) {
+        swal({
+            title: "Advertencia",
+            text: "Por favor llene los campos en rojo.",
+            icon: "warning",
+            button: "Ok",
+        });
+    } else {
+        swal({
+            title: "Actualización exitosa",
+            text: "Los datos se han agregado a su perfil exitosamente.",
+            icon: "success",
+            button: "Ok",
+        });
+        setExtraData(getCurrentUserData()['_id'], sTrabajo, nAnno);
+        limpiarExtraData();
 
-            aRequeridos[i].classList.add('error_input');
-            empty = true;
-        } else {
-            aRequeridos[i].classList.remove('error_input');
-        }
     }
-    return empty;
+
+    function validarExtraData() {
+        let aRequeridos = document.querySelectorAll('[name=extraData');
+        let empty = false;
+
+        for (let i = 0; i < aRequeridos.length; i++) {
+            if (aRequeridos[i].value == '') {
+
+                aRequeridos[i].classList.add('error_input');
+                empty = true;
+            } else {
+                aRequeridos[i].classList.remove('error_input');
+            }
+        }
+        return empty;
+
+    }
 }
 
 function limpiarPrepAcademica() {
@@ -112,16 +140,50 @@ function limpiarPrepAcademica() {
     }
 }
 
-function limpiarCursosImpartidos(){
+function limpiarCursosImpartidos() {
     let inputs = document.querySelectorAll("[name=cursosImpartidos]");
     for (let i = 0; i < inputs.length; i++) {
         inputs[i].value = '';
     }
 }
 
-/*swal({
-    title: "Actualización exitosa",
-    text: "Los datos se han agregado a su perfil exitosamente.",
-    icon: "success",
-    button: "Ok",
-});*/
+function limpiarExtraData() {
+    let inputs = document.querySelectorAll("[name=extraData]");
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].value = '';
+    }
+}
+
+function listadoCursosImpartidos() {
+
+    if (JSON.parse(getCurrentUserData()['cursos_impartidos']).length == 0) {
+        document.querySelector('#thCursosImpartidos').classList.remove('.lblHide');
+    }
+
+        let tbody = document.querySelector('#tblCursosImpartidos tbody');
+        tbody.innerHTML = '';
+
+        for (let i = 0; i < JSON.parse(getCurrentUserData()['cursos_impartidos']).length; i++) {
+            let fila = tbody.insertRow();
+
+            fila.insertCell().innerHTML = JSON.parse(getCurrentUserData()['cursos_impartidos'])[i];
+        }
+}
+
+function listadoPrepAcademica() {
+
+    if (getCurrentUserData()['preparacion_academica']['carrera'] == ''&&
+    getCurrentUserData()['preparacion_academica']['grado_academico'] == '') {
+        document.querySelector('#thCursosImpartidos').classList.remove('.lblHide');
+    }
+
+        let tbody = document.querySelector('#tblCursosImpartidos tbody');
+        tbody.innerHTML = '';
+
+        for (let i = 0; i < JSON.parse(getCurrentUserData()['cursos_impartidos']).length; i++) {
+            let fila = tbody.insertRow();
+
+            fila.insertCell().innerHTML = JSON.parse(getCurrentUserData()['cursos_impartidos'])[i];
+        }
+    
+}

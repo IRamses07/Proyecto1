@@ -34,10 +34,6 @@ function infoPersonal(infoProfe){
     extraDatos.innerHTML=contenido2;
 }
 
-<<<<<<< HEAD
 document.querySelector('#btnPerfil').addEventListener('click', function(){document.location.href = 'agregarDatosProfesores.html'});
 
 
-=======
-document.querySelector('#btnPerfil').addEventListener('click', function(){document.location.href = 'agregarDatosProfesor.html'});
->>>>>>> master

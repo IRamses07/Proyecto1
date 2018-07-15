@@ -41,12 +41,12 @@ router.route('/cambiarfoto_profesor')
 
 router.route('/agregar_cursos_impartidos')
     .post(function(req, res){
-    users.actualizar_usuario(req, res);
+        profesores.agregar_cursos_impartidos(req, res);
 });
 
-/*router.route('/agregar_info_profesor')
+router.route('/agregar_info_extra_profesor')
     .post(function(req, res){
-    profesores.agregar_info_profesor(req, res);
-});*/
+    profesores.agregar_info_extra_profesor(req, res);
+});
 
 module.exports = router;

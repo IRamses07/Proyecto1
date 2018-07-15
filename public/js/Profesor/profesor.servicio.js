@@ -15,13 +15,13 @@ function getLocalProfes() {
     return listaProfes;
 }
 
-function setVerMasLS(pI,pProfesFiltrados) {
+function setVerMasLS(pI, pProfesFiltrados) {
     let profileData = pProfesFiltrados[pI];
-    localStorage.setItem('professorDataLS',JSON.stringify(profileData));
+    localStorage.setItem('professorDataLS', JSON.stringify(profileData));
     document.location.href = 'perfilProfesor.html';
 }
 
-function getVerMasLS(){
+function getVerMasLS() {
     return JSON.parse(localStorage.getItem('professorDataLS'));
 }
 
@@ -180,61 +180,94 @@ function asignarProyecto(infoProyecto) {
     return respuesta;
 }*/
 
-function setPreparacionAcademica(pId,sGrado,dTitulo,sCarrera){
+function setPreparacionAcademica(pId, sGrado, dTitulo, sCarrera) {
     let respuesta = '';
     let peticion = $.ajax({
-        url : 'http://localhost:4000/api/agregar_preparacion_academica',
-        type : 'post',
-        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
-        dataType : 'json',
-        async : false,
-        data:{
+        url: 'http://localhost:4000/api/agregar_preparacion_academica',
+        type: 'post',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
             _id: pId,
             grado_academico: sGrado,
             titulo_fecha: dTitulo,
-            carrera: sCarrera    
+            carrera: sCarrera
         }
-      });
-    
-      peticion.done(function(response){        
-          respuesta = response;
-          console.log('registro bien');
-      });
-    
-      peticion.fail(function(response){
-          console.log('registro mal')
-      });
+    });
 
+    peticion.done(function (response) {
+        respuesta = response;
+    });
+
+    peticion.fail(function (response) {
+    });
+    updateCurrentUser(pId);
     return respuesta;
 }
 
-function setCursosImpartidos(pId,psCursos){
+function setCursosImpartidos(pId, psCursos) {
     let listaCursos = getCurrentUserData()['cursos_impartidos'];
-    if(listaCursos == ""){
+    if (listaCursos == "") {
         listaCursos = [];
-    }
+    } else {
         listaCursos = JSON.parse(listaCursos);
-
+    }
     listaCursos.push(psCursos);
     let respuesta = '';
     let peticion = $.ajax({
-        url : 'http://localhost:4000/api/agregar_cursos_impartidos',
-        type : 'post',
-        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
-        dataType : 'json',
-        async : false,
-        data:{
+        url: 'http://localhost:4000/api/agregar_cursos_impartidos',
+        type: 'post',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
             _id: pId,
-            cursos_impartidos: JSON.stringify(listaLenguajes),  
+            cursos_impartidos: JSON.stringify(listaCursos),
         }
-      });
-    
-      peticion.done(function(response){        
-          respuesta = response;
-      });
-    
-      peticion.fail(function(response){
-      });
+    });
+
+    peticion.done(function (response) {
+        respuesta = response;
+    });
+
+    peticion.fail(function (response) {
+    });
+
+    updateCurrentUser(pId);
 
     return respuesta;
 }
+
+function setExtraData(pId, sTrabajo, nAnno) {
+    /*let sTrabajoAnterior = getCurrentUserData()['trabajo_anterior'];
+    let nAnnosExperiencia = getCurrentUserData()['experiencia_docente'];*/
+
+    let respuesta = '';
+    let peticion = $.ajax({
+        url: 'http://localhost:4000/api/agregar_info_extra_profesor',
+        type: 'post',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
+            _id: pId,
+            trabajo_anterior: sTrabajo,
+            experiencia_docente: nAnno
+        }
+    });
+
+    peticion.done(function (response) {
+        console.log('Registro bien');
+        respuesta = response;
+    });
+
+    peticion.fail(function (response) {
+        console.log('registro mal');
+    });
+
+    updateCurrentUser(pId);
+
+    return respuesta;
+}
+
