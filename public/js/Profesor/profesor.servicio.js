@@ -121,12 +121,8 @@ function generateRandomPassword() {
     });
     peticion.fail(function (response) {});
     return respuesta;
-<<<<<<< HEAD
 }*/
 
-=======
-}
->>>>>>> master
 function asignarProyecto(infoProyecto) {
     let respuesta = '';
     console.log(infoProyecto);
