@@ -83,7 +83,7 @@ function getDatos(){
     }else{
         registrarEstudiante(infoEstudiante);
         swal({
-            type : 'success',
+            type : 'Success',
             title : 'Registro exitoso',
             text: 'El estudiante se registró exitosamente',
             confirmButtonText : 'OK'
@@ -314,7 +314,7 @@ function getCurso(){
         //poner un agregar a la lista definitiva para luego meter en la DB con el registrar total.
         agregaCurso(infoCurso);
         swal({
-            type : 'success',
+            type : 'Success',
             title : 'Registro exitoso',
             text: 'El Curso se agregó correctamente',
             confirmButtonText : 'OK'
