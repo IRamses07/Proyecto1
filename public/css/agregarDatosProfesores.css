@@ -12,9 +12,11 @@ h2{
 
 .mainContainer{
     width: 55%;
-    margin: 80px auto 0 auto;
+    margin: 80px auto 40px auto;
 }
-
+.container{
+    margin-bottom: 20px;
+}
 .leftContainer{
     float: left;
     width: 48%;
@@ -47,15 +49,30 @@ h2{
     padding: 0 0 0 5px;
 }
 
-#tblCursosImpartidos{
+.tamannoMinL{
     float: left;
     width: 49%;
- 
+}
+
+.tamannoMinR{
+    float: right;
+    width: 49%;
+}
+
+.tamannoMaxL{
+    float: left;
+    width: 100%;
+}
+
+.tamannoMaxR{
+    float: right;
+    width: 100%;
 }
 
 .tableContainer{
 width: 70%;
 margin: 0 auto;
+display: flow-root;
 }
 
 select{
@@ -67,3 +84,10 @@ select{
 label{
     display: block;
 }
+
+.hide{
+    display: none;
+}
+ table{
+     text-align: center;
+ }

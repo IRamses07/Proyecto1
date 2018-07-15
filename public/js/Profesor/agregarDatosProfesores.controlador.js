@@ -4,6 +4,7 @@ document.querySelector('#btnCursosImpartidos').addEventListener('click', cursosI
 document.querySelector('#btnAgregar').addEventListener('click', extraProfessorData);
 
 listadoCursosImpartidos();
+listadoPrepAcademica();
 
 let sTrabajo = document.querySelector('#txtTrabajo').value;
 let nAnno = document.querySelector('#nAnno').value;
@@ -15,7 +16,8 @@ function preparacionAcademica() {
 
     let sltGrado = document.querySelector('#sltGrado');
     let sGrado = sltGrado.options[sltGrado.selectedIndex].text;
-
+    let fechaTitulo = document.querySelector('#dTitulo').value
+    let sCarrera = document.querySelector('#txtCarrera').value;
     if (sltGrado.options[sltGrado.selectedIndex].index == 0) {
         sltGrado.options[sltGrado.selectedIndex].value = '';
     } else {
@@ -30,8 +32,9 @@ function preparacionAcademica() {
             button: "Ok",
         });
     } else {
-        setPreparacionAcademica(getCurrentUserData()['_id'], sGrado, dTitulo, sCarrera);
+        setPreparacionAcademica(getCurrentUserData()['_id'], sGrado, fechaTitulo, sCarrera);
         limpiarPrepAcademica();
+        listadoPrepAcademica();
     }
 
     function validarPrepAcademica() {
@@ -156,36 +159,70 @@ function limpiarExtraData() {
 
 function listadoCursosImpartidos() {
 
-    if (JSON.parse(getCurrentUserData()['cursos_impartidos']).length == 0) {
-        document.querySelector('#thCursosImpartidos').classList.remove('.lblHide');
+    acomodarEspacios();
+
+    if (getCurrentUserData()['cursos_impartidos'] == "") {
+        document.querySelector('#tblCursosImpartidos').classList.add('hide');
+
+    } else {
+        document.querySelector('#tblCursosImpartidos').classList.remove('hide');
+        let tbody = document.querySelector('#tblCursosImpartidos tbody');
+        tbody.innerHTML = '';
+
+        for (let i = 0; i < JSON.parse(getCurrentUserData()['cursos_impartidos']).length; i++) {
+            let fila = tbody.insertRow();
+
+            fila.insertCell().innerHTML = JSON.parse(getCurrentUserData()['cursos_impartidos'])[i];
+        }
     }
+}
 
-    let tbody = document.querySelector('#tblCursosImpartidos tbody');
-    tbody.innerHTML = '';
-
-    for (let i = 0; i < JSON.parse(getCurrentUserData()['cursos_impartidos']).length; i++) {
-        let fila = tbody.insertRow();
-
-        fila.insertCell().innerHTML = JSON.parse(getCurrentUserData()['cursos_impartidos'])[i];
+function acomodarEspacios(){
+    if (getCurrentUserData()['preparacion_academica'].length == 0) {
+        document.querySelector('#tblPrepAcademica').classList.add('hide');
+        if(getCurrentUserData()['cursos_impartidos'] == ""){
+            document.querySelector('#tblPrepAcademica').classList.remove('tamannoMaxR');
+            document.querySelector('#tblPrepAcademica').classList.add('tamannoMinR');
+            document.querySelector('#tblCursosImpartidos').classList.remove('tamannoMaxL');
+            document.querySelector('#tblCursosImpartidos').classList.add('tamannoMinL');
+        }else{
+            document.querySelector('#tblPrepAcademica').classList.remove('tamannoMaxR');
+            document.querySelector('#tblPrepAcademica').classList.add('tamannoMinR');
+            document.querySelector('#tblCursosImpartidos').classList.add('tamannoMaxL');
+            document.querySelector('#tblCursosImpartidos').classList.remove('tamannoMinL');
+        }
+    } else {
+        if(getCurrentUserData()['cursos_impartidos'] == ""){
+            document.querySelector('#tblPrepAcademica').classList.add('tamannoMaxR');
+            document.querySelector('#tblPrepAcademica').classList.remove('tamannoMinR');
+            document.querySelector('#tblCursosImpartidos').classList.remove('tamannoMaxL');
+            document.querySelector('#tblCursosImpartidos').classList.add('tamannoMinL');
+        }else{
+            document.querySelector('#tblPrepAcademica').classList.remove('tamannoMaxR');
+            document.querySelector('#tblPrepAcademica').classList.add('tamannoMinR');
+            document.querySelector('#tblCursosImpartidos').classList.remove('tamannoMaxL');
+            document.querySelector('#tblCursosImpartidos').classList.add('tamannoMinL');
+        }
     }
 }
 
 function listadoPrepAcademica() {
 
-    if (getCurrentUserData()['preparacion_academica']['carrera'] == '' &&
-        getCurrentUserData()['preparacion_academica']['grado_academico'] == '' &&
-        getCurrentUserData()['preparacion_academica']['titulo_fecha'] == '') {
+    acomodarEspacios();
 
-        document.querySelector('#thPrepAcademica').classList.remove('.lblHide');
+    if (getCurrentUserData()['preparacion_academica'].length == 0) {
+        document.querySelector('#tblPrepAcademica').classList.add('hide');
+    } else {
+        document.querySelector('#tblPrepAcademica').classList.remove('hide');
+        let tbody = document.querySelector('#tblPrepAcademica tbody');
+        tbody.innerHTML = '';
+
+        for (let i = 0; i < getCurrentUserData()['preparacion_academica'].length; i++) {
+            let fila = tbody.insertRow();
+
+            fila.insertCell().appendChild(document.createTextNode(getCurrentUserData()['preparacion_academica'][i]['carrera']));
+            fila.insertCell().appendChild(document.createTextNode(getCurrentUserData()['preparacion_academica'][i]['grado_academico']));
+            fila.insertCell().appendChild(document.createTextNode(getCurrentUserData()['preparacion_academica'][i]['titulo_fecha']));
+        }
     }
-
-    let tbody = document.querySelector('#tblCursosImpartidos tbody');
-    tbody.innerHTML = '';
-
-    for (let i = 0; i < JSON.parse(getCurrentUserData()['cursos_impartidos']).length; i++) {
-        let fila = tbody.insertRow();
-
-        fila.insertCell().innerHTML = JSON.parse(getCurrentUserData()['cursos_impartidos'])[i];
-    }
-
 }

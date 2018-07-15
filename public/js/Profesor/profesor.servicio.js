@@ -46,8 +46,9 @@ function setProfessorData(infoProfesor) {
             password: infoProfesor[9],
             passwordChange: infoProfesor[10],
             trabajo_anterior: '',
-            experiencia_docente: '',
-            cursos_impartidos: ''
+            experiencia_docente: 0,
+            cursos_impartidos: '',
+            foto : 'http://res.cloudinary.com/dtz8agoc3/image/upload/v1531452055/perfil.png'
         }
     });
 
