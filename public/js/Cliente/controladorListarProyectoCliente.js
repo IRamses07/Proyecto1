@@ -1,4 +1,5 @@
 'use strict'
+moveUser(true);
 let tabla = elm('#tblProyectos');
 
 function llenarTabla() {

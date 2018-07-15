@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,30 +13,22 @@
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
+
 <body>
-        <header>
-                <div class="mainHeader">
-                    <a href="##" class="fLeft">
-                        <i class="fas fa-bell"></i> Notificaciones</a>
-                    <a href="##" class="fRight">Cerrar sesión
-                        <i class="fas fa-cog"></i>
-                    </a>
-                </div>
-        
-                <div class="menuLateral">
-                    <i class="fas fa-align-justify"></i>
-                    <div class="option">
-                        <a href="registroTicket.html">Registro tickets</a>
-                    </div>
-                    <div class="option">
-                        <a href="listarTickets.html">Lista de tickets</a>
-                    </div>
-                    <!-- <div class="option">
-                    <a href="registrarProyecto.html">Registrar Proyecto</a>
-                </div> -->
-                </div>
-        
-            </header>
+    <header>
+        <div class="mainHeader">
+            <a href="##" class="fLeft">
+                <i class="fas fa-bell"></i> Notificaciones</a>
+            <a href="##" class="fRight">Cerrar sesión
+                <i class="fas fa-cog"></i>
+            </a>
+        </div>
+
+        <div class="menuLateral" id="divMenuLateral">
+            <i class="fas fa-align-justify"></i>
+        </div>
+
+    </header>
 
     <main id="content">
         <section id="viewTicket">
@@ -63,10 +56,11 @@
     <script src='https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js' type='text/javascript'></script>
     <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>
 
-    <!-- <script src="js/Login/login.js"></script> -->
+    <script src="js/Login/login.js"></script>
     <script src="js/Ticket/servicioImagen.js"></script>
     <script src="js/Ticket/servicioRegistroTicket.js"></script>
     <script src="js/Ticket/controladorVerTicket.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
+
 </html>

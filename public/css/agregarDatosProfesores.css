@@ -1,0 +1,93 @@
+h1{
+    font-size: 24px;
+    text-align: center;
+    margin: 0 auto 40px auto;
+}
+
+h2{
+    font-size: 22px;
+    text-align: center;
+    margin: 50px auto 40px auto;
+}
+
+.mainContainer{
+    width: 55%;
+    margin: 80px auto 40px auto;
+}
+.container{
+    margin-bottom: 20px;
+}
+.leftContainer{
+    float: left;
+    width: 48%;
+}
+
+.rightContainer{
+    float: right;
+    width: 48%;
+}
+
+.extraDataContainer{
+    margin: 0 0 20px 0;
+}
+
+.nptExtraData{
+    width: 100%;
+    padding: 0 0 0 5px;
+}
+
+.floatContainer, .tableContainer{
+    display: flow-root;
+}
+
+.sltPrepAcademica{
+    width: 100%;
+}
+
+.nptPrepAcademica{
+    width: 100%;
+    padding: 0 0 0 5px;
+}
+
+.tamannoMinL{
+    float: left;
+    width: 49%;
+}
+
+.tamannoMinR{
+    float: right;
+    width: 49%;
+}
+
+.tamannoMaxL{
+    float: left;
+    width: 100%;
+}
+
+.tamannoMaxR{
+    float: right;
+    width: 100%;
+}
+
+.tableContainer{
+width: 70%;
+margin: 0 auto;
+display: flow-root;
+}
+
+select{
+    width: 48.8%;
+    outline: none;
+    padding: 0 0 0 5px;
+    margin: 0 20px 0 0;
+}
+label{
+    display: block;
+}
+
+.hide{
+    display: none;
+}
+ table{
+     text-align: center;
+ }

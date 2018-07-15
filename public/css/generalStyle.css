@@ -10,7 +10,7 @@ body{
 
 /* id que va dentro del main. estilo del main espacio que da entre el menulateral y el contenido */
 #content{
- padding-left: 17.6%; 
+ padding-left: 18%; 
 }
 
 /* estilos de todos los anchor/links/direcciones por defecto */
@@ -79,7 +79,7 @@ a {
 input{
     border: 0px ;
     border-radius: 5px;
-    
+    outline: none;
     height: 22px;
 }
 

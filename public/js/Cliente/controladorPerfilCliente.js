@@ -1,5 +1,5 @@
 'use strict'
-
+moveUser(true);
 let datos = document.querySelector('#datosUsuario');
 let extraDatos = document.querySelector('#infoUsuario');
 let infoContacto2 = document.querySelector('#infoContacto2');
