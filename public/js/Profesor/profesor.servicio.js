@@ -48,7 +48,7 @@ function setProfessorData(infoProfesor) {
             trabajo_anterior: '',
             experiencia_docente: 0,
             cursos_impartidos: '',
-            foto : 'http://res.cloudinary.com/dtz8agoc3/image/upload/v1531452055/perfil.png'
+            foto: 'http://res.cloudinary.com/dtz8agoc3/image/upload/v1531452055/perfil.png'
         }
     });
 
@@ -91,13 +91,18 @@ function getProfessorData() {
 
 function validarCedula(psCedula) {
 
-    let aProfesorData = getProfessorData();
+    /*let aProfesorData = getProfessorData();*/
+    let aProfesorData = getUsers();
 
     for (let i = 0; i < aProfesorData.length; i++) {
-        if (aProfesorData[i]['cedula'] == psCedula) {
-            return true;
-        } else {
-            return false;
+        for (let j = 0; j < aProfesorData[i].length; j++) {
+            if (aProfesorData[i][j]['cedula'] == psCedula || aProfesorData[i][j]['cedula_juridica'] == psCedula) {
+                console.log(aProfesorData[i][j]['cedula_juridica']);
+                return true;
+            } else {
+                console.log(aProfesorData[i][j]['cedula_juridica']);
+                return false;
+            }
         }
     }
 }
@@ -274,12 +279,12 @@ function cambiarFoto(imagenUrl) {
     let respuesta = '';
     let ced = '';
     let id = '';
-    if (getCurrentUserData()['rol']=='profesor'){
+    if (getCurrentUserData()['rol'] == 'profesor') {
         ced = getCurrentUserData()['cedula'];
-         id = getCurrentUserData()['_id'];
+        id = getCurrentUserData()['_id'];
     } else {
         ced = getVerMasLS()['cedula'];
-         id = getVerMasLS()['_id'];
+        id = getVerMasLS()['_id'];
     }
 
     let peticion = $.ajax({

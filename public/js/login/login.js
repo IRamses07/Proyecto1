@@ -1,4 +1,4 @@
-
+loadOptionsMenu();
 function getCurrentUserData() {
     let currentData = JSON.parse(sessionStorage.getItem('currentUser'));
     if (currentData == null) {
@@ -130,4 +130,208 @@ function getUsers() {
     aAllUsers = [aListaProfesores, aListaEstudiantes, aListaClientes, aListaAdmin];
 
     return aAllUsers;
+}
+
+function loadOptionsMenu() {
+    let menu = document.getElementById('divMenuLateral');
+    let menuTexto = [];
+    let menuURL = [];
+    let userRol = getCurrentUserData()['rol'];
+
+    if (userRol == "administrador") {
+        menuTexto = [
+            "Agregar estudiantes",
+            "Agregar proyectos a profesores",
+            "Listar clientes",
+            "Listar estudiantes",
+            "Listar profesores",
+            "Listar proyectos",
+            "Listar proyectos en desarrollo",
+            "Listar tiquetes",
+            "Registrar estudiantes",
+            "Registrar proyectos",
+            "Registrar clientes",
+            "Registrar profesores",
+            "Registrar tickets",
+            "Ver ticket"];
+        menuURL = [
+            "agregarEstudiantes.html",
+            "agregarProyectosProfesores.html",
+            "listarClientes.html",
+            "listarEstudiante.html",
+            "listarProfesores.html",
+            "listarProyectos.html",
+            "listarProyectosDesarrollo.html",
+            "listarTickets.html",
+            "registrarEstudiante.html",
+            "registrarProyecto.html",
+            "registroClientes.html",
+            "registroProfesores.html",
+            "registroTicket.html",
+            "verTicket.html"];
+    }
+
+    if (userRol == "cliente") {
+        menuTexto = [
+            "Agregar estudiantes",
+            "Agregar proyectos a profesores",
+            "Listar clientes",
+            "Listar estudiantes",
+            "Listar profesores",
+            "Listar proyectos",
+            "Listar proyectos de clientes",
+            "Listar proyectos en desarrollo",
+            "Listar proyectos de estudiantes",
+            "Listar proyectos de profesores",
+            "Listar tiquetes",
+            "Listar tiquetes de clientes",
+            "Listar tiquetes de estudiantes",
+            "Listar tiquetes de profesores",
+            "Visualizar perfil",
+            "Visualizar perfil",
+            "Visualizar perfil",
+            "Registrar estudiantes",
+            "Registrar proyectos",
+            "Registrar clientes",
+            "Registrar profesores",
+            "Registrar tickets",
+            "Ver ticket"];
+        menuURL = [
+            "agregarEstudiantes.html",
+            "agregarProyectosProfesores.html",
+            "listarClientes.html",
+            "listarEstudiante.html",
+            "listarProfesores.html",
+            "listarProyectos.html",
+            "listarProyectosCliente.html",
+            "listarProyectosDesarrollo.html",
+            "listarProyectosEstudiante.html",
+            "listarProyectosProfesor.html",
+            "listarTickets.html",
+            "listarTicketsCliente.html",
+            "listarTicketsEstudiante.html",
+            "listarTicketsProfesor.html",
+            "perfilCliente.html",
+            "perfilEstudiante.html",
+            "perfilProfesor.html",
+            "registrarEstudiante.html",
+            "registrarProyecto.html",
+            "registroClientes.html",
+            "registroProfesores.html",
+            "registroTicket.html",
+            "verTicket.html"];
+    }
+
+    if (userRol == "profesor") {
+        menuTexto = [
+            "Agregar estudiantes",
+            "Agregar proyectos a profesores",
+            "Listar clientes",
+            "Listar estudiantes",
+            "Listar profesores",
+            "Listar proyectos",
+            "Listar proyectos de clientes",
+            "Listar proyectos en desarrollo",
+            "Listar proyectos de estudiantes",
+            "Listar proyectos de profesores",
+            "Listar tiquetes",
+            "Listar tiquetes de clientes",
+            "Listar tiquetes de estudiantes",
+            "Listar tiquetes de profesores",
+            "Visualizar perfil",
+            "Visualizar perfil",
+            "Visualizar perfil",
+            "Registrar estudiantes",
+            "Registrar proyectos",
+            "Registrar clientes",
+            "Registrar profesores",
+            "Registrar tickets",
+            "Ver ticket"];
+        menuURL = [
+            "agregarEstudiantes.html",
+            "agregarProyectosProfesores.html",
+            "listarClientes.html",
+            "listarEstudiante.html",
+            "listarProfesores.html",
+            "listarProyectos.html",
+            "listarProyectosCliente.html",
+            "listarProyectosDesarrollo.html",
+            "listarProyectosEstudiante.html",
+            "listarProyectosProfesor.html",
+            "listarTickets.html",
+            "listarTicketsCliente.html",
+            "listarTicketsEstudiante.html",
+            "listarTicketsProfesor.html",
+            "perfilCliente.html",
+            "perfilEstudiante.html",
+            "perfilProfesor.html",
+            "registrarEstudiante.html",
+            "registrarProyecto.html",
+            "registroClientes.html",
+            "registroProfesores.html",
+            "registroTicket.html",
+            "verTicket.html"];
+    }
+
+    if (userRol == "estudiante") {
+        menuTexto = [
+            "Agregar estudiantes",
+            "Agregar proyectos a profesores",
+            "Listar clientes",
+            "Listar estudiantes",
+            "Listar profesores",
+            "Listar proyectos",
+            "Listar proyectos de clientes",
+            "Listar proyectos en desarrollo",
+            "Listar proyectos de estudiantes",
+            "Listar proyectos de profesores",
+            "Listar tiquetes",
+            "Listar tiquetes de clientes",
+            "Listar tiquetes de estudiantes",
+            "Listar tiquetes de profesores",
+            "Visualizar perfil",
+            "Visualizar perfil",
+            "Visualizar perfil",
+            "Registrar estudiantes",
+            "Registrar proyectos",
+            "Registrar clientes",
+            "Registrar profesores",
+            "Registrar tickets",
+            "Ver ticket"];
+        menuURL = [
+            "agregarEstudiantes.html",
+            "agregarProyectosProfesores.html",
+            "listarClientes.html",
+            "listarEstudiante.html",
+            "listarProfesores.html",
+            "listarProyectos.html",
+            "listarProyectosCliente.html",
+            "listarProyectosDesarrollo.html",
+            "listarProyectosEstudiante.html",
+            "listarProyectosProfesor.html",
+            "listarTickets.html",
+            "listarTicketsCliente.html",
+            "listarTicketsEstudiante.html",
+            "listarTicketsProfesor.html",
+            "perfilCliente.html",
+            "perfilEstudiante.html",
+            "perfilProfesor.html",
+            "registrarEstudiante.html",
+            "registrarProyecto.html",
+            "registroClientes.html",
+            "registroProfesores.html",
+            "registroTicket.html",
+            "verTicket.html"];
+    }
+
+    for (let i = 0; i < menuTexto.length; i++) {
+        let newDiv = document.createElement('div');
+        newDiv.classList.add('option');
+        let newA = document.createElement('a');
+        newA.innerHTML = menuTexto[i];
+        newA.href = menuURL[i];
+        newDiv.appendChild(newA);
+        menu.appendChild(newDiv);
+    
+    }
 }

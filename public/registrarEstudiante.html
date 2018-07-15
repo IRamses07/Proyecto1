@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/generalStyle.css">
     <link rel="stylesheet" href="css/registrarEstudiante_style.css">
     <title>Registro de Estudiante</title>
 </head>
+
 <body>
     <header>
 
@@ -20,16 +22,10 @@
             <a href="javascript:logOut();" class="fRight">Cerrar sesión
                 <i class="fas fa-cog"></i>
             </a>
-                </div>
-        
-        <div class="menuLateral">
+        </div>
+
+        <div class="menuLateral" id="divMenuLateral">
             <i class="fas fa-align-justify"></i>
-            <div class="option">
-                <a href="registrarEstudiante.html">Registro Estudiantes</a>
-            </div>
-            <div class="option">
-                <a href="listarEstudiante.html">Lista de Estudiantes</a>
-            </div>
         </div>
 
     </header>
@@ -40,24 +36,24 @@
             <div class="layer1">
                 <label for="" id="cedExt" class="lblHide cedEx">*Cédula existente!</label>
                 <label>Cédula:</label>
-                <input type="text" id="estCedula"/>
+                <input type="text" id="estCedula" />
             </div>
             <br>
             <div class="layer2">
                 <label>Primer nombre:</label>
-                <input type="text" id="estnombre1"/>
+                <input type="text" id="estnombre1" />
             </div>
-            <div class="layer3"> 
+            <div class="layer3">
                 <label>Segundo nombre:</label>
-                <input type="text" id="estnombre2"/>
+                <input type="text" id="estnombre2" />
             </div>
             <div class="layer2">
                 <label>Primer apellido:</label>
-                <input type="text" id="estapellido1"/>
+                <input type="text" id="estapellido1" />
             </div>
-            <div class="layer3"> 
+            <div class="layer3">
                 <label>Segundo apellido:</label>
-                <input type="text" id="estapellido2"/>
+                <input type="text" id="estapellido2" />
             </div>
             <br>
             <div id="optionsTT">
@@ -93,11 +89,11 @@
             </div>
             <div class="layer2">
                 <label>Teléfono</label>
-                <input type="text" id="esttelefono"/>
+                <input type="text" id="esttelefono" />
             </div>
-            <div class="layer3" >
+            <div class="layer3">
                 <label>Correo</label>
-                <input type="text" id="estcorreo"/>
+                <input type="text" id="estcorreo" />
             </div>
         </form>
         <form action="" class="contFormulario" id="form2">
@@ -125,11 +121,11 @@
                         <option>2-2018</option>
                     </select>
                 </div>
-                <div class="layer5" >
+                <div class="layer5">
                     <label class="labelcenter">Curso:</label>
                     <select id="selectCurso">
                         <option> </option>
-   
+
                     </select>
                 </div>
                 <div class="layer5">
@@ -137,7 +133,7 @@
                 </div>
                 <br>
             </div>
-        </form>   
+        </form>
         <div class="tableContainer">
             <table cellspacing=10px id="tblCursos">
                 <thead>
@@ -146,7 +142,7 @@
                     <th>Nombre</th>
                     <th>Eliminar</th>
                 </thead>
-                <tbody> 
+                <tbody>
                 </tbody>
             </table>
         </div>
@@ -154,29 +150,29 @@
             <h2>Contacto de emergencia</h2>
             <div class="layer2">
                 <label>Primer nombre:</label>
-                <input type="text" id="conNombre1"/>
+                <input type="text" id="conNombre1" />
             </div>
-            <div class="layer3"> 
+            <div class="layer3">
                 <label>Segundo nombre:</label>
-                <input type="text" id="conNombre2"/>
+                <input type="text" id="conNombre2" />
             </div>
             <div class="layer2">
                 <label>Primer apellido:</label>
-                <input type="text" id="conApellido1"/>
+                <input type="text" id="conApellido1" />
             </div>
             <div class="layer3">
-                <label>Segundo apellido:</label> 
-                <input type="text" id="conApellido2"/>
+                <label>Segundo apellido:</label>
+                <input type="text" id="conApellido2" />
             </div>
             <div class="layer2">
                 <label>Teléfono</label>
-                <input type="text" id="conTelefono"/>
+                <input type="text" id="conTelefono" />
             </div>
             <div class="layer3">
                 <label>Correo</label>
-                <input type="text" id="conCorreo"/>
+                <input type="text" id="conCorreo" />
             </div>
-            <button type="button" id="butRegistrar" class="btnRegistro">Registrar</button>  
+            <button type="button" id="butRegistrar" class="btnRegistro">Registrar</button>
         </form>
     </main>
     <footer></footer>
@@ -186,4 +182,5 @@
     <script src="js/Estudiante/registrarEstudiante_controlador.js"></script>
     <script src="js/Estudiante/registrarEstudiante_servicio.js"></script>
 </body>
+
 </html>

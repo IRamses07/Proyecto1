@@ -1,5 +1,5 @@
 'use strict';
-moveUser(false);
+moveUser(true);
 let eString = /[A-Za-záéíóúñÑÁÉÍÓÚ+-]+/,
     eNumber = /[0-9]+/,
     eSpace = /\s+/,

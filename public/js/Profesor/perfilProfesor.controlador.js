@@ -1,5 +1,5 @@
 'use strict'
-
+moveUser(true);
 let datos = document.querySelector('#datosUsuario');
 let extraDatos = document.querySelector('#infoUsuario');
 // let infoContacto2 = document.querySelector('#infoContacto2');
@@ -87,7 +87,6 @@ function listadoCursosImpartidos() {
 
 function acomodarEspacios() {
     if (thisProfessor['preparacion_academica'].length == 0) {
-        document.querySelector('#tblPrepAcademica').classList.add('hide');
         if (thisProfessor['cursos_impartidos'] == "") {
             document.querySelector('#tblPrepAcademica').classList.remove('tamannoMaxR');
             document.querySelector('#tblPrepAcademica').classList.add('tamannoMinR');

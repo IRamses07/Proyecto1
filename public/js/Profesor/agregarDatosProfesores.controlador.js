@@ -1,4 +1,4 @@
-
+moveUser(true);
 document.querySelector('#btnAgregarPrepAcademica').addEventListener('click', preparacionAcademica);
 document.querySelector('#btnCursosImpartidos').addEventListener('click', cursosImpartidos);
 document.querySelector('#btnAgregar').addEventListener('click', extraProfessorData);

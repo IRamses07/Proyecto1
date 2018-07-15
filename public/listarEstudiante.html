@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/generalStyle.css">
     <link rel="stylesheet" href="css/registrarEstudiante_style.css">
     <link rel="stylesheet" href="css/listarEstudiante.css">
     <title>Lista de Estudiante</title>
 </head>
+
 <body>
     <header>
 
@@ -21,16 +23,10 @@
             <a href="javascript:logOut();" class="fRight">Cerrar sesión
                 <i class="fas fa-cog"></i>
             </a>
-                </div>
-        
-        <div class="menuLateral">
+        </div>
+
+        <div class="menuLateral" id="divMenuLateral">
             <i class="fas fa-align-justify"></i>
-            <div class="option">
-                <a href="registrarEstudiante.html">Registro Estudiantes</a>
-            </div>
-            <div class="option">
-                <a href="listarEstudiante.html">Lista de Estudiantes</a>
-            </div>
         </div>
 
     </header>
@@ -43,13 +39,16 @@
                     <label for="cliente">Buscar por:</label>
                 </div>
                 <div class="seleccionar">
-                        <input type="radio" checked="checked" value="Nombre1" name="radioSelect"/><label for="cliente">Nombre</label>
-                        <input type="radio" value="proyectos" name="radioSelect"/><label for="cliente">Proyecto</label>
+                    <input type="radio" checked="checked" value="Nombre1" name="radioSelect" />
+                    <label for="cliente">Nombre</label>
+                    <input type="radio" value="proyectos" name="radioSelect" />
+                    <label for="cliente">Proyecto</label>
                 </div>
                 <div class="buscar">
-                    <input type="text" id="inputBuscar"/><label id="errorInput"></label>
+                    <input type="text" id="inputBuscar" />
+                    <label id="errorInput"></label>
                 </div>
-            
+
                 <div class="containerRegistrar">
                     <button type="button" id="butBuscarEstudiante" class="btnRegistro">Buscar</button>
                 </div>
@@ -57,7 +56,7 @@
         </div>
 
         <div class="tableContainer">
-            
+
             <table cellspacing=10px id="tblEstudiantes">
                 <thead>
                     <th>Nombre</th>
@@ -67,10 +66,10 @@
                     <th>Perfil</th>
                     <th>Estado</th>
                 </thead>
-                <tbody> 
+                <tbody>
                 </tbody>
             </table>
-            
+
     </main>
     <footer></footer>
     <script src="js/jquery-3.3.1.js"></script>
@@ -79,4 +78,5 @@
     <script src="js/Estudiante/listarEstudiante_controlador.js"></script>
 
 </body>
+
 </html>
