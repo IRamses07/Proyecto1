@@ -30,4 +30,9 @@ router.route('/cambiarfoto_estudiantes')
     estudiantes.cambiarFoto(req, res);
 });
 
+router.route('/asignar_proyecto')
+    .post(function(req, res){
+    estudiantes.asignar_proyecto(req, res);
+});
+
 module.exports = router;
