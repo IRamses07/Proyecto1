@@ -15,6 +15,8 @@ let inptReferenciaTicket = document.querySelector('#sltTicket');
 let inptDescripcionError = document.querySelector('#txtdescripcion');
 listarSelectProyectos();
 llenarNombreCliente();
+listarTicketsReferencia();
+
 
 function obtenerDatosTicket() {
     let ticket = [];
@@ -112,11 +114,23 @@ function llenarNombreCliente(){
 
 }
 
+function listarTicketsReferencia(){
+    let nombreUsuario = getCurrentUserData()['nombre'];
+    let sltTickets = listarTickets();
+    let sltReferenciaTicket =  document.querySelector('#sltTicket');
+
+    for(let i = 0; i < sltTickets.length; i++){
+        sltReferenciaTicket.options[i] = new Option (sltTickets[i]['proyecto'], sltTickets[i]['proyecto'])
+    }
+}
+
+
+
 // function ticketsViejos(){
 //     let sltTickets = listarTickets();
 //     let sltReferenciaTicket =  document.querySelector('#sltTicket');
 
 //     for(let i = 0; i < sltTickets.length; i++){
-//         sltReferenciaTicket.options[i] = new Option (sltTickets[i]['codigo'], sltTickets[i]['codigo'])
+//         sltReferenciaTicket.options[i] = new Option (sltTickets[i]['pryecto'], sltTickets[i]['proyecto'])
 //     }
 // }
