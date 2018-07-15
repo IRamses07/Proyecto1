@@ -2,11 +2,14 @@
 moveUser(true);
 listarSelectClientes();
 
+
 //declaracion del boton y declaracion del event listener para dicho boton
 
 let botonRegistrar = document.querySelector('#btnRegistrar');
 
 botonRegistrar.addEventListener('click', obtenerDatos);
+
+
 
 
 //declaracion de elementos
@@ -22,6 +25,26 @@ let dateFechaEntrega = document.querySelector('#dtEntregaEstimada');
 
 let txtaDescripcion = document.querySelector('#txtDescripcion');
 
+
+
+ document.getElementById('#slNombredelCliente').onchange = validar();
+
+function validar () {
+    let listaClientes = listarClientes();
+    let nombreCliente = document.querySelector('#slNombredelCliente').value;
+    let cedulaJuridica;
+
+    for (let i = 0; i < listaClientes.length; i++) {
+
+        if (listaClientes[i]['_id'] == (nombreCliente)) {
+            cedulaJuridica = listaClientes[i]['cedula_juridica'];
+        }
+    }
+
+    let inputIdentifiacionJuridica = document.querySelector('#txtIdentifiacionJuridica');
+
+    inputIdentifiacionJuridica.value = cedulaJuridica; 
+}
 
 function limpiarFormulairo() {
     inputNombreProyecto.value = '';
@@ -89,16 +112,7 @@ function obtenerDatos() {
 
 }
 
-function obtenerNombre() {
-    let slNombredelCliente = listarClientes();
-    let select = document.querySelector('#slNombredelCliente');
-    select.options[0] = new Option("Seleccione un cliente...", "");
 
-    for (let i = 0; i < slNombredelCliente.length; i++) {
-        select.options[i] = new Option(slNombredelCliente[i]['nombre'], slNombredelCliente[i]['nombre']);
-
-    }
-}
 
 function listarSelectClientes() {
     let slNombredelCliente = listarClientes();
@@ -176,11 +190,27 @@ function validarCampos() {
 function agregarProyectoCliente() {
     let infoProyecto = [];
 
+
+
+
+
     let id = selectNombreCliente.value;
     let id1 = selectNombreCliente.value;
     let nombreProyecto = inputNombreProyecto.value;
     let fechaEntrega = dateFechaEntrega.value;
     let estadoProyecto = selectEstadoProyecto.value;
+
+    let proyecto = obtenerListaProyectos();
+
+
+    for (let i = 0; i < proyecto.length; i++) {
+
+        if (proyecto[i]['nombre_proyecto'] == (nombreProyecto)) {
+            id1 = proyecto[i]['_id'];
+        }
+
+
+    }
 
     infoProyecto.push(id, id1, nombreProyecto, fechaEntrega, estadoProyecto);
 
@@ -191,9 +221,9 @@ function agregarProyectoCliente() {
 }
 
 
+// function llenarCedulaJuridica() {
+//     let cedulaJuridica = listarClientes()['cedula_juridica'];
+//     let inptCedulaJuridica = document.querySelector('#txtnombreCliente');
+//     inptCedulaJuridica.value = cedulaJuridica;
 
-
-
-
-
-
+// }

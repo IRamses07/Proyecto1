@@ -38,6 +38,13 @@ module.exports.listar = function(req, res){
         });
 };
 
+module.exports.buscarPorId = function(req, res){
+    proyectoModel.find({_id:req.body._id}).then(
+        function(proyecto){
+            res.send(proyecto);
+        })
+};
+
 
 // module.exports.listar = function(req, res){
 //     proyectoModel.find({estado_proyecto :"desarrollo"}).then(
