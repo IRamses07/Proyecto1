@@ -17,8 +17,8 @@ module.exports.registrar = function (req, res) {
         password: req.body.password,
         passwordChange: req.body.passwordChange,
         trabajo_anterior: req.body.trabajo_anterior,
-        experiencia_docente: req.body.experinecia_docente,
-        cursos_aprobados: req.body.cursos_aprobados,
+        experiencia_docente: req.body.experiencia_docente,
+        cursos_impartidos: req.body.cursos_impartidos,
         foto : req.body.foto
     });
 
@@ -107,6 +107,18 @@ module.exports.agregar_preparacion_academica = function(req, res){
             }
         }
     )
+};
+
+module.exports.agregar_cursos_impartidos = function(req, res){
+    profesorModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
+        function(err) {
+            if (err) {
+                res.json({ success: false, msg: 'No se ha actualizado.' + handleError(err) });
+        
+            } else {
+            res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
+            }
+      });
 };
 
 /*module.exports.actualizar_usuario = function(req, res){

@@ -55,29 +55,34 @@ function cursosImpartidos(){
 
     if (sltCursos.options[sltCursos.selectedIndex].index == 0) {
         sltCursos.options[sltCursos.selectedIndex].value = '';
-
-        if (validarPrepAcademica(sltCursos, sltGrado.options[sltGrado.selectedIndex].value)) {
-            swal({
-                title: "Advertencia",
-                text: "Por favor llene los campos en rojo.",
-                icon: "warning",
-                button: "Ok",
-            });
-
-        }
-
     } else {
         sltCursos.options[sltCursos.selectedIndex].value = sltCursos.options[sltCursos.selectedIndex].text;
     }
 
-    function validarPrepAcademica(sltCursos, gradoAcademico) {
-        let empty = false;
-        if (gradoAcademico == '') {
+    if (validarCursosImpartidos()) {
+        swal({
+            title: "Advertencia",
+            text: "Por favor llene los campos en rojo.",
+            icon: "warning",
+            button: "Ok",
+        });
+    }else{
+        setCursosImpartidos(getCurrentUserData()['_id'], sCursos);
+        limpiarCursosImpartidos();
+    }
 
-            sltCursos.classList.add('error_input');
-            empty = true;
-        } else {
-            sltCursos.classList.remove('error_input');
+    function validarCursosImpartidos() {
+        let aRequeridos = document.querySelectorAll('[name=cursosImpartidos');
+        let empty = false;
+
+        for (let i = 0; i < aRequeridos.length; i++) {
+            if (aRequeridos[i].value == '') {
+    
+                aRequeridos[i].classList.add('error_input');
+                empty = true;
+            } else {
+                aRequeridos[i].classList.remove('error_input');
+            }
         }
         return empty;
     }
@@ -102,6 +107,13 @@ function validarRequeridos() {
 
 function limpiarPrepAcademica() {
     let inputs = document.querySelectorAll("[name=prepAcademica]");
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].value = '';
+    }
+}
+
+function limpiarCursosImpartidos(){
+    let inputs = document.querySelectorAll("[name=cursosImpartidos]");
     for (let i = 0; i < inputs.length; i++) {
         inputs[i].value = '';
     }

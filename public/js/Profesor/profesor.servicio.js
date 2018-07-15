@@ -44,8 +44,10 @@ function setProfessorData(infoProfesor) {
             profesion: infoProfesor[7],
             rol: infoProfesor[8],
             password: infoProfesor[9],
-            passwordChange: infoProfesor[10]
-            /*profesion: infoProfesor.profesion*/
+            passwordChange: infoProfesor[10],
+            trabajo_anterior: '',
+            experiencia_docente: '',
+            cursos_impartidos: ''
         }
     });
 
@@ -206,14 +208,14 @@ function setPreparacionAcademica(pId,sGrado,dTitulo,sCarrera){
     return respuesta;
 }
 
-function setCursosImpartidos(id,sCursos){
-    let listaCursos = getCurrentUserData()['cursos'];
+function setCursosImpartidos(pId,psCursos){
+    let listaCursos = getCurrentUserData()['cursos_impartidos'];
     if(listaCursos == ""){
         listaCursos = [];
-    }else{
-        listaCursos = JSON.parse(listaCursos);
     }
-    listaCursos.push(sCursos);
+        listaCursos = JSON.parse(listaCursos);
+
+    listaCursos.push(psCursos);
     let respuesta = '';
     let peticion = $.ajax({
         url : 'http://localhost:4000/api/agregar_cursos_impartidos',
@@ -223,7 +225,7 @@ function setCursosImpartidos(id,sCursos){
         async : false,
         data:{
             _id: pId,
-            cursos: sGrado,  
+            cursos_impartidos: JSON.stringify(listaLenguajes),  
         }
       });
     

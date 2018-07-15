@@ -15,7 +15,7 @@ let profesorSchema = new mongoose.Schema({
     passwordChange: { type: String, required: true },
     trabajo_anterior: {type: String},
     experiencia_docente: {type: Number},
-    cursos_aprobados: {type: String},
+    cursos_impartidos: {type: String},
     preparacion_academica: [{
         grado_academico: { type: String },
         titulo_fecha: { type: String },
