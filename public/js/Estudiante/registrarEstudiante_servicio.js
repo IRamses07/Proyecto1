@@ -179,7 +179,7 @@ function asignarProyecto(id, idProyecto, nombreProyecto, fechaEntrega, estadoPro
     let respuesta = '';
     
     let peticion = $.ajax({
-        url: 'http://localhost:4000/api/asignar_proyecto',
+        url: 'http://localhost:4000/api/asignar_proyecto_e',
         type: 'post',
         contentType: 'application/x-www-form-urlencoded; charset=utf-8',
         dataType: 'json',
