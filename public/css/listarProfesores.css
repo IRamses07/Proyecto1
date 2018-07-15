@@ -37,13 +37,17 @@ tbody td{
 }
 #txtFiltro{
     float: left;
-
     width: 20%;
+    outline: none;
+    padding: 3px 0 3px 5px;
+}
+
+#btnFiltro{
+    margin-left: 15px;
 }
 
 #rbtnNombre{
     float: left;
-
 }
 
 .spnRadio{
@@ -54,4 +58,8 @@ tbody td{
 .floatContainer{
     margin-left: 5%;
     display: flow-root;
+}
+
+#btnVerMas{
+    margin-bottom: 2px;
 }

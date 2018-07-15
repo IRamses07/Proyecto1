@@ -35,4 +35,10 @@ router.route('/cambiarfoto_profesor')
     profesores.cambiarFoto(req, res);
 });
 
+router.route('/agregar_info_profesor')
+.post(function(req, res){
+    profesores.agregar_info_profesor(req, res);
+});
+
+
 module.exports = router;
