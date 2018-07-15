@@ -31,4 +31,10 @@ router.route('/asignar_proyecto')
     });
 
 
+router.route('/agregar_info_profesor')
+.post(function(req, res){
+    profesores.agregar_info_profesor(req, res);
+});
+
+
 module.exports = router;
