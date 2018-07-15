@@ -116,16 +116,17 @@ function generateRandomPassword() {
             cedula: '03586123'
         }
     });
-
     peticion.done(function (response) {
         respuesta = response;
     });
-
     peticion.fail(function (response) {});
-
     return respuesta;
+<<<<<<< HEAD
 }*/
 
+=======
+}
+>>>>>>> master
 function asignarProyecto(infoProyecto) {
     let respuesta = '';
     console.log(infoProyecto);
@@ -135,9 +136,7 @@ function asignarProyecto(infoProyecto) {
         contentType: 'application/x-www-form-urlencoded; charset=utf-8',
         dataType: 'json',
         async: false,
-
         data: {
-
             _id: infoProyecto[0],
             id: infoProyecto[1],
             rol: infoProyecto[2],
@@ -146,15 +145,11 @@ function asignarProyecto(infoProyecto) {
             estado_proyecto: infoProyecto[5]
         }
     });
-
     peticion.done(function (response) {
         respuesta = response;
     });
-
     peticion.fail(function (response) {
-
     });
-
     return respuesta;
 }
 

@@ -18,7 +18,8 @@ module.exports.registrar = function (req, res) {
         passwordChange: req.body.passwordChange,
         trabajo_anterior: req.body.trabajo_anterior,
         experiencia_docente: req.body.experinecia_docente,
-        cursos_aprobados: req.body.cursos_aprobados
+        cursos_aprobados: req.body.cursos_aprobados,
+        foto : req.body.foto
     });
 
     nuevoProfesor.save(function (error) {
@@ -120,7 +121,23 @@ module.exports.agregar_preparacion_academica = function(req, res){
       });
 };*/
 
-/*module.exports.agregar_info_profesor = function(req, res){
+
+/*module.exports.cambiarFoto = function(req, res){
+
+    profesorModel.findOneAndUpdate(
+        {
+            cedula: req.body.cedula
+        },
+        {  
+            foto: req.body.foto
+        }
+        ).then(
+        function(profesores){
+            res.send(profesores);
+    });
+};
+
+module.exports.agregar_info_profesor = function(req, res){
     
     profesorModel.update({_id: req.body._id}, 
         {$push: 

@@ -31,7 +31,8 @@ function registrarCliente(infoCliente) {
                 let pw = Math.random().toString(36).substring(2, 10);
                 return pw;
             }),
-            passwordChange: 0
+            passwordChange: 0,
+            foto : 'http://res.cloudinary.com/dtz8agoc3/image/upload/v1531452055/perfil.png'
         }
     });
 
@@ -48,6 +49,7 @@ function registrarCliente(infoCliente) {
 
 function getInfoCliente() {
     let respuesta = 'respuesta';
+    let cedJur = getCurrentUserData()['cedula_juridica'];
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/getinfo_clientes',
         type: 'get',
@@ -55,7 +57,7 @@ function getInfoCliente() {
         dataType: 'json',
         async: false,
         data: {
-            cedula_juridica: 'jur88tte78'
+            cedula_juridica: cedJur       
         }
     });
 
@@ -122,4 +124,41 @@ function asignarProyecto(infoProyecto) {
     });
 
     return respuesta;
+}
+
+function cambiarFoto(imagenUrl){
+    let respuesta = '';
+    let cedJur = getCurrentUserData()['cedula_juridica'];
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/cambiarfoto_clientes',
+        type : 'put',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            cedula_juridica : cedJur,
+            foto : imagenUrl
+        }
+      });
+    
+      peticion.done(function(response){
+       respuesta = response;
+      });
+    
+      peticion.fail(function(response){
+       
+      });
+
+      return respuesta;
+}
+
+function validarCedulaRepetida(cedulaJuridica){
+
+    let listaDeClientes = listarClientes();
+    for (let i = 0; i < listaDeClientes.length; i++) {
+        if(listaDeClientes[i]['cedula_juridica']==cedulaJuridica){
+            return true;
+        }
+    }
+    return false;
 }

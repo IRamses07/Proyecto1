@@ -34,6 +34,10 @@ router.route('/agregar_preparacion_academica')
     .post(function (req, res) {
         profesores.agregar_preparacion_academica(req, res);
     });
+router.route('/cambiarfoto_profesor')
+    .put(function(req, res){
+    profesores.cambiarFoto(req, res);
+});
 
 /*router.route('/agregar_info_profesor')
     .post(function(req, res){

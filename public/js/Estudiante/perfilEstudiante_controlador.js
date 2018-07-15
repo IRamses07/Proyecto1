@@ -10,6 +10,9 @@ function getInfo(){
     let infoEstudiante = getInfoEstudiante();
     infoPersonal(infoEstudiante);
     infoContacto(infoEstudiante);
+    // let currentData = JSON.parse(sessionStorage.getItem('currentUser'));
+    // console.log('aqui'+currentData);
+    
     imprimirListaCursos (infoEstudiante)
 };
 

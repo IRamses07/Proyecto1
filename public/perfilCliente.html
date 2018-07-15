@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="img/logo.png"/>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/error.css">
     <link rel="stylesheet" href="css/generalStyle.css">
     <link rel="stylesheet" href="css/registrarEstudiante_style.css">
     <link rel="stylesheet" href="css/listarEstudiante.css">
@@ -41,12 +40,13 @@
     <main id="container">
         <div class="card">
             <div class="img_container">
-                <img src="https://image.ibb.co/iHyp6o/perfil.png" alt="Foto">
+                <img id="perfiImagen" src="https://image.ibb.co/iHyp6o/perfil.png" alt="Foto">
             </div>
             <div id="datosUsuario">
             </div>
             <div id="infoUsuario" class="infoUsuario">
             </div>
+            <button type="button" id="btnSeleccionarImagen"><i class="fas fa-edit"></i></button>
         </div>
         <hr class="underline">
         <div class="infoContacto">
@@ -63,7 +63,10 @@
     </main>
     <footer></footer>
     <script src="js/jquery-3.3.1.js"></script>
+    <script src='https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js' type='text/javascript'></script>
+    <script src="https://widget.cloudinary.com/global/all.js" type="text/javascript"></script>
     <script src="js/Login/login.js"></script>
+    <script src="js/servicioImagenPerfiles.js"></script>
     <script src="js/controlador.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqwnxPeSYz_PuUWckCDE54K9GX448uD2k&callback=showMap" asyncdefer></script>
     <script src="js/Cliente/servicioCliente.js"></script>
