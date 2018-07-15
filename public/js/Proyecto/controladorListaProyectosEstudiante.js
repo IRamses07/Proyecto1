@@ -6,7 +6,6 @@ let tbody = document.querySelector('#tblProyectosE tbody');
     tbody.innerHTML = '';
 
 for(let n = 0; n < getCurrentUserData()['proyectos'].length; n++){
-    console.log(getCurrentUserData()['proyectos'][n]);
     let fila = tbody.insertRow();
 
 
