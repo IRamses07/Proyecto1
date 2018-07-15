@@ -49,6 +49,7 @@ function registrarCliente(infoCliente) {
 
 function getInfoCliente() {
     let respuesta = 'respuesta';
+    let cedJur = getCurrentUserData()['cedula_juridica'];
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/getinfo_clientes',
         type: 'get',
@@ -56,7 +57,7 @@ function getInfoCliente() {
         dataType: 'json',
         async: false,
         data: {
-            cedula_juridica: 'testing1'
+            cedula_juridica: cedJur       
         }
     });
 
@@ -127,7 +128,7 @@ function asignarProyecto(infoProyecto) {
 
 function cambiarFoto(imagenUrl){
     let respuesta = '';
-    // let ced = localStorage.getItem('ced');
+    let cedJur = getCurrentUserData()['cedula_juridica'];
     let peticion = $.ajax({
         url : 'http://localhost:4000/api/cambiarfoto_clientes',
         type : 'put',
@@ -135,7 +136,7 @@ function cambiarFoto(imagenUrl){
         dataType : 'json',
         async : false,
         data:{
-            cedula_juridica : 'testing1',
+            cedula_juridica : cedJur,
             foto : imagenUrl
         }
       });

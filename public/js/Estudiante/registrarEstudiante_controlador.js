@@ -26,6 +26,14 @@ seleccionCanton.addEventListener('click', function(){
     }
 });
 
+//SeleccionarCarrera
+let seleccionCarrera = document.querySelector('#selectCarrera');
+seleccionCarrera.addEventListener('click', function(){
+    if(seleccionCarrera.value.length !== 0){
+        cursosPorCarrera(seleccionCarrera.value);;
+    }
+});
+
 //DatosEstudiante
 let inputCedula = document.querySelector('#estCedula');
 let inputNombre1 = document.querySelector('#estnombre1');
@@ -206,10 +214,40 @@ function validar(){
     return sError;
 }
 
+function cursosPorCarrera(carrera){
+    console.log(carrera);
+    let content = '<option></option>\n';
+
+    if(carrera=='Desarrollo de Software'){
+
+        content+= '<option value="cu01">Fundamentos de programación</option>\n';
+        content+= '<option value="cu03">Fundamentos de bases de datos</option>\n';
+        content+= '<option value="cu05">Programación orientada a objetos</option>\n';
+        content+= '<option value="cu02">Proyecto de ingenieria del software 1</option>\n';
+        
+    } else if(carrera=='Tecnologías de la Información y Comunicacines'){
+
+        content+= '<option value="cu04">Sistemas operativos 1</option>\n';
+        content+= '<option value="cu07">Redes de computadoras</option>\n';
+        content+= '<option value="cu06">Estructuras discretas</option>\n';
+        content+= '<option value="cu08">Proyecto de integración de tecnologías 1</option>\n'; //new
+
+    } else {
+
+        content+= '<option value="cu09">Diseño web 1</option>\n';
+        content+= '<option value="cu10">Fundamentos de programación web</option>\n';
+        content+= '<option value="cu11">Programación web dinámica</option>\n';
+        content+= '<option value="cu12">Comunicación de información en la web</option>\n';
+
+    }
+
+    selectCurso.innerHTML= content;
+}
+
 function getCurso(){
     let infoCurso=[];
     let sError = 0;
-
+    console.log('hola: '+selectCurso.value);
     let sCiclo = selectCiclo.value;
     let sCurso = selectCurso.value;
     let sNomCurso;
@@ -235,6 +273,21 @@ function getCurso(){
             break;
         case 'cu07': 
             sNomCurso='Redes de computadoras';
+            break;
+        case 'cu08':
+            sNomCurso='Proyecto de integración de tecnologías 1';
+            break;
+        case 'cu09':
+            sNomCurso='Diseño web 1';
+            break;
+        case 'cu10':
+            sNomCurso='Fundamentos de programación web';
+            break;
+        case 'cu11':
+            sNomCurso='Programación web dinámica';
+            break;
+        case 'cu12':
+            sNomCurso='Comunicación de información en la web';
             break;
     }
 

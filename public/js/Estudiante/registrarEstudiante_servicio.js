@@ -131,7 +131,12 @@ function filtrarNombreEstudiantes(inputDatoBuscar){
 
 function getInfoEstudiante(){
     let respuesta = 'respuesta';
-    let ced = localStorage.getItem('ced');
+    let ced = '';
+    if (getCurrentUserData()['rol']=='estudiante'){
+        ced = getCurrentUserData()['cedula'];
+    } else {
+        ced = localStorage.getItem('ced');
+    }
     let peticion = $.ajax({
         url : 'http://localhost:4000/api/getInfo_estudiantes',
         type : 'get',
@@ -140,6 +145,7 @@ function getInfoEstudiante(){
         async : false,
         data:{
             cedula : ced
+            //let datos = getCurrentUserData()['cedula'];
             //cedula : '304870951'
         }
       });
@@ -160,7 +166,13 @@ function getInfoEstudiante(){
 
 function cambiarFoto(imagenUrl){
     let respuesta = '';
-    // let ced = localStorage.getItem('ced');
+    let ced = '';
+    if (getCurrentUserData()['rol']=='estudiante'){
+        ced = getCurrentUserData()['cedula'];
+    } else {
+        ced = localStorage.getItem('ced');
+    }
+
     let peticion = $.ajax({
         url : 'http://localhost:4000/api/cambiarfoto_estudiantes',
         type : 'put',
