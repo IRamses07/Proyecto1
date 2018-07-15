@@ -21,22 +21,30 @@ main .tabla table {
 
 }
 
-td{
+/*td{
 padding-left:5%;
 
-}
+}*/
 
 .flitrarProyectos{
     width: 45%;
     margin: auto;
     margin-top: 25px;
     margin-bottom: 55px;
-    
+}
+#tblProyectosE thead, #tblProyectosE tbody {
+    text-align: center;
 }
 
 .opFliltrado {
     margin-bottom: 10px; 
     
+}
+#nomEstudiante{
+    text-align: center;
+    margin-top: 75px;
+    margin-bottom: 30px;
+    font-size: 22px;
 }
 
 .opFliltrado .radio{

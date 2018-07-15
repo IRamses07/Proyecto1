@@ -160,30 +160,32 @@ function listadoCursosImpartidos() {
         document.querySelector('#thCursosImpartidos').classList.remove('.lblHide');
     }
 
-        let tbody = document.querySelector('#tblCursosImpartidos tbody');
-        tbody.innerHTML = '';
+    let tbody = document.querySelector('#tblCursosImpartidos tbody');
+    tbody.innerHTML = '';
 
-        for (let i = 0; i < JSON.parse(getCurrentUserData()['cursos_impartidos']).length; i++) {
-            let fila = tbody.insertRow();
+    for (let i = 0; i < JSON.parse(getCurrentUserData()['cursos_impartidos']).length; i++) {
+        let fila = tbody.insertRow();
 
-            fila.insertCell().innerHTML = JSON.parse(getCurrentUserData()['cursos_impartidos'])[i];
-        }
+        fila.insertCell().innerHTML = JSON.parse(getCurrentUserData()['cursos_impartidos'])[i];
+    }
 }
 
 function listadoPrepAcademica() {
 
-    if (getCurrentUserData()['preparacion_academica']['carrera'] == ''&&
-    getCurrentUserData()['preparacion_academica']['grado_academico'] == '') {
-        document.querySelector('#thCursosImpartidos').classList.remove('.lblHide');
+    if (getCurrentUserData()['preparacion_academica']['carrera'] == '' &&
+        getCurrentUserData()['preparacion_academica']['grado_academico'] == '' &&
+        getCurrentUserData()['preparacion_academica']['titulo_fecha'] == '') {
+
+        document.querySelector('#thPrepAcademica').classList.remove('.lblHide');
     }
 
-        let tbody = document.querySelector('#tblCursosImpartidos tbody');
-        tbody.innerHTML = '';
+    let tbody = document.querySelector('#tblCursosImpartidos tbody');
+    tbody.innerHTML = '';
 
-        for (let i = 0; i < JSON.parse(getCurrentUserData()['cursos_impartidos']).length; i++) {
-            let fila = tbody.insertRow();
+    for (let i = 0; i < JSON.parse(getCurrentUserData()['cursos_impartidos']).length; i++) {
+        let fila = tbody.insertRow();
 
-            fila.insertCell().innerHTML = JSON.parse(getCurrentUserData()['cursos_impartidos'])[i];
-        }
-    
+        fila.insertCell().innerHTML = JSON.parse(getCurrentUserData()['cursos_impartidos'])[i];
+    }
+
 }

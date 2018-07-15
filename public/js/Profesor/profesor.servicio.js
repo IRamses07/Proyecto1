@@ -240,8 +240,6 @@ function setCursosImpartidos(pId, psCursos) {
 }
 
 function setExtraData(pId, sTrabajo, nAnno) {
-    /*let sTrabajoAnterior = getCurrentUserData()['trabajo_anterior'];
-    let nAnnosExperiencia = getCurrentUserData()['experiencia_docente'];*/
 
     let respuesta = '';
     let peticion = $.ajax({
