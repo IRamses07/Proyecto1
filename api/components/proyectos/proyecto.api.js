@@ -46,7 +46,7 @@ module.exports.buscarPorId = function(req, res){
 };
 
 
-module.exports.listar = function(req, res){
+module.exports.listarDesarrollo = function(req, res){
     proyectoModel.find({estado_proyecto :"desarrollo"}).then(
         function(proyecto){
             res.send(proyecto);

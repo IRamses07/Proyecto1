@@ -37,12 +37,12 @@ function llenarSelectEstudiantes() {
 function obtenrDatos() {
     agregarProyectoE();
 
-    // swal({
-    //     type: 'success',
-    //     title: 'Registro exitoso',
-    //     text: 'El usuario se registró adecuadamente',
-    //     confirmButtonText: 'Entendido'
-    // });
+    swal({
+        type: 'success',
+        title: 'Registro exitoso',
+        text: 'El usuario se registró adecuadamente',
+        confirmButtonText: 'Entendido'
+    });
 
 
 }

@@ -9,7 +9,7 @@ inputFiltro.addEventListener('keyup', function () {
 });
 
 function imprimirListaProyectos(pFiltro) {
-    let infoProyecto = obtenerListaProyectos();
+    let infoProyecto = obtenerListaProyectosDesarrollo();
     let tbody = document.querySelector('#tblProyectos tbody');
     if (!pFiltro) {
         pFiltro = '';
