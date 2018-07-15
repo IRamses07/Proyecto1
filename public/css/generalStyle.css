@@ -54,10 +54,11 @@ a {
 }
 /* estilo de los div que contienen los anchor del menu */
 .option{
-    width: 100%;
+    width: 85%;
     height: 40px ;
     padding-top: 10%;
-    margin: 1px 0px;
+    padding-left: 15%;
+    margin: 1px 0px 0px 0%;
 }
 
 .option:hover{
@@ -66,8 +67,8 @@ a {
 
 /* espacio de los anchor dentro de las opciones del menu */
 .option a {
-    padding: 20px 0 0 20%;
-    margin: 17px 0;
+    margin: 17px 0 ;
+    line-height: 1.2;
 }
 
 /* estilo del error de los inputs */
@@ -180,3 +181,8 @@ th {
     margin-bottom: 25px;
 }
 /******Ramses*******/
+
+/* esconde el botón inútil de la lista de profes */
+#rbtnNombre {
+    visibility: hidden;
+}

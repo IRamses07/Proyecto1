@@ -35,7 +35,7 @@ function llenarTabla(filro) {
                 btnModificar = createElm('button'),
                 btnEstado = createElm('button');
             verUbicacion.dataset.ubicacion = lista[i].ubicacion;
-            verUbicacion.innerHTML = 'Ver ubicacion';
+            verUbicacion.innerHTML = 'Ver ubicación';
             listener(verUbicacion, 'click', function () {
                 modal.classList.remove('none');
                 let ubicacion = verUbicacion.dataset.ubicacion.split(',');
