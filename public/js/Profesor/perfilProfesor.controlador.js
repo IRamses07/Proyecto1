@@ -7,7 +7,7 @@ let extraDatos = document.querySelector('#infoUsuario');
 getInfo();
 
 function getInfo(){
-    let infoProfe = getInfoProfesor();
+    let infoProfe = getVerMasLS();
     console.log(infoProfe);
     infoPersonal(infoProfe);
 };
@@ -15,7 +15,6 @@ function getInfo(){
 function infoPersonal(infoProfe){
     let contenido ='';
     let contenido2 = '';
-    document.querySelector('#perfiImagen').src = infoProfe[0]['foto'];
     
    if(infoProfe['apellido2'] != ''){
         contenido+='<h3>'+infoProfe['nombre1']+' '+infoProfe['apellido1']+' '+infoProfe['apellido2']+'</h3>';
@@ -36,5 +35,3 @@ function infoPersonal(infoProfe){
 }
 
 document.querySelector('#btnPerfil').addEventListener('click', function(){document.location.href = 'agregarDatosProfesor.html'});
-
-

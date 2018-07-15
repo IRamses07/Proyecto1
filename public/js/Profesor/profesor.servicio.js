@@ -44,8 +44,7 @@ function setProfessorData(infoProfesor) {
             profesion: infoProfesor[7],
             rol: infoProfesor[8],
             password: infoProfesor[9],
-            passwordChange: infoProfesor[10],
-            foto: 'http://res.cloudinary.com/dtz8agoc3/image/upload/v1531452055/perfil.png'
+            passwordChange: infoProfesor[10]
             /*profesion: infoProfesor.profesion*/
         }
     });
@@ -105,7 +104,7 @@ function generateRandomPassword() {
     return pw;
 }
 
-function getInfoProfesor(){
+/*function getInfoProfesor(){
     let respuesta = 'respuesta';
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/getinfo_profesor',
@@ -114,19 +113,15 @@ function getInfoProfesor(){
         dataType: 'json',
         async: false,
         data: {
-            cedula: '303330333'
+            cedula: '03586123'
         }
     });
-
     peticion.done(function (response) {
         respuesta = response;
     });
-
     peticion.fail(function (response) {});
-
     return respuesta;
 }
-
 function asignarProyecto(infoProyecto) {
     let respuesta = '';
     console.log(infoProyecto);
@@ -136,9 +131,7 @@ function asignarProyecto(infoProyecto) {
         contentType: 'application/x-www-form-urlencoded; charset=utf-8',
         dataType: 'json',
         async: false,
-
         data: {
-
             _id: infoProyecto[0],
             id: infoProyecto[1],
             rol: infoProyecto[2],
@@ -147,43 +140,13 @@ function asignarProyecto(infoProyecto) {
             estado_proyecto: infoProyecto[5]
         }
     });
-
     peticion.done(function (response) {
         respuesta = response;
     });
-
     peticion.fail(function (response) {
-
     });
-
     return respuesta;
-}
-
-function cambiarFoto(imagenUrl){
-    let respuesta = '';
-    // let ced = localStorage.getItem('ced');
-    let peticion = $.ajax({
-        url : 'http://localhost:4000/api/cambiarfoto_profesor',
-        type : 'put',
-        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
-        dataType : 'json',
-        async : false,
-        data:{
-            cedula : '303330333',
-            foto : imagenUrl
-        }
-      });
-    
-      peticion.done(function(response){
-       respuesta = response;
-      });
-    
-      peticion.fail(function(response){
-       
-      });
-
-      return respuesta;
-}
+}*/
 
 function setExtraData(sTrabajo,nAnno,sCursos,sGrado,dTitulo,sCarrera){
     let respuesta = '';
