@@ -66,7 +66,6 @@ module.exports.getInfoEstudiante = function(req, res){
 };
 
 module.exports.cambiarFoto = function(req, res){
-    console.log('aqui esta2');
 
     estudianteSchema.findOneAndUpdate(
         {

@@ -25,8 +25,8 @@ let profesorSchema = new mongoose.Schema({
             fecha_Entrega: { type: String },
             estado_proyecto: { type: String }
         }
-    ]  
-
+    ],  
+    foto : {type : String}
 
 });
 

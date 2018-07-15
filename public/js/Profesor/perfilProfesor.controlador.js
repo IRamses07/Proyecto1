@@ -16,6 +16,7 @@ function getInfo(){
 function infoPersonal(infoProfe){
     let contenido ='';
     let contenido2 = '';
+    document.querySelector('#perfiImagen').src = infoProfe[0]['foto'];
     
    if(infoProfe[0]['apellido2'] !== ''){
         contenido+='<h3>'+infoProfe[0]['nombre1']+' '+infoProfe[0]['apellido1']+' '+infoProfe[0]['apellido2']+'</h3>';

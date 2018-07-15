@@ -160,8 +160,7 @@ function getInfoEstudiante(){
 
 function cambiarFoto(imagenUrl){
     let respuesta = '';
-    console.log('aqui esta1');
-    let ced = localStorage.getItem('ced');
+    // let ced = localStorage.getItem('ced');
     let peticion = $.ajax({
         url : 'http://localhost:4000/api/cambiarfoto_estudiantes',
         type : 'put',

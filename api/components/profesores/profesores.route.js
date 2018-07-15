@@ -30,5 +30,9 @@ router.route('/asignar_proyecto')
         profesores.asignar_proyecto(req, res);
     });
 
+router.route('/cambiarfoto_profesor')
+    .put(function(req, res){
+    profesores.cambiarFoto(req, res);
+});
 
 module.exports = router;

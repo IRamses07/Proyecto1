@@ -34,7 +34,8 @@ function setProfessorData(infoProfesor) {
             profesion: infoProfesor[7],
             rol: infoProfesor[8],
             password: infoProfesor[9],
-            passwordChange: infoProfesor[10]
+            passwordChange: infoProfesor[10],
+            foto: 'http://res.cloudinary.com/dtz8agoc3/image/upload/v1531452055/perfil.png'
             /*profesion: infoProfesor.profesion*/
         }
     });
@@ -103,7 +104,7 @@ function getInfoProfesor() {
         dataType: 'json',
         async: false,
         data: {
-            cedula: '03586123'
+            cedula: '303330333'
         }
     });
 
@@ -146,4 +147,30 @@ function asignarProyecto(infoProyecto) {
     });
 
     return respuesta;
+}
+
+function cambiarFoto(imagenUrl){
+    let respuesta = '';
+    // let ced = localStorage.getItem('ced');
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/cambiarfoto_profesor',
+        type : 'put',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            cedula : '303330333',
+            foto : imagenUrl
+        }
+      });
+    
+      peticion.done(function(response){
+       respuesta = response;
+      });
+    
+      peticion.fail(function(response){
+       
+      });
+
+      return respuesta;
 }

@@ -20,7 +20,8 @@ module.exports.registrar = function (req, res) {
         correo_electronico: req.body.correo_electronico,
         ubicacion: req.body.ubicacion,
         password: req.body.password,
-        passwordChange: req.body.passwordChange
+        passwordChange: req.body.passwordChange,
+        foto : req.body.foto
     });
 
     nuevoCliente.save(function (error) {
@@ -81,4 +82,18 @@ module.exports.getInfoCliente = function (req, res) {
         function (clientes) {
             res.send(clientes);
         });
+};
+
+module.exports.cambiarFoto = function(req, res){
+    clientModel.findOneAndUpdate(
+        {
+            cedula_juridica: req.body.cedula_juridica
+        },
+        {  
+            foto: req.body.foto
+        }
+        ).then(
+        function(clientes){
+            res.send(clientes);
+    });
 };

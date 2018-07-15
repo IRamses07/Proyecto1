@@ -29,7 +29,8 @@ console.log('long: '+ubicacionMap[1]);
 function infoPersonal(infoCliente){
     let contenido ='';
     let contenido2 = '';
-    console.log(infoCliente);
+    document.querySelector('#perfiImagen').src = infoCliente[0]['foto'];
+    
     contenido+='<h3>'+infoCliente[0]['nombre']+'</h3>';
     contenido+='<h4 class="secundario">'+infoCliente[0]['cedula_juridica']+'</h4>';
 

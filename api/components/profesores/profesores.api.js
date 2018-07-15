@@ -19,7 +19,8 @@ module.exports.registrar = function (req, res) {
         lugarTrabajo: '',
         annosExperiencia: '',
         cursosImpartidos: [],
-        informacionAcademica: []
+        informacionAcademica: [],
+        foto : req.body.foto
     });
 
     nuevoProfesor.save(function (error) {
@@ -98,3 +99,18 @@ module.exports.asignar_proyecto = function (req, res) {
             }
       });
 };*/
+
+module.exports.cambiarFoto = function(req, res){
+
+    profesorModel.findOneAndUpdate(
+        {
+            cedula: req.body.cedula
+        },
+        {  
+            foto: req.body.foto
+        }
+        ).then(
+        function(profesores){
+            res.send(profesores);
+    });
+};
