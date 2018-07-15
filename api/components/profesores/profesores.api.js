@@ -133,6 +133,22 @@ module.exports.agregar_info_extra_profesor = function(req, res){
       });
 };
 
+module.exports.cambiar_foto_profesores = function (req, res) {
+    console.log('aqui esta2');
+
+    profesorModel.findOneAndUpdate(
+        {
+            cedula: req.body.cedula
+        },
+        {
+            foto: req.body.foto
+        }
+    ).then(
+        function (profe) {
+            res.send(profe);
+        });
+};
+
 /*module.exports.actualizar_usuario = function(req, res){
     userModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
         function(err) {

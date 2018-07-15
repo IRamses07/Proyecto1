@@ -270,3 +270,39 @@ function setExtraData(pId, sTrabajo, nAnno) {
     return respuesta;
 }
 
+function cambiarFoto(imagenUrl) {
+    let respuesta = '';
+    let ced = '';
+    let id = '';
+    if (getCurrentUserData()['rol']=='profesor'){
+        ced = getCurrentUserData()['cedula'];
+         id = getCurrentUserData()['_id'];
+    } else {
+        ced = getVerMasLS()['cedula'];
+         id = getVerMasLS()['_id'];
+    }
+
+    let peticion = $.ajax({
+        url: 'http://localhost:4000/api/cambiar_foto_profesores',
+        type: 'put',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
+            cedula: ced,
+            foto: imagenUrl
+        }
+    });
+
+    peticion.done(function (response) {
+        respuesta = response;
+    });
+
+    peticion.fail(function (response) {
+
+    });
+
+    updateCurrentUser(id);
+    return respuesta;
+}
+

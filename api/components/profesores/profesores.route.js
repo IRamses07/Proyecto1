@@ -49,4 +49,9 @@ router.route('/agregar_info_extra_profesor')
     profesores.agregar_info_extra_profesor(req, res);
 });
 
+router.route('/cambiar_foto_profesores')
+    .put(function(req, res){
+        profesores.cambiar_foto_profesores(req, res);
+});
+
 module.exports = router;
