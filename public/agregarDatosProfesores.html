@@ -42,21 +42,22 @@
 
         <form>
             <h2>Actualizar datos personales</h2>
-            <div class="mainContainer">
-                <div id="leftContainer">
+            <div class="container">
                     <div>
                         <label for="">Trabajo anterior</label>
                         <input type="text" id="txtTrabajo" required>
                         <label for="" class="lblHide lblError" id="lblTelError">Número inválido</label>
                     </div>
+
                     <div>
                         <label for="">Años de experiencia docente</label>
                         <input type="number" id="nAnno" required>
                     </div>
+
                     <div>
                         <label for="">Cursos impartidos</label>
                         <select name="" id="sltCursos" required>
-                            <option value="">-Seleccione una opcion-</option>
+                            <option value="" hidden>-Seleccione una opcion-</option>
                             <option value="">Inglés para tecnologías de información 1</option>
                             <option value="">Diseño Visual Digital 1</option>
                             <option value="">Diseño Web 1</option>
@@ -87,11 +88,13 @@
                             <option value="">Administración de redes</option>
                             <option value="">Análisis y diagnóstico de redes</option>
                         </select>
+                        <button type="button" class="btnRegistro" id="btnCursosImpartidos">Agregar</button>
                     </div>
+
                     <div>
                         <label for="">Preparación académica</label>
                         <label for="">Grado académico</label>
-                        <select name="" id="sltGrado" required>
+                        <select name="prepAcademica" id="sltGrado" required>
                             <option value="" hidden>-Seleccione el grado académico-</option>
                             <option value="">Técnico</option>
                             <option value="">Diplomado</option>
@@ -102,16 +105,12 @@
                         </select>
 
                         <label for="">Fecha</label>
-                        <input type="date" id="dTitulo" required>
+                        <input type="date" name="prepAcademica" id="dTitulo" required>
 
                         <label for="">Carrera</label>
-                        <input type="text" id="txtCarrera" required>
+                        <input type="text" name="prepAcademica" id="txtCarrera" required>
+                        <button type="button" class="btnRegistro" id="btnAgregarPrepAcademica">Agregar</button>
                     </div>
-                </div>
-                <div id="rightContainer">
-
-
-                </div>
             </div>
             <button type="button" class="btnRegistro" id="btnAgregar">Agregar datos</button>
         </form>
@@ -120,7 +119,7 @@
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/Login/login.js"></script>
     <script src="js/Profesor/profesor.servicio.js"></script>
-    <script src="js/Profesor/agregarDatosProfesores.js" ></script>
+    <script src="js/Profesor/agregarDatosProfesores.controlador.js" ></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 

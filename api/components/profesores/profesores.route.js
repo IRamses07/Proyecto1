@@ -30,11 +30,17 @@ router.route('/asignar_proyecto')
         profesores.asignar_proyecto(req, res);
     });
 
+router.route('/agregar_preparacion_academica')
+    .post(function (req, res) {
+        profesores.agregar_preparacion_academica(req, res);
+    });
 
-router.route('/agregar_info_profesor')
-.post(function(req, res){
+/*router.route('/agregar_info_profesor')
+    .post(function(req, res){
     profesores.agregar_info_profesor(req, res);
-});
+});*/
+
+
 
 
 module.exports = router;

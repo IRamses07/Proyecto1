@@ -13,12 +13,12 @@ let profesorSchema = new mongoose.Schema({
     rol: { type: String, required: false },
     password: { type: String, required: true },
     passwordChange: { type: String, required: true },
+    trabajo_anterior: {type: String},
+    experiencia_docente: {type: Number},
+    cursos_aprobados: {type: String},
     preparacion_academica: [{
-        trabajo: { type: String },
-        anno: { type: Number },
-        cursos: { type: String },
-        grado: { type: String },
-        titulo: { type: Date },
+        grado_academico: { type: String },
+        titulo_fecha: { type: String },
         carrera: { type: String }
     }],
     proyecto: [

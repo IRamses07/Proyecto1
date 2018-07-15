@@ -16,10 +16,9 @@ module.exports.registrar = function (req, res) {
         rol: req.body.rol,
         password: req.body.password,
         passwordChange: req.body.passwordChange,
-        lugarTrabajo: '',
-        annosExperiencia: '',
-        cursosImpartidos: [],
-        informacionAcademica: []
+        trabajo_anterior: req.body.trabajo_anterior,
+        experiencia_docente: req.body.experinecia_docente,
+        cursos_aprobados: req.body.cursos_aprobados
     });
 
     nuevoProfesor.save(function (error) {
@@ -46,14 +45,14 @@ module.exports.listar = function (req, res) {
         });
 };
 
-module.exports.getInfoProfesor = function (req, res) {
+/*module.exports.getInfoProfesor = function (req, res) {
     profesorModel.find({
         'cedula': req.query.cedula
     }).then(
         function (profesores) {
             res.send(profesores);
         });
-};
+};*/
 
 module.exports.asignar_proyecto = function (req, res) {
 
@@ -87,6 +86,28 @@ module.exports.asignar_proyecto = function (req, res) {
     )
 };
 
+module.exports.agregar_preparacion_academica = function(req, res){
+    
+    profesorModel.update({_id: req.body._id}, 
+        {$push: 
+            {'preparacion_academica':
+                {
+                    grado_academico: req.body.grado_academico,
+                    titulo_fecha: req.body.titulo_fecha,
+                    carrera: req.body.carrera
+                }
+            }
+        },
+        function(error){
+            if(error){
+                res.json({success : false, msg : 'No se pudo registrar el título, ocurrió el siguiente error' + error});
+            }else{
+                res.json({success : true, msg : 'El título se registró con éxito'});
+            }
+        }
+    )
+};
+
 /*module.exports.actualizar_usuario = function(req, res){
     userModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
         function(err) {
@@ -99,9 +120,9 @@ module.exports.asignar_proyecto = function (req, res) {
       });
 };*/
 
-module.exports.agregar_info_profesor = function(req, res){
+/*module.exports.agregar_info_profesor = function(req, res){
     
-    userModel.update({_id: req.body._id}, 
+    profesorModel.update({_id: req.body._id}, 
         {$push: 
             {'preparacion_academica':
                 {
@@ -122,4 +143,4 @@ module.exports.agregar_info_profesor = function(req, res){
             }
         }
     )
-};
+};*/

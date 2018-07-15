@@ -1,4 +1,5 @@
 moveUser(false);
+setLocalProfes();
 /*let myRadios = document.getElementsByName('botonInutil');
 let setCheck;
 for (let x = 0; x < myRadios.length; x++) {

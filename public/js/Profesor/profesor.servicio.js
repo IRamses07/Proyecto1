@@ -1,9 +1,9 @@
 'use strict';
 
-/*function setLocalProfes() {
+function setLocalProfes() {
     let listaProfes = getProfessorData();
     localStorage.setItem('listaProfesLS', JSON.stringify(listaProfes));
-}*/
+}
 
 function getLocalProfes() {
 
@@ -124,7 +124,7 @@ function generateRandomPassword() {
     peticion.fail(function (response) {});
 
     return respuesta;
-}
+}*/
 
 function asignarProyecto(infoProyecto) {
     let respuesta = '';
@@ -156,18 +156,18 @@ function asignarProyecto(infoProyecto) {
     });
 
     return respuesta;
-}*/
+}
 
-function setExtraData(sTrabajo,nAnno,sCursos,sGrado,dTitulo,sCarrera){
+/*function setExtraData(pId, sTrabajo,nAnno,sCursos,sGrado,dTitulo,sCarrera){
     let respuesta = '';
     let peticion = $.ajax({
         url : 'http://localhost:4000/api/agregar_info_profesor',
-        type : 'get',
+        type : 'post',
         contentType : 'application/x-www-form-urlencoded; charset=utf-8',
         dataType : 'json',
         async : false,
         data:{
-            _id: id,
+            _id: pId,
             trabajo: sTrabajo,
             anno: nAnno,
             cursos: sCursos,
@@ -177,7 +177,66 @@ function setExtraData(sTrabajo,nAnno,sCursos,sGrado,dTitulo,sCarrera){
         }
       });
     
-      peticion.done(function(response){
+      peticion.done(function(response){        
+          respuesta = response;
+      });
+    
+      peticion.fail(function(response){
+      });
+
+    return respuesta;
+}*/
+
+function setPreparacionAcademica(pId,sGrado,dTitulo,sCarrera){
+    let respuesta = '';
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/agregar_preparacion_academica',
+        type : 'post',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            _id: pId,
+            grado_academico: sGrado,
+            titulo_fecha: dTitulo,
+            carrera: sCarrera    
+        }
+      });
+    
+      peticion.done(function(response){        
+          respuesta = response;
+          console.log('registro bien');
+      });
+    
+      peticion.fail(function(response){
+          console.log('registro mal')
+      });
+
+    return respuesta;
+}
+
+function setCursosImpartidos(id,sCursos){
+    let listaCursos = getCurrentUserData()['cursos'];
+    if(listaCursos == ""){
+        listaCursos = [];
+    }else{
+        listaCursos = JSON.parse(listaCursos);
+    }
+    listaCursos.push(sCursos);
+    let respuesta = '';
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/agregar_cursos_impartidos',
+        type : 'post',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            _id: pId,
+            cursos: sGrado,  
+        }
+      });
+    
+      peticion.done(function(response){        
           respuesta = response;
       });
     
