@@ -104,7 +104,7 @@ function generateRandomPassword() {
     return pw;
 }
 
-/*function getInfoProfesor(){
+function getInfoProfesor(){
     let respuesta = 'respuesta';
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/getinfo_profesor',
@@ -122,6 +122,7 @@ function generateRandomPassword() {
     peticion.fail(function (response) {});
     return respuesta;
 }
+
 function asignarProyecto(infoProyecto) {
     let respuesta = '';
     console.log(infoProyecto);
@@ -146,7 +147,7 @@ function asignarProyecto(infoProyecto) {
     peticion.fail(function (response) {
     });
     return respuesta;
-}*/
+}
 
 function setExtraData(sTrabajo,nAnno,sCursos,sGrado,dTitulo,sCarrera){
     let respuesta = '';
