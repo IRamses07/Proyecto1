@@ -74,6 +74,7 @@ listener(btnRegistrar, 'click', function () {
                 text: 'El usuario se registró adecuadamente',
                 confirmButtonText: 'Entendido'
             });
+            fmrCliente.reset();
         }
     } else {
         swal({
