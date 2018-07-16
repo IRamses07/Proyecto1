@@ -177,14 +177,14 @@ function loadOptionsMenu() {
             // "Listar proyectos en desarrollo",
             "Registrar tickets",
             "Listar tickets",
-           
+            "Visualizar perfil",
             ];
         menuURL = [
             "listarProyectosCliente.html",
             // "listarProyectosDesarrollo.html",
             "registroTicket.html",
             "listarTicketsCliente.html",
-          
+            "perfilCliente.html",
             ];
     }
 

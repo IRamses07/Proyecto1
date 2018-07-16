@@ -9,12 +9,12 @@
 
 .tamannoMinL{
     float: left;
-    width: 49%;
+    width: 44%;
 }
 
 .tamannoMinR{
     float: right;
-    width: 49%;
+    width: 54%;
 }
 
 .tamannoMaxL{
@@ -27,9 +27,9 @@
     width: 100%;
 }
 
-.tableContainer{
-width: 70%;
-margin: 0 auto;
+#content .tableContainer{
+width: 80%;
+margin: 50px auto 0 auto;
 display: flow-root;
 }
 
