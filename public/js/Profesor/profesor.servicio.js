@@ -93,18 +93,16 @@ function validarCedula(psCedula) {
 
     /*let aProfesorData = getProfessorData();*/
     let aProfesorData = getUsers();
+    let repetido = false;
 
-    for (let i = 0; i < aProfesorData.length; i++) {
-        for (let j = 0; j < aProfesorData[i].length; j++) {
+    for (let i = 0; i < aProfesorData.length&&!repetido; i++) {
+        for (let j = 0; j < aProfesorData[i].length&&!repetido; j++) {
             if (aProfesorData[i][j]['cedula'] == psCedula || aProfesorData[i][j]['cedula_juridica'] == psCedula) {
-                console.log(aProfesorData[i][j]['cedula_juridica']);
-                return true;
-            } else {
-                console.log(aProfesorData[i][j]['cedula_juridica']);
-                return false;
+                repetido = true;
             }
         }
     }
+    return repetido;
 }
 
 function generateRandomPassword() {

@@ -6,8 +6,8 @@ document.querySelector('#btnAgregar').addEventListener('click', extraProfessorDa
 listadoCursosImpartidos();
 listadoPrepAcademica();
 
-let sTrabajo = document.querySelector('#txtTrabajo').value;
-let nAnno = document.querySelector('#nAnno').value;
+/*let sTrabajo = document.querySelector('#txtTrabajo').value;
+let nAnno = document.querySelector('#nAnno').value;*/
 
 document.querySelector('#txtTrabajo').value = getCurrentUserData()['trabajo_anterior'];
 nAnno = document.querySelector('#nAnno').value = getCurrentUserData()['experiencia_docente'];
@@ -113,9 +113,11 @@ function extraProfessorData() {
             icon: "success",
             button: "Ok",
         });
-        setExtraData(getCurrentUserData()['_id'], sTrabajo, nAnno);
+        setExtraData(getCurrentUserData()['_id'], document.querySelector('#txtTrabajo').value, document.querySelector('#nAnno').value);
         limpiarExtraData();
-
+        window.setTimeout(function(){
+            window.location.href = "perfilProfesor.html";
+            }, 3000);
     }
 
     function validarExtraData() {
