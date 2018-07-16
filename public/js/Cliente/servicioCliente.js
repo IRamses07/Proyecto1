@@ -95,11 +95,11 @@ function listarClientes() {
     return respuesta;
 }
 
-function asignarProyecto(infoProyecto) {
+function asignarProyectoC(id, id1, nombreProyecto, fechaEntrega, estadoProyecto) {
     let respuesta = '';
-    console.log(infoProyecto);
+    // console.log(infoProyecto);
     let peticion = $.ajax({
-        url: 'http://localhost:4000/api/asignar_proyecto',
+        url: 'http://localhost:4000/api/asignar_proyecto_c',
         type: 'post',
         contentType: 'application/x-www-form-urlencoded; charset=utf-8',
         dataType: 'json',
@@ -107,11 +107,11 @@ function asignarProyecto(infoProyecto) {
 
         data: {
 
-            _id: infoProyecto[0],
-            id: infoProyecto[1],
-            nombre_proyecto: infoProyecto[2],
-            fecha_Entrega: infoProyecto[3],
-            estado_proyecto: infoProyecto[4]
+            _id: id,
+            id: id1,
+            nombre_proyecto: nombreProyecto,
+            fecha_Entrega: fechaEntrega,
+            estado_proyecto: estadoProyecto
         }
     });
 

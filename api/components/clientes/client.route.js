@@ -18,7 +18,7 @@ router.route('/getinfo_clientes')
     clients.getInfoCliente(req, res);
 });
 
-router.route('/asignar_proyecto')
+router.route('/asignar_proyecto_c')
 .post(function(req,res){
     clients.asignar_proyecto(req,res);
 });
