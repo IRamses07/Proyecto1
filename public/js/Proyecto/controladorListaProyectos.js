@@ -17,7 +17,7 @@ function imprimirListaProyectos(pFiltro) {
     tbody.innerHTML = ' ';
 
     for (let i = 0; i < infoProyecto.length; i++) {
-        if (infoProyecto[i]['nombre_proyecto'].toLowerCase().includes(pFiltro.toLowerCase())) {
+        if (infoProyecto[i]['nombre_proyecto'].toLowerCase().includes(pFiltro.toLowerCase()) || infoProyecto[i]['identificacion_juridica'].toLowerCase().includes(pFiltro.toLowerCase())) {
             let fila = tbody.insertRow();
 
             let cCedulaJuridica = fila.insertCell();

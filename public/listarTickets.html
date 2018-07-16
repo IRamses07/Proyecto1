@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lista Tickets</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png"/>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/generalStyle.css">
     <link rel="stylesheet" href="css/registrarTicket.css">
@@ -22,18 +23,9 @@
                     </a>
                 </div>
         
-                <div class="menuLateral">
-                    <i class="fas fa-align-justify"></i>
-                    <div class="option">
-                        <a href="registroTicket.html">Registro tickets</a>
+                <div class="menuLateral" id="divMenuLateral">
+                        <i class="fas fa-align-justify"></i>
                     </div>
-                    <div class="option">
-                        <a href="listarTicket.html">Lista de tickets</a>
-                    </div>
-                    <!-- <div class="option">
-                    <a href="registrarProyecto.html">Registrar Proyecto</a>
-                </div> -->
-                </div>
         
             </header>
             <main id="content">
@@ -41,13 +33,18 @@
                     <h1>Lista de Tickets</h1>
 
                     <div class="filtroTicket">
-                        <input type="radio" id="cliente" name="cliente" value="cliente"><label for="cliente">Nombre de cliente</label>
-                        <input type="radio" name="profe" id="profe" value="profesor"><label for="profesor">Profesor</label>
-                        <input type="radio" id="codigo" name="codigo" value="código"><label for="codigo">Código</label>
-                        <select name="urgencia" id="sltUrgencia">
+                       <label for="tickets">Buscar por:</label>
+                        <input type="radio" name="radioSelected" checked="checked" id="cliente" value="nombre_cliente"><label for="tickets">Nombre de cliente</label>
+                        <input type="radio" id="proyecto" name="radioSelected" value="proyecto"><label for="tickets">Proyecto</label>
+                        <!-- <input type="radio" id="codigo" name="radioSelected" value="codigo"><label for="tickets">Código</label> -->
+                        <!-- <input type="radio" id="profesor" name="radioSelected" value="profesor"><label for="tickets">Profesor</label> -->
+                        <select name="urgencia" id="sltUrgencia" >
                             <option value="">Seleccione la urgencia:</option>
+                            <option value="Alta">Alta</option>
+                            <option value="Media">Media</option>
+                            <option value="Baja">Baja</option>
                         </select>
-                        
+                        <input type="text"  id="filtrocliente" class="inptbuscar" placeholder="Escriba la opción a buscar">
                             <button type="button" id="btnFiltrar"  class="btnFiltro">Filtrar</button>
                     
                     </div>

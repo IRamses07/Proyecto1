@@ -1,3 +1,65 @@
+function setAdmin() {
+
+    let respuesta = '';
+    let peticion = $.ajax({
+        url: 'http://localhost:4000/api/registrar_admin',
+        type: 'post',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
+            nombre1: 'Luis',
+            nombre2: 'Esteban',
+            apellido1: 'Bonilla',
+            apellido2: 'Alfaro',
+            cedula: '123',
+            correo: 'estebanba@gmail.com',
+            telefono: 88948243,
+            profesion: 'Administración de empresas',
+            rol: 'administrador',
+            password: 'admin',
+            passwordChange: 0
+            /*profesion: infoProfesor.profesion*/
+        }
+    });
+
+    peticion.done(function (response) {
+        console.log('Registro bien');
+        respuesta = response;
+    });
+
+    peticion.fail(function (response) {
+        console.log('Registro mal');
+    });
+
+    return respuesta;
+}
+
+function getAdminData() {
+
+    let respuesta = [];
+    let peticion = $.ajax({
+        url: 'http://localhost:4000/api/get_info_admin',
+        type: 'get',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
+
+        }
+    });
+
+    peticion.done(function (response) {
+        respuesta = response;
+    });
+
+    peticion.fail(function (response) {
+
+    });
+
+    return respuesta;
+}
+
 
 function getUsers() {
 
@@ -63,7 +125,27 @@ function getUsers() {
 
     });
 
-    aAllUsers = [aListaProfesores, aListaEstudiantes, aListaClientes];
+
+    let peticion4 = $.ajax({
+        url: 'http://localhost:4000/api/get_info_admin',
+        type: 'get',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
+
+        }
+    });
+
+    peticion4.done(function (response) {
+        aListaAdmin = response;
+    });
+
+    peticion4.fail(function (response) {
+
+    });
+
+    aAllUsers = [aListaProfesores, aListaEstudiantes, aListaClientes, aListaAdmin];
 
     return aAllUsers;
 }
@@ -99,6 +181,8 @@ function getUserPassword(pId) {
     }
     return thisUserPassword;
 }
+
+
 
 /*function getUserDataIDDB(ID) {
     let users = getUsers();

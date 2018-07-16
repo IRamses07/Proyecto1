@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Actualizar perfil</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/generalStyle.css">
+    <link rel="stylesheet" href="css/agregarDatosProfesores.css">
+</head>
+
+<body>
+    <header>
+        <div class="mainHeader">
+            <a href="##" class="fLeft">
+                <i class="fas fa-bell"></i> Notificaciones</a>
+            <a href="javascript:logOut();" class="fRight">Cerrar sesión
+                <i class="fas fa-cog"></i>
+            </a>
+        </div>
+
+        <div class="menuLateral" id="divMenuLateral">
+                <i class="fas fa-align-justify"></i>
+       
+            </div>
+
+    </header>
+    <main id="content">
+
+        <form class="mainContainer">
+            <h1>Actualizar datos personales</h1>
+            <div class="container">
+                <div class=floatContainer>
+                    <div class="leftContainer">
+                        <label for="" class="lblDatos">Trabajo anterior</label>
+                        <input name="extraData" type="text" class="nptExtraData lblInput" id="txtTrabajo" required>
+                    </div>
+
+                    <div class=rightContainer>
+                        <label for="" class="lblDatos">Años de experiencia docente</label>
+                        <input name="extraData" type="number" class="nptExtraData lblInput" id="nAnno" required>
+                    </div>
+                </div>
+                <div>
+                    <label for="" class="lblDatos">Cursos impartidos</label>
+                    <select name="cursosImpartidos" class="lblInputid" id="sltCursos" required>
+                        <option value="" hidden>-Seleccione una opción-</option>
+                        <option value="">Inglés para Tecnologías de Información 1</option>
+                        <option value="">Diseño Visual Digital 1</option>
+                        <option value="">Diseño Web 1</option>
+                        <option value="">Fundamentos de Programación Web</option>
+                        <option value="">Introducción a la Tecnologia de Información</option>
+                        <option value="">Inglés para Tecnologias de Información 2</option>
+                        <option value="">Diseño Visual Digital 2</option>
+                        <option value="">Diseño Web 2</option>
+                        <option value="">Programación Web Dinámica</option>
+                        <option value="">Fundamentos de Bases de Datos</option>
+                        <option value="">Inglés para Tecnologías de Información 3</option>
+                        <option value="">Estructuras Discretas</option>
+                        <option value="">Comunicación de Infromación en la Web</option>
+                        <option value="">Proyecto de Desarrollo Web 1</option>
+                        <option value="">Procesos empresariales</option>
+                        <option value="">Inglés para tecnologías de información 4</option>
+                        <option value="">Diseño de centros de datos e infraestructura de redes</option>
+                        <option value="">Tecnología de redes 4</option>
+                        <option value="">Sistemas operativos 2</option>
+                        <option value="">Convergencia de voz y datos</option>
+                        <option value="">Seguridad en las redes</option>
+                        <option value="">Redes inalámbricas</option>
+                        <option value="">Servicio al cliente</option>
+                        <option value="">Factor humano</option>
+                        <option value="">Proyecto de integración de tecnologías 1</option>
+                        <option value="">Ética y profesionalismo</option>
+                        <option value="">Probabilidad y estadística 1</option>
+                        <option value="">Administración de redes</option>
+                        <option value="">Análisis y diagnóstico de redes</option>
+                    </select>
+                    <button type="button" class="btnRegistro" id="btnCursosImpartidos">Agregar</button>
+                </div>
+
+                <div>
+                    <h2 for="">Preparación académica</h2>
+                    <div class=floatContainer>
+                        <div class="leftContainer">
+                            <label for="" class="lblDatos">Carrera</label>
+                            <input type="text" name="prepAcademica" class="nptPrepAcademica lblInput" id="txtCarrera" required>
+                        </div>
+                        <div class="rightContainer">
+                            <label for="">Fecha</label>
+                            <input type="date" name="prepAcademica" class="nptPrepAcademica lblInput" id="dTitulo" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="" class="lblDatos">Grado académico</label>
+                        <select name="prepAcademica" class="sltPrepAcademi calblInputid" id="sltGrado" required>
+                            <option value="" hidden>-Seleccione una opción-</option>
+                            <option value="">Técnico</option>
+                            <option value="">Diplomado</option>
+                            <option value="">Bachillerato</option>
+                            <option value="">Licenciatura</option>
+                            <option value="">Maestria</option>
+                            <option value="">Doctorado</option>
+                        </select>
+                        <button type="button" class="btnRegistro" id="btnAgregarPrepAcademica">Agregar</button>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btnRegistro" id="btnAgregar">Agregar datos</button>
+        </form>
+        
+        <div class="tableContainer">
+
+            <table class="hide tamannoMaxL tamannoMinL" id="tblCursosImpartidos">
+                <thead>
+                    <th>Cursos impartidos</th>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <table class="hide tamannoMaxR tamannoMinR" id="tblPrepAcademica">
+                <thead>
+                    <th>Carrera</th>
+                    <th>Grado académico</th>
+                    <th>Fecha</th>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </main>
+    <footer></footer>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/Login/login.js"></script>
+    <script src="js/Profesor/profesor.servicio.js"></script>
+    <script src="js/Profesor/agregarDatosProfesores.controlador.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+
+</html>

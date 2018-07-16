@@ -22,4 +22,10 @@ router.route('/asignar_proyecto')
 .post(function(req,res){
     clients.asignar_proyecto(req,res);
 });
+
+router.route('/cambiarfoto_clientes')
+    .put(function(req, res){
+    clients.cambiarFoto(req, res);
+});
+
 module.exports = router;

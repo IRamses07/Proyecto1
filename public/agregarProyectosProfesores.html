@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -7,9 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png"/>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/generalStyle.css">
-    <link rel="stylesheet" href="css/ListarProyectos.css">
+
+    <link rel="stylesheet" href="css/agregarProfesor.css">
 
     <title>Listar Proyectos</title>
 </head>
@@ -25,25 +27,13 @@
             </a>
         </div>
 
-        <div class="menuLateral">
-            <i class="fas fa-align-justify"></i>
-            <div class="option">
-                <a href="registrarProyecto.html">Registrar Proyecto</a>
+        <div class="menuLateral" id="divMenuLateral">
+                <i class="fas fa-align-justify"></i>
             </div>
-            <div class="option">
-                <a href="listarProyectos.html">Listar Proyectos</a>
-            </div>
-
-            <div class="option">
-                <a href="agregarProyectosProfesores.html">Asignar Profesores</a>
-            </div>
-
-
-        </div>
 
     </header>
 
-    <main id="content">
+    <main id="container">
 
         <h1>Asignar Profesores a Proyectos</h1>
 
@@ -52,38 +42,38 @@
 
                 <div class="optionProyecto">
 
-                    <label for="">Selecine un proyecto</label>
+                    <label for="">Seleccione un proyecto</label>
 
                     <select id="slProyecto">
 
-                        <option value="defult">Selecine un proyecto</option>
+                        <option value="defult">Seleccione un proyecto</option>
 
                     </select>
 
                 </div>
 
-                <div class="slProfesorLider">
+                <div class="optionProfeLider">
 
-                    <label for="">Selecione el profesor lider</label>
+                    <label for="">Seleccione el profesor líder</label>
 
-                    <select id="">
-                        <option value="defult">Selecine a un profesor</option>
+                    <select id="slProfeLider">
+                        <option value="defult">Seleccione a un profesor</option>
                     </select>
 
                 </div>
 
-                <div class="slProfesorTecnico">
+                <div class="optionProfeTecnico">
 
-                        <label for="">Selecione el profesor tecnico </label>
-    
-                        <select id="">
-                            <option value="defult">Selecine a un profesor</option>
-                        </select>
-    
-                    </div>
+                    <label for="">Seleccione el profesor tecnico </label>
+
+                    <select id="slProfesorTecnico">
+                        <option value="defult">Seleccione a un profesor</option>
+                    </select>
+
+                </div>
 
                 <div>
-
+                    <button  id="btnAgregar" class="btnRegistro" type="button">Agregar</button>
 
                 </div>
 
@@ -92,15 +82,21 @@
 
         </div>
 
+
+
+        <script src="js/Proyecto/jquery-3.3.1.js"></script>
+        <script src="js/Login/login.js"></script>
+        <script src="js/Profesor/profesor.servicio.js"></script>
+        <script src="js/Proyecto/registrarProyectoservicio.js"></script>
+        <script src="js/Proyecto/controladorAsignarProyoctoProfe.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
+
     </main>
 
     <footer>
 
 
     </footer>
-    <script src="js/Proyecto/jquery-3.3.1.js"></script>
-    <script src="js/Login/login.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
 
 
 </body>

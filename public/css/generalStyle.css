@@ -10,7 +10,7 @@ body{
 
 /* id que va dentro del main. estilo del main espacio que da entre el menulateral y el contenido */
 #content{
- padding-left: 17.6%; 
+ padding-left: 18%; 
 }
 
 /* estilos de todos los anchor/links/direcciones por defecto */
@@ -42,15 +42,8 @@ a {
     height: 100%;
     background-color: #2f3030;
     /* overflow: hidden; */
-    /* -webkit-transition: width 0.5s;
-    -moz-transition:  width 0.5s ease-out, opacity 0.3s ease 0.5s;
--o-transition:  width 0.5s ease-out, opacity 0.3s ease 0.5s;
-transition:  width 0.5s ease-out, opacity 0.3s ease 0.5s;*/
 }
 
-/* .menuLateral:hover {
-    width: 18%;
-} */
 .menuLateral h2 {
     font-size: 1.35em;
     color: #fff; 
@@ -61,10 +54,11 @@ transition:  width 0.5s ease-out, opacity 0.3s ease 0.5s;*/
 }
 /* estilo de los div que contienen los anchor del menu */
 .option{
-    width: 100%;
+    width: 85%;
     height: 40px ;
     padding-top: 10%;
-    margin: 1px 0px;
+    padding-left: 15%;
+    margin: 1px 0px 0px 0%;
 }
 
 .option:hover{
@@ -73,20 +67,20 @@ transition:  width 0.5s ease-out, opacity 0.3s ease 0.5s;*/
 
 /* espacio de los anchor dentro de las opciones del menu */
 .option a {
-    padding: 20px 0 0 20%;
-    margin: 17px 0;
+    margin: 17px 0 ;
+    line-height: 1.2;
 }
 
 /* estilo del error de los inputs */
 .error, .error_input{
-    border: 1px solid #d63031;
+    border: 2px solid #d63031;
 }
 
 /* estilo de los inputs en general, solo deben de eliminar el width y el height si es necesario */
 input{
     border: 0px ;
     border-radius: 5px;
-    
+    outline: none;
     height: 22px;
 }
 
@@ -110,11 +104,13 @@ select{
      font-family: 'Roboto' sans-serif;
      color: #fff;
      font-size: 1em;
+     outline: none;
  }
 
  .btnRegistro:hover {
     background-color: #fbb876;
-    
+    cursor: pointer;
+
  }
 
  /* estilos de los botones del sweetaler  */
@@ -158,11 +154,14 @@ th {
     background-color: #454545;
 }
 /******Ramses********/
+/* comente de que son */
 
 .fLeft {
     margin-left: 20px;
 }
 
+
+/* error debajo de los inputs */
 .lblHide{  
     visibility: hidden;
 }
@@ -178,7 +177,12 @@ th {
     border-left: #fbb803 3px solid;
 }
 
-.divDatos{
+.div Datos{
     margin-bottom: 25px;
 }
 /******Ramses*******/
+
+/* esconde el botón inútil de la lista de profes */
+#rbtnNombre {
+    visibility: hidden;
+}

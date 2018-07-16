@@ -46,7 +46,9 @@ function blanck(element) {
  * funcion que valida el contenido de un campo de texto
  */
 function registro(inputs) {
+    console.log('entra');
     let valido = true;
+    let labelCed = document.querySelector('#cedExt');
     for (let i = 0; i < inputs.length; i++) {
         let element = inputs[i];
         removeClass(element, 'error');
@@ -87,6 +89,46 @@ function registro(inputs) {
                     valido = false;
                 }
                 break;
+
+            case 'cedulaJuridica':
+                if (blanck(element)) {
+                    console.log('entra0');
+                    labelCed.innerHTML = 'Cédula jurídica';
+                    labelCed.classList.remove('cedRepetida');
+                    if (validarCedulaRepetida(element.value)) {
+                        addClass(element, 'error');
+                        valido = false;
+                        labelCed.innerHTML = 'Cédula jurídica --------> *Cédula Existente!';
+                        labelCed.classList.add('cedRepetida');
+                        console.log('entra1');
+                    }
+                } else {
+                    addClass(element, 'error');
+                    labelCed.innerHTML = 'Cédula jurídica';
+                    labelCed.classList.remove('cedRepetida');
+                    valido = false;
+                    console.log('entra2');
+                }
+                break;
+
+
+
+
+                // if (blanck(element)){
+                //     addClass(element, 'error');
+                //     valido = false;
+                // } else if (validarCedulaRepetida(element)) {
+                //     console.log('aqui estamos mop');
+                //     addClass(element, 'error');
+                //     labelCed.innerHTML = 'Cédula jurídica -> *Cédula Existente!';
+                //     labelCed.addClass('cedRepetida');
+                //     valido = false;
+                //     //cosas que pasan si esta repetida -> labelCed
+                // } else {
+                //     classList.remove(element, 'error');
+                // }
+                // break;
+            
             case 'correoElectronico':
                 if (blanck(element)) {
                     if (!test(eEmail, element) || test(eSpace, element)) {
@@ -104,7 +146,6 @@ function registro(inputs) {
             case 'cedula':
             case 'direccionExacta':
             case 'nombre':
-            case 'cedulaJuridica':
             case 'canton':
             case 'provincia':
             case 'distrito':

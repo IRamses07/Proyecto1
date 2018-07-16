@@ -1,5 +1,5 @@
 'use strict';
-
+moveUser(true);
 let datos = document.querySelector('#datosUsuario');
 let extraDatos = document.querySelector('#infoUsuario');
 let infoContacto2 = document.querySelector('#infoContacto2');
@@ -10,12 +10,16 @@ function getInfo(){
     let infoEstudiante = getInfoEstudiante();
     infoPersonal(infoEstudiante);
     infoContacto(infoEstudiante);
+    // let currentData = JSON.parse(sessionStorage.getItem('currentUser'));
+    // console.log('aqui'+currentData);
+    
     imprimirListaCursos (infoEstudiante)
 };
 
 function infoPersonal(infoEstudiante){
     let contenido ='';
     let contenido2 = '';
+    document.querySelector('#perfiImagen').src = infoEstudiante[0]['foto'];
     
     if(infoEstudiante[0]['apellido2'] !== ''){
         contenido+='<h3>'+infoEstudiante[0]['Nombre1']+' '+infoEstudiante[0]['apellido1']+' '+infoEstudiante[0]['apellido2']+'</h3>';

@@ -25,4 +25,14 @@ router.route('/getInfo_estudiantes')
     estudiantes.getInfoEstudiante(req, res);
 });
 
+router.route('/cambiarfoto_estudiantes')
+    .put(function(req, res){
+    estudiantes.cambiarFoto(req, res);
+});
+
+router.route('/asignar_proyecto_e')
+    .post(function(req, res){
+    estudiantes.asignar_proyecto(req, res);
+});
+
 module.exports = router;

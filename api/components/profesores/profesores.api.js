@@ -16,17 +16,23 @@ module.exports.registrar = function (req, res) {
         rol: req.body.rol,
         password: req.body.password,
         passwordChange: req.body.passwordChange,
-        lugarTrabajo:'',
-        annosExperiencia:'',
-        cursosImpartidos: [],
-        informacionAcademica: []
+        trabajo_anterior: req.body.trabajo_anterior,
+        experiencia_docente: req.body.experiencia_docente,
+        cursos_impartidos: req.body.cursos_impartidos,
+        foto : req.body.foto
     });
 
     nuevoProfesor.save(function (error) {
         if (error) {
-            res.json({ success: false, msg: 'No se pudo registrar el usuario, ocurrió el siguiente error' + error });
+            res.json({
+                success: false,
+                msg: 'No se pudo registrar el usuario, ocurrió el siguiente error' + error
+            });
         } else {
-            res.json({ success: true, msg: 'El usuario se registró con éxito'});
+            res.json({
+                success: true,
+                msg: 'El usuario se registró con éxito'
+            });
         }
 
     });
@@ -40,12 +46,109 @@ module.exports.listar = function (req, res) {
         });
 };
 
-module.exports.getInfoProfesor = function(req, res){
-    profesorModel.find({'cedula':req.query.cedula}).then(
-        function(profesores){
+/*module.exports.getInfoProfesor = function (req, res) {
+    profesorModel.find({
+        'cedula': req.query.cedula
+    }).then(
+        function (profesores) {
             res.send(profesores);
         });
+};*/
+
+module.exports.asignar_proyecto = function (req, res) {
+
+    profesorModel.update({
+            _id: req.body._id
+        }, {
+            $push: {
+                'proyecto': {
+
+                    id: req.body.id,
+                    rol: req.body.rol,
+                    nombre_proyecto: req.body.nombre_proyecto,
+                    fecha_Entrega: req.body.fecha_Entrega,
+                    estado_proyecto: req.body.estado_proyecto
+                }
+            }
+        },
+        function (error) {
+            if (error) {
+                res.json({
+                    success: false,
+                    msg: 'No se pudo Signar el proyecto, ocurrió el siguiente error' + error
+                });
+            } else {
+                res.json({
+                    success: true,
+                    msg: 'El Proyecto se asignó con éxito'
+                });
+            }
+        }
+    )
 };
+
+module.exports.agregar_preparacion_academica = function(req, res){
+    
+    profesorModel.update({_id: req.body._id}, 
+        {$push: 
+            {'preparacion_academica':
+                {
+                    grado_academico: req.body.grado_academico,
+                    titulo_fecha: req.body.titulo_fecha,
+                    carrera: req.body.carrera
+                }
+            }
+        },
+        function(error){
+            if(error){
+                res.json({success : false, msg : 'No se pudo registrar el título, ocurrió el siguiente error' + error});
+            }else{
+                res.json({success : true, msg : 'El título se registró con éxito'});
+            }
+        }
+    )
+};
+
+module.exports.agregar_cursos_impartidos = function(req, res){
+    profesorModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
+        function(err) {
+            if (err) {
+                res.json({ success: false, msg: 'No se ha actualizado.' + handleError(err) });
+        
+            } else {
+            res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
+            }
+      });
+};
+
+module.exports.agregar_info_extra_profesor = function(req, res){
+    profesorModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
+        function(err) {
+            if (err) {
+                res.json({ success: false, msg: 'No se ha actualizado.' + handleError(err) });
+        
+            } else {
+            res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
+            }
+      });
+};
+
+module.exports.cambiar_foto_profesores = function (req, res) {
+    console.log('aqui esta2');
+
+    profesorModel.findOneAndUpdate(
+        {
+            cedula: req.body.cedula
+        },
+        {
+            foto: req.body.foto
+        }
+    ).then(
+        function (profe) {
+            res.send(profe);
+        });
+};
+
 /*module.exports.actualizar_usuario = function(req, res){
     userModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
         function(err) {
@@ -56,4 +159,45 @@ module.exports.getInfoProfesor = function(req, res){
             res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
             }
       });
+};*/
+
+
+/*module.exports.cambiarFoto = function(req, res){
+
+    profesorModel.findOneAndUpdate(
+        {
+            cedula: req.body.cedula
+        },
+        {  
+            foto: req.body.foto
+        }
+        ).then(
+        function(profesores){
+            res.send(profesores);
+    });
+};
+
+module.exports.agregar_info_profesor = function(req, res){
+    
+    profesorModel.update({_id: req.body._id}, 
+        {$push: 
+            {'preparacion_academica':
+                {
+                    trabajo: req.body.trabajo,
+                    anno: req.body.anno,
+                    cursos: req.body.cursos,
+                    grado: req.body.grado,
+                    titulo: req.body.titulo,
+                    carrera: req.body.carrera
+                }
+            }
+        },
+        function(error){
+            if(error){
+                res.json({success : false, msg : 'No se pudo registrar el título, ocurrió el siguiente error' + error});
+            }else{
+                res.json({success : true, msg : 'El título se registró con éxito'});
+            }
+        }
+    )
 };*/

@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Registrar Proyecto </title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
     <link rel="stylesheet" href="css/reset.css">
@@ -31,19 +32,8 @@
                 <i class="fas fa-cog"></i>
             </a>
         </div>
-        <div class="menuLateral">
+        <div class="menuLateral" id="divMenuLateral">
             <i class="fas fa-align-justify"></i>
-            <div class="option">
-                <a href="registrarProyecto.html">Registrar Proyecto</a>
-            </div>
-            <div class="option">
-                <a href="listarProyectos.html">Listar Proyectos</a>
-            </div>
-
-            <div class="option">
-                <a href="agregarProyectosProfesores.html">Asignar Profesores</a>
-            </div>
-
         </div>
 
         <!-- Este div contiene el titulo principal  -->
@@ -66,12 +56,12 @@
                 <input type="text" id="txtNombreProyecto">
 
                 <label for="">Nombre del cliente:</label>
-                <select name="slNombredelCliente" id="slNombredelCliente">
-                    <option value="seleccioneUno">Seleccione Uno</option>
+                <select name="slNombredelCliente" id="slNombredelCliente" onchange="llenarCedulaJuridica()">
+                    <option value="seleccioneUno">Seleccione el cliente</option>
                 </select>
 
-                <label for="">Identificacion Juridica:</label>
-                <input type="text" id="txtIdentifiacionJuridica">
+                <label for="">Identificación Jurídica:</label>
+                <input type="text" id="txtIdentifiacionJuridica" required disabled>
 
                 <div class="slDescripcion">
                     <label for="">Estado del proyecto:</label>
@@ -80,7 +70,7 @@
                         <option value="desarrollo">En desarrollo</option>
                         <option value="mantenimento">En mantenimento</option>
                         <option value="finalizado">Finalizado</option>
-                        <option value="Desactivo">Desactivo</option>
+                        <option value="Desactivo">Inactivo</option>
 
 
                     </select>
@@ -90,13 +80,13 @@
 
             <div class="colupna2">
                 <div class="fecha">
-                    <label for="">Fecha de entrega Estimado:</label>
+                    <label for="">Fecha de entrega estimada:</label>
                     <input type="date" id="dtEntregaEstimada">
                 </div>
 
                 <div class="inpDescripcion">
-                    <label for="">Descripcion:</label>
-                    <textarea name="txtDescripcion" id="txtDescripcion" placeholder="Descripcion breve del proyecto..."></textarea>
+                    <label for="">Descripción:</label>
+                    <textarea name="txtDescripcion" id="txtDescripcion" placeholder="Descripción breve del proyecto..."></textarea>
                 </div>
 
 
@@ -114,7 +104,7 @@
         <script src="js/Login/login.js"></script>
         <!-- <script src="js/Cliente/servicioCliente.js"></script>
         <script src="js/Proyecto/cotroladorAgregarProyectoCliente.js"></script> -->
-        <script src="js/Cliente/servicioListarClientes.js"></script>
+        <!-- <script src="js/Cliente/servicioListarClientes.js"></script> -->
         <!-- <script src="js/Proyecto/cotroladorAgregarProyectoCliente.js"></script> -->
         <script src="js/Cliente/servicioCliente.js"></script>
         <script src="js/Proyecto/registrarProyectoServicio.js"></script>

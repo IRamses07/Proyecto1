@@ -1,49 +1,71 @@
 'use strict';
 moveUser(true);
-listarTicketsAdmin();
-// listarTicketsProfe();
-// listarTicketsEstudiante();
-// listarTicketsCliente();
 
-function listarTicketsAdmin (){
+listarTicketsAdmin();
+
+let inptBuscarCliente = document.querySelector('#filtrocliente');
+let btnFiltro = document.querySelector('#btnFiltrar');
+btnFiltro.addEventListener('click', function () {
+    listarTicketsAdmin(inptBuscarCliente.value);
+
+    let radioSelected = document.querySelector('input[type="radio"]:checked');
+   
+
+    let selectUrgencia = document.querySelector('#sltUrgencia').value;
+    listarTicketsAdmin(inptBuscarCliente.value, selectUrgencia, radioSelected.value);
+
+})
+
+function listarTicketsAdmin(pinptBuscarCliente, selectUrgencia, radioSelected) {
     let tickets = listarTickets();
     let nTamanno = tickets.length;
     let tbody = document.querySelector('#tblTicketAdmin tbody');
     tbody.innerHTML = '';
 
-    for(let i = 0; i < nTamanno; i++){
+    if (!pinptBuscarCliente) {
+        pinptBuscarCliente = '';
+    }
+    if (!selectUrgencia) {
+        selectUrgencia = '';
+    }
+    if (!radioSelected) {
+        radioSelected = 'nombre_cliente';
+    }
+    for (let i = 0; i < nTamanno; i++) {
+        if (tickets[i][radioSelected].toLowerCase().includes(pinptBuscarCliente.toLowerCase())&&
+        tickets[i]['urgencia'].includes(selectUrgencia)) {
 
-        let fila = tbody.insertRow();
-        let cliente = fila.insertCell();
-        let urgencia = fila.insertCell();
-        let proyecto = fila.insertCell();
-        let descripcion = fila.insertCell();
-        let verMas = fila.insertCell();
+            let fila = tbody.insertRow();
+            // let codigo = fila.insertCell();
+            let cliente = fila.insertCell();
+            let urgencia = fila.insertCell();
+            let proyecto = fila.insertCell();
+            let descripcion = fila.insertCell();
+            let verMas = fila.insertCell();
 
-        let boton = document.createElement("input");
-        boton.type = "button";
-        boton.value = "Ver más";
-        // boton.id = tickets[i][0];
-        boton.classList.add("btnLista");
-      
-        cliente.innerHTML = tickets[i]['nombre_cliente'];
-        urgencia.innerHTML = tickets[i]['urgencia'];
-        proyecto.innerHTML = tickets[i]['proyecto'];
-        descripcion.innerHTML = tickets[i]['descripcion'];
-        verMas.appendChild(boton);
+            let boton = document.createElement("input");
+            boton.type = "button";
+            boton.value = "Ver más";
+            boton.classList.add("btnLista");
 
-        // boton.addEventListener('click',mostrarDatosTicketseleccionado);
+            // codigo.innerHTML = tickets[i]['codigo'];
+            cliente.innerHTML = tickets[i]['nombre_cliente'];
+            urgencia.innerHTML = tickets[i]['urgencia'];
+            proyecto.innerHTML = tickets[i]['proyecto'];
+            descripcion.innerHTML = tickets[i]['descripcion'];
+            verMas.appendChild(boton);
 
-        //         for (let j = 0; j < canColumns; j++) {
-//           var celda = fila.insertCell(j);
-//           celda.innerHTML = listaCuerposCelestes[i][j];
-//         }
-  
-//         botonEditar.addEventListener('click', mostrarDatosParaActuralizarPlanetas);
-  
-//         celdaBotones.appendChild(botonEditar);
-//         fila.appendChild(celdaBotones);
-//         tbody.appendChild(fila);
-        
+            boton.addEventListener('click',mostrarDatosTicketseleccionado);
+        }
+
     }
 };
+
+
+
+
+
+function mostrarDatosTicketseleccionado(){
+document.location(href='verTicket.html');
+
+}

@@ -1,0 +1,35 @@
+main h1 {
+    margin-bottom: 20px;
+    margin-left: 16%;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 30px;
+}
+
+main .frmAsigarProyectoProfesores {
+    padding-left: 43%;
+}
+
+main .optionProyecto {
+    margin-bottom: 15px;
+}
+
+main .optionProfeLider {
+    margin-bottom: 15px;
+}
+
+main .optionProfeTecnico {
+    margin-bottom: 15px;
+}
+
+main .frmAsigarProyectoProfesores .optionProyecto label {
+    margin-right: 8.5%;
+}
+
+main .frmAsigarProyectoProfesores .optionProfeLider label {
+    margin-right: 4.1%;
+}
+
+main .frmAsigarProyectoProfesores .optionProfeTecnico label {
+    margin-right: 1.4%;
+}
