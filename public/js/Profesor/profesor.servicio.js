@@ -1,18 +1,28 @@
 'use strict';
 
-/*function setLocalProfes() {
+function setLocalProfes() {
     let listaProfes = getProfessorData();
     localStorage.setItem('listaProfesLS', JSON.stringify(listaProfes));
-}*/
+}
 
 function getLocalProfes() {
 
     let listaProfes = JSON.parse(localStorage.getItem('listaProfesLS'));
 
     if (listaProfes == null) {
-        listaProfes = localStorage.setItem('listaProfesLS', JSON.stringify(getProfessorData()));;       
+        listaProfes = localStorage.setItem('listaProfesLS', JSON.stringify(getProfessorData()));;
     }
     return listaProfes;
+}
+
+function setVerMasLS(pI, pProfesFiltrados) {
+    let profileData = pProfesFiltrados[pI];
+    localStorage.setItem('professorDataLS', JSON.stringify(profileData));
+    document.location.href = 'perfilProfesor.html';
+}
+
+function getVerMasLS() {
+    return JSON.parse(localStorage.getItem('professorDataLS'));
 }
 
 function setProfessorData(infoProfesor) {
@@ -34,8 +44,11 @@ function setProfessorData(infoProfesor) {
             profesion: infoProfesor[7],
             rol: infoProfesor[8],
             password: infoProfesor[9],
-            passwordChange: infoProfesor[10]
-            /*profesion: infoProfesor.profesion*/
+            passwordChange: infoProfesor[10],
+            trabajo_anterior: '',
+            experiencia_docente: 0,
+            cursos_impartidos: '',
+            foto: 'http://res.cloudinary.com/dtz8agoc3/image/upload/v1531452055/perfil.png'
         }
     });
 
@@ -50,6 +63,7 @@ function setProfessorData(infoProfesor) {
 
     return respuesta;
 }
+
 function getProfessorData() {
 
     let respuesta = [];
@@ -75,19 +89,223 @@ function getProfessorData() {
     return respuesta;
 }
 
-function validarCedula(psCedula){
+function validarCedula(psCedula) {
 
-    let aProfesorData = getProfessorData();
+    /*let aProfesorData = getProfessorData();*/
+    let aProfesorData = getUsers();
+    let repetido = false;
 
-    for (let i = 0; i < aProfesorData.length; i++) {
-        if(aProfesorData[i]['cedula']==psCedula){
-            return true;
-        }else{
-            return false;
-        }  
+    for (let i = 0; i < aProfesorData.length&&!repetido; i++) {
+        for (let j = 0; j < aProfesorData[i].length&&!repetido; j++) {
+            if (aProfesorData[i][j]['cedula'] == psCedula || aProfesorData[i][j]['cedula_juridica'] == psCedula) {
+                repetido = true;
+            }
+        }
     }
+    return repetido;
 }
-function generateRandomPassword(){
-	let pw = Math.random().toString(36).substring(2, 10);
-	return pw;
+
+function generateRandomPassword() {
+    let pw = Math.random().toString(36).substring(2, 10);
+    return pw;
 }
+
+/*function getInfoProfesor(){
+    let respuesta = 'respuesta';
+    let peticion = $.ajax({
+        url: 'http://localhost:4000/api/getinfo_profesor',
+        type: 'get',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
+            cedula: '03586123'
+        }
+    });
+    peticion.done(function (response) {
+        respuesta = response;
+    });
+    peticion.fail(function (response) {});
+    return respuesta;
+}*/
+
+function asignarProyecto(infoProyecto) {
+    let respuesta = '';
+    console.log(infoProyecto);
+    let peticion = $.ajax({
+        url: 'http://localhost:4000/api/asignar_proyecto',
+        type: 'post',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
+            _id: infoProyecto[0],
+            id: infoProyecto[1],
+            rol: infoProyecto[2],
+            nombre_proyecto: infoProyecto[3],
+            fecha_Entrega: infoProyecto[4],
+            estado_proyecto: infoProyecto[5]
+        }
+    });
+    peticion.done(function (response) {
+        respuesta = response;
+    });
+    peticion.fail(function (response) {
+    });
+    return respuesta;
+}
+
+/*function setExtraData(pId, sTrabajo,nAnno,sCursos,sGrado,dTitulo,sCarrera){
+    let respuesta = '';
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/agregar_info_profesor',
+        type : 'post',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            _id: pId,
+            trabajo: sTrabajo,
+            anno: nAnno,
+            cursos: sCursos,
+            grado: sGrado,
+            titulo: dTitulo,
+            carrera: sCarrera    
+        }
+      });
+    
+      peticion.done(function(response){        
+          respuesta = response;
+      });
+    
+      peticion.fail(function(response){
+      });
+
+    return respuesta;
+}*/
+
+function setPreparacionAcademica(pId, sGrado, dTitulo, sCarrera) {
+    let respuesta = '';
+    let peticion = $.ajax({
+        url: 'http://localhost:4000/api/agregar_preparacion_academica',
+        type: 'post',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
+            _id: pId,
+            grado_academico: sGrado,
+            titulo_fecha: dTitulo,
+            carrera: sCarrera
+        }
+    });
+
+    peticion.done(function (response) {
+        respuesta = response;
+    });
+
+    peticion.fail(function (response) {
+    });
+    updateCurrentUser(pId);
+    return respuesta;
+}
+
+function setCursosImpartidos(pId, psCursos) {
+    let listaCursos = getCurrentUserData()['cursos_impartidos'];
+    if (listaCursos == "") {
+        listaCursos = [];
+    } else {
+        listaCursos = JSON.parse(listaCursos);
+    }
+    listaCursos.push(psCursos);
+    let respuesta = '';
+    let peticion = $.ajax({
+        url: 'http://localhost:4000/api/agregar_cursos_impartidos',
+        type: 'post',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
+            _id: pId,
+            cursos_impartidos: JSON.stringify(listaCursos),
+        }
+    });
+
+    peticion.done(function (response) {
+        respuesta = response;
+    });
+
+    peticion.fail(function (response) {
+    });
+
+    updateCurrentUser(pId);
+
+    return respuesta;
+}
+
+function setExtraData(pId, sTrabajo, nAnno) {
+
+    let respuesta = '';
+    let peticion = $.ajax({
+        url: 'http://localhost:4000/api/agregar_info_extra_profesor',
+        type: 'post',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
+            _id: pId,
+            trabajo_anterior: sTrabajo,
+            experiencia_docente: nAnno
+        }
+    });
+
+    peticion.done(function (response) {
+        console.log('Registro bien');
+        respuesta = response;
+    });
+
+    peticion.fail(function (response) {
+        console.log('registro mal');
+    });
+
+    updateCurrentUser(pId);
+
+    return respuesta;
+}
+
+function cambiarFoto(imagenUrl) {
+    let respuesta = '';
+    let ced = '';
+    let id = '';
+    if (getCurrentUserData()['rol'] == 'profesor') {
+        ced = getCurrentUserData()['cedula'];
+        id = getCurrentUserData()['_id'];
+    } else {
+        ced = getVerMasLS()['cedula'];
+        id = getVerMasLS()['_id'];
+    }
+
+    let peticion = $.ajax({
+        url: 'http://localhost:4000/api/cambiar_foto_profesores',
+        type: 'put',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
+            cedula: ced,
+            foto: imagenUrl
+        }
+    });
+
+    peticion.done(function (response) {
+        respuesta = response;
+    });
+
+    peticion.fail(function (response) {
+
+    });
+
+    updateCurrentUser(id);
+    return respuesta;
+}
+

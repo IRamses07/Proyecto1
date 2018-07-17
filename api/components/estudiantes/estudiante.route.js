@@ -19,4 +19,20 @@ router.route('/filtrarnombre_estudiantes')
     estudiantes.filtrarNombre(req, res);
 });
 
+router.route('/getInfo_estudiantes')
+    .get(function(req, res){
+        console.log('f7');
+    estudiantes.getInfoEstudiante(req, res);
+});
+
+router.route('/cambiarfoto_estudiantes')
+    .put(function(req, res){
+    estudiantes.cambiarFoto(req, res);
+});
+
+router.route('/asignar_proyecto_e')
+    .post(function(req, res){
+    estudiantes.asignar_proyecto(req, res);
+});
+
 module.exports = router;

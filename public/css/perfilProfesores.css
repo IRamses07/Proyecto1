@@ -1,0 +1,65 @@
+.hide{
+    display: none;
+}
+
+#btnPerfil{
+    display: block;
+    margin: 0 auto;
+}
+
+.tamannoMinL{
+    float: left;
+    width: 44%;
+}
+
+.tamannoMinR{
+    float: right;
+    width: 54%;
+}
+
+.tamannoMaxL{
+    float: left;
+    width: 100%;
+}
+
+.tamannoMaxR{
+    float: right;
+    width: 100%;
+}
+
+#content .tableContainer{
+width: 80%;
+margin: 50px auto 0 auto;
+display: flow-root;
+}
+
+table{
+    text-align: center;
+}
+
+#extraDataContainer{
+    width: 55%;
+    margin: 50px auto 0 auto;
+    display: flow-root;
+}
+
+#lblTrabajoAnterior{
+    width: 52%;
+    float: left;
+    margin: 0 auto;
+}
+
+#lblAnnosExperiencia{
+    width: 48%;
+    float: left;
+    margin: 0 auto;
+}
+
+#perfiImagen {
+    border-radius: 50%;
+    border: 5px solid #fbb803;
+}
+
+.fa-edit:before {
+    content: "\f044";
+}

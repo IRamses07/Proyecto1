@@ -26,6 +26,14 @@ seleccionCanton.addEventListener('click', function(){
     }
 });
 
+//SeleccionarCarrera
+let seleccionCarrera = document.querySelector('#selectCarrera');
+seleccionCarrera.addEventListener('click', function(){
+    if(seleccionCarrera.value.length !== 0){
+        cursosPorCarrera(seleccionCarrera.value);;
+    }
+});
+
 //DatosEstudiante
 let inputCedula = document.querySelector('#estCedula');
 let inputNombre1 = document.querySelector('#estnombre1');
@@ -38,6 +46,7 @@ let inputDireccion = document.querySelector('#estDireccion');
 let selectCanton = document.querySelector('#selectCanton');
 let selectDistrito = document.querySelector('#selectDistrito');
 let selectProvincia = document.querySelector('#selecProvincia');
+let labelCed = document.querySelector('#cedExt');
 
 //DatosCurso
 let selectCarrera = document.querySelector('#selectCarrera');
@@ -55,7 +64,9 @@ let inputConCorreo = document.querySelector('#conCorreo');
 function getDatos(){
     let infoEstudiante=[];
     let sError = false;
-
+    console.log(document)
+    console.log(document.body)
+    
     infoEstudiante.push(inputCedula.value,inputNombre1.value,inputNombre2.value,inputApellido1.value,inputApellido2.value,inputTelefono.value,inputCorreo.value,inputDireccion.value,selecccionProvincia.value,selectCanton.value,selectDistrito.value,selectCarrera.value,inputConNombre1.value,inputConNombre2.value,inputConApellido1.value,inputConApellido2.value,inputConTelefono.value,inputConCorreo.value,'Activo');
     
     console.log(infoEstudiante);
@@ -63,20 +74,21 @@ function getDatos(){
     sError = validar();
     if(sError==true){
         swal({
-            type : 'warning',
-            title : 'No se pudo registrar el estudiante',
-            text: 'Por favor revise los campos en rojo',
-            confirmButtonText : 'OK'
+            title: "Advertencia",
+            text: "Por favor llene los campos en rojo.",
+            icon: "warning",
+            button: "Ok",
         });
         console.log('No se pudo registrar el usuario');
     }else{
         registrarEstudiante(infoEstudiante);
         swal({
-            type : 'success',
+            type : 'Success',
             title : 'Registro exitoso',
             text: 'El estudiante se registró exitosamente',
             confirmButtonText : 'OK'
         });
+        limpiar();
     }
 }
 
@@ -95,6 +107,18 @@ function validar(){
     }else{
         inputCedula.classList.remove('error_input');
     }
+
+    if (validarCedulaRepetida(inputCedula.value)) {
+        inputCedula.classList.add('error_input');
+        labelCed.classList.remove('lblHide');
+        sError = true;
+        console.log('es repetida');
+    } else {
+        inputCedula.classList.remove('error_input');
+        labelCed.classList.add('lblHide');
+        console.log('no es repetida');
+    }
+    
     //Validar Nombre1
     if(inputNombre1.value == '' || (checkSoloLetras.test(inputNombre1.value)==false) ){
         inputNombre1.classList.add('error_input');
@@ -102,26 +126,12 @@ function validar(){
     }else{
         inputNombre1.classList.remove('error_input');
     } 
-    //Validar Nombre2
-    if(inputNombre2.value == '' || (checkSoloLetras.test(inputNombre2.value)==false) ){
-        inputNombre2.classList.add('error_input');
-        sError = true;
-    }else{
-        inputNombre2.classList.remove('error_input');
-    }
     //Validar Apellido1
     if(inputApellido1.value == '' || (checkSoloLetras.test(inputApellido1.value)==false) ){
         inputApellido1.classList.add('error_input');
         sError = true;
     }else{
         inputApellido1.classList.remove('error_input');
-    }
-    //Validar Apellido2
-    if(inputApellido2.value == '' || (checkSoloLetras.test(inputApellido2.value)==false) ){
-        inputApellido2.classList.add('error_input');
-        sError = true;
-    }else{
-        inputApellido2.classList.remove('error_input');
     }
     //Validar Telefono
     if(inputTelefono.value == '' ){
@@ -172,26 +182,12 @@ function validar(){
     }else{
         inputConNombre1.classList.remove('error_input');
     }
-    //Validar Nombre2 Contacto:
-    if(inputConNombre2.value == '' || (checkSoloLetras.test(inputConNombre2.value)==false) ){
-        inputConNombre2.classList.add('error_input');
-        sError = true;
-    }else{
-        inputConNombre2.classList.remove('error_input');
-    }
     //Validar Apellido1 Contacto:
     if(inputConApellido1.value == '' || (checkSoloLetras.test(inputConApellido1.value)==false) ){
         inputConApellido1.classList.add('error_input');
         sError = true;
     }else{
         inputConApellido1.classList.remove('error_input');
-    }
-    //Validar Apellido2 Contacto:
-    if(inputConApellido2.value == '' || (checkSoloLetras.test(inputConApellido2.value)==false) ){
-        inputConApellido2.classList.add('error_input');
-        sError = true;
-    }else{
-        inputConApellido2.classList.remove('error_input');
     }
     //Validar Telefono Contacto:
     if(inputConTelefono.value == '' ){
@@ -218,10 +214,40 @@ function validar(){
     return sError;
 }
 
+function cursosPorCarrera(carrera){
+    console.log(carrera);
+    let content = '<option></option>\n';
+
+    if(carrera=='Desarrollo de Software'){
+
+        content+= '<option value="cu01">Fundamentos de programación</option>\n';
+        content+= '<option value="cu03">Fundamentos de bases de datos</option>\n';
+        content+= '<option value="cu05">Programación orientada a objetos</option>\n';
+        content+= '<option value="cu02">Proyecto de ingenieria del software 1</option>\n';
+        
+    } else if(carrera=='Tecnologías de la Información y Comunicacines'){
+
+        content+= '<option value="cu04">Sistemas operativos 1</option>\n';
+        content+= '<option value="cu07">Redes de computadoras</option>\n';
+        content+= '<option value="cu06">Estructuras discretas</option>\n';
+        content+= '<option value="cu08">Proyecto de integración de tecnologías 1</option>\n'; //new
+
+    } else {
+
+        content+= '<option value="cu09">Diseño web 1</option>\n';
+        content+= '<option value="cu10">Fundamentos de programación web</option>\n';
+        content+= '<option value="cu11">Programación web dinámica</option>\n';
+        content+= '<option value="cu12">Comunicación de información en la web</option>\n';
+
+    }
+
+    selectCurso.innerHTML= content;
+}
+
 function getCurso(){
     let infoCurso=[];
     let sError = 0;
-
+    console.log('hola: '+selectCurso.value);
     let sCiclo = selectCiclo.value;
     let sCurso = selectCurso.value;
     let sNomCurso;
@@ -248,6 +274,21 @@ function getCurso(){
         case 'cu07': 
             sNomCurso='Redes de computadoras';
             break;
+        case 'cu08':
+            sNomCurso='Proyecto de integración de tecnologías 1';
+            break;
+        case 'cu09':
+            sNomCurso='Diseño web 1';
+            break;
+        case 'cu10':
+            sNomCurso='Fundamentos de programación web';
+            break;
+        case 'cu11':
+            sNomCurso='Programación web dinámica';
+            break;
+        case 'cu12':
+            sNomCurso='Comunicación de información en la web';
+            break;
     }
 
     infoCurso.push(sCurso,sCiclo,sNomCurso);
@@ -273,7 +314,7 @@ function getCurso(){
         //poner un agregar a la lista definitiva para luego meter en la DB con el registrar total.
         agregaCurso(infoCurso);
         swal({
-            type : 'success',
+            type : 'Success',
             title : 'Registro exitoso',
             text: 'El Curso se agregó correctamente',
             confirmButtonText : 'OK'
@@ -428,3 +469,30 @@ function seleccionarDistrito(canton,provincia){
     }
     selectDistrito.innerHTML = output;
 };
+
+function limpiar(){
+    let tbody = document.querySelector('#tblCursos tbody');
+    tbody.innerHTML = '';
+
+    inputCedula.value='';
+    inputNombre1.value='';
+    inputNombre2.value='';
+    inputApellido1.value='';
+    inputApellido2.value='';
+    inputTelefono.value='';
+    inputCorreo.value='';
+    inputDireccion.value='';
+    selectCanton.value='';
+    selectDistrito.value='';
+    selectProvincia.value='';
+    labelCed.value='';
+    selectCarrera.value='';
+    selectCiclo.value='';
+    selectCurso.value='';
+    inputConNombre1.value='';
+    inputConNombre1.value='';
+    inputConApellido1.value='';
+    inputConApellido2.value='';
+    inputConTelefono.value='';
+    inputConCorreo.value='';
+}

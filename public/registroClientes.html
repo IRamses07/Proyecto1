@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="css/generalStyle.css">
     <link rel="stylesheet" href="css/registrarClientes.css">
@@ -21,17 +22,8 @@
             </a>
         </div>
 
-        <div class="menuLateral">
+        <div class="menuLateral" id="divMenuLateral">
             <i class="fas fa-align-justify"></i>
-            <div class="option">
-                <a href="registroClientes.html">Registro Cliente</a>
-            </div>
-            <div class="option">
-                <a href="registroProfesores.html">Regsitrar Profesor</a>
-            </div>
-            <div class="option">
-                <a href="registrarProyecto.html">Registrar Proyecto</a>
-            </div>
         </div>
     </header>
 
@@ -40,7 +32,7 @@
 
             <h2>Registro de cliente</h2>
             <div>
-                <label for="">Cédula jurídica</label>
+                <label id="cedExt" for="">Cédula jurídica</label>
                 <input type="text" id="txtCedulaJuridica" class="" equired name="cedulaJuridica">
             </div>
             <div>
@@ -113,12 +105,12 @@
     </main>
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/Login/login.js"></script>
-    <script src="./js/Cliente/servicioRegistroCliente.js"></script>
+    <script src="./js/Cliente/servicioCliente.js"></script>
     <script src="js/controlador.js"></script>
     <script src="./js/Cliente/controladorRegistroCliente.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqwnxPeSYz_PuUWckCDE54K9GX448uD2k&callback=initMap" asyncdefer></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    
+
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 </body>
 

@@ -1,9 +1,10 @@
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png"/>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/generalStyle.css">
     <link rel="stylesheet" href="css/ListarProyectos.css">
@@ -16,25 +17,15 @@
     <header>
         <div class="mainHeader">
             <a href="#" class="fLeft">
-                <i class="fas fa-bfvell"></i> Notificaciones</a>
+                <i class="fas fa-bell"></i> Notificaciones</a>
             <a href="#" class="fRight">Cerrar sesión
                 <i class="fas fa-cog"></i>
             </a>
         </div>
 
-        <div class="menuLateral">
-            <h2>
-                <i class="fas fa-align-justify"></i>Menu</h2>
-            <div class="option">
-                <a href="registrarProyecto.html">Registro tickets</a>
+        <div class="menuLateral" id="divMenuLateral">
+                <i class="fas fa-align-justify"></i>
             </div>
-            <div class="option">
-                <a href="listarProyectos.html">Lista de tickets</a>
-            </div>
-
-
-
-        </div>
 
     </header>
 
@@ -43,14 +34,20 @@
         <div class="tabla">
             <table id="tblProyectos">
                 <thead>
-                    <th>Cedula Juridica</th>
                     <th>Nombre del proyecto</th>
-                    <th>Nombre de cliente</th>
                     <th>Fecha de entrega</th>
-                    <th>Ver mas</th>
+                    <th>
+                        <i class="fas fa-eye"></i>
+                    </th>
                 </thead>
                 <tbody>
-
+                    <tr>
+                        <td>Julianas</td>
+                        <td>22/33/2018</td>
+                        <td>
+                            <a href="##">Ver más</a>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -60,11 +57,13 @@
 
 
     </footer>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <script src="js/Proyecto/jquery-3.3.1.js"></script>
+    <script src="js/Login/login.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
     <script src="js/Proyecto/registrarProyectoServicio.js"></script>
-    <script src="js/Proyecto/controladorListaProyectos.js"></script>
-   
+    <script src="js/controlador.js"></script>
+    <script src="js/Cliente/controladorListarProyectoCliente.js"></script>
 </body>
 
 </html>

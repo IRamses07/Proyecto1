@@ -67,6 +67,7 @@ const clientes= require('./components/clientes/client.route')
 const estudiantes = require('./components/estudiantes/estudiante.route');
 
 const tickets = require('./components/tickets/ticket.route');
+const administrador = require('./components/admin/administrador.route');
 /**
  * Le indicamos que le de acceso externo a las rutas inicializadas
  */
@@ -75,7 +76,8 @@ app.use('/api', profesores);
 app.use('/api',clientes);
 
 app.use('/api', estudiantes);
-// app.use('/api', proyectos );
+
+app.use('/api', administrador)
 
 app.use('/api', proyectos );
 app.use('/api', tickets);
