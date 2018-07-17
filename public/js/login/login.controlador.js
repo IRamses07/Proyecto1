@@ -14,28 +14,32 @@ function signIn() {
         });
     } else {
         if (validarCredenciales(sId, sPassword)) {
-
+            document.querySelector('#txtIdentificacion').classList.remove('error_input');
+            document.querySelector('#txtPassword').classList.remove('error_input');
             document.querySelector('#lblCredencialesError').classList.add('lblHide');
+            limpiar();
+            
+            swal({
+                title: "Inicio de sesión exitoso",
+                text: "Será redirigido en 3 segundos.",
+                icon: "success",
+                button: "Ok",
+            });
 
             let infoUser = getCurrentUserData();
-            if (infoUser['passwordChange'] == 0) {
+            if (infoUser['passwordChange'] != 0) {
                 console.log("Primer inicio de sesión del usuario! Deberá cambiar su contraseña.");
-                /*window.setTimeout(function(){*/
+                window.setTimeout(function(){
                 window.location.href = "passwordChange.html";
-                /*}, 5000);*/
+                }, 3000);
             } else {
-                /*window.setTimeout(function(){*/
-                window.location.href = "listarProyectos.html"; //DONDE MANDAR A LA GENTE CUANDO SE LOGEA??????????
-                /*}, 5000);}*/
-
-                swal({
-                    title: "Inicio de sesión exitoso",
-                    text: "Se ha iniciado sesión correctamente.",
-                    icon: "success",
-                    button: "Ok",
-                });
+                window.setTimeout(function(){
+                window.location.href = "listarProyectos.html";
+                }, 3000);
             }
         } else {
+            document.querySelector('#txtIdentificacion').classList.add('error_input');
+            document.querySelector('#txtPassword').classList.add('error_input');
             document.querySelector('#lblCredencialesError').classList.remove('lblHide');
 
         }
@@ -69,4 +73,11 @@ function validarCredenciales(psId, psPassword) {
         console.log("[startLogin] Se ingresó una contraseña incorrecta.");
     }
     return bFound;
+}
+
+function limpiar() {
+    let inputs = document.querySelectorAll("input");
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].value = '';
+    }
 }

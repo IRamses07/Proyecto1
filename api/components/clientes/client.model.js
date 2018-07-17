@@ -16,6 +16,8 @@ let clientSchema = new mongoose.Schema({
     segundo_apellido:{type:String, required:false},
     telefono: {type:String, required:true},
     correo_electronico:{type:String, required:true},
-    ubicacion:{type: String,required:true}
+    ubicacion:{type: String,required:true},
+    password:{type:String,required:true},
+    passwordChange:{type:Number ,required:true}
 });
 module.exports = mongoose.model('Cliente', clientSchema);

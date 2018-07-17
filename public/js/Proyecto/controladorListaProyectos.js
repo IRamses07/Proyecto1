@@ -1,5 +1,5 @@
 "use strict";
-
+moveUser(true);
 imprimirListaProyectos();
 
 function imprimirListaProyectos(){

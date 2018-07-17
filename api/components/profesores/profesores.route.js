@@ -14,5 +14,9 @@ router.route('/listar_profesores')
         profesores.listar(req, res);
     });
 
+/*router.route('/actualizar_usuario')
+    .post(function(req, res){
+    users.actualizar_usuario(req, res);
+});*/
 
 module.exports = router;
