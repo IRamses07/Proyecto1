@@ -42,12 +42,14 @@ function obtenerDatosTicket() {
           });
     } else {
         registrarTicket(nombreCliente, urgencia, proyecto, imagenErr, referenciaTicket, descripcionError);
+        regitroNotificacion()  //aquí mando el id del emisor y el rol, los datos del receptor, tipo = 'ticket',referencia: id (del ticket), verTicket.html
         swal({
             title: "Registro exitoso",
             text: "El ticket se ha registrado correctamente",
             icon: "success",
             button: "Ok",
           });
+          window.location(href='./listarTicketsCliente.html');
         console.log('aquí va otro sweet alert xDD');
         limpiarFormulario();
     }
