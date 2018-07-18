@@ -205,7 +205,7 @@ function agregarProyectoCliente() {
 
     for (let i = 0; i < proyecto.length; i++) {
 
-        if (proyecto[i]['nombre_proyecto'] == (nombreProyecto)) {
+        if (proyecto[i]['nombre_proyecto'] == (inputNombreProyecto.value)) {
             id1 = proyecto[i]['_id'];
         }
 
@@ -215,7 +215,7 @@ function agregarProyectoCliente() {
     infoProyecto.push(id, id1, nombreProyecto, fechaEntrega, estadoProyecto);
 
 
-    asignarProyecto(infoProyecto);
+    asignarProyectoC(id, id1, nombreProyecto, fechaEntrega, estadoProyecto);
 
 
 }
