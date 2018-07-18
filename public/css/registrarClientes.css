@@ -4,12 +4,13 @@
     margin-left: auto;
     margin-right: auto;
 }
-input, select{
-    border:1px solid #ffffff;
+
+input, select {
+    border: 1px solid #ffffff;
 }
 
 h2 {
-padding-top: 10px;
+    padding-top: 20px;
     font-size: 24px;
     margin-bottom: 10px;
 }
@@ -27,12 +28,13 @@ padding-top: 10px;
     margin-bottom: 5px;
 }
 
-.fmr label+input, .fmr label+select {
+.fmr label+input, .fmr label+select, .fmr label+textarea {
     display: block;
     border-radius: 3px;
     padding-left: 5px;
     outline: none;
     width: 100%;
+    resize: none;
 }
 
 .fmr label {
@@ -44,18 +46,22 @@ padding-top: 10px;
     text-align: center;
     clear: both;
 }
-.after{
+
+.after {
     position: relative;
 }
+
 .after:before {
     border-left: 3px solid #fbb803;
     content: "error";
     position: absolute;
-    top:43px;
+    top: 43px;
 }
 
-.cedRepetida{
+.cedRepetida {
     color: #d63031;
-}.fmr .btnRegistro{
+}
+
+.fmr .btnRegistro {
     margin-top: 15px;
 }
