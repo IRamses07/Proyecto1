@@ -23,7 +23,8 @@ padding-top: 10px;
 }
 
 .fmr div {
-    width: 42%;
+    width: 48%;
+    margin-bottom: 5px;
 }
 
 .fmr label+input, .fmr label+select {
@@ -55,4 +56,6 @@ padding-top: 10px;
 
 .cedRepetida{
     color: #d63031;
+}.fmr .btnRegistro{
+    margin-top: 15px;
 }
