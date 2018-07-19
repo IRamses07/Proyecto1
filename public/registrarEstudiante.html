@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/generalStyle.css">
     <link rel="stylesheet" href="css/registrarEstudiante_style.css">
-    <title>Registro de Estudiante</title>
+    <title>Registro de Estudiantes</title>
 </head>
 
 <body>
@@ -29,151 +29,188 @@
         </div>
 
     </header>
-    <main id="container">
-        <form action="" class="contFormulario" id="form1">
-            <h1>Registro de Estudiantes</h1>
-            <h2>Datos personales</h2>
-            <div class="layer1">
-                <label for="" id="cedExt" class="lblHide cedEx">*Cédula existente!</label>
-                <label>Cédula:</label>
-                <input type="text" id="estCedula" />
-            </div>
-            <br>
-            <div class="layer2">
-                <label>Primer nombre:</label>
-                <input type="text" id="estnombre1" />
-            </div>
-            <div class="layer3">
-                <label>Segundo nombre:</label>
-                <input type="text" id="estnombre2" />
-            </div>
-            <div class="layer2">
-                <label>Primer apellido:</label>
-                <input type="text" id="estapellido1" />
-            </div>
-            <div class="layer3">
-                <label>Segundo apellido:</label>
-                <input type="text" id="estapellido2" />
-            </div>
-            <br>
-            <div id="optionsTT">
-                <div class="layer5">
-                    <label>Provincia:</label>
-                    <select id="selecProvincia">
-                        <option> </option>
-                        <option value="0">San José</option>
-                        <option value="1">Alajuela</option>
-                        <option value="2">Cartago</option>
-                        <option value="3">Heredia</option>
-                        <option value="4">Guanacaste</option>
-                        <option value="5">Puntarenas</option>
-                        <option value="6">Limón</option>
-                    </select>
-                </div>
-                <div class="layer5">
-                    <label>Cantón:</label>
-                    <select id="selectCanton">
-                        <option> </option>
-                    </select>
-                </div>
-                <div class="layer5">
-                    <label>Distrito:</label>
-                    <select id="selectDistrito">
-                        <option> </option>
-                    </select>
-                </div>
-            </div>
-            <div class="layer4">
-                <label>Dirección:</label>
-                <textarea rows="1" cols="50" id="estDireccion"></textarea>
-            </div>
-            <div class="layer2">
-                <label>Teléfono</label>
-                <input type="text" id="esttelefono" />
-            </div>
-            <div class="layer3">
-                <label>Correo</label>
-                <input type="text" id="estcorreo" />
-            </div>
-        </form>
-        <form action="" class="contFormulario" id="form2">
-            <h2>Información Académica</h2>
-            <div class="layer3">
-                <label>Carrera: </label>
-                <select id="selectCarrera">
-                    <option></option>
-                    <option>Desarrollo de Software</option>
-                    <option>Tecnologías de la Información y Comunicaciones</option>
-                    <option>Desarrollo y Diseño Web</option>
-                </select>
-            </div>
-            <br>
-            <h3>Cursos Aprobados:</h3>
-            <div id="optionsTT">
-                <div class="layer5">
-                    <label>Ciclo:</label>
-                    <select id="selectCiclo">
-                        <option> </option>
-                        <option>1-2017</option>
-                        <option>2-2017</option>
-                        <option>3-2017</option>
-                        <option>1-2018</option>
-                        <option>2-2018</option>
-                    </select>
-                </div>
-                <div class="layer5">
-                    <label class="labelcenter">Curso:</label>
-                    <select id="selectCurso">
-                        <option> </option>
+    <main id="content">
+        <h2>Nuevo Estudiante</h2>
+        <div class="tabs-container">
+            <ul class="tabs" id="tabs">
+                <li class="tabs__item activeTab">Datos personales</li>
+                <li class="tabs__item">Contacto de emergencia</li>
+                <li class="tabs__item">Información académica</li>
+            </ul>
 
-                    </select>
-                </div>
-                <div class="layer5">
-                    <button type="button" id="butAgregar" class="btnRegistro">Agregar</button>
-                </div>
-                <br>
+            <div class="panels__item activePanel">
+
+                <form action="" class="form" id="form1">
+
+                    <h2>Datos personales</h2>
+                    <div class="filaIzq">
+                        <div>
+                            <label class="lblInput">Cédula:</label>
+                            <input type="text" id="estCedula" placeholder=" Ejm: 102340567"/>
+                            <label for="" class="lblError lblHide">*Cédula existente!</label>
+                        </div>
+                        <div>
+                            <label class="lblInput">Segundo nombre:</label>
+                            <input type="text" id="estnombre2" placeholder=" Ejm: Manuel"/>
+                            <label for="" class="lblError lblHide">*Cédula existente!</label>
+                        </div>
+                        <div>
+                            <label class="lblInput">Segundo apellido:</label>
+                            <input type="text" id="estapellido2" placeholder=" Ejm: Pereira"/>
+                            <label for="" class="lblError lblHide">*Cédula existente!</label>
+                        </div>
+                        <div>
+                            <label class="lblInput">Teléfono</label>
+                            <input type="text" id="esttelefono" placeholder=" Ejm: 87453311" />
+                            <label for="" class="lblError lblHide">*Cédula existente!</label>
+                        </div>
+                        <div>
+                            <label class="lblInput">Cantón:</label>
+                            <select id="selectCanton">
+                            <option class="letraItalic">-Seleccione un cantón-</option>
+                        </select>
+                            <label for="" class="lblError lblHide">*Cédula existente!</label>
+                        </div>
+                    </div>
+                    <div class="filaDer">
+                        <div>
+                            <label class="lblInput">Primer nombre:</label>
+                            <input type="text" id="estnombre1" placeholder=" Ejm: Jose"/>
+                            <label for="" class="lblError lblHide">*Cédula existente!</label>
+                        </div>
+                        <div>
+                            <label class="lblInput">Primer apellido:</label>
+                            <input type="text" id="estapellido1" placeholder=" Ejm: Marín" />
+                            <label for="" class="lblError lblHide">*Cédula existente!</label>
+                        </div>
+                        <div>
+                            <label class="lblInput">Correo:</label>
+                            <input type="text" id="estcorreo" placeholder=" Ejm: mpereira@gmail.com"/>
+                            <label for="" class="lblError lblHide">*Cédula existente!</label>
+                        </div>
+                        <div>
+                            <label class="lblInput">Provincia:</label>
+                            <select id="selecProvincia">
+                                <option class="letraItalic">-Seleccione una provincia-</option>
+                                <option value="0">San José</option>
+                                <option value="1">Alajuela</option>
+                                <option value="2">Cartago</option>
+                                <option value="3">Heredia</option>
+                                <option value="4">Guanacaste</option>
+                                <option value="5">Puntarenas</option>
+                                <option value="6">Limón</option>
+                            </select>
+                            <label for="" class="lblError lblHide">*Cédula existente!</label>
+                        </div>
+                        <div>
+                            <label class="lblInput">Distrito:</label>
+                            <select id="selectDistrito">
+                                <option class="letraItalic">-Seleccione un distrito-</option>
+                            </select>
+                            <label for="" class="lblError lblHide">*Cédula existente!</label>
+                        </div>
+                    </div>
+                    <div class="filaCenter">
+                        <label class="lblInput">Dirección:</label>
+                        <textarea rows="1" cols="50" id="estDireccion" placeholder=" Ejem: 200 metros norte de la iglesia de Parrita"></textarea>
+                        <label for="" class="lblError lblHide">*Cédula existente!</label>
+                            <button type="button" class="btnRegistro btnPestanaSig ">Siguiente</button>
+                    </div>
+                </form>
             </div>
-        </form>
-        <div class="tableContainer">
-            <table cellspacing=10px id="tblCursos">
-                <thead>
-                    <th>Código</th>
-                    <th>Ciclo</th>
-                    <th>Nombre</th>
-                    <th>Eliminar</th>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+
+            <div class="panels__item ">     
+
+                <form action="" class="form" id="form2">
+                    <h2>Contacto de emergencia</h2>
+                    <div class="filaIzq">
+                        <div>
+                            <label class="lblInput">Primer nombre:</label>
+                            <input type="text" id="conNombre1" placeholder=" Ejm: María"/>
+                            <label for="" class="lblError lblHide">*Cédula existente!</label>
+                        </div>
+                        <div>
+                            <label class="lblInput">Primer apellido: </label>
+                            <input type="text" id="conApellido1" placeholder=" Ejm: Jiménez"/>
+                            <label for="" class="lblError lblHide">*Cédula existente!</label>
+                        </div>
+                        <div>
+                            <label class="lblInput">Teléfono:</label>
+                            <input type="text" id="conTelefono" placeholder=" Ejm: 84567781"/>
+                            <label for="" class="lblError lblHide">*Cédula existente!</label>
+                        </div>
+                    </div>
+                    <div class="filaDer">
+                        <div>
+                            <label class="lblInput">Segundo nombre:</label>
+                            <input type="text" id="conNombre2" placeholder=" Ejm: Elizabeth"/>
+                            <label for="" class="lblError lblHide">*Cédula existente!</label>
+                        </div>
+                        <div>
+                            <label class="lblInput">Segundo apellido:</label>
+                            <input type="text" id="conApellido2" placeholder=" Ejm: Calderón"/>
+                            <label for="" class="lblError lblHide">*Cédula existente!</label>
+                        </div>
+                        <div>
+                            <label class="lblInput">Correo</label>
+                            <input type="text" id="conCorreo" placeholder=" Ejm: mjimenez@gmail.com"/>
+                            <label for="" class="lblError lblHide">*Cédula existente!</label>
+                        </div>
+                    </div>
+                        <button type="button" class="btnRegistro btnPestanaAtr"> Atrás </button>
+                        <button type="button" class="btnRegistro btnPestanaSig">Siguiente</button>
+                </form>
+
+            </div>
+            <div class="panels__item ">
+
+                <form action="" class="form" id="form3">
+                    <h2>Información académica</h2>
+                    <div class="filaIzq">
+                        <label class="lblInput">Carrera:</label>
+                        <select id="selectCarrera">
+                            <option>-Seleccione una carrera-</option>
+                            <option>Desarrollo de Software</option>
+                            <option>Tecnologías de la Información y Comunicaciones</option>
+                            <option>Desarrollo y Diseño Web</option>
+                        </select>
+                        <label for="" class="lblError lblHide">*Cédula existente!</label>
+                    </div>
+                    
+                    <div class="filaDer">
+                        <label class="lblInput">Curso:</label>
+                        <select id="selectCurso">
+                            <option>-Seleccione una carrera-</option>
+                        </select>
+                        <label for="" id="cursoRepetido" class="lblError lblHide">*Cédula existente!</label>
+                    </div>
+                    <div class="btnAgregCurso">
+                        <button type="button" id="butAgregar" class="btnRegistro ">Agregar curso</button>
+                    </div>
+                    <div class="tableContainer">
+                        <br>
+                    <div class="filaDer">
+                        <table cellspacing=10px id="tblCursos">
+                    </div>
+                            <thead>
+                                <th>Cursos Agregados:
+                                </th>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <button type="button" class="btnRegistro btnPestanaAtr"> Atrás </button>
+                    <button type="button" id="butRegistrar" class="btnRegistro btnPestanaSig">Registrar</button>
+                
+
+
+                </form>
+            </div>
         </div>
-        <form action="" class="contFormulario" id="form3">
-            <h2>Contacto de emergencia</h2>
-            <div class="layer2">
-                <label>Primer nombre:</label>
-                <input type="text" id="conNombre1" />
-            </div>
-            <div class="layer3">
-                <label>Segundo nombre:</label>
-                <input type="text" id="conNombre2" />
-            </div>
-            <div class="layer2">
-                <label>Primer apellido:</label>
-                <input type="text" id="conApellido1" />
-            </div>
-            <div class="layer3">
-                <label>Segundo apellido:</label>
-                <input type="text" id="conApellido2" />
-            </div>
-            <div class="layer2">
-                <label>Teléfono</label>
-                <input type="text" id="conTelefono" />
-            </div>
-            <div class="layer3">
-                <label>Correo</label>
-                <input type="text" id="conCorreo" />
-            </div>
-            <button type="button" id="butRegistrar" class="btnRegistro">Registrar</button>
-        </form>
+
     </main>
     <footer></footer>
     <script src="js/jquery-3.3.1.js"></script>
