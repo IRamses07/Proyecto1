@@ -4,15 +4,53 @@ moveUser(true);
 (function(d){
     let tabs = Array.prototype.slice.apply(d.querySelectorAll('.tabs__item'));
     let pannels = Array.prototype.slice.apply(d.querySelectorAll('.panels__item'));
-    d.querySelector('#tabs').addEventListener('click', function(e){
-        if(e.target.classList.contains('tabs__item')){
+    // let butSiguiente = Array.prototype.slice.apply(d.querySelectorAll('.btnPestanaSig'));
+    let siguiente1 = d.querySelector('#siguiente1');
+    siguiente1.addEventListener('click',  function(e){
+            console.log('valida parte 1 con un if');
             let i = tabs.indexOf(e.target);
-            tabs.map(tab => tab.classList.remove('activeTab'));
-            tabs[i].classList.add('activeTab');
-            pannels.map(panel => panel.classList.remove('activePanel'));
-            pannels[i].classList.add('activePanel');
-        }
-    }); 
+            console.log(i);
+    });
+
+    let siguiente2 = d.querySelector('#siguiente2');
+    siguiente2.addEventListener('click'  ,  function(){
+
+    });
+    
+
+    
+
+
+    let buttonRegistrar = document.querySelector('#butRegistrar');
+    buttonRegistrar.addEventListener('click', getDatos);
+
+
+let selecccionProvincia = document.querySelector('#selecProvincia');
+selecccionProvincia.addEventListener('click', function(){
+    if(selecccionProvincia.value.length !== 0){
+        seleccionarCanton(selecccionProvincia.value);
+    }
+});
+function lala(){
+    console.log('llegs');
+}
+
+
+    // d.querySelector('#tabs').addEventListener('click', function(e){
+
+        // if(e.target.classList.contains('tabs__item')){
+        //     let i = tabs.indexOf(e.target);
+            
+        //     tabs.map(tab => tab.classList.remove('activeTab'));
+        //     tabs[i].classList.add('activeTab');
+            
+        //     pannels.map(panel => panel.classList.remove('activePanel'));
+        //     pannels[i].classList.add('activePanel');
+
+        // }
+
+
+
 })(document);
 
 //Boton Registrar Estudiante
@@ -261,6 +299,7 @@ function imprimirListaCursos (){
     let listaCursos = obtenerListaCursos();
     let tbody = document.querySelector('#tblCursos tbody');
     tbody.innerHTML = '';
+    console.log(listaCursos);
          
     for(let i = 0; i < listaCursos.length; i++){
         let fila = tbody.insertRow();

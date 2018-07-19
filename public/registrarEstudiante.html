@@ -114,7 +114,7 @@
                         <label class="lblInput">Dirección:</label>
                         <textarea rows="1" cols="50" id="estDireccion" placeholder=" Ejem: 200 metros norte de la iglesia de Parrita"></textarea>
                         <label for="" class="lblError lblHide">*Cédula existente!</label>
-                            <button type="button" class="btnRegistro btnPestanaSig ">Siguiente</button>
+                            <button type="button" id="siguiente1" class="btnRegistro btnPestanaSig ">Siguiente</button>
                     </div>
                 </form>
             </div>
@@ -158,7 +158,7 @@
                         </div>
                     </div>
                         <button type="button" class="btnRegistro btnPestanaAtr"> Atrás </button>
-                        <button type="button" class="btnRegistro btnPestanaSig">Siguiente</button>
+                        <button type="button" id="siguiente2" class="btnRegistro btnPestanaSig">Siguiente</button>
                 </form>
 
             </div>
@@ -188,12 +188,14 @@
                         <button type="button" id="butAgregar" class="btnRegistro ">Agregar curso</button>
                     </div>
                     <div class="tableContainer">
-                        <br>
-                    <div class="filaDer">
-                        <table cellspacing=10px id="tblCursos">
-                    </div>
+                        <div>
+                            <table cellspacing=10px id="tblCursos">
+                        </div>
+                            <h3>Cursos aprobados</h3>
                             <thead>
-                                <th>Cursos Agregados:
+                                <th>Nombre del curso:
+                                </th>
+                                <th>Carrera:
                                 </th>
                             </thead>
                             <tbody>

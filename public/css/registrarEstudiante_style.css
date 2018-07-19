@@ -4,6 +4,12 @@ h2 {
     text-align: center;
     margin-top: 50px;
 }
+h3 {
+    font-size: 22px;
+    margin-bottom: 25px;
+    text-align: center;
+    margin-top: 50px;
+}
 #content{
     display: flow-root;
     width: 81%;
@@ -47,19 +53,20 @@ textarea{
 .btnPestanaSig{
     float: right;   
     position: absolute;
-    bottom: 1%;
-    right: 1%;
+    bottom: 3%;
+    right: 3%;
 }
 .btnPestanaAtr{
     float: left;
     position: absolute;
-    bottom: 1%;
-    left: 1%;
+    bottom: 3%;
+    left: 3%;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 .btnPar{
     margin-bottom: 0%;
     clear: both;
-    border: 1px solid red;
     height: 55px;
 }
 
@@ -75,6 +82,8 @@ input::placeholder, .letraItalic{
     border: 2px solid #fbb876;
     width: 80%;
     min-height: 600px;
+    border-radius: 5%;
+    border-top-left-radius: 0%;
 }
 .activePanel{
     position: relative;
@@ -115,7 +124,6 @@ input::placeholder, .letraItalic{
 
 .btnAgregCurso{
     width: 100%;
-    border: 1px solid red;
 }
 
 #butAgregar{
@@ -124,17 +132,15 @@ input::placeholder, .letraItalic{
 }
 
 .btnAgregCurso{
-    border: 1px solid red;
     float: right;
     margin-right: 1%;
     margin-top: 20px;
 }
 
 .tableContainer{
-    width: 100%;
-    border: 1px solid burlywood;
+    width: 98%;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
 }
-
-
-
 
