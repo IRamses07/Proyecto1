@@ -11,8 +11,7 @@
     margin-left: auto;
     margin-right: auto;
 }
-input { font-family: 'Font Awesome\ 5 Free';
-    font-weight: 400; }
+input { font-family:FontAwesome }
 
 .tbl a, .tbl button {
     cursor: pointer;
@@ -79,4 +78,9 @@ h2 {
 
 .fmr div div:nth-child(2n) {
     float: right;
+}
+.btnFiltro{
+    padding: 5px;
+    cursor: pointer;
+    margin: 2px
 }
