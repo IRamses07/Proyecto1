@@ -95,7 +95,7 @@ function obtenerDatos() {
         });
         console.log('No se pudo registrar el usuario');
     } else {
-        agregarProyectoCliente();
+       
         registrarProyecto(infoProyecto);
         limpiarFormulairo();
 
@@ -195,7 +195,7 @@ function agregarProyectoCliente() {
 
 
     let id = selectNombreCliente.value;
-    let id1 = selectNombreCliente.value;
+    let idP ;
     let nombreProyecto = inputNombreProyecto.value;
     let fechaEntrega = dateFechaEntrega.value;
     let estadoProyecto = selectEstadoProyecto.value;
@@ -206,16 +206,16 @@ function agregarProyectoCliente() {
     for (let i = 0; i < proyecto.length; i++) {
 
         if (proyecto[i]['nombre_proyecto'] == (inputNombreProyecto.value)) {
-            id1 = proyecto[i]['_id'];
+            idP = proyecto[i]['_id'];
         }
 
 
     }
 
-    infoProyecto.push(id, id1, nombreProyecto, fechaEntrega, estadoProyecto);
+    infoProyecto.push(id, idP, nombreProyecto, fechaEntrega, estadoProyecto);
 
 
-    asignarProyectoC(id, id1, nombreProyecto, fechaEntrega, estadoProyecto);
+    asignarProyectoC(id, idP, nombreProyecto, fechaEntrega, estadoProyecto);
 
 
 }
