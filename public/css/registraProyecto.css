@@ -13,13 +13,15 @@
 
  .frmRegistrarProyectos {
     margin: 0 auto;
-    width: 70%;
+    width: 85%;
  }
 
  main .colupna1{
     margin-top: 40px;
     width: 45%;
      float: left;
+    /* margin-right: %; */
+
  }
  main .colupna1 input{
     margin-top: 5px;
@@ -79,11 +81,26 @@ textarea {
     width: 90%;
     height: 150px;
     margin-top: 5px;
-    margin-bottom:20px;
+    margin-bottom:21px;
     border: 0px ;
     border-radius: 5px;
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }
+
+main .colupna2 select{
+    display: block;
+    margin-top: 5px;
+    margin-bottom:20px;
+    width: 91%;
+         
+}
+
+ main .button button{
+    margin: 0 auto;
+        margin-left: 31%;
+    width: 30%;
+ }
+
 
 
 
