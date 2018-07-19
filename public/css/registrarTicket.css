@@ -69,15 +69,6 @@ div .blockLeft {
     padding: 7px 3%;
 }
 
-/* Cambio del estilo del input de la imagen */
-input[type=”file”]#imgPantallazoError {
-    width: 0.1px;
-    height: 0.1px;
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    z-index: -1;
-    }
 
     textarea {
         width: 100%;
@@ -169,6 +160,11 @@ h1 {
 .btnImgErr{
     width: 30%;
     content: 'Subir imagen';
+    background-color: #fbb308;
+    color: #fff;
+    border-radius: 3px;
+    border:  #fbb803 1px solid;
+    font-family: 'Roboto' sans-serif;
 }
 
 .imgErrorContainer {

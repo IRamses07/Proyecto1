@@ -59,20 +59,20 @@
                             <input type="text" id="txtnombreCliente" value="" required disabled>
                         </div> -->
                         <div class="boxInpt">
+                            <label for="">Proyecto</label>
+                            <select name="proyecto" id="sltProyecto" required>
+                                <option value="">Seleccione su proyecto</option>
+                            </select>
+                           
+                        </div>
 
+                        <div class="boxInpt">
                             <label for="">Urgencia</label>
                             <select name="urgencia" id="sltUrgencia" required>
                                 <option value="">seleccione la urgencia</option>
                                 <option value="Alta">Alta</option>
                                 <option value="Media">Media</option>
                                 <option value="Baja">Baja</option>
-                            </select>
-                        </div>
-
-                        <div class="boxInpt">
-                            <label for="">Proyecto</label>
-                            <select name="proyecto" id="sltProyecto" required>
-                                <option value="">Seleccione su proyecto</option>
                             </select>
                         </div>
 
@@ -86,12 +86,14 @@
 
 
                     <div class="blockRight">
+                        
+                        <div class="boxInpt">
+                            <img alt="Foto" src="img/placeholder.png" class="imgErrorContainer" id="imgErr">
+                        </div>
+
                         <div class="boxInpt">
                             <label for="file-upload">Subir imagen del error:</label>
                             <button type="button" id="file-upload" class="btnImgErr">Subir imagen</button>
-                        </div>
-                        <div class="boxInpt">
-                            <img alt="Foto" src="img/placeholder.png" class="imgErrorContainer" id="imgErr">
                         </div>
 
                     </div>
