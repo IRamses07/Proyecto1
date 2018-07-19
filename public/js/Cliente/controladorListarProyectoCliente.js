@@ -7,13 +7,14 @@ function llenarTabla() {
     let lista = obtenerListaProyectos(),
         body = tabla.querySelector('tbody');
     body.innerHTML = '';
-    let proyectos = getCurrentUserData().proyectos; 
+    let proyectos = getCurrentUserData().proyectos;
+    console.log(proyectos, lista)
     for (let i = 0; i < lista.length; i++) {
         for (let j = 0; j < proyectos.length; j++) {
-            console.log(lista[i]['_id'],proyectos[j].id)
+            console.log(lista[i]['_id'], proyectos[j].id)
             if (lista[i]['_id'].toLowerCase() == proyectos[j].id) {
-                let row = body.insertRow();
-                let nombre = row.insertCell(),
+                let row = body.insertRow(),
+                    nombre = row.insertCell(),
                     fecha = row.insertCell(),
                     info = row.insertCell(),
                     vermas = createElm('a');
