@@ -77,13 +77,24 @@ button{
 
 textarea {
     width: 90%;
-    height: 150px;
+    height: 83px;
     margin-top: 5px;
-    margin-bottom:20px;
+    margin-bottom:21px;
     border: 0px ;
     border-radius: 5px;
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }
+
+main .colupna2 select{
+    display: block;
+    margin-top: 5px;
+    margin-bottom:20px;
+    width: 91%;
+    
+   
+    
+}
+
 
 
 
