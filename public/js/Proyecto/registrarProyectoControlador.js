@@ -25,7 +25,7 @@ let dateFechaEntrega = document.querySelector('#dtEntregaEstimada');
 
 let txtaDescripcion = document.querySelector('#txtDescripcion');
 
-
+inputIdentifiacionJuridica = ' ';
 
  document.getElementById('#slNombredelCliente').onchange = llenarCedulaJuridica();
 
@@ -38,6 +38,10 @@ function llenarCedulaJuridica () {
 
         if (listaClientes[i]['_id'] == (nombreCliente)) {
             cedulaJuridica = listaClientes[i]['cedula_juridica'];
+        }else{
+            if(nombreCliente==''){
+                cedulaJuridica.value ='';
+            }
         }
     }
 
@@ -97,6 +101,7 @@ function obtenerDatos() {
     } else {
        
         registrarProyecto(infoProyecto);
+        agregarProyectoCliente();
         limpiarFormulairo();
 
         swal({
@@ -120,7 +125,7 @@ function listarSelectClientes() {
     select.options[0] = new Option("Seleccione un cliente...", "");
 
     for (let i = 0; i < slNombredelCliente.length; i++) {
-        select.options[i] = new Option(slNombredelCliente[i]['nombre'], slNombredelCliente[i]['_id']);
+        select.options[i+1] = new Option(slNombredelCliente[i]['nombre'], slNombredelCliente[i]['_id']);
 
     }
 }
