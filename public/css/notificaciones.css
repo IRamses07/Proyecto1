@@ -32,3 +32,18 @@
 .ModalNotificaciones>a:hover {
     color: #fcf830;
 } */
+
+#tblNotificacion {
+    background-color: #ffffff;
+    color:  #5e6972 ;
+ 
+}
+
+#tblNotificacion td{
+    padding: 16px 0 5px 4%;
+    border:  #c5d0d8 1px solid;
+}
+
+tblNotificacion th {
+    font-weight: bold;
+}
