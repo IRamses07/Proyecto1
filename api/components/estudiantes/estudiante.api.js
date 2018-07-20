@@ -2,7 +2,6 @@
 const estudianteSchema = require('./estudiante.model');
 
 module.exports.registrar = function (req, res) {
-    console.log(req.body);
     let estudianteNuevo = new estudianteSchema({
         cedula: req.body.cedula,
         Nombre1: req.body.Nombre1,
@@ -28,8 +27,6 @@ module.exports.registrar = function (req, res) {
         passwordChange: req.body.passwordChange,
         foto: req.body.foto,
         rol : req.body.rol
-        
-
     });
 
     estudianteNuevo.save(function (error) {
@@ -40,7 +37,6 @@ module.exports.registrar = function (req, res) {
         }
 
     });
-
 };
 
 module.exports.listar = function (req, res) {
@@ -51,7 +47,6 @@ module.exports.listar = function (req, res) {
 };
 
 module.exports.filtrarNombre = function (req, res) {
-    console.log(req.query.Nombre1);
     estudianteSchema.find({ 'Nombre1': req.query.Nombre1 }).then(
         function (estudiantes) {
             res.send(estudiantes);
@@ -59,7 +54,6 @@ module.exports.filtrarNombre = function (req, res) {
 };
 
 module.exports.getInfoEstudiante = function (req, res) {
-    console.log(req.query.cedula);
     estudianteSchema.find({ 'cedula': req.query.cedula }).then(
         function (estudiantes) {
             res.send(estudiantes);
@@ -67,8 +61,6 @@ module.exports.getInfoEstudiante = function (req, res) {
 };
 
 module.exports.cambiarFoto = function (req, res) {
-    console.log('aqui esta2');
-
     estudianteSchema.findOneAndUpdate(
         {
             cedula: req.body.cedula
@@ -83,7 +75,6 @@ module.exports.cambiarFoto = function (req, res) {
 };
 
 module.exports.asignar_proyecto = function (req, res) {
-console.log(req.body);
     estudianteSchema.update({
         _id: req.body._id
     }, {
