@@ -9,6 +9,7 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/generalStyle.css">
+    <link rel="stylesheet" href="css/notificaciones.css">
     <link rel="stylesheet" href="css/agregarEstudiantes.css">
 
 
@@ -19,7 +20,7 @@
 
     <header>
         <div class="mainHeader">
-            <a href="#" class="fLeft">
+            <a id="notificacion" class="fLeft">
                 <i class="fas fa-bell"></i> Notificaciones</a>
             <a href="javascript:logOut();" class="fRight">Cerrar sesión
                 <i class="fas fa-cog"></i>
@@ -27,14 +28,24 @@
         </div>
 
         <div class="menuLateral" id="divMenuLateral">
-                <i class="fas fa-align-justify"></i>
-       
-            </div>
+            <i class="fas fa-align-justify"></i>
+
+        </div>
 
     </header>
 
     <main id="content">
-
+            <div class="modal none" id="modal">
+                    <div class="ModalNotificaciones">
+                        <a>X</a>
+                        <table id="tblNotificacion">
+                            <thead>
+                                <th>Notificaciones</th>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
         <h1>Asignar Estudiantes a Proyectos</h1>
 
 
@@ -75,6 +86,7 @@
 
         <script src="js/Proyecto/jquery-3.3.1.js"></script>
         <script src="js/Login/login.js"></script>
+        <script src="js/Notificaciones/notificaciones.js"></script>
         <script src="js/Cliente/servicioCliente.js"></script>
         <script src="js/Proyecto/registrarProyectoservicio.js"></script>
         <script src="js/Estudiante/registrarEstudiante_servicio.js"></script>

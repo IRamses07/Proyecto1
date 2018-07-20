@@ -25,7 +25,7 @@ let dateFechaEntrega = document.querySelector('#dtEntregaEstimada');
 
 let txtaDescripcion = document.querySelector('#txtDescripcion');
 
-
+inputIdentifiacionJuridica = ' ';
 
  document.getElementById('#slNombredelCliente').onchange = llenarCedulaJuridica();
 
@@ -38,6 +38,10 @@ function llenarCedulaJuridica () {
 
         if (listaClientes[i]['_id'] == (nombreCliente)) {
             cedulaJuridica = listaClientes[i]['cedula_juridica'];
+        }else{
+            if(nombreCliente==''){
+                cedulaJuridica.value ='';
+            }
         }
     }
 
@@ -95,8 +99,9 @@ function obtenerDatos() {
         });
         console.log('No se pudo registrar el usuario');
     } else {
-        agregarProyectoCliente();
+       
         registrarProyecto(infoProyecto);
+        agregarProyectoCliente();
         limpiarFormulairo();
 
         swal({
@@ -120,7 +125,7 @@ function listarSelectClientes() {
     select.options[0] = new Option("Seleccione un cliente...", "");
 
     for (let i = 0; i < slNombredelCliente.length; i++) {
-        select.options[i] = new Option(slNombredelCliente[i]['nombre'], slNombredelCliente[i]['_id']);
+        select.options[i+1] = new Option(slNombredelCliente[i]['nombre'], slNombredelCliente[i]['_id']);
 
     }
 }
@@ -195,7 +200,7 @@ function agregarProyectoCliente() {
 
 
     let id = selectNombreCliente.value;
-    let id1 = selectNombreCliente.value;
+    let idP ;
     let nombreProyecto = inputNombreProyecto.value;
     let fechaEntrega = dateFechaEntrega.value;
     let estadoProyecto = selectEstadoProyecto.value;
@@ -206,16 +211,16 @@ function agregarProyectoCliente() {
     for (let i = 0; i < proyecto.length; i++) {
 
         if (proyecto[i]['nombre_proyecto'] == (inputNombreProyecto.value)) {
-            id1 = proyecto[i]['_id'];
+            idP = proyecto[i]['_id'];
         }
 
 
     }
 
-    infoProyecto.push(id, id1, nombreProyecto, fechaEntrega, estadoProyecto);
+    infoProyecto.push(id, idP, nombreProyecto, fechaEntrega, estadoProyecto);
 
 
-    asignarProyectoC(id, id1, nombreProyecto, fechaEntrega, estadoProyecto);
+    asignarProyectoC(id, idP, nombreProyecto, fechaEntrega, estadoProyecto);
 
 
 }

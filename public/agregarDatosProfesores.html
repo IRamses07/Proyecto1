@@ -11,13 +11,14 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/generalStyle.css">
+    <link rel="stylesheet" href="css/notificaciones.css">
     <link rel="stylesheet" href="css/agregarDatosProfesores.css">
 </head>
 
 <body>
     <header>
         <div class="mainHeader">
-            <a href="##" class="fLeft">
+            <a id="notificacion" class="fLeft">
                 <i class="fas fa-bell"></i> Notificaciones</a>
             <a href="javascript:logOut();" class="fRight">Cerrar sesión
                 <i class="fas fa-cog"></i>
@@ -25,13 +26,23 @@
         </div>
 
         <div class="menuLateral" id="divMenuLateral">
-                <i class="fas fa-align-justify"></i>
-       
-            </div>
+            <i class="fas fa-align-justify"></i>
+
+        </div>
 
     </header>
     <main id="content">
-
+            <div class="modal none" id="modal">
+                    <div class="ModalNotificaciones">
+                        <a>X</a>
+                        <table id="tblNotificacion">
+                            <thead>
+                                <th>Notificaciones</th>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
         <form class="mainContainer">
             <h1>Actualizar datos personales</h1>
             <div class="container">
@@ -112,7 +123,7 @@
             </div>
             <button type="button" class="btnRegistro" id="btnAgregar">Agregar datos</button>
         </form>
-        
+
         <div class="tableContainer">
 
             <table class="hide tamannoMaxL tamannoMinL" id="tblCursosImpartidos">
@@ -135,6 +146,7 @@
     <footer></footer>
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/Login/login.js"></script>
+    <script src="js/Notificaciones/notificaciones.js"></script>
     <script src="js/Profesor/profesor.servicio.js"></script>
     <script src="js/Profesor/agregarDatosProfesores.controlador.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

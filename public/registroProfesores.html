@@ -12,13 +12,14 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/generalStyle.css">
+    <link rel="stylesheet" href="css/notificaciones.css">
     <link rel="stylesheet" href="css/registroProfesores.css">
 </head>
 
 <body>
     <header>
         <div class="mainHeader">
-            <a href="##" class="fLeft">
+            <a id="notificacion" class="fLeft">
                 <i class="fas fa-bell"></i> Notificaciones</a>
             <a href="javascript:logOut();" class="fRight">Cerrar sesión
                 <i class="fas fa-cog"></i>
@@ -31,7 +32,18 @@
 
     </header>
     <main id="content">
+        <div class="modal none" id="modal">
+            <div class="ModalNotificaciones">
+                <a>X</a>
+                <table id="tblNotificacion">
+                    <thead>
+                        <th>Notificaciones</th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
 
+        </div>
         <form id="fmrRegitroProfesor" class="fmr">
             <h2>Registro de profesores</h2>
             <div class="mainContainer">
@@ -89,6 +101,7 @@
     <footer></footer>
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/Login/login.js"></script>
+    <script src="js/Notificaciones/notificaciones.js"></script>
     <script src="js/Profesor/profesor.servicio.js"></script>
     <script src="js/Profesor/registroProfesor.controlador.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

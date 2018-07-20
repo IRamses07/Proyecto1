@@ -1,71 +1,89 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lista Tickets</title>
-    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/generalStyle.css">
+    <link rel="stylesheet" href="css/notificaciones.css">
     <link rel="stylesheet" href="css/registrarTicket.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
+
 <body>
-        <header>
-                <div class="mainHeader">
-                    <a href="##" class="fLeft">
-                        <i class="fas fa-bell"></i> Notificaciones</a>
-                    <a href="javascript:logOut();" class="fRight">Cerrar sesión
-                        <i class="fas fa-cog"></i>
-                    </a>
+    <header>
+        <div class="mainHeader">
+            <a id="notificacion" class="fLeft">
+                <i class="fas fa-bell"></i> Notificaciones</a>
+            <a href="javascript:logOut();" class="fRight">Cerrar sesión
+                <i class="fas fa-cog"></i>
+            </a>
+        </div>
+
+        <div class="menuLateral" id="divMenuLateral">
+            <i class="fas fa-align-justify"></i>
+        </div>
+
+    </header>
+    <main id="content">
+            <div class="modal none" id="modal">
+                    <div class="ModalNotificaciones">
+                        <a>X</a>
+                        <table id="tblNotificacion">
+                            <thead>
+                                <th>Notificaciones</th>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
                 </div>
-        
-                <div class="menuLateral" id="divMenuLateral">
-                        <i class="fas fa-align-justify"></i>
-                    </div>
-        
-            </header>
-            <main id="content">
-                <section id="listaTickets">
-                    <h1>Lista de Tickets</h1>
+        <section id="listaTickets">
+            <h1>Lista de Tickets</h1>
 
-                    <div class="filtroTicket">
-                       <label for="tickets">Buscar por:</label>
-                        <input type="radio" name="radioSelected" checked="checked" id="cliente" value="nombre_cliente"><label for="tickets">Nombre de cliente</label>
-                        <input type="radio" id="proyecto" name="radioSelected" value="proyecto"><label for="tickets">Proyecto</label>
-                        <!-- <input type="radio" id="codigo" name="radioSelected" value="codigo"><label for="tickets">Código</label> -->
-                        <!-- <input type="radio" id="profesor" name="radioSelected" value="profesor"><label for="tickets">Profesor</label> -->
-                        <select name="urgencia" id="sltUrgencia" >
-                            <option value="">Seleccione la urgencia:</option>
-                            <option value="Alta">Alta</option>
-                            <option value="Media">Media</option>
-                            <option value="Baja">Baja</option>
-                        </select>
-                        <input type="text"  id="filtrocliente" class="inptbuscar" placeholder="Escriba la opción a buscar">
-                            <button type="button" id="btnFiltrar"  class="btnFiltro">Filtrar</button>
-                    
-                    </div>
-                    <table id="tblTicketAdmin">
-                        <thead>
-                            <th>Nombre del cliente</th>
-                            <th>Urgencia</th>
-                            <th>Proyecto</th>
-                            <th>Descripción</th>
-                            <th>Ver más</th>
-                        </thead>
-                        <tbody>
+            <div class="filtroTicket">
+                <label for="tickets">Buscar por:</label>
+                <input type="radio" name="radioSelected" checked="checked" id="cliente" value="nombre_cliente">
+                <label for="tickets">Nombre de cliente</label>
+                <input type="radio" id="proyecto" name="radioSelected" value="proyecto">
+                <label for="tickets">Proyecto</label>
+                <!-- <input type="radio" id="codigo" name="radioSelected" value="codigo"><label for="tickets">Código</label> -->
+                <!-- <input type="radio" id="profesor" name="radioSelected" value="profesor"><label for="tickets">Profesor</label> -->
+                <select name="urgencia" id="sltUrgencia">
+                    <option value="">Seleccione la urgencia:</option>
+                    <option value="Alta">Alta</option>
+                    <option value="Media">Media</option>
+                    <option value="Baja">Baja</option>
+                </select>
+                <input type="text" id="filtrocliente" class="inptbuscar" placeholder="Escriba la opción a buscar">
+                <button type="button" id="btnFiltrar" class="btnFiltro">Filtrar</button>
 
-                        </tbody>
-                    </table>
-                </section>
-            </main>
+            </div>
+            <table id="tblTicketAdmin">
+                <thead>
+                    <th>Nombre del cliente</th>
+                    <th>Urgencia</th>
+                    <th>Proyecto</th>
+                    <th>Descripción</th>
+                    <th>Ver más</th>
+                </thead>
+                <tbody>
 
-            <script src="js/jquery-3.3.1.js"></script>
-            <script src="js/Login/login.js"></script>
-            <script src="js/Ticket/servicioRegistroTicket.js"></script>
-            <script src="js/Ticket/controladorListarTicket.js"></script>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/Login/login.js"></script>
+    <script src="js/Notificaciones/notificaciones.js"></script>
+    <script src="js/Ticket/servicioRegistroTicket.js"></script>
+    <script src="js/Ticket/controladorListarTicket.js"></script>
 </body>
+
 </html>
