@@ -1,146 +1,167 @@
-h2{
+h2, h1 {
+    font-size: 23px;
+    margin-bottom: 25px;
     text-align: center;
-    font-size: 24px;
-    padding: 65px 0 15px 0;
-    clear: both;
+    margin-top: 40px;
 }
 h1{
-    font-size: 2em;
+    font-size: 27px;
+    margin-top: 30px;
+}
+h3 {
+    font-size: 22px;
+    margin-bottom: 25px;
     text-align: center;
-    padding: 55px 0 0 0;
+    margin-top: 50px;
 }
-h3{
-    margin-left: 12.5%;
-    font-size: 20px;
-    padding-bottom: 20px;
-    padding-top: 40px;
+#content{
+    display: flow-root;
+    width: 81%;
 }
-.contFormulario{
-    width: 70%;
-    margin: 0 auto;
-    margin-bottom: 30px;
-}
-.contFormulario label {
-    font-size: 15px;
-    display: block;
-}
-.contFormulario input {
-    display: block;
-}
-.contFormulario div{
-    margin-top: 15px;
-}
-.layer1{
+.filaIzq{
+    width: 47%;
     float: left;
-    width: 50%;
+    margin-left: 1%;
 }
-.layer3 select{
-    width: 75%;
-    display: block;
+.filaDer{
+    width: 47%;
     float: right;
+    margin-right: 1%;
 }
-.layer2{
-    float: left;
-    width: 50%;
-}
-.layer3{
-     float: left;
-     width: 50%;
-}
-.layer4, br{
+.filaCenter{
     width: 100%;
-    clear: both;
-}
-.layer5{
     float: left;
-    width: 33%;
-    padding-bottom: 15px;
+    margin-left: 2%;
+    margin-right: 2%;
+    height: 55px;
 }
-.layer5 select{
-    width: 50%;
+.form{
+    display: flow-root;
+    width: 95%;
+    margin: 0px auto 0 auto;
+    /*min-height: 610px;*/
+}
+input, select{
     display: block;
-}
-#selectCurso{
-    width: 100%;
-}
-.labelcenter{
-    text-align: left;
-    margin-left: 0;
-}
-input, label, select{
-    margin: 0 auto;
-    width: 50%;
-    padding-bottom: 5px;
-    border-radius: 3px;
     outline: none;
-    border: none;
+    width: 100%;
 }
-input{
-     border: 1px solid;
+select:hover{
+    cursor: pointer;
 }
-textarea, .layer4 label{
-    margin: 0 auto;
-    width: 75%;
-    padding-bottom: 5px;
-    display: block;
-    border-radius: 3px;
+textarea{
+    width: 97%;
+    border: 0px;
+    border-radius: 5px;
+    outline: none;
+    height: 22px;
+    margin: -1%;
+    margin-top: 2px;
 }
-#optionsTT{
-    margin: 0 5% 0 5%;
-}
-#optionsTT {
 
+.btnPestanaSig{
+    float: right;   
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
 }
-#butRegistrar{
-    float: right;
+.btnPestanaAtr{
+    float: left;
+    position: absolute;
+    bottom: 3%;
+    left: 3%;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.btnPar{
+    margin-bottom: 0%;
+    clear: both;
+    height: 55px;
+}
+
+.tituloH3{
+    width: 100%;
     clear: both;
     text-align: center;
-    outline: none;
-    margin: 25px 12% 25px;
-    border-radius: 3px;
 }
-#butAgregar{
-    display: block;
-    margin: 0 auto;
-    margin-top: 22px;
-    outline: none;
-    outline: none;
-    padding: 5px 10px;
+
+input::placeholder, .letraItalic{
+    font-style: italic;
 }
-table{
+
+.panels__item{
+    position: absolute;
+    /*left: -1000%;*/
+    top: -1000%;
+    border: 2px solid #fbb876;
+    width: 80%;
+    min-height: 600px;
+    border-radius: 5%;
+    border-top-left-radius: 0%;
+}
+.activePanel{
+    position: relative;
+    left: 0;
+}
+
+.tabs-container{
+    position: relative;
+    /*width: 500px;*/
+    margin: 2em auto;
+    margin-left: 17%;
+}
+
+.tabs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.tabs__item{
+    border: 1px solid #fbb803;
+    border-bottom: none;
+    line-height: 2.5;
+    padding: 0 1em;
+    margin-right: 1px;
+    background: #fbb803;
+    border-radius: 5px 5px 0 0;
+    top: 1px;
+    z-index: 0;
+    cursor: pointer;
+}
+
+.activeTab{
+    background: #fbb876;
+    z-index: 20;
+}
+
+.btnAgregCurso{
     width: 100%;
-    border-top: 1px black;
 }
-thead th {
-    display: table-cell;
-    vertical-align: inherit;
-    text-align: center;
-    padding-bottom: 10px;
-    border-bottom: 2px solid white;
+
+#butAgregar{
+    float: right;
+    margin-right: 1%;
 }
+
+.btnAgregCurso{
+    float: right;
+    margin-right: 1%;
+    margin-top: 20px;
+}
+
 .tableContainer{
-    width: 50%;
+    width: 98%;
     display: block;
     margin: 0 auto;
-    font-size: 15px;
-    font-weight: bold;
-}
-.tableContainer tbody{
     text-align: center;
-    min-height:100px;
-    overflow: auto;
 }
-.tableContainer tbody tr{
-   border-top: 2px solid white;
+
+.lblError{
+    color: #ff0000;
 }
-.tableContainer tbody td{
-   padding: 10px 0 10px 0;
-}
-#container{
-    padding-left: 17.6%;
-}
-.cedEx{
-    text-align: right;
-    font-size: 10px;
-    color: #d63031;
+
+tbody{
+    max-height: 150px;
 }

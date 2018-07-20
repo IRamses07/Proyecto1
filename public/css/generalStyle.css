@@ -71,7 +71,7 @@ a {
 
 /* estilo del error de los inputs */
 .error, .error_input{
-    border: 1px solid #d63031;
+    border: 2px solid #d63031;
 }
 
 /* estilo de los inputs en general, solo deben de eliminar el width y el height si es necesario */

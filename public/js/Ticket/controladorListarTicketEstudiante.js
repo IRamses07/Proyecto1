@@ -9,11 +9,9 @@ btnFiltro.addEventListener('click', function () {
     listarTicketsEstudiante(inptBuscarCliente.value);
 
     let radioSelected = document.querySelector('input[type="radio"]:checked');
-   
 
     let selectUrgencia = document.querySelector('#sltUrgencia').value;
     listarTicketsEstudiante(inptBuscarCliente.value, selectUrgencia, radioSelected.value);
-
 })
 
 function listarTicketsEstudiante(pinptBuscarCliente, selectUrgencia, radioSelected) {
@@ -36,7 +34,6 @@ function listarTicketsEstudiante(pinptBuscarCliente, selectUrgencia, radioSelect
         tickets[i]['urgencia'].includes(selectUrgencia)) {
 
             let fila = tbody.insertRow();
-            // let codigo = fila.insertCell();
             let cliente = fila.insertCell();
             let urgencia = fila.insertCell();
             let proyecto = fila.insertCell();
@@ -48,7 +45,6 @@ function listarTicketsEstudiante(pinptBuscarCliente, selectUrgencia, radioSelect
             boton.value = "Ver más";
             boton.classList.add("btnLista");
 
-            // codigo.innerHTML = tickets[i]['codigo'];
             cliente.innerHTML = tickets[i]['nombre_cliente'];
             urgencia.innerHTML = tickets[i]['urgencia'];
             proyecto.innerHTML = tickets[i]['proyecto'];
@@ -60,12 +56,6 @@ function listarTicketsEstudiante(pinptBuscarCliente, selectUrgencia, radioSelect
 
     }
 };
-
-
-
-
-
 function mostrarDatosTicketseleccionado(){
 document.location(href='verTicket.html');
-
 }
