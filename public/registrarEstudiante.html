@@ -30,15 +30,15 @@
 
     </header>
     <main id="content">
-        <h2>Nuevo Estudiante</h2>
+        <h1>Nuevo Estudiante</h1>
         <div class="tabs-container">
             <ul class="tabs" id="tabs">
-                <li class="tabs__item activeTab">Datos personales</li>
-                <li class="tabs__item">Contacto de emergencia</li>
-                <li class="tabs__item">Información académica</li>
+                <li id="tab1" class="tabs__item activeTab">Datos personales</li>
+                <li id="tab2" class="tabs__item">Contacto de emergencia</li>
+                <li id="tab3" class="tabs__item">Información académica</li>
             </ul>
 
-            <div class="panels__item activePanel">
+            <div id="panelN1" class="panels__item activePanel">
 
                 <form action="" class="form" id="form1">
 
@@ -47,12 +47,12 @@
                         <div>
                             <label class="lblInput">Cédula:</label>
                             <input type="text" id="estCedula" placeholder=" Ejm: 102340567"/>
-                            <label for="" class="lblError lblHide">*Cédula existente!</label>
+                            <label for="" id="labelCed" class="lblError lblHide">*Cédula existente!</label>
                         </div>
                         <div>
                             <label class="lblInput">Segundo nombre:</label>
                             <input type="text" id="estnombre2" placeholder=" Ejm: Manuel"/>
-                            <label for="" class="lblError lblHide">*Cédula existente!</label>
+                            <label for="" id="labelNom" class="lblError lblHide">*Solo letras!</label>
                         </div>
                         <div>
                             <label class="lblInput">Segundo apellido:</label>
@@ -119,7 +119,7 @@
                 </form>
             </div>
 
-            <div class="panels__item ">     
+            <div id="panelN2" class="panels__item ">     
 
                 <form action="" class="form" id="form2">
                     <h2>Contacto de emergencia</h2>
@@ -157,12 +157,12 @@
                             <label for="" class="lblError lblHide">*Cédula existente!</label>
                         </div>
                     </div>
-                        <button type="button" class="btnRegistro btnPestanaAtr"> Atrás </button>
+                        <button type="button" id="atras1" class="btnRegistro btnPestanaAtr"> Atrás </button>
                         <button type="button" id="siguiente2" class="btnRegistro btnPestanaSig">Siguiente</button>
                 </form>
 
             </div>
-            <div class="panels__item ">
+            <div id="panelN3" class="panels__item ">
 
                 <form action="" class="form" id="form3">
                     <h2>Información académica</h2>
@@ -182,20 +182,20 @@
                         <select id="selectCurso">
                             <option>-Seleccione una carrera-</option>
                         </select>
-                        <label for="" id="cursoRepetido" class="lblError lblHide">*Cédula existente!</label>
                     </div>
                     <div class="btnAgregCurso">
                         <button type="button" id="butAgregar" class="btnRegistro ">Agregar curso</button>
                     </div>
                     <div class="tableContainer">
+                        <div class="tituloH3">
+                            <h3>Cursos aprobados:</h3>
+                        </div>
                         <div>
                             <table cellspacing=10px id="tblCursos">
                         </div>
-                            <h3>Cursos aprobados</h3>
+                        
                             <thead>
-                                <th>Nombre del curso:
-                                </th>
-                                <th>Carrera:
+                                <th>
                                 </th>
                             </thead>
                             <tbody>
@@ -204,11 +204,9 @@
                     </div>
 
 
-                    <button type="button" class="btnRegistro btnPestanaAtr"> Atrás </button>
+                    <button type="button" id="atras2" class="btnRegistro btnPestanaAtr"> Atrás </button>
                     <button type="button" id="butRegistrar" class="btnRegistro btnPestanaSig">Registrar</button>
-                
-
-
+        
                 </form>
             </div>
         </div>

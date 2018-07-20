@@ -1,8 +1,12 @@
-h2 {
-    font-size: 24px;
+h2, h1 {
+    font-size: 23px;
     margin-bottom: 25px;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 40px;
+}
+h1{
+    font-size: 27px;
+    margin-top: 30px;
 }
 h3 {
     font-size: 22px;
@@ -42,14 +46,19 @@ input, select{
     outline: none;
     width: 100%;
 }
+select:hover{
+    cursor: pointer;
+}
 textarea{
     width: 97%;
     border: 0px;
     border-radius: 5px;
     outline: none;
     height: 22px;
-    margin: 0 auto;
+    margin: -1%;
+    margin-top: 2px;
 }
+
 .btnPestanaSig{
     float: right;   
     position: absolute;
@@ -70,7 +79,11 @@ textarea{
     height: 55px;
 }
 
-
+.tituloH3{
+    width: 100%;
+    clear: both;
+    text-align: center;
+}
 
 input::placeholder, .letraItalic{
     font-style: italic;
@@ -78,7 +91,8 @@ input::placeholder, .letraItalic{
 
 .panels__item{
     position: absolute;
-    left: -1000%;
+    /*left: -1000%;*/
+    top: -1000%;
     border: 2px solid #fbb876;
     width: 80%;
     min-height: 600px;
@@ -144,3 +158,10 @@ input::placeholder, .letraItalic{
     text-align: center;
 }
 
+.lblError{
+    color: #ff0000;
+}
+
+tbody{
+    max-height: 150px;
+}

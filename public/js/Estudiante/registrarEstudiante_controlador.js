@@ -1,57 +1,79 @@
 'use strict';
 moveUser(true);
 
+//Funcion para pestanas superiores del cuadro con validación
 (function(d){
     let tabs = Array.prototype.slice.apply(d.querySelectorAll('.tabs__item'));
     let pannels = Array.prototype.slice.apply(d.querySelectorAll('.panels__item'));
-    // let butSiguiente = Array.prototype.slice.apply(d.querySelectorAll('.btnPestanaSig'));
-    let siguiente1 = d.querySelector('#siguiente1');
-    siguiente1.addEventListener('click',  function(e){
-            console.log('valida parte 1 con un if');
+    let pasa = false;
+    d.querySelector('#tabs').addEventListener('click', function(e){
+        pasa = false;
+        if(e.target.classList.contains('tabs__item')){            
             let i = tabs.indexOf(e.target);
-            console.log(i);
-    });
+            if(i>0){
+                if(i==1){
+                    if(!validaInfoPersonal())
+                        pasa=true;
+                }else{
+                    if(!validaInfoContacto())
+                        pasa=true;
+                }
+            }else{
+                pasa=true;
+            }
+            if(pasa){
+                tabs.map(tab => tab.classList.remove('activeTab'));
+                tabs[i].classList.add('activeTab');
+                pannels.map(panel => panel.classList.remove('activePanel'));
+                pannels[i].classList.add('activePanel');
+            }
+        }
+    }); 
+})(document);
 
-    let siguiente2 = d.querySelector('#siguiente2');
-    siguiente2.addEventListener('click'  ,  function(){
+let panelN1 = document.querySelector('#panelN1'); //paneles con info
+let panelN2 = document.querySelector('#panelN2');
+let panelN3 = document.querySelector('#panelN3');
 
-    });
-    
+let tab1 = document.querySelector('#tab1');
+let tab2 = document.querySelector('#tab2');
+let tab3 = document.querySelector('#tab3');
 
-    
-
-
-    let buttonRegistrar = document.querySelector('#butRegistrar');
-    buttonRegistrar.addEventListener('click', getDatos);
-
-
-let selecccionProvincia = document.querySelector('#selecProvincia');
-selecccionProvincia.addEventListener('click', function(){
-    if(selecccionProvincia.value.length !== 0){
-        seleccionarCanton(selecccionProvincia.value);
+let siguiente1 = document.querySelector('#siguiente1'); //botones siguiente
+siguiente1.addEventListener('click', function(){
+    if(!validaInfoPersonal()){    
+        panelN1.classList.remove('activePanel');
+        panelN2.classList.add('activePanel');
+        tab1.classList.remove('activeTab');
+        tab2.classList.add('activeTab');
     }
 });
-function lala(){
-    console.log('llegs');
-}
 
+let siguiente2 = document.querySelector('#siguiente2');
+siguiente2.addEventListener('click', function(){
+    if(!validaInfoContacto()){
+    panelN2.classList.remove('activePanel');
+    panelN3.classList.add('activePanel');
+    tab2.classList.remove('activeTab');
+    tab3.classList.add('activeTab');
+    }
+});
 
-    // d.querySelector('#tabs').addEventListener('click', function(e){
+let atras1 = document.querySelector('#atras1'); //bonones para atras
+atras1.addEventListener('click', function(){
+    panelN2.classList.remove('activePanel');
+    panelN1.classList.add('activePanel');
+    tab2.classList.remove('activeTab');
+    tab1.classList.add('activeTab');
+});
 
-        // if(e.target.classList.contains('tabs__item')){
-        //     let i = tabs.indexOf(e.target);
-            
-        //     tabs.map(tab => tab.classList.remove('activeTab'));
-        //     tabs[i].classList.add('activeTab');
-            
-        //     pannels.map(panel => panel.classList.remove('activePanel'));
-        //     pannels[i].classList.add('activePanel');
-
-        // }
-
-
-
-})(document);
+let atras2 = document.querySelector('#atras2');
+atras2.addEventListener('click', function(){
+    panelN3.classList.remove('activePanel');
+    panelN2.classList.add('activePanel');
+    tab3.classList.remove('activeTab');
+    tab2.classList.add('activeTab');
+});
 
 //Boton Registrar Estudiante
 let buttonRegistrar = document.querySelector('#butRegistrar');
@@ -105,18 +127,23 @@ let inputConApellido2 = document.querySelector('#conApellido2');
 let inputConTelefono = document.querySelector('#conTelefono');
 let inputConCorreo = document.querySelector('#conCorreo');
 let cursoRep = document.querySelector('#cursoRepetido');
-let labelCed = document.querySelector('#cedExt');   //why am I calling this?
+let labelCed = document.querySelector('#labelCed');
+let form1 = document.querySelector('#form1');
+let form2 = document.querySelector('#form2');
+let form3 = document.querySelector('#form3');
+let tbodyCursos = document.querySelector('#tblCursos tbody');
+
 
 function getDatos(){
     let infoEstudiante=[];
     let sError = false;
     infoEstudiante.push(inputCedula.value,inputNombre1.value,inputNombre2.value,inputApellido1.value,inputApellido2.value,inputTelefono.value,inputCorreo.value,inputDireccion.value,$("#selecProvincia option:selected" ).text(),$("#selectCanton option:selected").text(),$("#selectDistrito option:selected").text(),selectCarrera.value,inputConNombre1.value,inputConNombre2.value,inputConApellido1.value,inputConApellido2.value,inputConTelefono.value,inputConCorreo.value,'Activo');
 
-    sError = validar();
+    sError = validaCarrera();
     if(sError==true){
         swal({
             title: "Advertencia",
-            text: "Por favor llene los campos en rojo.",
+            text: "Por favor revisar los campos marcados con rojo",
             icon: "warning",
             button: "Ok",
         });
@@ -126,16 +153,23 @@ function getDatos(){
             type : 'Success',
             title : 'Registro exitoso',
             text: 'El estudiante se registró exitosamente',
+            icon: 'success',
             confirmButtonText : 'OK'
         });
+        form1.reset();
+        form2.reset();
+        form3.reset();
+        tbodyCursos.innerHTML='';
+        // document.location.href = 'listarEstudiante.html';
     }
 }
 
-function validar(){
+function validaInfoPersonal(){
     let sError = false;
     let checkSoloLetras = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$/;
     let checkFormatoNumeral = /^[0-9 -]+$/;
     let checkFormatoEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
 
     if(inputCedula.value == '' || (checkFormatoNumeral.test(inputCedula.value)==false) ){
         inputCedula.classList.add('error_input');
@@ -153,6 +187,7 @@ function validar(){
         sError = true;
     }else{
         inputNombre1.classList.remove('error_input');
+        labelNom.classList.add('lblHide');
     } 
     if(inputApellido1.value == '' || (checkSoloLetras.test(inputApellido1.value)==false) ){
         inputApellido1.classList.add('error_input');
@@ -195,7 +230,24 @@ function validar(){
         sError = true;
     }else{
         selectDistrito.classList.remove('error_input');
+    };
+    if(sError==true){
+        swal({
+            title: "Advertencia",
+            text: "Por favor revisar los campos marcados con rojo",
+            icon: "warning",
+            button: "Ok",
+        });
     }
+    return sError;
+}
+
+function validaInfoContacto(){
+    let sError = false;
+    let checkSoloLetras = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$/;
+    let checkFormatoNumeral = /^[0-9 -]+$/;
+    let checkFormatoEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
     if(inputConNombre1.value == '' || (checkSoloLetras.test(inputConNombre1.value)==false) ){
         inputConNombre1.classList.add('error_input');
         sError = true;
@@ -220,11 +272,36 @@ function validar(){
     }else{
         inputConCorreo.classList.remove('error_input');
     }
+    if(sError==true && !validaInfoPersonal()){
+        swal({
+            title: "Advertencia",
+            text: "Por favor revisar los campos marcados con rojo",
+            icon: "warning",
+            button: "Ok",
+        });
+    }
+    return sError;
+}
+
+function validaCarrera(){
+    let sError = false;
+    let checkSoloLetras = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$/;
+    let checkFormatoNumeral = /^[0-9 -]+$/;
+    let checkFormatoEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
     if(selectCarrera.value == '-Seleccione una carrera-'){
         selectCarrera.classList.add('error_input');
         sError = true;
     }else{
         selectCarrera.classList.remove('error_input');
+    }
+    if(sError==true){
+        swal({
+            title: "Advertencia",
+            text: "Por favor llene los campos en rojo.",
+            icon: "warning",
+            button: "Ok",
+        });
     }
     return sError;
 }
@@ -262,6 +339,7 @@ function getCurso(){
             type : 'warning',
             title : 'No se pudo agregar el curso',
             text: 'Por favor revise los campos en rojo',
+            icon: 'warning',
             confirmButtonText : 'OK'
         });
     } else{
@@ -274,7 +352,7 @@ function validarCurso(){
     let listaCursos = obtenerListaCursos();
     let sError=false;
 
-    if(selectCurso.value == '-Seleccione una carrera-'){
+    if(selectCurso.value == '-Seleccione un curso-'){
         selectCurso.classList.add('error_input');
         sError=true;
     }else{
@@ -299,7 +377,6 @@ function imprimirListaCursos (){
     let listaCursos = obtenerListaCursos();
     let tbody = document.querySelector('#tblCursos tbody');
     tbody.innerHTML = '';
-    console.log(listaCursos);
          
     for(let i = 0; i < listaCursos.length; i++){
         let fila = tbody.insertRow();
