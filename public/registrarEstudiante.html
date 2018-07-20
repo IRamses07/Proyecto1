@@ -9,6 +9,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/generalStyle.css">
+    <link rel="stylesheet" href="css/notificaciones.css">
     <link rel="stylesheet" href="css/registrarEstudiante_style.css">
     <title>Registro de Estudiante</title>
 </head>
@@ -17,7 +18,7 @@
     <header>
 
         <div class="mainHeader">
-            <a href="##" class="fLeft">
+            <a id="notificacion" class="fLeft">
                 <i class="fas fa-bell"></i> Notificaciones</a>
             <a href="javascript:logOut();" class="fRight">Cerrar sesión
                 <i class="fas fa-cog"></i>
@@ -29,7 +30,19 @@
         </div>
 
     </header>
-    <main id="container">
+    <main id="content">
+            <div class="modal none" id="modal">
+                    <div class="ModalNotificaciones">
+                        <a>X</a>
+                        <table id="tblNotificacion">
+                            <thead>
+                                <th>Notificaciones</th>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+        
+                </div>
         <form action="" class="contFormulario" id="form1">
             <h1>Registro de Estudiantes</h1>
             <h2>Datos personales</h2>
@@ -179,6 +192,7 @@
     <script src="js/jquery-3.3.1.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="js/Login/login.js"></script>
+    <script src="js/Notificaciones/notificaciones.js"></script>
     <script src="js/Estudiante/registrarEstudiante_controlador.js"></script>
     <script src="js/Estudiante/registrarEstudiante_servicio.js"></script>
 </body>

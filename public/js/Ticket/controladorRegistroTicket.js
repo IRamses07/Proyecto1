@@ -6,13 +6,14 @@ botonRegistrarTicket.addEventListener('click', obtenerDatosTicket);
 
 
 
-let inptNombreCliente = document.querySelector('#txtnombreCliente');
+let codigo = '';
+let fechaReg = getDate();
 let inptUrgencia = document.querySelector('#sltUrgencia');
 let inptProyecto = document.querySelector('#sltProyecto');
 let inptimagenErr = document.querySelector('#file-upload');
 let inptReferenciaTicket = document.querySelector('#sltTicket');
-
 let inptDescripcionError = document.querySelector('#txtdescripcion');
+
 listarSelectProyectos();
 llenarNombreCliente();
 listarTicketsReferencia();
@@ -22,6 +23,7 @@ function obtenerDatosTicket() {
     let ticket = [];
     let error = false;
     error = validar();
+    
     let nombreCliente = inptNombreCliente.value;
     let urgencia = inptUrgencia.value;
     let proyecto = inptProyecto.value;
@@ -59,12 +61,7 @@ function obtenerDatosTicket() {
 function validar() {
     let error = false;
 
-    if (inptNombreCliente.value == '') {
-        inptNombreCliente.classList.add('error');
-        error = true;
-    } else {
-        inptNombreCliente.classList.remove('error');
-    }
+
     if (inptUrgencia.value == '') {
         inptUrgencia.classList.add('error');
         error = true;
@@ -135,14 +132,3 @@ function listarTicketsReferencia() {
         sltReferenciaTicket.options[i] = new Option(sltTickets[i]['proyecto'], sltTickets[i]['proyecto'])
     }
 }
-
-
-
-// function ticketsViejos(){
-//     let sltTickets = listarTickets();
-//     let sltReferenciaTicket =  document.querySelector('#sltTicket');
-
-//     for(let i = 0; i < sltTickets.length; i++){
-//         sltReferenciaTicket.options[i] = new Option (sltTickets[i]['pryecto'], sltTickets[i]['proyecto'])
-//     }
-// }

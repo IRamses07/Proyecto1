@@ -76,6 +76,7 @@ div .blockLeft {
         border: 0px ;
         border-radius: 5px;
         font-family: 'Roboto', Arial, Helvetica, sans-serif;
+        margin: 10px 0px;
     }
 
     textarea::-moz-placeholder,

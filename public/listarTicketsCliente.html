@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lista Tickets</title>
-    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/generalStyle.css">
+    <link rel="stylesheet" href="css/notificaciones.css">
     <link rel="stylesheet" href="css/registrarTicket.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
@@ -17,33 +18,43 @@
 
 <body>
     <header>
-        <div class="mainHeader">
-            <a href="##" class="fLeft">
-                <i class="fas fa-bell"></i> Notificaciones</a>
-            <a href="javascript:logOut();" class="fRight">Cerrar sesión
-                <i class="fas fa-cog"></i>
-            </a>
+        <a id="notificacion" class="fLeft">
+            <i class="fas fa-bell"></i> Notificaciones</a>
+        <a href="javascript:logOut();" class="fRight">Cerrar sesión
+            <i class="fas fa-cog"></i>
+        </a>
         </div>
 
         <div class="menuLateral" id="divMenuLateral">
-                <i class="fas fa-align-justify"></i>
-            </div>
+            <i class="fas fa-align-justify"></i>
+        </div>
 
     </header>
     <main id="content">
+            <div class="modal none" id="modal">
+                    <div class="ModalNotificaciones">
+                        <a>X</a>
+                        <table id="tblNotificacion">
+                            <thead>
+                                <th>Notificaciones</th>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
         <section id="listaTickets">
             <h1>Lista de Tickets</h1>
 
             <div class="filtroTicket">
                 <label for="tickets">Buscar por proyecto:</label>
                 <input type="text" id="filtro" class="inptbuscar">
-                <select name="urgencia" id="sltUrgencia"  class="sltUrgencia2">
+                <select name="urgencia" id="sltUrgencia" class="sltUrgencia2">
                     <option value="">Seleccione la urgencia:</option>
                     <option value="Alta">Alta</option>
                     <option value="Media">Media</option>
                     <option value="Baja">Baja</option>
                 </select>
-                
+
                 <button type="button" id="btnFiltrar" class="btnFiltro">Filtrar</button>
 
             </div>
@@ -63,6 +74,7 @@
 
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/Login/login.js"></script>
+    <script src="js/Notificaciones/notificaciones.js"></script>
     <script src="js/Ticket/servicioRegistroTicket.js"></script>
     <script src="js/Ticket/controladorListaTicketCliente.js"></script>
 </body>

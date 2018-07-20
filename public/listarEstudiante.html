@@ -9,6 +9,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/generalStyle.css">
+    <link rel="stylesheet" href="css/notificaciones.css">
     <link rel="stylesheet" href="css/registrarEstudiante_style.css">
     <link rel="stylesheet" href="css/listarEstudiante.css">
     <title>Lista de Estudiantes</title>
@@ -18,8 +19,8 @@
     <header>
 
         <div class="mainHeader">
-            <a href="##" class="fLeft">
-                <i class="fas fa-bell"></i> Notificaciones</a>
+                <a id="notificacion" class="fLeft">
+                        <i class="fas fa-bell"></i> Notificaciones</a>
             <a href="javascript:logOut();" class="fRight">Cerrar sesión
                 <i class="fas fa-cog"></i>
             </a>
@@ -31,7 +32,17 @@
 
     </header>
     <main id="container">
-
+            <div class="modal none" id="modal">
+                    <div class="ModalNotificaciones">
+                        <a>X</a>
+                        <table id="tblNotificacion">
+                            <thead>
+                                <th>Notificaciones</th>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
         <h1>Lista de estudiantes</h1>
         <div class="filtrarEstudiante">
             <form action="" class="contFormulario2" id="form">
@@ -73,6 +84,7 @@
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/Estudiante/registrarEstudiante_servicio.js"></script>
     <script src="js/Login/login.js"></script>
+    <script src="js/Notificaciones/notificaciones.js"></script>
     <script src="js/Estudiante/listarEstudiante_controlador.js"></script>
 
 </body>
