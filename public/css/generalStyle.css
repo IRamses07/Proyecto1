@@ -166,19 +166,23 @@ th {
     visibility: hidden;
 }
 
+.hide{
+    display: none;
+}
+
 .lblInput, .lblDatos{
     display: block;
     margin-bottom: 5px;
 }
 
 .lblError{
-    display: block;
-    margin-bottom: 10px;
+    /*display: block;
+    margin-bottom: 10px;*/
     border-left: #fbb803 3px solid;
 }
 
-.div Datos{
-    margin-bottom: 25px;
+.divDatos{
+    margin-bottom: 10px;
 }
 /******Ramses*******/
 

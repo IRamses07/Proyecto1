@@ -1,4 +1,4 @@
-moveUser(true);
+moveUser(false);
 document.querySelector('#btnChange').addEventListener('click', passwordChange);
 
 function passwordChange() {
@@ -32,6 +32,31 @@ function passwordChange() {
             document.querySelector('#txtNewPassword').classList.remove('error_input');
             document.querySelector('#lblNewPasswordError').classList.add('lblHide');
             bError = true;
+        }
+
+        if(newPassword.length > 5 && newPassword.length < 12){
+            document.querySelector('#txtNewPassword').classList.remove('error_input');
+            document.querySelector('#lblNewPasswordError2').classList.remove('hide');
+            document.querySelector('#lblNewPasswordError2').classList.add('lblHide');
+        } else {
+            document.querySelector('#txtNewPassword').classList.add('error_input');
+            document.querySelector('#lblNewPasswordError2').classList.remove('hide');
+            document.querySelector('#lblNewPasswordError2').classList.remove('hide');
+            bError = true;
+        }
+
+        if((newPassword.length > 5 && newPassword.length < 12) && getCurrentUserData()['password'] == newPassword){
+            document.querySelector('#divHide').classList.remove('hide');
+            document.querySelector('#lblNewPasswordError2').classList.remove('hide');
+        }else{
+            document.querySelector('#divHide').classList.add('hide');
+            document.querySelector('#lblNewPasswordError2').classList.add('hide');
+        }
+
+        if(!(newPassword.length > 5 && newPassword.length < 12) && !(getCurrentUserData()['password'] == newPassword)){
+            document.querySelector('#lblNewPasswordError').classList.add('hide');
+            document.querySelector('#lblNewPasswordError').classList.remove('lblHide');
+            document.querySelector('#lblNewPasswordError2').classList.remove('hide');
         }
 
         if (newPassword == confirmPassword) {
