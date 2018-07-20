@@ -122,7 +122,7 @@ function obtenerDatos() {
 function listarSelectClientes() {
     let slNombredelCliente = listarClientes();
     let select = document.querySelector('#slNombredelCliente');
-    select.options[0] = new Option("Seleccione un cliente...", "");
+    select.options[0] = new Option("Seleccione un cliente", "");
 
     for (let i = 0; i < slNombredelCliente.length; i++) {
         select.options[i+1] = new Option(slNombredelCliente[i]['nombre'], slNombredelCliente[i]['_id']);
