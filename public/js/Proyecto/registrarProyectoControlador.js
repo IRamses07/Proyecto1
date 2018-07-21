@@ -40,7 +40,7 @@ function llenarCedulaJuridica () {
             cedulaJuridica = listaClientes[i]['cedula_juridica'];
         }else{
             if(nombreCliente==''){
-                cedulaJuridica.value ='';
+                cedulaJuridica.value =' ';
             }
         }
     }
