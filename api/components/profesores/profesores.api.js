@@ -149,8 +149,8 @@ module.exports.cambiar_foto_profesores = function (req, res) {
         });
 };
 
-/*module.exports.actualizar_usuario = function(req, res){
-    userModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
+module.exports.cambiar_contrasenna = function(req, res){
+    profesorModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
         function(err) {
             if (err) {
                 res.json({ success: false, msg: 'No se ha actualizado.' + handleError(err) });
@@ -159,45 +159,5 @@ module.exports.cambiar_foto_profesores = function (req, res) {
             res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
             }
       });
-};*/
-
-
-/*module.exports.cambiarFoto = function(req, res){
-
-    profesorModel.findOneAndUpdate(
-        {
-            cedula: req.body.cedula
-        },
-        {  
-            foto: req.body.foto
-        }
-        ).then(
-        function(profesores){
-            res.send(profesores);
-    });
 };
 
-module.exports.agregar_info_profesor = function(req, res){
-    
-    profesorModel.update({_id: req.body._id}, 
-        {$push: 
-            {'preparacion_academica':
-                {
-                    trabajo: req.body.trabajo,
-                    anno: req.body.anno,
-                    cursos: req.body.cursos,
-                    grado: req.body.grado,
-                    titulo: req.body.titulo,
-                    carrera: req.body.carrera
-                }
-            }
-        },
-        function(error){
-            if(error){
-                res.json({success : false, msg : 'No se pudo registrar el título, ocurrió el siguiente error' + error});
-            }else{
-                res.json({success : true, msg : 'El título se registró con éxito'});
-            }
-        }
-    )
-};*/

@@ -14,11 +14,6 @@ router.route('/listar_profesores')
         profesores.listar(req, res);
     });
 
-/*router.route('/actualizar_usuario')
-    .post(function(req, res){
-    users.actualizar_usuario(req, res);
-});*/
-
 router.route('/getinfo_profesor')
     .get(function (req, res) {
         console.log('f7');
@@ -52,6 +47,11 @@ router.route('/agregar_info_extra_profesor')
 router.route('/cambiar_foto_profesores')
     .put(function(req, res){
         profesores.cambiar_foto_profesores(req, res);
+});
+
+router.route('/cambiar_contrasenna')
+    .post(function(req, res){
+    profesores.cambiar_contrasenna(req, res);
 });
 
 module.exports = router;
