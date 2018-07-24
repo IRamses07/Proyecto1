@@ -27,9 +27,9 @@ let txtaDescripcion = document.querySelector('#txtDescripcion');
 
 inputIdentifiacionJuridica = ' ';
 
- document.getElementById('#slNombredelCliente').onchange = llenarCedulaJuridica();
+document.getElementById('#slNombredelCliente').onchange = llenarCedulaJuridica();
 
-function llenarCedulaJuridica () {
+function llenarCedulaJuridica() {
     let listaClientes = listarClientes();
     let nombreCliente = document.querySelector('#slNombredelCliente').value;
     let cedulaJuridica;
@@ -38,16 +38,16 @@ function llenarCedulaJuridica () {
 
         if (listaClientes[i]['_id'] == (nombreCliente)) {
             cedulaJuridica = listaClientes[i]['cedula_juridica'];
-        }else{
-            if(nombreCliente==''){
-                cedulaJuridica.value =' ';
+        } else {
+            if (nombreCliente == '') {
+                cedulaJuridica.value = '';
             }
         }
     }
 
     let inputIdentifiacionJuridica = document.querySelector('#txtIdentifiacionJuridica');
 
-    inputIdentifiacionJuridica.value = cedulaJuridica; 
+    inputIdentifiacionJuridica.value = cedulaJuridica;
 }
 
 function limpiarFormulairo() {
@@ -99,7 +99,7 @@ function obtenerDatos() {
         });
         console.log('No se pudo registrar el usuario');
     } else {
-       
+
         registrarProyecto(infoProyecto);
         agregarProyectoCliente();
         limpiarFormulairo();
@@ -125,7 +125,7 @@ function listarSelectClientes() {
     select.options[0] = new Option("Seleccione un cliente", "");
 
     for (let i = 0; i < slNombredelCliente.length; i++) {
-        select.options[i+1] = new Option(slNombredelCliente[i]['nombre'], slNombredelCliente[i]['_id']);
+        select.options[i + 1] = new Option(slNombredelCliente[i]['nombre'], slNombredelCliente[i]['_id']);
 
     }
 }
@@ -200,7 +200,7 @@ function agregarProyectoCliente() {
 
 
     let id = selectNombreCliente.value;
-    let idP ;
+    let idP;
     let nombreProyecto = inputNombreProyecto.value;
     let fechaEntrega = dateFechaEntrega.value;
     let estadoProyecto = selectEstadoProyecto.value;
@@ -224,6 +224,8 @@ function agregarProyectoCliente() {
 
 
 }
+
+
 
 
 // function llenarCedulaJuridica() {
