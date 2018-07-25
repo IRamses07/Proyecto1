@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/generalStyle.css">
     <link rel="stylesheet" href="css/notificaciones.css">
-    <link rel="stylesheet" href="css/registrarEstudiante_style.css">
     <link rel="stylesheet" href="css/listarEstudiante.css">
     <title>Lista de Estudiantes</title>
 </head>
@@ -43,29 +42,20 @@
                         </table>
                     </div>
                 </div>
-        <h1>Lista de estudiantes</h1>
+        <h1>Listado de estudiantes</h1>
+
         <div class="filtrarEstudiante">
             <form action="" class="contFormulario2" id="form">
-                <div class="buscarPor">
                     <label for="cliente">Buscar por:</label>
-                </div>
-                <div class="seleccionar" id="selectcionar1">
-                        <input type="radio" checked="checked" value="Nombre1" name="radioSelect"/><label for="cliente">Nombre</label>
-                        <input type="radio" value="cedula" name="radioSelect"/><label for="cliente">Cédula</label>
-                </div>
-                <div class="buscar">
+                    <input type="radio" checked="checked" value="Nombre1" name="radioSelect"/><label for="cliente">Nombre</label>
+                    <input type="radio" value="cedula" name="radioSelect"/><label for="cliente">Cédula</label>
                     <input type="text" id="inputBuscar" />
                     <label id="errorInput"></label>
-                </div>
-
-                <div class="containerRegistrar">
                     <button type="button" id="butBuscarEstudiante" class="btnRegistro">Buscar</button>
-                </div>
             </form>
         </div>
 
         <div class="tableContainer">
-
             <table cellspacing=10px id="tblEstudiantes">
                 <thead>
                     <th>Cédula</th>
@@ -79,13 +69,14 @@
                 <tbody>
                 </tbody>
             </table>
-
+        </div>
     </main>
     <footer></footer>
     <script src="js/jquery-3.3.1.js"></script>
-    <script src="js/Estudiante/registrarEstudiante_servicio.js"></script>
+    <!--<script src="js/Estudiante/registrarEstudiante_servicio.js"></script>-->
     <script src="js/Login/login.js"></script>
     <script src="js/Notificaciones/notificaciones.js"></script>
+    <script src="js/Estudiante/registrarEstudiante_servicio.js"></script>
     <script src="js/Estudiante/listarEstudiante_controlador.js"></script>
 
 </body>
