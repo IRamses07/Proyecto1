@@ -55,19 +55,15 @@ function infoContacto(infoEstudiante){
 function imprimirListaCursos (infoEstudiante){
     let CursosString = infoEstudiante[0]['cursosAprobados'];
     let listaCursos = JSON.parse(CursosString);
-
+console.log(infoEstudiante);
     let tbody = document.querySelector('#tblCursos tbody');
     tbody.innerHTML = '';
          
     for(let i = 0; i < listaCursos.length; i++){
         let fila = tbody.insertRow();
 
-        let cCurso = fila.insertCell();
-        let cCiclo = fila.insertCell();
         let cNomCurso = fila.insertCell();
    
-        cCurso.innerHTML = listaCursos[i][0];
-        cCiclo.innerHTML = listaCursos[i][1];
-        cNomCurso.innerHTML = listaCursos[i][2];
+        cNomCurso.innerHTML = listaCursos[i][0];
     }
 }

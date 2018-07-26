@@ -4,7 +4,6 @@ let listaCursos = [];
 function registrarEstudiante(infoEstudiante) {
     let respuesta = '';
     let cursos = JSON.stringify(listaCursos);
-    console.log("servicelist: " + infoEstudiante);
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/registrar_estudiante',          //los defino en users.route.js
         type: 'post',
@@ -57,7 +56,6 @@ function agregaCurso(infoCurso) {
 
 }
 function obtenerListaCursos() {
-    console.log(JSON.stringify(listaCursos));
     return listaCursos;
 }
 
@@ -82,11 +80,7 @@ function obtenerListaEstudiantes() {
     peticion.fail(function (response) {
     });
 
-    //console.log(listaEstudiantes);
-
     return respuesta;
-
-    //return listaEstudiantes;
 }
 
 function validarCedulaRepetida(cedula){
@@ -101,8 +95,6 @@ function validarCedulaRepetida(cedula){
 }
 
 function filtrarNombreEstudiantes(inputDatoBuscar) {
-    console.log('f5');
-    console.log(inputDatoBuscar.value);
     let respuesta = 'respuesta';
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/filtrarnombre_estudiantes',
@@ -122,11 +114,7 @@ function filtrarNombreEstudiantes(inputDatoBuscar) {
     peticion.fail(function (response) {
     });
 
-    //console.log(listaEstudiantes);
-    console.log('f6');
     return respuesta;
-
-    //return listaEstudiantes;
 }
 
 function getInfoEstudiante() {
@@ -157,11 +145,7 @@ function getInfoEstudiante() {
     peticion.fail(function (response) {
     });
 
-    //console.log(listaEstudiantes);
-    console.log('f6');
     return respuesta;
-
-    //return listaEstudiantes;
 }
 
 function cambiarFoto(imagenUrl) {
@@ -229,7 +213,31 @@ function asignarProyecto(id, idProyecto, nombreProyecto, fechaEntrega, estadoPro
     return respuesta;
 }
 
+function cambiarEstadoS(ced,estadoEnt) {
+    let respuesta = '';
 
+    let peticion = $.ajax({
+        url: 'http://localhost:4000/api/cambiarestado_estudiantes',
+        type: 'put',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
+            cedula: ced,
+            estado: estadoEnt
+        }
+    });
+
+    peticion.done(function (response) {
+        respuesta = response;
+    });
+
+    peticion.fail(function (response) {
+
+    });
+
+    return respuesta;
+}
 
 
 

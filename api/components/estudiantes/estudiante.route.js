@@ -35,4 +35,10 @@ router.route('/asignar_proyecto_e')
     estudiantes.asignar_proyecto(req, res);
 });
 
+router.route('/cambiarestado_estudiantes')
+    .put(function(req, res){
+    estudiantes.cambiarEstado(req, res);
+});
+
+
 module.exports = router;

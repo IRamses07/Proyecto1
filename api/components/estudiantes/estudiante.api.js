@@ -104,3 +104,18 @@ module.exports.asignar_proyecto = function (req, res) {
         }
     )
 };
+
+
+module.exports.cambiarEstado = function (req, res) {
+    estudianteSchema.findOneAndUpdate(
+        {
+            cedula: req.body.cedula
+        },
+        {
+            estado: req.body.estado
+        }
+    ).then(
+        function (estudiantes) {
+            res.send(estudiantes);
+        });
+};

@@ -43,6 +43,11 @@ thead th {
     padding: 3px 0 3px 5px;
 }
 
+.cambioEstado{
+    width: 70px;
+    font-size: 1em;;
+}
+
 /*input[type='radio'] {
     display: none; 
     width: 24px; 

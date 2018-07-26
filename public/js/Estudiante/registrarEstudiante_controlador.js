@@ -86,15 +86,17 @@ buttonAgregarCurso.addEventListener('click',getCurso);
 //Seleccionar provincia
 let selecccionProvincia = document.querySelector('#selecProvincia');
 selecccionProvincia.addEventListener('click', function(){
-    if(selecccionProvincia.value.length !== 0){
+    selecccionProvincia = document.querySelector('#selecProvincia');
+    if(selecccionProvincia.value.length !== 0 && selecccionProvincia.value !== '-Seleccione una provincia-'){
+        console.log('listener: '+selecccionProvincia.value);
         seleccionarCanton(selecccionProvincia.value);
     }
 });
 
-// Seleccionar Canton
+
 let seleccionCanton = document.querySelector('#selectCanton');
 seleccionCanton.addEventListener('click', function(){
-    if(seleccionCanton.value.length !== 0){
+    if( seleccionCanton.value.length !== 0 && selecccionProvincia.value !== '-Seleccione una provincia-' && seleccionCanton.value !== '-Seleccione un cantón-' ){
         seleccionarDistrito(seleccionCanton.value,selecccionProvincia.value);
     }
 });
@@ -160,7 +162,14 @@ function getDatos(){
         form2.reset();
         form3.reset();
         tbodyCursos.innerHTML='';
+
         // document.location.href = 'listarEstudiante.html';
+
+        tab3.classList.remove('activeTab');
+        tab1.classList.add('activeTab');
+        panelN3.classList.remove('activePanel');
+        panelN1.classList.add('activePanel');
+
     }
 }
 
@@ -389,22 +398,23 @@ function seleccionarCanton(value){
     let lista;
 
     switch(value) {
-        case 0:
+        
+        case '0':
             lista=['Acosta','Alajuelita','Aserrí','Curridabat','Desamparados','Dota','Escazú','Goicochea','León Cortés','Montes de Oca','Mora','Moravia','Pérez Zeledon','Puriscal','San Jose','Santa Ana','Tarrazú','Tibás','Turrubares','Vásquez de Coronado'];
             break;
-        case 1:
+        case '1':
             lista=['Alajuela','Atenas','Grecia','Guatuso','Los Chiles','Naranjo','Orotina','Palmares','Poás','Río Cuarto','San Carlos','San Mateo','San Ramón','Upala','Valverde Vega','Zarcero'];
         break;
-        case 2:    
+        case '2':    
             lista=['Alvarado','Cartago','El Guarco','Jiménez','La Unión','Oreamuno','Paraíso','Turrialba'];
         break;
-        case 3:
+        case '3':
             lista=['Barva','Belén','Flores','Heredia','San Isidro','San Pablo','San Rafae','Santa Bárbara','Santo Domingo','Sarapiquí'];
         break;
-        case 4:
+        case '4':
             lista=['Abangares','Bagaces','Cañas','Carrillo','Nicoya','Hojancha','La Cruz','Liberia','Nandayure','Santa Cruz','Tilarán'];
         break;
-        case 5:
+        case '5':
             lista=['Buenos Aires','Corredores','Coto Brus','Esparza','Garabito','Golfito','Montes de Oro','Osa','Parrita','Puntarenas','Quepos'];
         break;
         default:
@@ -446,7 +456,7 @@ function seleccionarDistrito(canton,provincia){
             break;
     }
     let output = '';
-    
+
     output += '<option class="letraItalic">-Seleccione un distrito-</option>\n';
     for(let i = 0; i < lista[canton].length; i++){
         output += '<option value='+ i +'>'+ lista[canton][i] +'</option> \n';

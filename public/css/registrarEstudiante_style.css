@@ -130,10 +130,13 @@ input::placeholder, .letraItalic{
     z-index: 0;
     cursor: pointer;
 }
+#modal{
+    z-index: 3;
+}
 
 .activeTab{
     background: #fbb876;
-    z-index: 20;
+    z-index: 0;
 }
 
 .btnAgregCurso{

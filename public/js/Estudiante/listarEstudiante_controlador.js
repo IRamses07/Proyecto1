@@ -11,6 +11,43 @@ buttonFiltrar.addEventListener('click', function(){
     imprimirLista(radioSelected.value,inputDatoBuscar.value);
 });
 
+cambiarEstado();
+function cambiarEstado(){
+    let cambioEstado = document.querySelectorAll('.cambioEstado');
+    cambioEstado.forEach(function(elem){
+        elem.addEventListener("click", function(){
+            let ced = elem.value;
+            localStorage.setItem('ced',ced);
+            let info = getInfoEstudiante()[0];
+            
+            swal({
+                title: 'Esta seguro de que desea realizar los cambios?',
+                text: 'El estudiante "'+info['Nombre1']+'" pasara a estar en estado '+((info['estado']=='Activo')?'"Desactivo"':'"Activo"'),
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Cancelar',
+                confirmButtonText: 'Si, cambiar!'
+            }).then((result) => {
+                if (result.value) {
+                    swal(
+                    'Cambio realizado!',
+                    'El estudiante "'+info['Nombre1']+'" tiene ahora un estado '+((info['estado']=='Activo')?'"Desactivo"':'"Activo"'),
+                    'success'
+                    )
+                    if(info['estado']=='Activo'){
+                        cambiarEstadoS(ced,'Desactivo');
+                    } else {
+                        cambiarEstadoS(ced,'Activo');
+                    }
+                    imprimirLista();
+                }
+            })
+        })
+    })
+}
+
 vermas();
 function vermas(){
     let buttonsVermas = document.querySelectorAll('.btnVerMas');
@@ -21,10 +58,10 @@ function vermas(){
             document.location.href = 'perfilEstudiante.html';
         })
     });
+    cambiarEstado();
 }
 
 function imprimirLista(radioSelected,inputDatoBuscar){
-    
     let listaEstudiantes = obtenerListaEstudiantes();
     let tbody = document.querySelector('#tblEstudiantes tbody');
     tbody.innerHTML = '';
@@ -53,39 +90,9 @@ function imprimirLista(radioSelected,inputDatoBuscar){
                 cApellido.innerHTML = listaEstudiantes[i]['apellido1'];
                 cCarrera.innerHTML = listaEstudiantes[i]['carrera'];
                 cHoras.innerHTML = '  0  ';                                                 
-                cPerfil.innerHTML = '<button type="button" class="btnVerMas" value="'+listaEstudiantes[i]['cedula']+'">ver mas</button>';
-                cEstado.innerHTML = '<button type="button" class="btnRegistro" value="'+listaEstudiantes[i]['cedula']+'">modificar</button>  '+listaEstudiantes[i]['estado']+' ';
+                cPerfil.innerHTML = '<button type="button" class="btnVerMas" value="'+listaEstudiantes[i]['cedula']+'">Ver mas</button>';
+                cEstado.innerHTML = '<button type="button" class="btnRegistro cambioEstado" value="'+listaEstudiantes[i]['cedula']+'">'+listaEstudiantes[i]['estado']+'</button>';
             } 
         }
     vermas();
 }
-
-
-//         console.log('por proyecto 2');
-//         for(let i = 0; i < listaEstudiantes.length; i++){
-//             for(let n = 0; n < listaEstudiantes[i]['proyectos'].length; n++){
-//                 console.log(listaEstudiantes[i]['proyectos'][n]['nombre_proyecto']);
-
-
-//                 if(listaEstudiantes[i]['proyectos'][n]['nombre_proyecto'] && listaEstudiantes[i]['proyectos'][n]['nombre_proyecto'].toLowerCase().includes(inputDatoBuscar.toLowerCase())){
-//                          console.log('pasa');
-//                          let fila = tbody.insertRow();
-
-//                 let cNombre = fila.insertCell();
-//                 let cApellido = fila.insertCell();
-//                 let cCarrera = fila.insertCell();
-//                 let cHoras = fila.insertCell();
-//                 let cPerfil = fila.insertCell();
-//                 let cEstado = fila.insertCell();
-
-//                 cNombre.innerHTML = listaEstudiantes[i]['Nombre1'];          //nombre_completo es la db
-//                 cApellido.innerHTML = listaEstudiantes[i]['apellido1'];
-//                 cCarrera.innerHTML = listaEstudiantes[i]['carrera'];
-//                 cHoras.innerHTML = '  0  ';                                                 //A definir con el programador engardado de asignar horas al actor
-//                 cPerfil.innerHTML = '<button type="button" class="btnVerMas" value="'+listaEstudiantes[i]['cedula']+'">ver más</button>';
-//                 cEstado.innerHTML = '<button type="button" class="btnRegistro" value="'+listaEstudiantes[i]['cedula']+'">modificar</button>  '+listaEstudiantes[i]['estado']+' ';
-//                 }  
-//             }
-// // 
-//         // console.log(listaEstudiantes[i]['proyectos'][0]['nombre_proyecto']);
-//         }
