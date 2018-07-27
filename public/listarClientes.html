@@ -13,30 +13,33 @@
 
 <body>
     <header>
-        <div class="mainHeader">
-            <a id="notificacion" class="fLeft">
-                <i class="fas fa-bell"></i> Notificaciones</a>
-            <a href="javascript:logOut();" class="fRight">Cerrar sesión
-                <i class="fas fa-cog"></i>
-            </a>
-        </div>
+        <nav>
+            <div class="mainHeader">
+                <a id="notificacion" class="fLeft">
+                    <i class="fas fa-bell"></i> Notificaciones</a>
+                <a href="javascript:logOut();" class="fRight">Cerrar sesión
+                    <i class="fas fa-cog"></i>
+                </a>
+            </div>
 
-        <div class="menuLateral" id="divMenuLateral">
-            <i class="fas fa-align-justify"></i>
-        </div>
+            <div class="menuLateral" id="divMenuLateral">
+                <i class="fas fa-align-justify"></i>
+            </div>
+        </nav>
+
     </header>
     <main id="content">
-            <div class="modal none" id="modal">
-                    <div class="ModalNotificaciones">
-                        <a>X</a>
-                        <table id="tblNotificacion">
-                            <thead>
-                                <th>Notificaciones</th>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-                </div>
+        <div class="modal none" id="modal">
+            <div class="ModalNotificaciones">
+                <a>X</a>
+                <table id="tblNotificacion">
+                    <thead>
+                        <th>Notificaciones</th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
         <h2>Listado de Clientes</h2>
         <form id="busqueda" class="fmr">
             <div class="fLeft">

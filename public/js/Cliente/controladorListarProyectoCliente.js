@@ -11,7 +11,7 @@ function llenarTabla() {
     console.log(proyectos, lista)
     for (let i = 0; i < lista.length; i++) {
         for (let j = 0; j < proyectos.length; j++) {
-            console.log(lista[i]['_id'], proyectos[j].id)
+            console.log(lista[i]['_id'], proyectos[j]._id)
             if (lista[i]['_id'].toLowerCase() == proyectos[j].id) {
                 let row = body.insertRow(),
                     nombre = row.insertCell(),
