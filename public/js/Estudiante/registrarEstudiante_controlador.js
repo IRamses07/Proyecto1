@@ -1,6 +1,13 @@
 'use strict';
 moveUser(true);
 
+window.onbeforeunload = function(){                       //temporal! revisar <->
+    if(sessionStorage.getItem("update")==1){
+        sessionStorage.setItem('update', 0);
+        document.location.href = 'listarEstudiante.html';
+    }
+};
+
 //Funcion para pestanas superiores del cuadro con validación
 (function(d){
     let tabs = Array.prototype.slice.apply(d.querySelectorAll('.tabs__item'));
@@ -127,13 +134,16 @@ let inputConApellido1 = document.querySelector('#conApellido1');
 let inputConApellido2 = document.querySelector('#conApellido2');
 let inputConTelefono = document.querySelector('#conTelefono');
 let inputConCorreo = document.querySelector('#conCorreo');
-let cursoRep = document.querySelector('#cursoRepetido');
+let cursoExt = document.querySelector('#cursoExt');
 let labelCed = document.querySelector('#labelCed');
 let form1 = document.querySelector('#form1');
 let form2 = document.querySelector('#form2');
 let form3 = document.querySelector('#form3');
 let tbodyCursos = document.querySelector('#tblCursos tbody');
 let cedDiv = document.querySelector('#cedDiv');
+let tittleReg = document.querySelector('#tittleReg');
+let h1reg = document.querySelector('#h1reg');
+
 
 //boton de cancerlar para modificar
 let btnCancelar = document.querySelector('#btnCancelar');
@@ -191,8 +201,7 @@ function validaInfoPersonal(){
     let checkSoloLetras = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$/;
     let checkFormatoNumeral = /^[0-9 -]+$/;
     let checkFormatoEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-
-    if( sessionStorage.getItem("update")!==0 ){
+    if( sessionStorage.getItem("update")!=1 ){
         if(inputCedula.value == '' || (checkFormatoNumeral.test(inputCedula.value)==false) ){
             inputCedula.classList.add('error_input');
             sError = true;
@@ -390,7 +399,11 @@ function validarCurso(){
     for(let i = 0; i < listaCursos.length; i++){
         if (selectCurso.value == listaCursos[i][0]){
             sError = true;
-            cursoRep.classList.remove('lblHide');
+            selectCurso.classList.add('error_input');
+            cursoExt.classList.remove('lblHide');
+            return sError;
+        }else{
+            cursoExt.classList.add('lblHide');
         }
     }
     return sError;
@@ -478,25 +491,23 @@ function seleccionarDistrito(canton,provincia){
     selectDistrito.innerHTML = output;
 };
 
-
-
-
 (function(d){
     if( sessionStorage.getItem("update")==1 ){
-        console.log('llena: '+sessionStorage.getItem("update"));
         llenarDatosFormulario();
     };
 })(document);
-
-
 
 function llenarDatosFormulario(){
     btnCancelar.hidden = false;
     btnActualizar.hidden=false;
     butRegistrar.hidden=true;
-    document.getElementById('selecProvincia').click();
 
     let estudiante = getInfoEstudiante()[0];
+
+    tittleReg.innerHTML = 'Actualizar Estudiante';
+    h1reg.innerHTML = 'Información del estudiante: '+estudiante['Nombre1']+' '+estudiante['apellido1']+' - Ced: '+estudiante['cedula'];
+    inputCedula.disabled=true;
+    inputCedula.classList.add('disablesInput');
 
     inputCedula.value = estudiante['cedula'];
     inputNombre1.value = estudiante['Nombre1'];
@@ -508,6 +519,24 @@ function llenarDatosFormulario(){
     inputDireccion.value = estudiante['direccion'];
     selectCarrera.value = estudiante['carrera'];
 
+    let CursosString = estudiante['cursosAprobados'];
+    let listaCursos = JSON.parse(CursosString);
+
+    let tbody = document.querySelector('#tblCursos tbody');
+    tbody.innerHTML = '';
+    
+    document.getElementById('selectCarrera').click();
+    for(let i = 0; i < listaCursos.length; i++){
+        let fila = tbody.insertRow();
+
+        let cNomCurso = fila.insertCell();
+        let ls = []
+        ls.push(listaCursos[i][0]);
+        agregaCurso(ls);
+        cNomCurso.innerHTML = listaCursos[i][0];
+    }
+
+    document.getElementById('selecProvincia').click();
     $('select[id="selecProvincia"]').find('option:contains("'+estudiante['provincia']+'")').attr("selected",true);
     document.getElementById('selecProvincia').click();
     $('select[id="selectCanton"]').find('option:contains("'+estudiante['canton']+'")').attr("selected",true);
@@ -552,8 +581,6 @@ function getDatosActualizar(){
         form3.reset();
         tbodyCursos.innerHTML='';
         sessionStorage.setItem('update', 0);
-
-        // document.location.href = 'listarEstudiante.html';
 
         tab3.classList.remove('activeTab');
         tab1.classList.add('activeTab');

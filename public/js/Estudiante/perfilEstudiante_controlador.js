@@ -55,7 +55,7 @@ function infoContacto(infoEstudiante){
 function imprimirListaCursos (infoEstudiante){
     let CursosString = infoEstudiante[0]['cursosAprobados'];
     let listaCursos = JSON.parse(CursosString);
-console.log(infoEstudiante);
+
     let tbody = document.querySelector('#tblCursos tbody');
     tbody.innerHTML = '';
          

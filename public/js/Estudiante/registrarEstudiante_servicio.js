@@ -53,7 +53,6 @@ function registrarEstudiante(infoEstudiante) {
 }
 function agregaCurso(infoCurso) {
     listaCursos.push(infoCurso);
-
 }
 function obtenerListaCursos() {
     return listaCursos;

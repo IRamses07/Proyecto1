@@ -15,13 +15,11 @@ router.route('/listar_estudiantes')
 
 router.route('/filtrarnombre_estudiantes')
     .get(function(req, res){
-        console.log('f7');
     estudiantes.filtrarNombre(req, res);
 });
 
 router.route('/getInfo_estudiantes')
     .get(function(req, res){
-        console.log('f7');
     estudiantes.getInfoEstudiante(req, res);
 });
 

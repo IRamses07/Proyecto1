@@ -80,9 +80,9 @@ textarea{
     left: 3%;
 }
 
-/*.hitdent{
-    visibility: hidden;
-}*/
+.disablesInput{
+    background: #a3a3a3;
+}
 
 .btnPar{
     margin-bottom: 0%;
