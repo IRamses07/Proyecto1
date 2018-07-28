@@ -56,7 +56,7 @@
 
                     <h2>Datos personales</h2>
                     <div class="filaIzq">
-                        <div>
+                        <div id="cedDiv" class="hitdent">
                             <label class="lblInput">Cédula:</label>
                             <input type="text" id="estCedula" placeholder=" Ejm: 102340567"/>
                             <label for="" id="labelCed" class="lblError lblHide">*Cédula existente!</label>
@@ -126,6 +126,7 @@
                         <label class="lblInput">Dirección:</label>
                         <textarea rows="1" cols="50" id="estDireccion" placeholder=" Ejem: 200 metros norte de la iglesia de Parrita"></textarea>
                         <label for="" class="lblError lblHide">*Cédula existente!</label>
+                            <button type="button" id="btnCancelar" class="btnRegistro btnCancelar">Cancelar</button>
                             <button type="button" id="siguiente1" class="btnRegistro btnPestanaSig ">Siguiente</button>
                     </div>
                 </form>
@@ -218,6 +219,7 @@
 
                     <button type="button" id="atras2" class="btnRegistro btnPestanaAtr"> Atrás </button>
                     <button type="button" id="butRegistrar" class="btnRegistro btnPestanaSig">Registrar</button>
+                    <button type="button" id="btnActualizar" class="btnRegistro btnActualizar">Actualizar</button>
         
                 </form>
             </div>
@@ -229,8 +231,9 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="js/Login/login.js"></script>
     <script src="js/Notificaciones/notificaciones.js"></script>
-    <script src="js/Estudiante/registrarEstudiante_controlador.js"></script>
     <script src="js/Estudiante/registrarEstudiante_servicio.js"></script>
+    <script src="js/Estudiante/registrarEstudiante_controlador.js"></script>
+    
 </body>
 
 </html>

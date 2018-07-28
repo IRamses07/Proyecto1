@@ -16,7 +16,7 @@ h3 {
 }
 #content{
     display: flow-root;
-    width: 81%;
+    /*width: 81%;*/
 }
 .filaIzq{
     width: 47%;
@@ -59,13 +59,13 @@ textarea{
     margin-top: 2px;
 }
 
-.btnPestanaSig{
+.btnPestanaSig, .btnActualizar{
     float: right;   
     position: absolute;
     bottom: 3%;
     right: 3%;
 }
-.btnPestanaAtr{
+.btnPestanaAtr {
     float: left;
     position: absolute;
     bottom: 3%;
@@ -73,6 +73,17 @@ textarea{
     padding-left: 30px;
     padding-right: 30px;
 }
+.btnCancelar{
+    float: left;
+    position: absolute;
+    bottom: 3%;
+    left: 3%;
+}
+
+/*.hitdent{
+    visibility: hidden;
+}*/
+
 .btnPar{
     margin-bottom: 0%;
     clear: both;

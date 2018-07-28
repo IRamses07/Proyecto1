@@ -40,5 +40,9 @@ router.route('/cambiarestado_estudiantes')
     estudiantes.cambiarEstado(req, res);
 });
 
+router.route('/actualizar_estudiantes')
+    .post(function(req, res){
+    estudiantes.actualizar(req, res);
+});
 
 module.exports = router;

@@ -59,6 +59,20 @@ function vermas(){
         })
     });
     cambiarEstado();
+    modificaEstudiante();
+}
+
+modificaEstudiante();
+function modificaEstudiante(){
+    let modEstudiante = document.querySelectorAll('.modEstudiante');
+    modEstudiante.forEach(function(elem){
+        elem.addEventListener("click", function(){
+            let ced = elem.value;
+            localStorage.setItem('ced',ced);
+            sessionStorage.setItem('update', 1);
+            document.location.href = 'registrarEstudiante.html';
+        })
+    });
 }
 
 function imprimirLista(radioSelected,inputDatoBuscar){
@@ -84,6 +98,7 @@ function imprimirLista(radioSelected,inputDatoBuscar){
                 let cHoras = fila.insertCell();
                 let cPerfil = fila.insertCell();
                 let cEstado = fila.insertCell();
+                let cModificar = fila.insertCell();
 
                 cCedula.innerHTML = listaEstudiantes[i]['cedula'];
                 cNombre.innerHTML = listaEstudiantes[i]['Nombre1'];          
@@ -92,6 +107,7 @@ function imprimirLista(radioSelected,inputDatoBuscar){
                 cHoras.innerHTML = '  0  ';                                                 
                 cPerfil.innerHTML = '<button type="button" class="btnVerMas" value="'+listaEstudiantes[i]['cedula']+'">Ver mas</button>';
                 cEstado.innerHTML = '<button type="button" class="btnRegistro cambioEstado" value="'+listaEstudiantes[i]['cedula']+'">'+listaEstudiantes[i]['estado']+'</button>';
+                cModificar.innerHTML = '<button type="button" class="btnRegistro modEstudiante" value="'+listaEstudiantes[i]['cedula']+'">Modificar</button>';
             } 
         }
     vermas();

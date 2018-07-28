@@ -144,7 +144,6 @@ function getInfoEstudiante() {
 
     peticion.fail(function (response) {
     });
-
     return respuesta;
 }
 
@@ -239,7 +238,47 @@ function cambiarEstadoS(ced,estadoEnt) {
     return respuesta;
 }
 
-
+function actualizarEstudianteId(pid,infoEstudiante){
+    let respuesta = '';
+    let cursos = JSON.stringify(listaCursos);
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/actualizar_estudiantes',
+        type : 'post',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            _id : pid,
+            Nombre1: infoEstudiante[1],
+            Nombre2: infoEstudiante[2],
+            apellido1: infoEstudiante[3],
+            apellido2: infoEstudiante[4],
+            telefono: infoEstudiante[5],
+            correo: infoEstudiante[6],
+            direccion: infoEstudiante[7],
+            provincia: infoEstudiante[8],
+            canton: infoEstudiante[9],
+            distrito: infoEstudiante[10],
+            carrera: infoEstudiante[11],
+            cursosAprobados: cursos,
+            contNombre1: infoEstudiante[12],
+            contNombre2: infoEstudiante[13],
+            contApellido1: infoEstudiante[14],
+            contApellido2: infoEstudiante[15],
+            contTelefono: infoEstudiante[16],
+            contCorreo: infoEstudiante[17],
+        }
+      });
+    
+      peticion.done(function(response){
+       respuesta = response;
+      });
+    
+      peticion.fail(function(response){
+       
+      });
+      return respuesta;
+};
 
 
 

@@ -119,3 +119,15 @@ module.exports.cambiarEstado = function (req, res) {
             res.send(estudiantes);
         });
 };
+
+module.exports.actualizar = function (req, res) {
+    estudianteSchema.findByIdAndUpdate(req.body._id, { $set: req.body },
+        function (err, estudiante) {        //revisar estudiante entrante
+            if (err) {
+                res.json({ success: false, msg: 'No se ha actualizado.' + handleError(err) });
+
+            } else {
+                res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
+            }
+        });
+};
