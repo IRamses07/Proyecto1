@@ -62,12 +62,8 @@ function imprimirListaCursos (infoEstudiante){
     for(let i = 0; i < listaCursos.length; i++){
         let fila = tbody.insertRow();
 
-        let cCurso = fila.insertCell();
-        let cCiclo = fila.insertCell();
         let cNomCurso = fila.insertCell();
    
-        cCurso.innerHTML = listaCursos[i][0];
-        cCiclo.innerHTML = listaCursos[i][1];
-        cNomCurso.innerHTML = listaCursos[i][2];
+        cNomCurso.innerHTML = listaCursos[i][0];
     }
 }

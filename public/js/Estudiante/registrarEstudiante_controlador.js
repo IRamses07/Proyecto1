@@ -1,6 +1,13 @@
 'use strict';
 moveUser(true);
 
+window.onbeforeunload = function(){                       //temporal! revisar <->
+    if(sessionStorage.getItem("update")==1){
+        sessionStorage.setItem('update', 0);
+        document.location.href = 'listarEstudiante.html';
+    }
+};
+
 //Funcion para pestanas superiores del cuadro con validación
 (function(d){
     let tabs = Array.prototype.slice.apply(d.querySelectorAll('.tabs__item'));
@@ -86,15 +93,16 @@ buttonAgregarCurso.addEventListener('click',getCurso);
 //Seleccionar provincia
 let selecccionProvincia = document.querySelector('#selecProvincia');
 selecccionProvincia.addEventListener('click', function(){
-    if(selecccionProvincia.value.length !== 0){
+    selecccionProvincia = document.querySelector('#selecProvincia');
+    if(selecccionProvincia.value.length !== 0 && selecccionProvincia.value !== '-Seleccione una provincia-'){
         seleccionarCanton(selecccionProvincia.value);
     }
 });
 
-// Seleccionar Canton
+
 let seleccionCanton = document.querySelector('#selectCanton');
 seleccionCanton.addEventListener('click', function(){
-    if(seleccionCanton.value.length !== 0){
+    if( seleccionCanton.value.length !== 0 && selecccionProvincia.value !== '-Seleccione una provincia-' && seleccionCanton.value !== '-Seleccione un cantón-' ){
         seleccionarDistrito(seleccionCanton.value,selecccionProvincia.value);
     }
 });
@@ -126,13 +134,30 @@ let inputConApellido1 = document.querySelector('#conApellido1');
 let inputConApellido2 = document.querySelector('#conApellido2');
 let inputConTelefono = document.querySelector('#conTelefono');
 let inputConCorreo = document.querySelector('#conCorreo');
-let cursoRep = document.querySelector('#cursoRepetido');
+let cursoExt = document.querySelector('#cursoExt');
 let labelCed = document.querySelector('#labelCed');
 let form1 = document.querySelector('#form1');
 let form2 = document.querySelector('#form2');
 let form3 = document.querySelector('#form3');
 let tbodyCursos = document.querySelector('#tblCursos tbody');
+let cedDiv = document.querySelector('#cedDiv');
+let tittleReg = document.querySelector('#tittleReg');
+let h1reg = document.querySelector('#h1reg');
 
+
+//boton de cancerlar para modificar
+let btnCancelar = document.querySelector('#btnCancelar');
+btnCancelar.hidden = true;
+btnCancelar.addEventListener('click', function(){
+    sessionStorage.setItem('update', 0);
+    document.location.href = 'listarEstudiante.html';
+});
+let btnActualizar = document.querySelector('#btnActualizar');
+btnActualizar.hidden=true;
+btnActualizar.addEventListener('click', function(){
+    //trigger del actualizar boton.
+    getDatosActualizar();
+});
 
 function getDatos(){
     let infoEstudiante=[];
@@ -160,7 +185,14 @@ function getDatos(){
         form2.reset();
         form3.reset();
         tbodyCursos.innerHTML='';
+
         // document.location.href = 'listarEstudiante.html';
+
+        tab3.classList.remove('activeTab');
+        tab1.classList.add('activeTab');
+        panelN3.classList.remove('activePanel');
+        panelN1.classList.add('activePanel');
+
     }
 }
 
@@ -169,18 +201,18 @@ function validaInfoPersonal(){
     let checkSoloLetras = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$/;
     let checkFormatoNumeral = /^[0-9 -]+$/;
     let checkFormatoEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-
-
-    if(inputCedula.value == '' || (checkFormatoNumeral.test(inputCedula.value)==false) ){
-        inputCedula.classList.add('error_input');
-        sError = true;
-    } else if (validarCedulaRepetida(inputCedula.value)){
-          inputCedula.classList.add('error_input');
-          labelCed.classList.remove('lblHide');
-          sError = true;
-    } else{
-        inputCedula.classList.remove('error_input');
-        labelCed.classList.add('lblHide');
+    if( sessionStorage.getItem("update")!=1 ){
+        if(inputCedula.value == '' || (checkFormatoNumeral.test(inputCedula.value)==false) ){
+            inputCedula.classList.add('error_input');
+            sError = true;
+        } else if (validarCedulaRepetida(inputCedula.value)){
+            inputCedula.classList.add('error_input');
+            labelCed.classList.remove('lblHide');
+            sError = true;
+        } else{
+            inputCedula.classList.remove('error_input');
+            labelCed.classList.add('lblHide');
+        }
     }
     if(inputNombre1.value == '' || (checkSoloLetras.test(inputNombre1.value)==false) ){
         inputNombre1.classList.add('error_input');
@@ -367,7 +399,11 @@ function validarCurso(){
     for(let i = 0; i < listaCursos.length; i++){
         if (selectCurso.value == listaCursos[i][0]){
             sError = true;
-            cursoRep.classList.remove('lblHide');
+            selectCurso.classList.add('error_input');
+            cursoExt.classList.remove('lblHide');
+            return sError;
+        }else{
+            cursoExt.classList.add('lblHide');
         }
     }
     return sError;
@@ -389,22 +425,23 @@ function seleccionarCanton(value){
     let lista;
 
     switch(value) {
-        case 0:
+        
+        case '0':
             lista=['Acosta','Alajuelita','Aserrí','Curridabat','Desamparados','Dota','Escazú','Goicochea','León Cortés','Montes de Oca','Mora','Moravia','Pérez Zeledon','Puriscal','San Jose','Santa Ana','Tarrazú','Tibás','Turrubares','Vásquez de Coronado'];
             break;
-        case 1:
+        case '1':
             lista=['Alajuela','Atenas','Grecia','Guatuso','Los Chiles','Naranjo','Orotina','Palmares','Poás','Río Cuarto','San Carlos','San Mateo','San Ramón','Upala','Valverde Vega','Zarcero'];
         break;
-        case 2:    
+        case '2':    
             lista=['Alvarado','Cartago','El Guarco','Jiménez','La Unión','Oreamuno','Paraíso','Turrialba'];
         break;
-        case 3:
+        case '3':
             lista=['Barva','Belén','Flores','Heredia','San Isidro','San Pablo','San Rafae','Santa Bárbara','Santo Domingo','Sarapiquí'];
         break;
-        case 4:
+        case '4':
             lista=['Abangares','Bagaces','Cañas','Carrillo','Nicoya','Hojancha','La Cruz','Liberia','Nandayure','Santa Cruz','Tilarán'];
         break;
-        case 5:
+        case '5':
             lista=['Buenos Aires','Corredores','Coto Brus','Esparza','Garabito','Golfito','Montes de Oro','Osa','Parrita','Puntarenas','Quepos'];
         break;
         default:
@@ -446,10 +483,109 @@ function seleccionarDistrito(canton,provincia){
             break;
     }
     let output = '';
-    
+
     output += '<option class="letraItalic">-Seleccione un distrito-</option>\n';
     for(let i = 0; i < lista[canton].length; i++){
         output += '<option value='+ i +'>'+ lista[canton][i] +'</option> \n';
     }
     selectDistrito.innerHTML = output;
 };
+
+(function(d){
+    if( sessionStorage.getItem("update")==1 ){
+        llenarDatosFormulario();
+    };
+})(document);
+
+function llenarDatosFormulario(){
+    btnCancelar.hidden = false;
+    btnActualizar.hidden=false;
+    butRegistrar.hidden=true;
+
+    let estudiante = getInfoEstudiante()[0];
+
+    tittleReg.innerHTML = 'Actualizar Estudiante';
+    h1reg.innerHTML = 'Información del estudiante: '+estudiante['Nombre1']+' '+estudiante['apellido1']+' - Ced: '+estudiante['cedula'];
+    inputCedula.disabled=true;
+    inputCedula.classList.add('disablesInput');
+
+    inputCedula.value = estudiante['cedula'];
+    inputNombre1.value = estudiante['Nombre1'];
+    inputNombre2.value = estudiante['Nombre2'];
+    inputApellido1.value = estudiante['apellido1'];
+    inputApellido2.value = estudiante['apellido2'];
+    inputTelefono.value = estudiante['telefono'];
+    inputCorreo.value = estudiante['correo'];
+    inputDireccion.value = estudiante['direccion'];
+    selectCarrera.value = estudiante['carrera'];
+
+    let CursosString = estudiante['cursosAprobados'];
+    let listaCursos = JSON.parse(CursosString);
+
+    let tbody = document.querySelector('#tblCursos tbody');
+    tbody.innerHTML = '';
+    
+    document.getElementById('selectCarrera').click();
+    for(let i = 0; i < listaCursos.length; i++){
+        let fila = tbody.insertRow();
+
+        let cNomCurso = fila.insertCell();
+        let ls = []
+        ls.push(listaCursos[i][0]);
+        agregaCurso(ls);
+        cNomCurso.innerHTML = listaCursos[i][0];
+    }
+
+    document.getElementById('selecProvincia').click();
+    $('select[id="selecProvincia"]').find('option:contains("'+estudiante['provincia']+'")').attr("selected",true);
+    document.getElementById('selecProvincia').click();
+    $('select[id="selectCanton"]').find('option:contains("'+estudiante['canton']+'")').attr("selected",true);
+    document.getElementById('selectCanton').click();
+    $('select[id="selectDistrito"]').find('option:contains("'+estudiante['distrito']+'")').attr("selected",true);
+    document.getElementById('selectDistrito').click();
+
+    inputConNombre1.value = estudiante['contNombre1'];
+    inputConNombre2.value = estudiante['contNombre2'];
+    inputConApellido1.value = estudiante['contApellido1'];
+    inputConApellido2.value = estudiante['contApellido2'];
+    inputConTelefono.value = estudiante['contTelefono'];
+    inputConCorreo.value = estudiante['contCorreo'];
+};
+
+function getDatosActualizar(){
+
+    let infoEstudiante=[];
+    let sError = false;
+    infoEstudiante.push(inputCedula.value,inputNombre1.value,inputNombre2.value,inputApellido1.value,inputApellido2.value,inputTelefono.value,inputCorreo.value,inputDireccion.value,$("#selecProvincia option:selected" ).text(),$("#selectCanton option:selected").text(),$("#selectDistrito option:selected").text(),selectCarrera.value,inputConNombre1.value,inputConNombre2.value,inputConApellido1.value,inputConApellido2.value,inputConTelefono.value,inputConCorreo.value);
+    let infoUser = getInfoEstudiante()[0];
+
+    sError = validaCarrera();
+    if(sError==true){
+        swal({
+            title: "Advertencia",
+            text: "Por favor revisar los campos marcados con rojo",
+            icon: "warning",
+            button: "Ok",
+        });
+    }else{
+        actualizarEstudianteId(infoUser['_id'],infoEstudiante);
+        swal({
+            type : 'Success',
+            title : 'Registro exitoso',
+            text: 'La información del estudiante '+inputNombre1.value+' fue actualizada exitosamente',
+            icon: 'success',
+            confirmButtonText : 'OK'
+        });
+        form1.reset();
+        form2.reset();
+        form3.reset();
+        tbodyCursos.innerHTML='';
+        sessionStorage.setItem('update', 0);
+
+        tab3.classList.remove('activeTab');
+        tab1.classList.add('activeTab');
+        panelN3.classList.remove('activePanel');
+        panelN1.classList.add('activePanel');
+
+    }
+}
