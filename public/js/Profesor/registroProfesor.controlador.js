@@ -42,7 +42,7 @@ function registrarProfe() {
 
     let infoProfesor = [];
 
-   /* let listaProfes = getProfessorData();*/
+    let listaProfes = getProfessorData();
 
     if (validarRequeridos()) {
         swal({
@@ -52,7 +52,6 @@ function registrarProfe() {
             button: "Ok",
         });
     } else {
-       /* for (let i = 0; i < listaProfes.length; i++) {*/
             if (!validarCedula(sCedula)) {
                 document.querySelector('#txtCedula').classList.remove('error_input');
                 document.querySelector('#lblCedulaError').classList.add('lblHide');
