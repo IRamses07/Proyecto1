@@ -31,6 +31,7 @@ function logOut() {
 
 function updateCurrentUser(id) {
     let usuariosRegistrados = getUsers();
+    id=getCurrentUserData()._id;
     let thisUserData = [];
     for (let i = 0; i < usuariosRegistrados.length; i++) {
         for (let j = 0; j < usuariosRegistrados[i].length; j++) {

@@ -14,12 +14,12 @@
     <link rel="stylesheet" href="css/generalStyle.css">
     <link rel="stylesheet" href="css/notificaciones.css">
     <link rel="stylesheet" href="css/ListarProyectos.css">
+    <link rel="stylesheet" href="css/listarProyectosEstudiante.css">
 
     <title>Listar Proyectos</title>
 </head>
 
 <body>
-
     <header>
         <div class="mainHeader">
             <a id="notificacion" class="fLeft">
@@ -36,20 +36,33 @@
     </header>
 
     <main id="content">
-            <div class="modal none" id="modal">
-                    <div class="ModalNotificaciones">
-                        <a>X</a>
-                        <table id="tblNotificacion">
-                            <thead>
-                                <th>Notificaciones</th>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-                </div>
+        <div class="modal none" id="modal">
+            <div class="ModalNotificaciones">
+                <a>X</a>
+                <table id="tblNotificacion">
+                    <thead>
+                        <th>Notificaciones</th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
         <h1></h1>
-        <h1>Listar Proyectos</h1>
-        <h2 id="nomEstudiante"></h2>
+        <h1>Proyectos</h1>
+
+        <div class="filtrarProyecto">
+            <form action="" id="">
+                <label for="">Buscar proyectos en:</label>
+                <select name="estado" id="selectEstadoP">
+                    <option value="desarrollo">Desarrollo</option>
+                    <option value="manteminiento">Mantenimiento</option>
+                    <option value="finalizado">Finalizado</option>
+                    <option value="todos">Todos</option>
+                </select>
+                <label for="">Nombre:</label>
+                <input type="text" id="inputBuscar" />
+                <button type="button" id="butBuscarProyecto" class="btnRegistro">Buscar</button>
+            </form>
         </div>
 
         <div class="tabla">
@@ -64,7 +77,6 @@
                 </tbody>
             </table>
         </div>
-
     </main>
 
     <footer>
