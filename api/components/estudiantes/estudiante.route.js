@@ -15,13 +15,11 @@ router.route('/listar_estudiantes')
 
 router.route('/filtrarnombre_estudiantes')
     .get(function(req, res){
-        console.log('f7');
     estudiantes.filtrarNombre(req, res);
 });
 
 router.route('/getInfo_estudiantes')
     .get(function(req, res){
-        console.log('f7');
     estudiantes.getInfoEstudiante(req, res);
 });
 
@@ -33,6 +31,16 @@ router.route('/cambiarfoto_estudiantes')
 router.route('/asignar_proyecto_e')
     .post(function(req, res){
     estudiantes.asignar_proyecto(req, res);
+});
+
+router.route('/cambiarestado_estudiantes')
+    .put(function(req, res){
+    estudiantes.cambiarEstado(req, res);
+});
+
+router.route('/actualizar_estudiantes')
+    .post(function(req, res){
+    estudiantes.actualizar(req, res);
 });
 
 module.exports = router;

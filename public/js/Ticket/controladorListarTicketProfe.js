@@ -19,7 +19,9 @@ btnFiltro.addEventListener('click', function () {
 function listarTicketsProfe(pinptBuscarCliente, selectUrgencia, radioSelected) {
     let tickets = listarTickets();
     let nTamanno = tickets.length;
-    let tbody = document.querySelector('#tblTicketprofe tbody');
+    // let tbody = document.querySelector('#tblTicketprofe tbody'); 
+    let tbody = document.querySelector('#tbody2');
+    console.log(tbody);
     tbody.innerHTML = '';
 
     if (!pinptBuscarCliente) {

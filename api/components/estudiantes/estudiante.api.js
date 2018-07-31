@@ -104,3 +104,30 @@ module.exports.asignar_proyecto = function (req, res) {
         }
     )
 };
+
+
+module.exports.cambiarEstado = function (req, res) {
+    estudianteSchema.findOneAndUpdate(
+        {
+            cedula: req.body.cedula
+        },
+        {
+            estado: req.body.estado
+        }
+    ).then(
+        function (estudiantes) {
+            res.send(estudiantes);
+        });
+};
+
+module.exports.actualizar = function (req, res) {
+    estudianteSchema.findByIdAndUpdate(req.body._id, { $set: req.body },
+        function (err, estudiante) {        //revisar estudiante entrante
+            if (err) {
+                res.json({ success: false, msg: 'No se ha actualizado.' + handleError(err) });
+
+            } else {
+                res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
+            }
+        });
+};
