@@ -25,7 +25,7 @@ h2 {
 
 .fmr div {
     width: 48%;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 }
 
 .fmr label+input, .fmr label+select, .fmr label+textarea {

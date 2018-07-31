@@ -90,17 +90,17 @@ header .menuLateral:hover ~ #content{
 
 /* estilo de los inputs en general, solo deben de eliminar el width y el height si es necesario */
 input{
-    border: 0px ;
+    border: 2px  solid #fff;
     border-radius: 3px;
     /* outline: none; */
-    height: 22px;
+    height: 30px;
 }
 
 /* estilos generales de todos lo selects, igualemente ignoren el width  */
 select{
-    border: 0px;
+    border: 2px  solid #fff;
     border-radius: 3px;
-    height: 27px;
+    height: 30px;
     font-family: 'Roboto' sans-serif;
     font-size: 14px;
     color: #454545;
