@@ -6,7 +6,7 @@
      margin-bottom: 15px;
      text-align: center;
      font-size: 30px;
-     margin-left: 30%;
+     margin-left: 32%;
      margin-right:40%; 
      width: 30%;
  }
@@ -100,28 +100,76 @@ main .colupna2 select{
 
  main .button button{
     margin: 0 auto;
-        margin-left: 31%;
-    width: 30%;
+        margin-left: 39.5%;
+    width: 20%;
+    margin-top: 15px; 
+    margin-bottom: 10px;
  }
 
- main .Tegnologias h2{
-    margin-bottom: 15px;
-    text-align: center;
-    font-size: 25px;
-    margin-left: 30%;
-    margin-right: 40%;
-    margin-top: 100px;
-    width: 30%;
+ .Tegnologias{
+     width: 100%;
+     margin: 0 auto;
  }
+
+   h2{
+    display: inline-block;
+    font-size: 25px;
+    width: 60%;
+    margin-bottom: 10px;
+    margin-left:38.5%; 
+   
+ }
+
+ 
 
  .Tegnologias input{
-     height: 15px;
+     height: 12px;
      
  }
 
- .tecWed {
+ .Tegnologias h3{
+     margin-top:10px;
+     margin-bottom: 5px;
+     text-align: center;
+ }
 
-    width: 30%;
+  
+ .tecWed {
+    float: left;
+    width: 20%;
+    border: #fbb803 solid;
+    height: 250px;
+    margin-right: 9%; 
+    border-radius: 10px;
+    margin-left: 10%;
+
+ }
+
+ .tecMovil{
+     float: left;
+     width: 20%;
+     border: #fbb803 solid;
+     height: 250px;
+     margin-right: 9.5%; 
+     border-radius: 10px;
+ }
+ .tecBd{
+    float: left;
+    width: 20%;
+    border: #fbb803 solid;
+    height: 250px;
+    margin-right: 10%; 
+    border-radius: 10px;
+
+ }
+
+ .op{
+     margin-top: 5px;
+     margin-right: 0%;
+     margin-left:1%;    
+     margin-bottom: 5px; 
+     margin-left:36% ;
+
  }
 
  

@@ -26,6 +26,8 @@
     <header>
 
         <div class="mainHeader">
+            <label for="">Bienvenido: </label>
+            <output id="txtnombreCliente" value=""></output>
             <a href="##" class="fLeft">
                 <i class="fas fa-bell"></i> Notificaciones</a>
             <a href="javascript:logOut();" class="fRight">Cerrar sesión
@@ -97,92 +99,174 @@
 
 
             </div>
-
-            <div class="button">
-                <button type="button" class="btnRegistro" id="btnRegistrar">Registrar</button>
-            </div>
-
-
-
-            <div class="Tegnologias">
-
-                <h2>Seleccione las tecnologías</h2>
-                <form action="">
-
-                    <div class="tecWed">
-                        <h3>Tecnologías Wed</h3>
-                        <label for="">HTML5</label>
-                        <input type="checkbox" value="HTML5W" id="html5W">
-
-                        <label for="">CSS3</label>
-                        <input type="checkbox" value="CSS3W" id="CSS3W">
-
-                        <label for="">Javascript</label>
-                        <input type="checkbox" value="JavascriptW" id="JavascriptW">
-
-                        <label for="">PHP</label>
-                        <input type="checkbox" value="PHPW" id="PHPW">
-
-                        <label for="">ASP</label>
-                        <input type="checkbox" value="ASPW" id="ASPW">
-
-                        <label for="">ASP.NET</label>
-                        <input type="checkbox" value="ASP.NETW" id="ASP.NETW">
-
-                        <label for="">JSP</label>
-                        <input type="checkbox" value="JSPW" id="JSPW">
-
-                        <label for="">Python</label>
-                        <input type="checkbox" value="PythonW" id="PythonW">
-
-                        <label for="">Ruby</label>
-                        <input type="checkbox" value="RubyW" id="RubyW">
-
-                    </div>
-
-                    <div>
-                        <h3>Tecnologías moviles</h3>
-
-                        <label for="">Java</label>
-                        <input type="checkbox" value="JavaM" id="JavaM">
-
-                        <label for="">Kotlin</label>
-                        <input type="checkbox" value="KotlinM" id="KotlinM">
-
-                        <label for="">Swift</label>
-                        <input type="checkbox" value="SwiftM" id="SwiftM">
-
-                        <label for="">Objective-C</label>
-                        <input type="checkbox" value="ObjectiveCM" id="ObjectiveCM">
-
-                        <label for="">JavaScript</label>
-                        <input type="checkbox" value="JavaScriptM" id="JavaScriptM">
-
-                        <label for="">TypeScript</label>
-                        <input type="checkbox" value="TypeScriptM" id="TypeScriptM">
-
-                        <label for="">C#</label>
-                        <input type="checkbox" value="C#M" id="C#M">
-
-                        <label for="">Python</label>
-                        <input type="checkbox" value="PythonM" value="PythonM">
-
-                    </div>
-
-                    <div class="tecBd">
-
-                        <h3>Tecnologiias de Base de datos</h3>
-
-                    </div>
-
-                </form>
-
-
-            </div>
-
-
-
         </form>
+
+        <h2>Selecione las Tecnologias</h2>
+
+        <div class="Tegnologias">
+
+
+
+            <form class="frmALlCHo">
+
+                <div class="tecWed">
+                    <h3>Tecnologías Web</h3>
+                    <div class="op">
+
+                        <input type="checkbox" value="HTML5W" id="html5W">
+                        <label for="">HTML5</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="CSS3W" id="CSS3W">
+                        <label for="">CSS3</label>
+                    </div>
+
+                    <div class="op">
+
+                        <input type="checkbox" value="JavascriptW" id="JavascriptW">
+                        <label for="">Javascript</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="PHPW" id="PHPW">
+                        <label for="">PHP</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="ASPW" id="ASPW">
+                        <label for="">ASP</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="ASP.NETW" id="ASP.NETW">
+                        <label for="">ASP.NET</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="JSPW" id="JSPW">
+                        <label for="">JSP</label>
+                    </div>
+
+                    <div class="op">
+
+                        <input type="checkbox" value="PythonW" id="PythonW">
+                        <label for="">Python</label>
+                    </div>
+
+
+                    <div class="op">
+
+                        <input type="checkbox" value="RubyW" id="RubyW">
+                        <label for="">Ruby</label>
+                    </div>
+                </div>
+
+                <div class="tecMovil">
+                    <h3>Tecnologías moviles</h3>
+                    <div class="op">
+
+                        <input type="checkbox" value="JavaM" id="JavaM">
+                        <label for="">Java</label>
+                    </div>
+
+                    <div class="op">
+
+                        <input type="checkbox" value="KotlinM" id="KotlinM">
+                        <label for="">Kotlin</label>
+                    </div>
+
+                    <div class="op">
+
+                        <input type="checkbox" value="SwiftM" id="SwiftM">
+                        <label for="">Swift</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="ObjectiveCM" id="ObjectiveCM">
+                        <label for="">Objective-C</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="JavaScriptM" id="JavaScriptM">
+                        <label for="">JavaScript</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="TypeScriptM" id="TypeScriptM">
+                        <label for="">TypeScript</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="C#M" id="C#M">
+                        <label for="">C#</label>
+                    </div>
+
+                    <div class="op">
+
+                        <input type="checkbox" value="PythonM" value="PythonM">
+                        <label for="">Python</label>
+                    </div>
+
+                </div>
+
+                <div class="tecBd">
+
+                    <h3>Tecnologias de Base de datos</h3>
+
+                    <div class="op">
+                        <input type="checkbox" value="SQLbd" id="SQlbd">
+                        <label for="">SQL</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="MySQLbd" id="MySQLbd">
+                        <label for="">MySQL</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="ORACLEbd" id="ORACLEbd">
+                        <label for="">ORACLE</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="Node.jsbd" id="Node.jsbd">
+                        <label for="">Mongo.db</label>
+                    </div>
+
+
+                    <div class="op">
+                        <input type="checkbox" value="Indexedbd" id="Indexedbd">
+                        <label for="">IndexedDB</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="Firebasebd" id="Firebasebd">
+                        <label for="">Firebase</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="DynamoDB" id="DynamoDBbd">
+                        <label for="">DynamoDB</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="CouchDB" id="CouchDBbd">
+                        <label for="">CouchDB</label>
+                    </div>
+
+                </div>
+
+
+            </form>
+
+
+        </div>
+
+
+        <div class="button">
+            <button type="button" class="btnRegistro" id="btnRegistro">Registrar</button>
+        </div>
 
         <script src="js/Proyecto/jquery-3.3.1.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
