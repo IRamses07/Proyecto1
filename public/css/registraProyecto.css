@@ -14,7 +14,7 @@
  .frmRegistrarProyectos {
     margin: 0 auto;
     width: 85%;
-    margin-top: 100px;
+    margin-top: 50px;
     margin-left: 10%;
  }
 
@@ -82,7 +82,7 @@ button{
 
 textarea {
     width: 90%;
-    height: 150px;
+    height: 156.5px;
     margin-top: 5px;
     margin-bottom:21px;
     border: 0px ;
@@ -167,13 +167,21 @@ main .colupna2 select{
  .op{
      margin-top: 5px;
      margin-right: 0%;
-     margin-left:1%;    
      margin-bottom: 5px; 
-     margin-left:36% ;
+     /* margin-left:36% ; */
 
  }
 
- 
+ .c1{
+    float: left;
+    margin-left: 3%;
+
+ }
+
+ .c2{
+    float: right;
+    margin-right: 3%;    
+ }
 
 
 

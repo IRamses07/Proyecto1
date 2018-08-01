@@ -58,7 +58,7 @@
 
             <div class="colupna1">
                 <label for="">Nombre del proyecto:</label>
-                <input type="text" id="txtNombreProyecto">
+                <input type="text" id="txtNombreProyecto" placeholder="Ejm:Proyecto1">
 
                 <label for="">Nombre del cliente:</label>
                 <select name="slNombredelCliente" id="slNombredelCliente" onchange="llenarCedulaJuridica()">
@@ -66,7 +66,7 @@
                 </select>
 
                 <label for="">Identificación Jurídica:</label>
-                <input type="text" id="txtIdentifiacionJuridica" required disabled>
+                <input type="text" id="txtIdentifiacionJuridica" required disabled placeholder="Ejm:123456789">
 
                 <div class="slDescripcion">
                     <label for="">Estado del proyecto:</label>
@@ -111,101 +111,114 @@
 
                 <div class="tecWed">
                     <h3>Tecnologías Web</h3>
-                    <div class="op">
 
-                        <input type="checkbox" value="HTML5W" id="html5W">
-                        <label for="">HTML5</label>
+                    <div class="c1">
+
+                        <div class="op">
+                            <input type="checkbox" value="HTML5W" id="html5W" name="tec">
+                            <label for="">HTML5</label>
+                        </div>
+
+                        <div class="op">
+                            <input type="checkbox" value="CSS3W" id="CSS3W" name="tec">
+                            <label for="">CSS3</label>
+                        </div>
+
+                        <div class="op">
+
+                            <input type="checkbox" value="JavascriptW" id="JavascriptW" name="tec">
+                            <label for="">Javascript</label>
+                        </div>
+
+                        <div class="op">
+                            <input type="checkbox" value="PHPW" id="PHPW" name="tec">
+                            <label for="">PHP</label>
+                        </div>
+
+                        <div class="op">
+                            <input type="checkbox" value="ASPW" id="ASPW" name="tec">
+                            <label for="">ASP</label>
+                        </div>
+
                     </div>
 
-                    <div class="op">
-                        <input type="checkbox" value="CSS3W" id="CSS3W">
-                        <label for="">CSS3</label>
+                    <div class="c2">
+
+                        <div class="op">
+                            <input type="checkbox" value="ASP.NETW" id="ASP.NETW" name="tec">
+                            <label for="">ASP.NET</label>
+                        </div>
+
+                        <div class="op">
+                            <input type="checkbox" value="JSPW" id="JSPW" name="tec">
+                            <label for="">JSP</label>
+                        </div>
+
+                        <div class="op">
+                            <input type="checkbox" value="PythonW" id="PythonW" name="tec">
+                            <label for="">Python</label>
+                        </div>
+
+
+                        <div class="op">
+                            <input type="checkbox" value="RubyW" id="RubyW" name="tec">
+                            <label for="">Ruby</label>
+                        </div>
+
                     </div>
 
-                    <div class="op">
-
-                        <input type="checkbox" value="JavascriptW" id="JavascriptW">
-                        <label for="">Javascript</label>
-                    </div>
-
-                    <div class="op">
-                        <input type="checkbox" value="PHPW" id="PHPW">
-                        <label for="">PHP</label>
-                    </div>
-
-                    <div class="op">
-                        <input type="checkbox" value="ASPW" id="ASPW">
-                        <label for="">ASP</label>
-                    </div>
-
-                    <div class="op">
-                        <input type="checkbox" value="ASP.NETW" id="ASP.NETW">
-                        <label for="">ASP.NET</label>
-                    </div>
-
-                    <div class="op">
-                        <input type="checkbox" value="JSPW" id="JSPW">
-                        <label for="">JSP</label>
-                    </div>
-
-                    <div class="op">
-
-                        <input type="checkbox" value="PythonW" id="PythonW">
-                        <label for="">Python</label>
-                    </div>
-
-
-                    <div class="op">
-
-                        <input type="checkbox" value="RubyW" id="RubyW">
-                        <label for="">Ruby</label>
-                    </div>
                 </div>
 
                 <div class="tecMovil">
                     <h3>Tecnologías moviles</h3>
-                    <div class="op">
 
-                        <input type="checkbox" value="JavaM" id="JavaM">
-                        <label for="">Java</label>
+                    <div class="c1">
+
+                        <div class="op">
+                            <input type="checkbox" value="JavaM" id="JavaM" name="tec"> 
+                            <label for="">Java</label>
+                        </div>
+
+                        <div class="op">
+                            <input type="checkbox" value="KotlinM" id="KotlinM" name="tec">
+                            <label for="">Kotlin</label>
+                        </div>
+
+                        <div class="op">
+                            <input type="checkbox" value="SwiftM" id="SwiftM" name="tec">
+                            <label for="">Swift</label>
+                        </div>
+
+                        <div class="op">
+                            <input type="checkbox" value="ObjectiveCM" id="ObjectiveCM" name="tec">
+                            <label for="">Objective-C</label>
+                        </div>
+
                     </div>
 
-                    <div class="op">
+                    <div class="c2">
 
-                        <input type="checkbox" value="KotlinM" id="KotlinM">
-                        <label for="">Kotlin</label>
-                    </div>
+                        <div class="op">
+                            <input type="checkbox" value="JavaScriptM" id="JavaScriptM" name="tec">
+                            <label for="">JavaScript</label>
+                        </div>
 
-                    <div class="op">
+                        <div class="op">
+                            <input type="checkbox" value="TypeScriptM" id="TypeScriptM" name="tec">
+                            <label for="">TypeScript</label>
+                        </div>
 
-                        <input type="checkbox" value="SwiftM" id="SwiftM">
-                        <label for="">Swift</label>
-                    </div>
+                        <div class="op">
+                            <input type="checkbox" value="C#M" id="C#M" name="tec">
+                            <label for="">C#</label>
+                        </div>
 
-                    <div class="op">
-                        <input type="checkbox" value="ObjectiveCM" id="ObjectiveCM">
-                        <label for="">Objective-C</label>
-                    </div>
+                        <div class="op">
 
-                    <div class="op">
-                        <input type="checkbox" value="JavaScriptM" id="JavaScriptM">
-                        <label for="">JavaScript</label>
-                    </div>
+                            <input type="checkbox" value="PythonM" value="PythonM" name="tec">
+                            <label for="">Python</label>
+                        </div>
 
-                    <div class="op">
-                        <input type="checkbox" value="TypeScriptM" id="TypeScriptM">
-                        <label for="">TypeScript</label>
-                    </div>
-
-                    <div class="op">
-                        <input type="checkbox" value="C#M" id="C#M">
-                        <label for="">C#</label>
-                    </div>
-
-                    <div class="op">
-
-                        <input type="checkbox" value="PythonM" value="PythonM">
-                        <label for="">Python</label>
                     </div>
 
                 </div>
@@ -214,45 +227,52 @@
 
                     <h3>Tecnologias de Base de datos</h3>
 
-                    <div class="op">
-                        <input type="checkbox" value="SQLbd" id="SQlbd">
-                        <label for="">SQL</label>
+                    <div class="c1">
+
+                        <div class="op">
+                            <input type="checkbox" value="SQLbd" id="SQlbd" name="tec"> 
+                            <label for="">SQL</label>
+                        </div>
+
+                        <div class="op">
+                            <input type="checkbox" value="MySQLbd" id="MySQLbd" name="tec">
+                            <label for="">MySQL</label>
+                        </div>
+
+                        <div class="op">
+                            <input type="checkbox" value="ORACLEbd" id="ORACLEbd" name="tec">
+                            <label for="">ORACLE</label>
+                        </div>
+
+                        <div class="op">
+                            <input type="checkbox" value="Node.jsbd" id="Node.jsbd" name="tec">
+                            <label for="">Mongo.db</label>
+                        </div>
+
                     </div>
 
-                    <div class="op">
-                        <input type="checkbox" value="MySQLbd" id="MySQLbd">
-                        <label for="">MySQL</label>
-                    </div>
+                    <div class="c2">
 
-                    <div class="op">
-                        <input type="checkbox" value="ORACLEbd" id="ORACLEbd">
-                        <label for="">ORACLE</label>
-                    </div>
+                        <div class="op">
+                            <input type="checkbox" value="Indexedbd" id="Indexedbd" name="tec">
+                            <label for="">IndexedDB</label>
+                        </div>
 
-                    <div class="op">
-                        <input type="checkbox" value="Node.jsbd" id="Node.jsbd">
-                        <label for="">Mongo.db</label>
-                    </div>
+                        <div class="op">
+                            <input type="checkbox" value="Firebasebd" id="Firebasebd" name="tec">
+                            <label for="">Firebase</label>
+                        </div>
 
+                        <div class="op">
+                            <input type="checkbox" value="DynamoDB" id="DynamoDBbd" name="tec">
+                            <label for="">DynamoDB</label>
+                        </div>
 
-                    <div class="op">
-                        <input type="checkbox" value="Indexedbd" id="Indexedbd">
-                        <label for="">IndexedDB</label>
-                    </div>
+                        <div class="op">
+                            <input type="checkbox" value="CouchDB" id="CouchDBbd" name="tec">
+                            <label for="">CouchDB</label>
+                        </div>
 
-                    <div class="op">
-                        <input type="checkbox" value="Firebasebd" id="Firebasebd">
-                        <label for="">Firebase</label>
-                    </div>
-
-                    <div class="op">
-                        <input type="checkbox" value="DynamoDB" id="DynamoDBbd">
-                        <label for="">DynamoDB</label>
-                    </div>
-
-                    <div class="op">
-                        <input type="checkbox" value="CouchDB" id="CouchDBbd">
-                        <label for="">CouchDB</label>
                     </div>
 
                 </div>
@@ -265,7 +285,7 @@
 
 
         <div class="button">
-            <button type="button" class="btnRegistro" id="btnRegistro">Registrar</button>
+            <button type="button" class="btnRegistro" id="btnRegistrar">Registrar</button>
         </div>
 
         <script src="js/Proyecto/jquery-3.3.1.js"></script>

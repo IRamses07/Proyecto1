@@ -7,7 +7,7 @@ listarSelectClientes();
 
 let botonRegistrar = document.querySelector('#btnRegistrar');
 
-botonRegistrar.addEventListener('click', obtenerDatos);
+botonRegistrar.addEventListener('click', obtenerDatos, recorrerTecnologias);
 
 
 
@@ -52,7 +52,7 @@ function llenarCedulaJuridica() {
 
 function limpiarFormulairo() {
     inputNombreProyecto.value = '';
-    inputIdentifiacionJuridica.value = '';
+    // inputIdentifiacionJuridica.value = '';
     txtaDescripcion.value = '';
     dateFechaEntrega.value = 'dd/mm/aaaa';
 
@@ -103,6 +103,8 @@ function obtenerDatos() {
         registrarProyecto(infoProyecto);
         agregarProyectoCliente();
         limpiarFormulairo();
+        recorrerTecnologias();
+
 
         swal({
             type: 'success',
@@ -157,13 +159,13 @@ function validarCampos() {
 
     }
 
-    if (inputIdentifiacionJuridica.value == '' || (regexCedulaJuridica.test(inputIdentifiacionJuridica.value) == false)) {
-        inputIdentifiacionJuridica.classList.add('error_input');
-        error = true;
-    } else {
-        inputIdentifiacionJuridica.classList.remove('error_input');
-        error = false
-    }
+    // if (inputIdentifiacionJuridica.value == '' || (regexCedulaJuridica.test(inputIdentifiacionJuridica.value) == false)) {
+    //     inputIdentifiacionJuridica.classList.add('error_input');
+    //     error = true;
+    // } else {
+    //     inputIdentifiacionJuridica.classList.remove('error_input');
+    //     error = false
+    // }
 
     if (selectEstadoProyecto.value == '') {
         selectEstadoProyecto.classList.add('error_input');
@@ -223,6 +225,18 @@ function agregarProyectoCliente() {
     asignarProyectoC(id, idP, nombreProyecto, fechaEntrega, estadoProyecto);
 
 
+}
+
+function recorrerTecnologias() {
+    let listaCompras = '';
+    $("input[name=tec]").each(function (index) {
+        if ($(this).is(':checked')) {
+            listaCompras += +$(this).val() ;
+        }
+    });
+    console.log(listaCompras);
+    return listaCompras;
+   
 }
 
 
