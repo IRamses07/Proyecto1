@@ -1,6 +1,6 @@
 'use strict';
 
-function registrarProyecto(paInfoProyecto) {
+function registrarProyecto(sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion) {
     let respuesta = '';
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/registrar',
@@ -9,12 +9,12 @@ function registrarProyecto(paInfoProyecto) {
         dataType: 'json',
         async: false,
         data: {
-            nombre_proyecto: paInfoProyecto[0],
-            nombre_cliente: paInfoProyecto[1],
-            identificacion_juridica: paInfoProyecto[2],
-            estado_proyecto: paInfoProyecto[3],
-            fecha_Entrega: paInfoProyecto[4],
-            descripcion: paInfoProyecto[5]
+            nombre_proyecto: sNombreProyecto,
+            nombre_cliente: cliente,
+            identificacion_juridica: nIdentifiacionJuridica,
+            estado_proyecto: sEstadoProyecto,
+            fecha_Entrega:sFechaEntrega,
+            descripcion: sDescripcion
 
 
         }

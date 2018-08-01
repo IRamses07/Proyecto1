@@ -25,17 +25,25 @@ function imprimirListaProyectos(pFiltro) {
             let cNombreCliente = fila.insertCell();
             let cFechaEntrega = fila.insertCell();
             let verMas = fila.insertCell();
+            let Modificar =fila.insertCell();
 
             let boton = document.createElement("input");
             boton.type = "button";
             boton.value = "Ver más";
             boton.classList.add('btnRegistro');
 
+            let botonM = document.createElement("input");
+            botonM.type = "button";
+            botonM.value = "Modificar";
+            botonM.classList.add('btnRegistro');
+
             cCedulaJuridica.innerHTML = infoProyecto[i]['identificacion_juridica'];
             cNombreProyecto.innerHTML = infoProyecto[i]['nombre_proyecto'];
             cNombreCliente.innerHTML = infoProyecto[i]['nombre_cliente'];
             cFechaEntrega.innerHTML = infoProyecto[i]['fecha_Entrega'];
             verMas.appendChild(boton);
+            Modificar.appendChild(botonM);
+
         }
 
     }

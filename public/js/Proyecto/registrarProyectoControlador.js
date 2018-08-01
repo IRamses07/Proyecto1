@@ -25,7 +25,7 @@ let dateFechaEntrega = document.querySelector('#dtEntregaEstimada');
 
 let txtaDescripcion = document.querySelector('#txtDescripcion');
 
-inputIdentifiacionJuridica = ' ';
+
 
 document.getElementById('#slNombredelCliente').onchange = llenarCedulaJuridica();
 
@@ -100,7 +100,7 @@ function obtenerDatos() {
         console.log('No se pudo registrar el usuario');
     } else {
 
-        registrarProyecto(infoProyecto);
+        registrarProyecto(sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion);
         agregarProyectoCliente();
         limpiarFormulairo();
         recorrerTecnologias();
@@ -231,12 +231,12 @@ function recorrerTecnologias() {
     let listaCompras = '';
     $("input[name=tec]").each(function (index) {
         if ($(this).is(':checked')) {
-            listaCompras += +$(this).val() ;
+            listaCompras += +$(this).val() + '\n';
         }
     });
     console.log(listaCompras);
     return listaCompras;
-   
+
 }
 
 
