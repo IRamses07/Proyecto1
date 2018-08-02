@@ -28,4 +28,9 @@ router.route('/cambiarfoto_clientes')
     clients.cambiarFoto(req, res);
 });
 
+router.route('/cambiar_contrasenna_cliente')
+    .post(function(req, res){
+    clients.cambiar_contrasenna_cliente(req, res);
+});
+
 module.exports = router;

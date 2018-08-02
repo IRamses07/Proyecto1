@@ -217,7 +217,7 @@ th {
     border: #fff 1px solid;
     background-color: #454545;
 }
-/******Ramses********/
+/*****************/
 /* comente de que son */
 
 .fLeft {
@@ -230,21 +230,55 @@ th {
     visibility: hidden;
 }
 
+.hide{
+    display: none;
+}
+
 .lblInput, .lblDatos{
     display: block;
     margin-bottom: 5px;
 }
 
 .lblError{
-    display: block;
-    margin-bottom: 10px;
+    /*display: block;
+    margin-bottom: 10px;*/
     border-left: #fbb803 3px solid;
 }
 
-.div Datos{
-    margin-bottom: 25px;
+.divDatos{
+    margin-bottom: 10px;
 }
-/******Ramses*******/
+
+.btnControl { /*Esta clase la uso para los botones de modificar, activar y desactivar del listado, junto con btnRegistro*/
+    margin: 2px 0 8px 0;
+    width: 50%;
+}
+
+input::placeholder, .letraItalic{ /*Cursiva*/
+    font-style: italic;
+}
+
+/*************Pestañas del formulario********/
+.tabs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+
+.tabs__item{
+    border: 1px solid #fbb803;
+    border-bottom: none;
+    line-height: 2.5;
+    padding: 0 1em;
+    margin-right: 1px;
+    background: #fbb803;
+    border-radius: 5px 5px 0 0;
+    top: 1px;
+    z-index: 0;
+    cursor: pointer;
+}
 
 /* esconde el botón inútil de la lista de profes */
 #rbtnNombre {

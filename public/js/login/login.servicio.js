@@ -182,58 +182,41 @@ function getUserPassword(pId) {
     return thisUserPassword;
 }
 
+function setNewPassword(_id, newPassword) {
 
-
-/*function getUserDataIDDB(ID) {
-    let users = getUsers();
-    let user_info = "";
-    for (j = 0; users.length; j++) {
-        for (i = 0; i < users[i].length; i++) {
-            if (users[i][j]['cedula'] == ID) {
-                user_info = users[i][j]['_id'];
-            }
-        }
+    let sUrl = ''
+    if (getCurrentUserData()['rol'] == 'administrador') {
+        sUrl = 'http://localhost:4000/api/cambiar_contrasenna_admin'
+    } else if (getCurrentUserData()['rol'] == 'cliente') {
+        sUrl = 'http://localhost:4000/api/cambiar_contrasenna_cliente'
+    } else if (getCurrentUserData()['rol'] == 'profesor') {
+        sUrl = 'http://localhost:4000/api/cambiar_contrasenna_profesor'
+    } else if (getCurrentUserData()['rol'] == 'estudiante') {
+        sUrl = 'http://localhost:4000/api/cambiar_contrasenna_estudiante'
     }
-    return user_info;
-}
 
-function setNewPassword(id, newPassword) {
-    let userID = getUserDataIDDB(id);
     let peticion = $.ajax({
-        url: 'http://localhost:4000/api/actualizar_usuario',
+        url: sUrl,
         type: 'post',
         contentType: 'application/x-www-form-urlencoded; charset=utf-8',
         dataType: 'json',
         async: false,
         data: {
-            '_id': userID,
+            '_id': _id,
             'password': newPassword,
-            'password_changed': 1,
+            'passwordChange': 1,
 
         }
     });
 
     peticion.done(function (response) {
-
+        console.log('registro bien.')
     });
 
     peticion.fail(function () {
-
+        console.log("registro mal.")
     });
-    updateCurrentUser(id);
+    updateCurrentUser();
 }
 
-function updateCurrentUser(id) {
-    let usuariosRegistrados = getUsers();
-    let thisUserData = [];
-    for (let j = 0; j = usuariosRegistrados.length; j++) {
-        for (let i = 0; i < usuariosRegistrados.length; i++) {
-            if (usuariosRegistrados[i][j]['cedula'] == id) {
-                thisUserData = usuariosRegistrados[i][j];
-            }
-        }
-    }
-    sessionStorage.setItem("currentUser", JSON.stringify(thisUserData));
-    console.log("[updateCurrentUser] Ok, información de la identificación " + id + " actualizada.");
-}*/
 
