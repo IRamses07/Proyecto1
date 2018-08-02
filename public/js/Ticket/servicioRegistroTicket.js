@@ -89,3 +89,31 @@ function listarProyectos(){
 
     return proyectos;
 }
+
+function mostrarTicket(id){
+    let tickets = [];
+
+    let respuesta = '';
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/mostrar_ticket',
+        type : 'get',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            _id:id
+        }
+    });
+
+    peticion.done(function(response){
+        respuesta = response;
+       });
+     
+       peticion.fail(function(response){
+        
+       });
+ 
+       return respuesta;
+
+    return proyectos;
+}

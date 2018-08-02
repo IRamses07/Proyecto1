@@ -56,7 +56,7 @@ function listarTicketsAdmin(pinptBuscarCliente, selectUrgencia, radioSelected) {
             verMas.appendChild(boton);
 
             boton.addEventListener('click',function(){
-                mostrarDatosTicketseleccionado()
+                mostrarDatosTicketseleccionado(tickets[i]['_id'])
             });
         }
 
@@ -68,7 +68,7 @@ function listarTicketsAdmin(pinptBuscarCliente, selectUrgencia, radioSelected) {
 
 
 function mostrarDatosTicketseleccionado(par){
-window.location(href='verTicket.html?_id='+par);
+document.location('verTicket.html?_id='+par);
 //dentro del controlador de ver ticket tomo el url para tomar el parametro que envié y buscar como tomarlo para que con ese parámetro busque el ticket que debe mostrar
 
 }

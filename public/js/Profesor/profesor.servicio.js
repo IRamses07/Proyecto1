@@ -25,6 +25,19 @@ function getVerMasLS() {
     return JSON.parse(localStorage.getItem('professorDataLS'));
 }
 
+function setProfessorUpdate(pProfe) {
+    sessionStorage.setItem('professorUpdateLS', JSON.stringify(pProfe));
+}
+
+function getProfessorUpdate() {
+    let professorUpdate = JSON.parse(sessionStorage.getItem('professorUpdateLS'));
+
+    if(professorUpdate == null){
+        professorUpdate = '';
+    }
+    return professorUpdate;
+}
+
 function setProfessorData(infoProfesor) {
     let respuesta = '';
     let peticion = $.ajax({
@@ -48,7 +61,8 @@ function setProfessorData(infoProfesor) {
             trabajo_anterior: '',
             experiencia_docente: 0,
             cursos_impartidos: '',
-            foto: 'http://res.cloudinary.com/dtz8agoc3/image/upload/v1531452055/perfil.png'
+            foto: 'http://res.cloudinary.com/dtz8agoc3/image/upload/v1531452055/perfil.png',
+            estado: "Activo"
         }
     });
 
@@ -91,14 +105,14 @@ function getProfessorData() {
 
 function validarCedula(psCedula) {
 
-    /*let aProfesorData = getProfessorData();*/
     let aProfesorData = getUsers();
     let repetido = false;
-
-    for (let i = 0; i < aProfesorData.length&&!repetido; i++) {
-        for (let j = 0; j < aProfesorData[i].length&&!repetido; j++) {
-            if (aProfesorData[i][j]['cedula'] == psCedula || aProfesorData[i][j]['cedula_juridica'] == psCedula) {
-                repetido = true;
+    if (psCedula != getProfessorUpdate()[0]['cedula']) {
+        for (let i = 0; i < aProfesorData.length && !repetido; i++) {
+            for (let j = 0; j < aProfesorData[i].length && !repetido; j++) {
+                if (aProfesorData[i][j]['cedula'] == psCedula || aProfesorData[i][j]['cedula_juridica'] == psCedula) {
+                    repetido = true;
+                }
             }
         }
     }
@@ -109,25 +123,6 @@ function generateRandomPassword() {
     let pw = Math.random().toString(36).substring(2, 10);
     return pw;
 }
-
-/*function getInfoProfesor(){
-    let respuesta = 'respuesta';
-    let peticion = $.ajax({
-        url: 'http://localhost:4000/api/getinfo_profesor',
-        type: 'get',
-        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
-        dataType: 'json',
-        async: false,
-        data: {
-            cedula: '03586123'
-        }
-    });
-    peticion.done(function (response) {
-        respuesta = response;
-    });
-    peticion.fail(function (response) {});
-    return respuesta;
-}*/
 
 function asignarProyecto(infoProyecto) {
     let respuesta = '';
@@ -260,12 +255,10 @@ function setExtraData(pId, sTrabajo, nAnno) {
     });
 
     peticion.done(function (response) {
-        console.log('Registro bien');
         respuesta = response;
     });
 
     peticion.fail(function (response) {
-        console.log('registro mal');
     });
 
     updateCurrentUser(pId);
@@ -306,6 +299,84 @@ function cambiarFoto(imagenUrl) {
     });
 
     updateCurrentUser(id);
+    return respuesta;
+}
+
+
+function updateProfessor(infoProfesor) {
+    let respuesta = '';
+    let peticion = $.ajax({
+        url: 'http://localhost:4000/api/actualizar_profesor',
+        type: 'post',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
+            '_id': infoProfesor[0],
+            'nombre1': infoProfesor[1],
+            'nombre2': infoProfesor[2],
+            'apellido1': infoProfesor[3],
+            'apellido2': infoProfesor[4],
+            'correo': infoProfesor[5],
+            'telefono': infoProfesor[6],
+            'profesion': infoProfesor[7],
+        }
+    });
+
+    peticion.done(function (response) {
+        console.log('Registro bien');
+        respuesta = response;
+    });
+
+    peticion.fail(function (response) {
+        console.log('Registro mal');
+    });
+
+    return respuesta;
+}
+
+function getProfessorById(_id) {
+    let respuesta = 'respuesta';
+    let peticion = $.ajax({
+        url: 'http://localhost:4000/api/get_professor_by_id',
+        type: 'get',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
+            _id: _id
+        }
+    });
+    peticion.done(function (response) {
+        respuesta = response;
+    });
+    peticion.fail(function (response) { });
+    return respuesta;
+}
+
+function updateProfessorStatus(id, estado) {
+    let respuesta = '';
+    let peticion = $.ajax({
+        url: 'http://localhost:4000/api/cambiar_estado_profesor',
+        type: 'post',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
+            '_id': id,
+            'estado': estado,
+        }
+    });
+
+    peticion.done(function (response) {
+        console.log('Registro bien');
+        respuesta = response;
+    });
+
+    peticion.fail(function (response) {
+        console.log('Registro mal');
+    });
+
     return respuesta;
 }
 
