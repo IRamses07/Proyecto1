@@ -11,5 +11,21 @@ router.route('/registrar_ticket')
 router.route('/listar_tickets')
 .get(function(req,res){
     tickets.listarTicketAdmin(req,res);
-})
+});
+
+router.route('/mostrar_ticket')
+.get(function(req,res){
+    tickets.mostrarDatosTicketSlt(req,res);
+});
+
+router.route('/buscar_id_modificar_ticket')
+.post(function(req,res){
+    tickets.buscarTicketModificar(req,res);
+});
+
+router.route('/modificar_ticket')
+.post(function(req,res){
+    tickets.modificarTicket(req,res);
+});
+
 module.exports = router;
