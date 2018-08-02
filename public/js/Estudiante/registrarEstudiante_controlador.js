@@ -1,12 +1,12 @@
 'use strict';
 moveUser(true);
 
-window.onbeforeunload = function(){                       //temporal! revisar <->
-    if(sessionStorage.getItem("update")==1){
-        sessionStorage.setItem('update', 0);
-        document.location.href = 'listarEstudiante.html';
-    }
-};
+// window.onbeforeunload = function(){                       //temporal! revisar <->
+//     if(sessionStorage.getItem("update")==1){
+//         sessionStorage.setItem('update', 0);
+//         document.location.href = 'listarEstudiante.html';
+//     }
+// };
 
 //Funcion para pestanas superiores del cuadro con validación
 (function(d){
@@ -505,7 +505,7 @@ function llenarDatosFormulario(){
     let estudiante = getInfoEstudiante()[0];
 
     tittleReg.innerHTML = 'Actualizar Estudiante';
-    h1reg.innerHTML = 'Información del estudiante: '+estudiante['Nombre1']+' '+estudiante['apellido1']+' - Ced: '+estudiante['cedula'];
+    h1reg.innerHTML = 'Información del estudiante: '+estudiante['Nombre1']+' '+estudiante['apellido1'];
     inputCedula.disabled=true;
     inputCedula.classList.add('disablesInput');
 
