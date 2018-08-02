@@ -113,3 +113,12 @@ module.exports.cambiarFoto = function (req, res) {
             res.send(clientes);
         });
 };
+module.exports.actualizar=function (req,res) {
+    clientModel.where({
+        cedula_juridica:req.body.cedulaJuridica
+    }).update(req.body).then(
+        function(clientes){
+            res.send(clientes);
+        }
+    )
+}

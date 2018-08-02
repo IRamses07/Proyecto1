@@ -164,3 +164,25 @@ function validarCedulaRepetida(cedulaJuridica){
     }
     return false;
 }
+function actualizarCliente(data) {
+    let respuesta = '';
+    let cedJur = getCurrentUserData()['cedula_juridica'];
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/actualizar',
+        type : 'post',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:data
+      });
+    
+      peticion.done(function(response){
+       respuesta = response;
+      });
+    
+      peticion.fail(function(response){
+       
+      });
+
+      return respuesta;
+}

@@ -27,5 +27,9 @@ router.route('/cambiarfoto_clientes')
     .put(function(req, res){
     clients.cambiarFoto(req, res);
 });
+router.route('/actualizar')
+.post(function(req,res){
+    clients.actualizar(req,res);
+});
 
 module.exports = router;
