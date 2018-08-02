@@ -36,6 +36,7 @@ function imprimirListaProyectos(pFiltro) {
             botonM.type = "button";
             botonM.value = "Modificar";
             botonM.classList.add('btnRegistro');
+            botonM.dataset._id = infoProyecto[i]['_id'];
 
             cCedulaJuridica.innerHTML = infoProyecto[i]['identificacion_juridica'];
             cNombreProyecto.innerHTML = infoProyecto[i]['nombre_proyecto'];
@@ -43,6 +44,8 @@ function imprimirListaProyectos(pFiltro) {
             cFechaEntrega.innerHTML = infoProyecto[i]['fecha_Entrega'];
             verMas.appendChild(boton);
             Modificar.appendChild(botonM);
+
+            botonM.addEventListener('click');
 
         }
 
