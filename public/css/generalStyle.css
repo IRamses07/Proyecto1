@@ -31,8 +31,6 @@ a {
     background-color: #fbb803;
     /* #fbb803; */
     padding: 15px 0%;
-<<<<<<< HEAD
-=======
 
     -webkit-animation-name: colors; /* Safari 4.0 - 8.0 */
     -webkit-animation-duration: 50s; /* Safari 4.0 - 8.0 */
@@ -52,7 +50,6 @@ a {
     80% {background-color: #fc9e23;}
     90% {background-color: #f19307;}
     100% {background-color:   #fbb803  ;}
->>>>>>> master
 }
 
 /* Standard syntax */
@@ -171,34 +168,6 @@ input {
 select {
     border: 2px solid #fff;
     border-radius: 3px;
-<<<<<<< HEAD
-    height: 30px;
-    font-family: 'Roboto' sans-serif;
-    font-size: 14px;
-    color: #454545;
-    letter-spacing: 0.7pt;
-}
-
-/* estilo general de los botones de los registros...  */
-
-.btnRegistro {
-    background-color: #fbb803;
-    border-radius: 3px;
-    border: none;
-    padding: 5px 2%;
-    font-family: 'Roboto' sans-serif;
-    color: #fff;
-    font-size: 1em;
-    outline: none;
-}
-
-.btnRegistro:hover {
-    background-color: #fbb876;
-    cursor: pointer;
-}
-
-/* estilos de los botones del sweetaler  */
-=======
     height: 27px;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
@@ -221,7 +190,6 @@ select {
  .btnRegistro:hover {
     background-color: #ff8e1d;
  }
->>>>>>> master
 
 .swal-button {
     background-color: #fbb803;
@@ -263,13 +231,7 @@ th {
     border: #fff 1px solid;
     background-color: #454545;
 }
-<<<<<<< HEAD
-
-/******Ramses********/
-
-=======
 /*****************/
->>>>>>> master
 /* comente de que son */
 
 .fLeft {
@@ -282,32 +244,15 @@ th {
     visibility: hidden;
 }
 
-<<<<<<< HEAD
-.lblInput, .lblDatos {
-=======
 .hide{
     display: none;
 }
 
 .lblInput, .lblDatos{
->>>>>>> master
     display: block;
     margin-bottom: 5px;
 }
 
-<<<<<<< HEAD
-.lblError {
-    display: block;
-    margin-bottom: 10px;
-    border-left: #fbb803 3px solid;
-}
-
-.div Datos {
-    margin-bottom: 25px;
-}
-
-/******Ramses*******/
-=======
 .lblError{
     /*display: block;
     margin-bottom: 10px;*/
@@ -348,7 +293,6 @@ input::placeholder, .letraItalic{ /*Cursiva*/
     z-index: 0;
     cursor: pointer;
 }
->>>>>>> master
 
 /* esconde el botón inútil de la lista de profes */
 
