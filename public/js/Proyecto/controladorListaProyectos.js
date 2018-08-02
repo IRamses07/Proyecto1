@@ -2,6 +2,7 @@
 moveUser(true);
 imprimirListaProyectos();
 
+
 const inputFiltro = document.querySelector('#txtFiltro');
 
 inputFiltro.addEventListener('keyup', function () {
@@ -25,7 +26,7 @@ function imprimirListaProyectos(pFiltro) {
             let cNombreCliente = fila.insertCell();
             let cFechaEntrega = fila.insertCell();
             let verMas = fila.insertCell();
-            let Modificar =fila.insertCell();
+            let Modificar = fila.insertCell();
 
             let boton = document.createElement("input");
             boton.type = "button";
@@ -36,6 +37,7 @@ function imprimirListaProyectos(pFiltro) {
             botonM.type = "button";
             botonM.value = "Modificar";
             botonM.classList.add('btnRegistro');
+            botonM.classList.add('modProyecto')
             botonM.dataset._id = infoProyecto[i]['_id'];
 
             cCedulaJuridica.innerHTML = infoProyecto[i]['identificacion_juridica'];
@@ -45,10 +47,22 @@ function imprimirListaProyectos(pFiltro) {
             verMas.appendChild(boton);
             Modificar.appendChild(botonM);
 
-            botonM.addEventListener('click');
+            
+
 
         }
 
     }
+
+}
+modificaProyecto();
+function modificaProyecto() {
+    let modProyecto = document.querySelectorAll('.modProyecto');
+    modProyecto.forEach(function (elem) {
+        elem.addEventListener("click", function () {
+
+            document.location.href = 'modificarProyecto.html';
+        })
+    });
 
 }

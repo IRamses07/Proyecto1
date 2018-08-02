@@ -7,7 +7,7 @@ listarSelectClientes();
 
 let botonRegistrar = document.querySelector('#btnRegistrar');
 
-botonRegistrar.addEventListener('click', obtenerDatos, recorrerTecnologias);
+botonRegistrar.addEventListener('click', obtenerDatosr);
 
 
 
@@ -58,7 +58,7 @@ function limpiarFormulairo() {
 
 }
 
-function obtenerDatos() {
+function obtenerDatosr() {
 
 
     let infoProyecto = [];
