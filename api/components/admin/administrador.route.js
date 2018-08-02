@@ -14,4 +14,9 @@ router.route('/get_info_admin')
         admin.getInfoAdmin(req, res);
     });
 
+router.route('/cambiar_contrasenna_admin')
+    .post(function (req, res) {
+        admin.cambiar_contrasenna(req, res);
+    });
+
 module.exports = router;

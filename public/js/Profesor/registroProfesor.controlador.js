@@ -7,7 +7,23 @@ let eString = /[A-Za-záéíóúñÑÁÉÍÓÚ+-]+/,
     eDate = /^(0?[1-9]|1[0-2])[\/](0?[1-9]|[12]\d|3[01])[\/](19|20)\d{2}$/,
     ePhone = /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/;
 
+
+if (getProfessorUpdate() != '') {
+    document.querySelector('#btnRegistro').hidden = true;
+    document.querySelector('#btnUpdate').hidden = false;
+    document.querySelector('#tituloPrincipal').innerHTML = 'Información del profesor: '+getProfessorUpdate()[0]['nombre1']+" "+
+    getProfessorUpdate()[0]['apellido1']+' - '+'Ced: '+getProfessorUpdate()[0]['cedula'];
+    document.querySelector('#txtCedula').disabled = true;
+    fillInputs(getProfessorUpdate());
+} else {
+    document.querySelector('#tituloPrincipal').innerHTML = 'Nuevo profesor';
+    document.querySelector('#btnRegistro').hidden = false;
+    document.querySelector('#btnUpdate').hidden = true;
+    document.querySelector('#txtCedula').disabled = false;
+}
+
 document.querySelector('#btnRegistro').addEventListener('click', registrarProfe);
+document.querySelector('#btnUpdate').addEventListener('click', registrarProfe);
 
 function validarRequeridos() {
 
@@ -42,7 +58,7 @@ function registrarProfe() {
 
     let infoProfesor = [];
 
-   /* let listaProfes = getProfessorData();*/
+    /*let listaProfes = getProfessorData();*/
 
     if (validarRequeridos()) {
         swal({
@@ -52,16 +68,15 @@ function registrarProfe() {
             button: "Ok",
         });
     } else {
-       /* for (let i = 0; i < listaProfes.length; i++) {*/
-            if (!validarCedula(sCedula)) {
-                document.querySelector('#txtCedula').classList.remove('error_input');
-                document.querySelector('#lblCedulaError').classList.add('lblHide');
-            } else {
-                document.querySelector('#txtCedula').classList.add('error_input');
-                document.querySelector('#lblCedulaError').classList.remove('lblHide');
-                bError = true;
-            }
-       
+        if (!validarCedula(sCedula)) {
+            document.querySelector('#txtCedula').classList.remove('error_input');
+            document.querySelector('#lblCedulaError').classList.add('lblHide');
+        } else {
+            document.querySelector('#txtCedula').classList.add('error_input');
+            document.querySelector('#lblCedulaError').classList.remove('lblHide');
+            bError = true;
+        }
+
         if (eEmail.test(sCorreo) && !eSpace.test(sCorreo)) {
             document.querySelector('#txtCorreo').classList.remove('error_input');
             document.querySelector('#lblCorreoError').classList.add('lblHide');
@@ -93,15 +108,30 @@ function registrarProfe() {
         }
 
         if (!bError) {
-            let password = generateRandomPassword();
-            swal({
-                title: "Registro exitoso",
-                text: "El profesor se ha registrado exitosamente.\n Contraseña temporal: "+password,
-                icon: "success",
-                button: "Ok",
-            });
-            infoProfesor.push(sNombre1, sNombre2, sApellido1, sApellido2, sCedula, sCorreo, sTelefono, sProfesion, sRol, password,passwordChange);
-            setProfessorData(infoProfesor);
+            if (getProfessorUpdate()!='') {
+                swal({
+                    title: "Modificación exitosa",
+                    text: "El profesor se ha modificado exitosamente.",
+                    icon: "success",
+                    button: "Ok",
+                });
+                infoProfesor.push(getProfessorUpdate()[0]['_id'], sNombre1, sNombre2, sApellido1, sApellido2, sCorreo, sTelefono, sProfesion);
+                updateProfessor(infoProfesor);
+                window.setTimeout(function () {
+                    window.location.href = "listarProfesores.html";
+                }, 3000);
+            } else {
+                let password = generateRandomPassword();
+                swal({
+                    title: "Registro exitoso",
+                    text: "El profesor se ha registrado exitosamente.\n Contraseña temporal: " + password,
+                    icon: "success",
+                    button: "Ok",
+                });
+                infoProfesor.push(sNombre1, sNombre2, sApellido1, sApellido2, sCedula, sCorreo, sTelefono, sProfesion, sRol, password, passwordChange);
+                setProfessorData(infoProfesor);
+            }
+
             limpiar();
         }
     }
@@ -111,6 +141,16 @@ function limpiar() {
     let inputs = document.querySelectorAll("input");
     for (let i = 0; i < inputs.length; i++) {
         inputs[i].value = '';
+    }
+}
+
+function fillInputs(pProfe) {
+    let inputs = document.querySelectorAll("input");
+    let miProfe = [pProfe[0]["nombre1"],pProfe[0]["apellido1"],pProfe[0]["cedula"],
+    pProfe[0]["telefono"],pProfe[0]["nombre2"],pProfe[0]["apellido2"],pProfe[0]["correo"],pProfe[0]["profesion"]];
+
+    for (let i = 0; i<inputs.length; i++) {
+        inputs[i].value = miProfe[i];
     }
 }
 

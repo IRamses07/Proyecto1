@@ -35,3 +35,15 @@ module.exports.getInfoAdmin = function (req, res) {
             res.send(administrador);
         });
 };
+
+module.exports.cambiar_contrasenna_admin = function(req, res){
+    adminModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
+        function(err) {
+            if (err) {
+                res.json({ success: false, msg: 'No se ha actualizado.'});
+        
+            } else {
+            res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
+            }
+      });
+};
