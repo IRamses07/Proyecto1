@@ -1,4 +1,4 @@
-moveUser(true);
+moveUser(false);
 document.querySelector('#btnChange').addEventListener('click', passwordChange);
 
 function passwordChange() {
@@ -15,7 +15,7 @@ function passwordChange() {
             icon: "warning",
             button: "Ok",
         });
-    }else{
+    } else {
         if (getCurrentUserData()['password'] == oldPassword) {
             document.querySelector('#txtOldPassword').classList.remove('error_input');
             document.querySelector('#lblOldPasswordError').classList.add('lblHide');
@@ -25,13 +25,33 @@ function passwordChange() {
             bError = true;
         }
 
-        if (getCurrentUserData()['password'] == newPassword) {
+        if (!(newPassword.length > 5 && newPassword.length < 12) || getCurrentUserData()['password'] == newPassword) {
             document.querySelector('#txtNewPassword').classList.add('error_input');
-            document.querySelector('#lblNewPasswordError').classList.remove('lblHide');
-        } else {
-            document.querySelector('#txtNewPassword').classList.remove('error_input');
-            document.querySelector('#lblNewPasswordError').classList.add('lblHide');
             bError = true;
+        } else {
+            document.querySelector('#txtNewPassword').classList.remove('error_input');            
+        }
+
+        if (getCurrentUserData()['password'] == newPassword) {
+            document.querySelector('#divHide').classList.add('hide');
+            document.querySelector('#lblNewPasswordError2').classList.add('hide');
+            document.querySelector('#lblNewPasswordError').classList.remove('lblHide');
+            document.querySelector('#lblNewPasswordError').classList.remove('hide');
+            bError = true;
+               
+        } else {
+            if(newPassword.length > 5 && newPassword.length < 12){
+                document.querySelector('#divHide').classList.add('hide');
+                document.querySelector('#lblNewPasswordError2').classList.add('hide');
+                document.querySelector('#lblNewPasswordError').classList.add('lblHide');
+                document.querySelector('#lblNewPasswordError').classList.add('hide');
+            }else{
+                document.querySelector('#divHide').classList.remove('hide');
+                document.querySelector('#lblNewPasswordError2').classList.remove('hide');
+                document.querySelector('#lblNewPasswordError').classList.add('lblHide');
+                document.querySelector('#lblNewPasswordError').classList.add('hide');
+                bError = true;
+            }        
         }
 
         if (newPassword == confirmPassword) {
@@ -50,11 +70,15 @@ function passwordChange() {
                 icon: "success",
                 button: "Ok",
             });
-            setNewPassword(getCurrentUserData()['cedula'], confirmPassword);
+            setNewPassword(getCurrentUserData()['_id'], confirmPassword);
             limpiar();
+            window.setTimeout(function () {
+                window.location.href = "listarProyectos.html";
+            }, 3000);
+
         }
     }
-    
+
 }
 
 function validarRequeridos() {

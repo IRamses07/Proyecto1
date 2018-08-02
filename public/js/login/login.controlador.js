@@ -21,7 +21,7 @@ function signIn() {
             document.querySelector('#txtPassword').classList.remove('error_input');
             document.querySelector('#lblCredencialesError').classList.add('lblHide');
             limpiar();
-            
+
             swal({
                 title: "Inicio de sesión exitoso",
                 text: "Será redirigido en 3 segundos.",
@@ -30,14 +30,25 @@ function signIn() {
             });
 
             let infoUser = getCurrentUserData();
-            if (infoUser['passwordChange'] != 0) {
+            if (infoUser['passwordChange'] == 0) {
                 console.log("Primer inicio de sesión del usuario! Deberá cambiar su contraseña.");
-                window.setTimeout(function(){
-                window.location.href = "passwordChange.html";
+                window.setTimeout(function () {
+                    window.location.href = "passwordChange.html";
                 }, 3000);
             } else {
-                window.setTimeout(function(){
-                window.location.href = "listarProyectos.html";
+                window.setTimeout(function () {
+                    if (getCurrentUserData()['rol'] == 'administrador') {
+                        window.location.href = "listarProyectos.html";
+                    }
+                    if (getCurrentUserData()['rol'] == 'profesor') {
+                        window.location.href = "listarProyectosProfesor.html";
+                    }
+                    if (getCurrentUserData()['rol'] == 'estudiante') {
+                        window.location.href = "listarProyectosEstudiante.html";
+                    }
+                    if (getCurrentUserData()['rol'] == 'cliente') {
+                        window.location.href = "listarProyectosCliente.html";
+                    }
                 }, 3000);
             }
         } else {
@@ -86,8 +97,8 @@ function limpiar() {
     }
 }
 
-function setAdmin1(){
-    if(getAdminData() == ''){
+function setAdmin1() {
+    if (getAdminData() == '') {
         setAdmin();
     }
 }

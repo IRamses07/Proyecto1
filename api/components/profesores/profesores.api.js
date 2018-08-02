@@ -19,7 +19,9 @@ module.exports.registrar = function (req, res) {
         trabajo_anterior: req.body.trabajo_anterior,
         experiencia_docente: req.body.experiencia_docente,
         cursos_impartidos: req.body.cursos_impartidos,
-        foto : req.body.foto
+        foto : req.body.foto,
+        estado: req.body.estado
+        
     });
 
     nuevoProfesor.save(function (error) {
@@ -45,15 +47,6 @@ module.exports.listar = function (req, res) {
             res.send(profesores);
         });
 };
-
-/*module.exports.getInfoProfesor = function (req, res) {
-    profesorModel.find({
-        'cedula': req.query.cedula
-    }).then(
-        function (profesores) {
-            res.send(profesores);
-        });
-};*/
 
 module.exports.asignar_proyecto = function (req, res) {
 
@@ -149,55 +142,47 @@ module.exports.cambiar_foto_profesores = function (req, res) {
         });
 };
 
-/*module.exports.actualizar_usuario = function(req, res){
-    userModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
+module.exports.cambiar_contrasenna_profesor = function(req, res){
+    profesorModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
         function(err) {
             if (err) {
-                res.json({ success: false, msg: 'No se ha actualizado.' + handleError(err) });
+                res.json({ success: false, msg: 'No se ha actualizado.'});
         
             } else {
             res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
             }
       });
-};*/
-
-
-/*module.exports.cambiarFoto = function(req, res){
-
-    profesorModel.findOneAndUpdate(
-        {
-            cedula: req.body.cedula
-        },
-        {  
-            foto: req.body.foto
-        }
-        ).then(
-        function(profesores){
-            res.send(profesores);
-    });
 };
 
-module.exports.agregar_info_profesor = function(req, res){
-    
-    profesorModel.update({_id: req.body._id}, 
-        {$push: 
-            {'preparacion_academica':
-                {
-                    trabajo: req.body.trabajo,
-                    anno: req.body.anno,
-                    cursos: req.body.cursos,
-                    grado: req.body.grado,
-                    titulo: req.body.titulo,
-                    carrera: req.body.carrera
-                }
+module.exports.getProfessorById = function (req, res) {
+    profesorModel.find({
+        '_id': req.query._id
+    }).then(
+        function (profesores) {
+            res.send(profesores);
+        });
+};
+
+module.exports.actualizar_profesor = function(req, res){
+    profesorModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
+        function(err,profe) {
+            if (err) {
+                res.json({ success: false, msg: 'No se ha actualizado.'+ handleError(err)});
+        
+            } else {
+            res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
             }
-        },
-        function(error){
-            if(error){
-                res.json({success : false, msg : 'No se pudo registrar el título, ocurrió el siguiente error' + error});
-            }else{
-                res.json({success : true, msg : 'El título se registró con éxito'});
+      });
+};
+
+module.exports.cambiar_estado_profesor = function(req, res){
+    profesorModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
+        function(err,profe) {
+            if (err) {
+                res.json({ success: false, msg: 'No se ha actualizado.'+ handleError(err)});
+        
+            } else {
+            res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
             }
-        }
-    )
-};*/
+      });
+};

@@ -19,6 +19,8 @@
         <div class="mainHeader">
             <a id="notificacion" class="fLeft">
                 <i class="fas fa-bell"></i> Notificaciones</a>
+                <label for="">Bienvenido: </label>
+                <output id="txtnombreCliente" value=""></output>
             <a href="javascript:logOut();" class="fRight">Cerrar sesión
                 <i class="fas fa-cog"></i>
             </a>
@@ -30,17 +32,17 @@
 
     </header>
     <main id="content">
-            <div class="modal none" id="modal">
-                    <div class="ModalNotificaciones">
-                        <a>X</a>
-                        <table id="tblNotificacion">
-                            <thead>
-                                <th>Notificaciones</th>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-                </div>
+        <div class="modal none" id="modal">
+            <div class="ModalNotificaciones">
+                <a>X</a>
+                <table id="tblNotificacion">
+                    <thead>
+                        <th>Notificaciones</th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
         <h2>Listado de profesores</h2>
         <div class="floatContainer">
             <input type="radio" id="rbtnNombre" name="botonInutil" value="nombre" checked>
@@ -56,7 +58,10 @@
                 <th>Teléfono</th>
                 <th>Profesión</th>
                 <th>Perfil</th>
-                <!-- <th><i class="fas fa-cog"></i></th> -->
+                <th>Estado</th>
+                <th>
+                    <i class="fas fa-cog"></i>
+                </th>
             </thead>
             <tbody>
 

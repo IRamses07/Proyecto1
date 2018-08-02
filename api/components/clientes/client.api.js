@@ -122,3 +122,16 @@ module.exports.actualizar=function (req,res) {
         }
     )
 }
+
+
+module.exports.cambiar_contrasenna_cliente = function(req, res){
+    clientModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
+        function(err) {
+            if (err) {
+                res.json({ success: false, msg: 'No se ha actualizado.'});
+        
+            } else {
+            res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
+            }
+      });
+};

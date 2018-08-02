@@ -13,9 +13,9 @@ let profesorSchema = new mongoose.Schema({
     rol: { type: String, required: false },
     password: { type: String, required: true },
     passwordChange: { type: String, required: true },
-    trabajo_anterior: {type: String},
-    experiencia_docente: {type: Number},
-    cursos_impartidos: {type: String},
+    trabajo_anterior: { type: String },
+    experiencia_docente: { type: Number },
+    cursos_impartidos: { type: String },
     preparacion_academica: [{
         grado_academico: { type: String },
         titulo_fecha: { type: String },
@@ -24,13 +24,15 @@ let profesorSchema = new mongoose.Schema({
     proyecto: [
         {
             id: { type: String },
-            rol: { type: String},
+            rol: { type: String },
             nombre_proyecto: { type: String },
             fecha_Entrega: { type: String },
             estado_proyecto: { type: String }
         }
-    ],  
-    foto : {type : String}
+    ],
+    foto: { type: String },
+    estado: { type: String }
+
 
 });
 

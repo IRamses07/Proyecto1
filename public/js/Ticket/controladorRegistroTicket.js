@@ -6,8 +6,9 @@ botonRegistrarTicket.addEventListener('click', obtenerDatosTicket);
 
 
 
-let codigo = '';
-let fechaReg = getDate();
+// let codigo = '';
+// let fechaReg = getDate();
+let inptNombreCliente = document.querySelector('#txtnombreCliente');
 let inptUrgencia = document.querySelector('#sltUrgencia');
 let inptProyecto = document.querySelector('#sltProyecto');
 let inptimagenErr = document.querySelector('#file-upload');
@@ -44,14 +45,16 @@ function obtenerDatosTicket() {
         });
     } else {
         registrarTicket(nombreCliente, urgencia, proyecto, imagenErr, referenciaTicket, descripcionError);
-        regitroNotificacion()  //aquí mando el id del emisor y el rol, los datos del receptor, tipo = 'ticket',referencia: id (del ticket), verTicket.html
-        swal({
-            title: "Registro exitoso",
-            text: "El ticket se ha registrado correctamente",
-            icon: "success",
-            button: "Ok",
-        });
-        window.location(href = './listarTicketsCliente.html');
+        // regitroNotificacion()  
+        //aquí mando el id del emisor y el rol, los datos del receptor, tipo = 'ticket',referencia: id (del ticket), verTicket.html
+        // swal({
+        //     title: "Registro exitoso",
+        //     text: "El ticket se ha registrado correctamente",
+        //     icon: "success",
+        //     button: "Ok",
+        // });
+        alertify.error('El ticket se registró correctamente'); 
+        document.location.href = './listarTicketsCliente.html';
         console.log('aquí va otro sweet alert xDD');
         limpiarFormulario();
     }
@@ -129,6 +132,39 @@ function listarTicketsReferencia() {
     let sltReferenciaTicket = document.querySelector('#sltTicket');
 
     for (let i = 0; i < sltTickets.length; i++) {
+        if(inptProyecto.value == sltTickets[i]['proyecto']){
         sltReferenciaTicket.options[i] = new Option(sltTickets[i]['proyecto'], sltTickets[i]['proyecto'])
     }
 }
+    
+}
+// Código de cada ticket registrado
+// function addZero(x, n) {
+//     while (x.toString().length < n) {
+//       x = "0" + x;
+//     }
+//     return x;
+//   }
+  
+//   // Añadir control al elemento "p" principal de la página.
+//   function addControl() {
+//     let d = new Date();
+//     let x = document.getElementById("demo");
+//     let h = addZero(d.getHours(), 2);
+//     let m = addZero(d.getMinutes(), 2);
+//     let s = addZero(d.getSeconds(), 2);
+//     let ms = addZero(d.getMilliseconds(), 3);
+//     x.innerHTML += "<p id='" + h + m + s + ms + "'>ID: " + h + m + s + ms + "</p>";
+//   }
+
+//esto va en el html
+{/* <p>
+  <i>En el div de abajo, usted encontrará elementos<br/>
+HTML de tipo "p" con valores de identificación únicos:</i>
+</p>
+<p>
+  <button onclick="addControl()">Agregar control</button>
+</p>
+
+
+<p id="demo"></p> */}

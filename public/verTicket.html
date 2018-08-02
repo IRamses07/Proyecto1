@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ticket</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/generalStyle.css">
-    <link rel="stylesheet" href="css/registrarTicket.css">
+    <link rel="stylesheet" href="css/verTicket.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -19,7 +20,9 @@
         <div class="mainHeader">
             <a class="fLeft">
                 <i class="fas fa-bell"></i> Notificaciones</a>
-            <a href="##" class="fRight">Cerrar sesión
+                <label for="">Bienvenido: </label>
+                <output id="txtnombreCliente" value=""></output>
+            <a href="javascript:logOut();" class="fRight">Cerrar sesión
                 <i class="fas fa-cog"></i>
             </a>
         </div>
@@ -33,20 +36,37 @@
     <main id="content">
         <section id="viewTicket">
             <h1>Ticket</h1>
-
-            <div id="datos">
-                <h3 id="urgencia"></h3>
-                <p id="estado"></p>
+            <div class="info">
+            <label for="">Urgencia:</label>
+            <output id="urgencia"></output>
+        </div>
+        <div class="bigOne">
+            <div class="datos">
+                    <div class="dato">
+                        <div class="uno">
+                            <label for="">Proyecto:</label>
+                            <output id="proyecto"></output>
+                        </div>
+                        <div class="dos">
+                        <label for="">Estado:</label>
+                <output id="estado"></output>
+            </div>
             </div>
 
-            <div id="datos">
-                <h2 id="proyecto"></h2>
-                <p id="descripcion"></p>
+                <div class="dato">
+                <div class="uno">
+                    <label for="" class="descripcion">Descripción</label>
+                </div>
+                <div class="dos">
+                <output id="descripcion"></output>
+            </div>
+            </div>
             </div>
 
-            <div id="datos">
-                <div>
-                    <img alt="Foto" class="imgErrorContainer" id="imgErr">
+            <div class="datos">
+                    <div class="dato">
+                        <img alt="Foto" class="imgErrorContainer" id="imgErr">
+                    </div>
                 </div>
             </div>
         </section>
@@ -60,7 +80,6 @@
     <script src="js/Ticket/servicioImagen.js"></script>
     <script src="js/Ticket/servicioRegistroTicket.js"></script>
     <script src="js/Ticket/controladorVerTicket.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
 </html>
