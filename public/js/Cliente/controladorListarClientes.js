@@ -1,8 +1,8 @@
 'use strict'
 moveUser(true);
-let modal = elm('#modal');
-listener(modal.querySelector('a'), 'click', function () {
-    addClass(modal, 'none');
+let modalMapa = elm('#modal');
+listener(modalMapa.querySelector('a'), 'click', function () {
+    addClass(modalMapa, 'none');
 });
 listener(elm('#btnBuscar'), 'click', function () {
     llenarTabla(elm('#filtro').value);
@@ -11,7 +11,7 @@ let tablaLista = elm('#tablaLista');
 llenarTabla()
 function llenarTabla(filro) {
     let busqueda = elm('#busqueda input[type="radio"]:checked').value;
-    let lista=listarClientes();
+    let lista = listarClientes();
     if (!filro) {
         filro = '';
     }
@@ -29,7 +29,7 @@ function llenarTabla(filro) {
                 config = row.insertCell(5);
             cedula_juridica.innerHTML = lista[i]['cedula_juridica'];
             nombre.innerHTML = lista[i]['nombre'];
-            contacto.innerHTML = lista[i]['primer_nombre'] + ' ' + lista[i]['primer_apellido'];
+            contacto.innerHTML = `${lista[i]['primer_nombre']}  ${lista[i]['primer_apellido']}`;
             proyectos.innerHTML = 'Comming soon';
             let verUbicacion = createElm('a'),
                 btnModificar = createElm('button'),
@@ -37,12 +37,15 @@ function llenarTabla(filro) {
             verUbicacion.dataset.ubicacion = lista[i].ubicacion;
             verUbicacion.innerHTML = 'Ver ubicación';
             listener(verUbicacion, 'click', function () {
-                modal.classList.remove('none');
+                modalMapa.classList.remove('none');
                 let ubicacion = verUbicacion.dataset.ubicacion.split(',');
                 mapCenter(ubicacion[0], ubicacion[1]);
             });
             btnModificar.classList.add('btnFiltro');
             btnModificar.innerHTML = 'Modificar';
+            listener(btnModificar, 'click', function () {
+                window.location.href = `./modificarCliente.html?cedula_juridica=${lista[i]['cedula_juridica']}`;
+            });
             btnEstado.classList.add('btnFiltro');
             btnEstado.innerHTML = 'Desactivar';
             ubicacion.appendChild(verUbicacion);

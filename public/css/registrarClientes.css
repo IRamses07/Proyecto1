@@ -1,6 +1,6 @@
 .fmr {
     display: flow-root;
-    width: 700px;
+    width: 85%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -13,6 +13,10 @@ h2 {
     padding-top: 20px;
     font-size: 24px;
     margin-bottom: 10px;
+}
+
+select {
+    min-width: 100%;
 }
 
 .fmr div:nth-child(2n+1) {
@@ -28,13 +32,20 @@ h2 {
     margin-bottom: 20px;
 }
 
-.fmr label+input, .fmr label+select, .fmr label+textarea {
+.fmr label+input, .fmr label+select, .fmr label+textarea,.fmr label+output {
     display: block;
     border-radius: 3px;
     padding-left: 5px;
     outline: none;
     width: 100%;
     resize: none;
+}
+.fmr output{
+    color: #ffffff;
+    border-radius: 3px;
+    /* outline: none; */
+    height: 30px;
+    vertical-align: middle;
 }
 
 .fmr label {
@@ -64,4 +75,9 @@ h2 {
 
 .fmr .btnRegistro {
     margin-top: 15px;
+    margin-bottom: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
 }

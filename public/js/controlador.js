@@ -114,21 +114,21 @@ function registro(inputs) {
 
 
 
-                // if (blanck(element)){
-                //     addClass(element, 'error');
-                //     valido = false;
-                // } else if (validarCedulaRepetida(element)) {
-                //     console.log('aqui estamos mop');
-                //     addClass(element, 'error');
-                //     labelCed.innerHTML = 'Cédula jurídica -> *Cédula Existente!';
-                //     labelCed.addClass('cedRepetida');
-                //     valido = false;
-                //     //cosas que pasan si esta repetida -> labelCed
-                // } else {
-                //     classList.remove(element, 'error');
-                // }
-                // break;
-            
+            // if (blanck(element)){
+            //     addClass(element, 'error');
+            //     valido = false;
+            // } else if (validarCedulaRepetida(element)) {
+            //     console.log('aqui estamos mop');
+            //     addClass(element, 'error');
+            //     labelCed.innerHTML = 'Cédula jurídica -> *Cédula Existente!';
+            //     labelCed.addClass('cedRepetida');
+            //     valido = false;
+            //     //cosas que pasan si esta repetida -> labelCed
+            // } else {
+            //     classList.remove(element, 'error');
+            // }
+            // break;
+
             case 'correoElectronico':
                 if (blanck(element)) {
                     if (!test(eEmail, element) || test(eSpace, element)) {
@@ -216,18 +216,39 @@ function geocodeAddress(geocoder, resultsMap) {
  * @param {String} lat latitud
  * @param {String} lgn longitud
  */
-function mapCenter(lat,lng){
-    let position=new google.maps.LatLng(lat,lng);
+function mapCenter(lat, lng) {
+    let position = new google.maps.LatLng(lat, lng);
     map.setCenter(position);
     marker.setPosition(position);
 }
 function showMap() {
-    let mapContent=elm('#map'),
-    latLng = { lat: 9.9333, lng: -84.0833 };
+    let mapContent = elm('#map'),
+        latLng = { lat: 9.9333, lng: -84.0833 };
     map = new google.maps.Map(mapContent, { center: latLng, zoom: 17 });
     marker = new google.maps.Marker({
         map: map,
         draggable: false,
         position: new google.maps.LatLng(latLng.lat, latLng.lng)
     });
+}
+function getParam() {
+    // capturamos la url
+    let loc = document.location.href;
+    // si existe el interrogante
+    if (loc.indexOf('?') > 0) {
+        // cogemos la parte de la url que hay despues del interrogante
+        let getString = loc.split('?')[1];
+        // // obtenemos un array con cada clave=valor
+        let GET = getString.split('&');
+        let get = {};
+        // // recorremos todo el array de valores
+        for (let i = 0, l = GET.length; i < l; i++) {
+            let tmp = GET[i].split('=');
+            get[tmp[0]] = unescape(decodeURI(tmp[1]));
+
+
+        }
+        console.log(get);
+        return get;
+    }
 }

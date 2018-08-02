@@ -47,9 +47,11 @@ function registrarCliente(infoCliente) {
     return respuesta;
 }
 
-function getInfoCliente() {
+function getInfoCliente(cedJur) {
     let respuesta = 'respuesta';
-    let cedJur = getCurrentUserData()['cedula_juridica'];
+    if (!cedJur) {
+        cedJur = getCurrentUserData()['cedula_juridica'];
+    }
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/getinfo_clientes',
         type: 'get',
