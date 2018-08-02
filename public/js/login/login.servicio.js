@@ -182,30 +182,41 @@ function getUserPassword(pId) {
     return thisUserPassword;
 }
 
-function setNewPassword(id, newPassword) {
+function setNewPassword(_id, newPassword) {
+
+    let sUrl = ''
+    if (getCurrentUserData()['rol'] == 'administrador') {
+        sUrl = 'http://localhost:4000/api/cambiar_contrasenna_admin'
+    } else if (getCurrentUserData()['rol'] == 'cliente') {
+        sUrl = 'http://localhost:4000/api/cambiar_contrasenna_cliente'
+    } else if (getCurrentUserData()['rol'] == 'profesor') {
+        sUrl = 'http://localhost:4000/api/cambiar_contrasenna_profesor'
+    } else if (getCurrentUserData()['rol'] == 'estudiante') {
+        sUrl = 'http://localhost:4000/api/cambiar_contrasenna_estudiante'
+    }
 
     let peticion = $.ajax({
-        url: 'http://localhost:4000/api/cambiar_contrasenna',
+        url: sUrl,
         type: 'post',
         contentType: 'application/x-www-form-urlencoded; charset=utf-8',
         dataType: 'json',
         async: false,
         data: {
-            '_id': getCurrentUserData()['_id'],
+            '_id': _id,
             'password': newPassword,
-            'password_changed': 1,
+            'passwordChange': 1,
 
         }
     });
 
     peticion.done(function (response) {
-
+        console.log('registro bien.')
     });
 
     peticion.fail(function () {
-
+        console.log("registro mal.")
     });
-    updateCurrentUser(id);
+    updateCurrentUser();
 }
 
 

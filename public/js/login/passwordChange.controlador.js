@@ -70,7 +70,7 @@ function passwordChange() {
                 icon: "success",
                 button: "Ok",
             });
-            setNewPassword(getCurrentUserData()['cedula'], confirmPassword);
+            setNewPassword(getCurrentUserData()['_id'], confirmPassword);
             limpiar();
             window.setTimeout(function () {
                 window.location.href = "listarProyectos.html";

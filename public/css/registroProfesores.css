@@ -12,12 +12,16 @@ input{
 }
 
 h2 {
-    font-size: 24px;
+    font-size: 23px;
     margin-bottom: 50px;
     text-align: center;
 }
 
 .mainContainer{
+    border: 2px solid #fbb876;
+    padding: 50px 50px 18px 50px;
+    border-radius: 5%;
+    border-top-left-radius: 0%;
     display: flow-root;
 }
 
@@ -39,10 +43,16 @@ h2 {
     float: right;
 }
 
-#btnRegistro{
-    display:block;
-    /*margin: 15px 0 0 0;*/
+.btnRegistro{
+    float: right;
+    margin: 50px 0 0 0;
 }
+h1{
+    font-size: 27px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
 
 /* .lblHide{  
     display: none;

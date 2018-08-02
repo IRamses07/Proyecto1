@@ -19,7 +19,9 @@ module.exports.registrar = function (req, res) {
         trabajo_anterior: req.body.trabajo_anterior,
         experiencia_docente: req.body.experiencia_docente,
         cursos_impartidos: req.body.cursos_impartidos,
-        foto : req.body.foto
+        foto : req.body.foto,
+        estado: req.body.estado
+        
     });
 
     nuevoProfesor.save(function (error) {
@@ -45,15 +47,6 @@ module.exports.listar = function (req, res) {
             res.send(profesores);
         });
 };
-
-/*module.exports.getInfoProfesor = function (req, res) {
-    profesorModel.find({
-        'cedula': req.query.cedula
-    }).then(
-        function (profesores) {
-            res.send(profesores);
-        });
-};*/
 
 module.exports.asignar_proyecto = function (req, res) {
 
@@ -149,11 +142,11 @@ module.exports.cambiar_foto_profesores = function (req, res) {
         });
 };
 
-module.exports.cambiar_contrasenna = function(req, res){
+module.exports.cambiar_contrasenna_profesor = function(req, res){
     profesorModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
         function(err) {
             if (err) {
-                res.json({ success: false, msg: 'No se ha actualizado.' + handleError(err) });
+                res.json({ success: false, msg: 'No se ha actualizado.'});
         
             } else {
             res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
@@ -161,3 +154,35 @@ module.exports.cambiar_contrasenna = function(req, res){
       });
 };
 
+module.exports.getProfessorById = function (req, res) {
+    profesorModel.find({
+        '_id': req.query._id
+    }).then(
+        function (profesores) {
+            res.send(profesores);
+        });
+};
+
+module.exports.actualizar_profesor = function(req, res){
+    profesorModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
+        function(err,profe) {
+            if (err) {
+                res.json({ success: false, msg: 'No se ha actualizado.'+ handleError(err)});
+        
+            } else {
+            res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
+            }
+      });
+};
+
+module.exports.cambiar_estado_profesor = function(req, res){
+    profesorModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
+        function(err,profe) {
+            if (err) {
+                res.json({ success: false, msg: 'No se ha actualizado.'+ handleError(err)});
+        
+            } else {
+            res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
+            }
+      });
+};

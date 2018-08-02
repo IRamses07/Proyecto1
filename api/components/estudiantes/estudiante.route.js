@@ -42,5 +42,10 @@ router.route('/actualizar_estudiantes')
     .post(function(req, res){
     estudiantes.actualizar(req, res);
 });
+router.route('/cambiar_contrasenna_estudiante')
+    .post(function(req, res){
+    estudiantes.cambiar_contrasenna_estudiante(req, res);
+});
+
 
 module.exports = router;

@@ -31,7 +31,7 @@ function logOut() {
 
 function updateCurrentUser(id) {
     let usuariosRegistrados = getUsers();
-    id=getCurrentUserData()._id;
+    id = getCurrentUserData()._id;
     let thisUserData = [];
     for (let i = 0; i < usuariosRegistrados.length; i++) {
         for (let j = 0; j < usuariosRegistrados[i].length; j++) {
@@ -41,7 +41,7 @@ function updateCurrentUser(id) {
         }
     }
     sessionStorage.setItem("currentUser", JSON.stringify(thisUserData));
-    console.log("[updateCurrentUser] Ok, información de la identificación " + id + " actualizada.");
+    console.log("[updateCurrentUser]");
 }
 
 function getUsers() {
@@ -153,7 +153,7 @@ function loadOptionsMenu() {
             "Registrar profesores",
             "Listar profesores",
             "Listar tiquetes",
-        //    "Ver ticket"
+            //    "Ver ticket"
         ];
         menuURL = [
             "registrarProyecto.html",
@@ -179,14 +179,14 @@ function loadOptionsMenu() {
             "Registrar tickets",
             "Listar tickets",
             "Visualizar perfil",
-            ];
+        ];
         menuURL = [
             "listarProyectosCliente.html",
             // "listarProyectosDesarrollo.html",
             "registroTicket.html",
             "listarTicketsCliente.html",
             "perfilCliente.html",
-            ];
+        ];
     }
 
     if (userRol == "profesor") {
@@ -217,7 +217,7 @@ function loadOptionsMenu() {
             "Listar proyectos",
             "Listar tickets",
             "Visualizar perfil",
-            ];
+        ];
         menuURL = [
             // "listarEstudiante.html",
             "listarProyectosEstudiante.html",
@@ -234,6 +234,10 @@ function loadOptionsMenu() {
         newA.href = menuURL[i];
         newDiv.appendChild(newA);
         menu.appendChild(newDiv);
-    
+        if (menuURL[i] == "registroProfesores.html") {
+            newA.onclick = function () {
+                sessionStorage.removeItem('professorUpdateLS');
+            };
+        }
     }
 }
