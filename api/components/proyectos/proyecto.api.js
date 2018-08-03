@@ -52,3 +52,11 @@ module.exports.listarDesarrollo = function(req, res){
             res.send(proyecto);
         });
 };
+
+
+module.exports.buscar_proyecto_id = function (req, res) {
+    proyectoModel.findById({ _id: req.body.id }).then(
+        function (proyecto) {
+            res.send(proyecto);
+        });
+};

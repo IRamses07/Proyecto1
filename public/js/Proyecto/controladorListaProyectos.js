@@ -3,6 +3,7 @@ moveUser(true);
 imprimirListaProyectos();
 
 
+
 const inputFiltro = document.querySelector('#txtFiltro');
 
 inputFiltro.addEventListener('keyup', function () {
@@ -10,6 +11,7 @@ inputFiltro.addEventListener('keyup', function () {
 });
 
 function imprimirListaProyectos(pFiltro) {
+
     let infoProyecto = obtenerListaProyectos();
     let tbody = document.querySelector('#tblProyectos tbody');
     if (!pFiltro) {
@@ -40,6 +42,7 @@ function imprimirListaProyectos(pFiltro) {
             botonM.classList.add('modProyecto')
             botonM.dataset._id = infoProyecto[i]['_id'];
 
+
             cCedulaJuridica.innerHTML = infoProyecto[i]['identificacion_juridica'];
             cNombreProyecto.innerHTML = infoProyecto[i]['nombre_proyecto'];
             cNombreCliente.innerHTML = infoProyecto[i]['nombre_cliente'];
@@ -47,7 +50,7 @@ function imprimirListaProyectos(pFiltro) {
             verMas.appendChild(boton);
             Modificar.appendChild(botonM);
 
-            
+
 
 
         }
@@ -57,10 +60,14 @@ function imprimirListaProyectos(pFiltro) {
 }
 modificaProyecto();
 function modificaProyecto() {
+
     let modProyecto = document.querySelectorAll('.modProyecto');
     modProyecto.forEach(function (elem) {
         elem.addEventListener("click", function () {
-
+            
+            let _id = elem.dataset._id;
+            console.log(_id);
+            localStorage.setItem('idP',_id);
             document.location.href = 'modificarProyecto.html';
         })
     });

@@ -228,14 +228,19 @@ function agregarProyectoCliente() {
 }
 
 function recorrerTecnologias() {
-    let listaCompras = '';
-    $("input[name=tec]").each(function (index) {
-        if ($(this).is(':checked')) {
-            listaCompras += +$(this).val() + '\n';
-        }
-    });
-    console.log(listaCompras);
-    return listaCompras;
+    let listaProyectos = [];
+     
+        $("input[type=checkbox]").each(function (index) {
+            if ($(this).is(':checked')) {
+                listaProyectos.push(($(this).val()));  
+            
+            }
+        });
+    
+   
+    
+    console.log(listaProyectos);
+    return listaProyectos;
 
 }
 

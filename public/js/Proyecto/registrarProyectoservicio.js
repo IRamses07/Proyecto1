@@ -114,4 +114,29 @@ function getProfessorData() {
     return respuesta;
 }
 
+function obtenerProyectoId(id){
+    let persona = '';
+
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/buscar_proyecto_id',
+        type : 'post',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            id : id
+        }
+      });
+    
+      peticion.done(function(response){
+       persona = response;
+      });
+    
+      peticion.fail(function(response){
+       
+      });
+      return persona;
+};
+
+
 
