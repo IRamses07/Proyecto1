@@ -162,7 +162,7 @@ select{
  }
 
  /* estilo general de los botones de los registros...  */
- .btnRegistro {
+ .btnRegistro, .btnVerMas {
      background-color: #fbb803;
      border-radius: 3px;
      border: none;
@@ -173,7 +173,7 @@ select{
      outline: none;
  }
 
- .btnRegistro:hover {
+ .btnRegistro:hover, .btnVerMas:hover {
     background-color: #ff8e1d;
  }
 
