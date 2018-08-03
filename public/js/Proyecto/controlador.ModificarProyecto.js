@@ -1,27 +1,49 @@
 'use strict';
 
 
-let inputNombreProyecto = document.querySelector('#txtNombreProyecto');
+let inputNombreProyectoM = document.querySelector('#txtNombreProyecto');
 
-let selectNombreCliente = document.querySelector('#slNombredelCliente');
+let selectNombreClienteM = document.querySelector('#slNombredelCliente');
 
-let inputIdentifiacionJuridica = document.querySelector('#txtIdentifiacionJuridica');
+let inputIdentifiacionJuridicaM = document.querySelector('#txtIdentifiacionJuridica');
 
-let selectEstadoProyecto = document.querySelector('#sltEstado');
+let selectEstadoProyectoM = document.querySelector('#sltEstado');
 
-let dateFechaEntrega = document.querySelector('#dtEntregaEstimada');
+let dateFechaEntregaM = document.querySelector('#dtEntregaEstimada');
 
-let txtaDescripcion = document.querySelector('#txtDescripcion');
+let txtaDescripcionM = document.querySelector('#txtDescripcion');
 
+llenarFormulario();
 
 function llenarFormulario() {
-
+    listarSelectClientesM();
     let id = localStorage.getItem('idP')
 
     let proyecto = obtenerProyectoId(id);
 
-    inputNombreProyecto.value = proyecto['nombre_proyecto'];
-    
-    
+    inputNombreProyectoM.value = proyecto['nombre_proyecto'];
+
+    dateFechaEntregaM.value = proyecto['fecha_Entrega'];
+    inputIdentifiacionJuridicaM.value = proyecto['identificacion_juridica'];
+    selectEstadoProyectoM.value = proyecto['estado_proyecto'];
+    selectNombreClienteM.value = proyecto['nombre_cliente'];
+    txtaDescripcionM.value = proyecto['descripcion'];
+
+    console.log(proyecto, inputNombreProyectoM.value, selectNombreClienteM.value);
+
+
 
 }
+
+
+function listarSelectClientesM() {
+    let slNombredelCliente = listarClientes();
+    let select = document.querySelector('#slNombredelCliente');
+    select.options[0] = new Option("Seleccione un cliente", "");
+
+    for (let i = 0; i < slNombredelCliente.length; i++) {
+        select.options[i + 1] = new Option(slNombredelCliente[i]['nombre'], slNombredelCliente[i]['_id']);
+
+    }
+}
+
