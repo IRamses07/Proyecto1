@@ -11,7 +11,9 @@ module.exports.registrar = function (req, res) {
         identificacion_juridica: req.body.identificacion_juridica,
         estado_proyecto: req.body.estado_proyecto,
         fecha_Entrega: req.body.fecha_Entrega,
-        descripcion: req.body.descripcion
+        descripcion: req.body.descripcion,
+        tecnologias: req.body.tecnologias
+
 
     });
 

@@ -1,6 +1,6 @@
 'use strict';
 
-function registrarProyecto(sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion) {
+function registrarProyecto(sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion,tecnologias) {
     let respuesta = '';
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/registrar',
@@ -14,7 +14,8 @@ function registrarProyecto(sNombreProyecto, cliente, nIdentifiacionJuridica, sEs
             identificacion_juridica: nIdentifiacionJuridica,
             estado_proyecto: sEstadoProyecto,
             fecha_Entrega:sFechaEntrega,
-            descripcion: sDescripcion
+            descripcion: sDescripcion,
+            tecnologias:tecnologias
 
 
         }

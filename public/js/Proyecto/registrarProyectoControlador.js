@@ -63,6 +63,7 @@ function obtenerDatosr() {
 
     let infoProyecto = [];
     let error = false;
+    let tecnologiasT;
 
     let sNombreProyecto = inputNombreProyecto.value;
 
@@ -99,11 +100,13 @@ function obtenerDatosr() {
         });
         console.log('No se pudo registrar el usuario');
     } else {
+        tecnologiasT = recorrerTecnologias();
 
-        registrarProyecto(sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion);
+        console.log(tecnologiasT);
+        registrarProyecto(sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion, tecnologiasT);
         agregarProyectoCliente();
         limpiarFormulairo();
-        recorrerTecnologias();
+
 
 
         swal({
@@ -229,17 +232,16 @@ function agregarProyectoCliente() {
 
 function recorrerTecnologias() {
     let listaProyectos = [];
-     
-        $("input[type=checkbox]").each(function (index) {
-            if ($(this).is(':checked')) {
-                listaProyectos.push(($(this).val()));  
-            
-            }
-        });
-    
-   
-    
-    console.log(listaProyectos);
+
+    $("input[type=checkbox]").each(function (index) {
+        if ($(this).is(':checked')) {
+            listaProyectos.push(($(this).val()));
+
+        }
+    });
+
+
+
     return listaProyectos;
 
 }
