@@ -39,8 +39,8 @@ function llenarCedulaJuridica() {
         if (listaClientes[i]['_id'] == (nombreCliente)) {
             cedulaJuridica = listaClientes[i]['cedula_juridica'];
         } else {
-            if (nombreCliente == '') {
-                // cedulaJuridica.value = '';
+            if (nombreCliente == ''|| nombreCliente.value == 'Seleccione un cliente') {
+                cedulaJuridica.document.pplaceholder = 'Ejm:123456789';
             }
         }
     }

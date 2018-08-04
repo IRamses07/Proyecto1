@@ -66,7 +66,7 @@ function modificaProyecto() {
         elem.addEventListener("click", function () {
             
             let _id = elem.dataset._id;
-            console.log(_id);
+            
             localStorage.setItem('idP',_id);
             document.location.href = 'modificarProyecto.html';
         })

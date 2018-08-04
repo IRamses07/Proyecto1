@@ -15,7 +15,7 @@ function registrarProyecto(sNombreProyecto, cliente, nIdentifiacionJuridica, sEs
             estado_proyecto: sEstadoProyecto,
             fecha_Entrega:sFechaEntrega,
             descripcion: sDescripcion,
-            tecnologias:tecnologias
+            tecnologias: JSON.stringify(tecnologias)
 
 
         }
@@ -137,6 +137,40 @@ function obtenerProyectoId(id){
        
       });
       return persona;
+};
+
+
+
+
+function modificarProyecto(id, sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion, info){
+    let respuesta = '';
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api//actualizar_proyecto',
+        type : 'post',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            _id : id,
+            nombre_proyecto: sNombreProyecto,
+            nombre_cliente: cliente,
+            identificacion_juridica: nIdentifiacionJuridica,
+            estado_proyecto: sEstadoProyecto,
+            fecha_Entrega:sFechaEntrega,
+            descripcion: sDescripcion,
+            tecnologias: JSON.stringify(info)
+        }
+      });
+    
+      peticion.done(function(response){
+       respuesta = response;
+      });
+    
+      peticion.fail(function(response){
+       
+      });
+
+      return respuesta;
 };
 
 

@@ -62,3 +62,16 @@ module.exports.buscar_proyecto_id = function (req, res) {
             res.send(proyecto);
         });
 };
+
+
+module.exports.actualizarProyecto = function (req, res) {
+    proyectoModel.findByIdAndUpdate(req.body._id, { $set: req.body },
+        function (err, user) {
+            if (err) {
+                res.json({ success: false, msg: 'No se ha actualizado.' + handleError(err) });
+
+            } else {
+                res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
+            }
+        });
+};

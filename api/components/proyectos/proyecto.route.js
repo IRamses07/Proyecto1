@@ -29,6 +29,11 @@ router.route('/buscar_proyecto_id')
         proyecto.buscar_proyecto_id(req, res);
     });
 
+router.route('/actualizar_proyecto')
+    .post(function (req, res) {
+        proyecto.actualizarProyecto(req, res);
+    });
+
 
 
 module.exports = router;
