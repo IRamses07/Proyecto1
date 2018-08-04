@@ -12,6 +12,8 @@ botonRegistrar.addEventListener('click', obtenerDatosr);
 
 
 
+
+
 //declaracion de elementos
 let inputNombreProyecto = document.querySelector('#txtNombreProyecto');
 
