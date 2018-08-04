@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registrar Proyecto </title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/generalStyle.css">
+    <link rel="stylesheet" href="css/registraProyecto.css">
+    
+
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="mainHeader">
+            <label for="">Bienvenido: </label>
+            <output id="txtnombreCliente" value=""></output>
+            <a href="##" class="fLeft">
+                <i class="fas fa-bell"></i> Notificaciones</a>
+            <a href="javascript:logOut();" class="fRight">Cerrar sesión
+                <i class="fas fa-cog"></i>
+            </a>
+        </div>
+        <div class="menuLateral" id="divMenuLateral">
+            <i class="fas fa-align-justify"></i>
+        </div>
+
+        <!-- Este div contiene el titulo principal  -->
+
+
+
+
+
+
+    </header>
+
+    <main id="content">
+        <!-- este va ser el formulario de registrar los proyectos -->
+
+        <form class="frmRegistrarProyectos ">
+
+            <div class="TituloPrincipal">
+                <H1>Modificar Proyecto</H1>
+            </div>
+
+            <div class="colupna1">
+                <label for="">Nombre del proyecto:</label>
+                <input type="text" id="txtNombreProyecto">
+
+                <label for="">Nombre del cliente:</label>
+                <select name="slNombredelCliente" id="slNombredelCliente" onchange="llenarCedulaJuridica()">
+                    <option value="seleccioneUno">Seleccione el cliente</option>
+                </select>
+
+                <label for="">Identificación Jurídica:</label>
+                <input type="text" id="txtIdentifiacionJuridica" required disabled>
+
+                <div class="slDescripcion">
+                    <label for="">Estado del proyecto:</label>
+                    <select name="sltEstado" id="sltEstado">
+
+                        <option value="defecto">Seleccione un estado</option>
+                        <option value="desarrollo">En desarrollo</option>
+                        <option value="mantenimento">En mantenimento</option>
+                        <option value="finalizado">Finalizado</option>
+                        <option value="Desactivo">Inactivo</option>
+
+
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="colupna2">
+                <div class="fecha">
+                    <label for="">Fecha de entrega estimada:</label>
+                    <input type="date" id="dtEntregaEstimada">
+                </div>
+
+                <div class="inpDescripcion">
+                    <label for="">Descripción:</label>
+                    <textarea name="txtDescripcion" id="txtDescripcion" placeholder="Descripción breve del proyecto"></textarea>
+                </div>
+
+
+
+
+            </div>
+        </form>
+
+        <h2>Selecione las Tecnologias</h2>
+
+        <div class="Tegnologias">
+
+
+
+            <form class="frmALlCHo">
+
+                <div class="tecWed">
+                    <h3>Tecnologías Web</h3>
+                    <div class="op">
+
+                        <input type="checkbox" value="HTML5W" id="html5W">
+                        <label for="">HTML5</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="CSS3W" id="CSS3W">
+                        <label for="">CSS3</label>
+                    </div>
+
+                    <div class="op">
+
+                        <input type="checkbox" value="JavascriptW" id="JavascriptW">
+                        <label for="">Javascript</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="PHPW" id="PHPW">
+                        <label for="">PHP</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="ASPW" id="ASPW">
+                        <label for="">ASP</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="ASP.NETW" id="ASP.NETW">
+                        <label for="">ASP.NET</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="JSPW" id="JSPW">
+                        <label for="">JSP</label>
+                    </div>
+
+                    <div class="op">
+
+                        <input type="checkbox" value="PythonW" id="PythonW">
+                        <label for="">Python</label>
+                    </div>
+
+
+                    <div class="op">
+
+                        <input type="checkbox" value="RubyW" id="RubyW">
+                        <label for="">Ruby</label>
+                    </div>
+                </div>
+
+                <div class="tecMovil">
+                    <h3>Tecnologías moviles</h3>
+                    <div class="op">
+
+                        <input type="checkbox" value="JavaM" id="JavaM">
+                        <label for="">Java</label>
+                    </div>
+
+                    <div class="op">
+
+                        <input type="checkbox" value="KotlinM" id="KotlinM">
+                        <label for="">Kotlin</label>
+                    </div>
+
+                    <div class="op">
+
+                        <input type="checkbox" value="SwiftM" id="SwiftM">
+                        <label for="">Swift</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="ObjectiveCM" id="ObjectiveCM">
+                        <label for="">Objective-C</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="JavaScriptM" id="JavaScriptM">
+                        <label for="">JavaScript</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="TypeScriptM" id="TypeScriptM">
+                        <label for="">TypeScript</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="C#M" id="C#M">
+                        <label for="">C#</label>
+                    </div>
+
+                    <div class="op">
+
+                        <input type="checkbox" value="PythonM" value="PythonM">
+                        <label for="">Python</label>
+                    </div>
+
+                </div>
+
+                <div class="tecBd">
+
+                    <h3>Tecnologias de Base de datos</h3>
+
+                    <div class="op">
+                        <input type="checkbox" value="SQLbd" id="SQlbd">
+                        <label for="">SQL</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="MySQLbd" id="MySQLbd">
+                        <label for="">MySQL</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="ORACLEbd" id="ORACLEbd">
+                        <label for="">ORACLE</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="Node.jsbd" id="Node.jsbd">
+                        <label for="">Mongo.db</label>
+                    </div>
+
+
+                    <div class="op">
+                        <input type="checkbox" value="Indexedbd" id="Indexedbd">
+                        <label for="">IndexedDB</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="Firebasebd" id="Firebasebd">
+                        <label for="">Firebase</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="DynamoDB" id="DynamoDBbd">
+                        <label for="">DynamoDB</label>
+                    </div>
+
+                    <div class="op">
+                        <input type="checkbox" value="CouchDB" id="CouchDBbd">
+                        <label for="">CouchDB</label>
+                    </div>
+
+                </div>
+
+
+            </form>
+
+
+        </div>
+
+
+        <div class="button">
+            <button type="button" class="btnRegistro" id="btnModificar">Modificar</button>
+        </div>
+
+        <script src="js/Proyecto/jquery-3.3.1.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
+        <script src="js/Login/login.js"></script>
+        <!-- <script src="js/Cliente/servicioCliente.js"></script>
+        <script src="js/Proyecto/cotroladorAgregarProyectoCliente.js"></script> -->
+        <!-- <script src="js/Cliente/servicioListarClientes.js"></script> -->
+        <!-- <script src="js/Proyecto/cotroladorAgregarProyectoCliente.js"></script> -->
+        <script src="js/Cliente/servicioCliente.js"></script>
+        <script src="js/Proyecto/registrarProyectoServicio.js"></script>
+        <!-- <script src="js/Proyecto/registrarProyectoControlador.js"></script> -->
+        <script src="js/Proyecto/controlador.ModificarProyecto.js"></script>
+
+    </main>
+
+    <footer></footer>
+</body>
+
+</html>

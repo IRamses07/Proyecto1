@@ -15,7 +15,7 @@ function llenarSelecProyectos() {
     select.options[0] = new Option("Seleccione un profesor...", );
 
     for (let i = 0; i < infoPrfeIL.length; i++) {
-        select.options[i] = new Option(infoPrfeIL[i]['nombre_proyecto'], infoPrfeIL[i]['id']);
+        select.options[i+1] = new Option(infoPrfeIL[i]['nombre_proyecto'], infoPrfeIL[i]['id']);
 
     }
 }
@@ -29,7 +29,7 @@ function llenarSelectEstudiantes() {
     select.options[0] = new Option("Seleccione un profesor...", );
 
     for (let i = 0; i < infoEstudiante.length; i++) {
-        select.options[i] = new Option(infoEstudiante[i]['Nombre1'], infoEstudiante[i]['_id']);
+        select.options[i+1] = new Option(infoEstudiante[i]['Nombre1'], infoEstudiante[i]['_id']);
 
     }
 

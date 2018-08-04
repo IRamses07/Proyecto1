@@ -7,7 +7,7 @@ listarSelectClientes();
 
 let botonRegistrar = document.querySelector('#btnRegistrar');
 
-botonRegistrar.addEventListener('click', obtenerDatos);
+botonRegistrar.addEventListener('click', obtenerDatosr);
 
 
 
@@ -25,11 +25,11 @@ let dateFechaEntrega = document.querySelector('#dtEntregaEstimada');
 
 let txtaDescripcion = document.querySelector('#txtDescripcion');
 
-inputIdentifiacionJuridica = ' ';
 
- document.getElementById('#slNombredelCliente').onchange = llenarCedulaJuridica();
 
-function llenarCedulaJuridica () {
+document.getElementById('#slNombredelCliente').onchange = llenarCedulaJuridica();
+
+function llenarCedulaJuridica() {
     let listaClientes = listarClientes();
     let nombreCliente = document.querySelector('#slNombredelCliente').value;
     let cedulaJuridica;
@@ -38,31 +38,32 @@ function llenarCedulaJuridica () {
 
         if (listaClientes[i]['_id'] == (nombreCliente)) {
             cedulaJuridica = listaClientes[i]['cedula_juridica'];
-        }else{
-            if(nombreCliente==''){
-                cedulaJuridica.value ='';
+        } else {
+            if (nombreCliente == ''|| nombreCliente.value == 'Seleccione un cliente') {
+                cedulaJuridica.document.pplaceholder = 'Ejm:123456789';
             }
         }
     }
 
     let inputIdentifiacionJuridica = document.querySelector('#txtIdentifiacionJuridica');
 
-    inputIdentifiacionJuridica.value = cedulaJuridica; 
+    inputIdentifiacionJuridica.value = cedulaJuridica;
 }
 
 function limpiarFormulairo() {
     inputNombreProyecto.value = '';
-    inputIdentifiacionJuridica.value = '';
+    // inputIdentifiacionJuridica.value = '';
     txtaDescripcion.value = '';
     dateFechaEntrega.value = 'dd/mm/aaaa';
 
 }
 
-function obtenerDatos() {
+function obtenerDatosr() {
 
 
     let infoProyecto = [];
     let error = false;
+    let tecnologiasT;
 
     let sNombreProyecto = inputNombreProyecto.value;
 
@@ -99,10 +100,14 @@ function obtenerDatos() {
         });
         console.log('No se pudo registrar el usuario');
     } else {
-       
-        registrarProyecto(infoProyecto);
+        tecnologiasT = recorrerTecnologias();
+
+        console.log(tecnologiasT);
+        registrarProyecto(sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion, tecnologiasT);
         agregarProyectoCliente();
         limpiarFormulairo();
+
+
 
         swal({
             type: 'success',
@@ -122,10 +127,10 @@ function obtenerDatos() {
 function listarSelectClientes() {
     let slNombredelCliente = listarClientes();
     let select = document.querySelector('#slNombredelCliente');
-    select.options[0] = new Option("Seleccione un cliente...", "");
+    select.options[0] = new Option("Seleccione un cliente", "");
 
     for (let i = 0; i < slNombredelCliente.length; i++) {
-        select.options[i+1] = new Option(slNombredelCliente[i]['nombre'], slNombredelCliente[i]['_id']);
+        select.options[i + 1] = new Option(slNombredelCliente[i]['nombre'], slNombredelCliente[i]['_id']);
 
     }
 }
@@ -157,13 +162,13 @@ function validarCampos() {
 
     }
 
-    if (inputIdentifiacionJuridica.value == '' || (regexCedulaJuridica.test(inputIdentifiacionJuridica.value) == false)) {
-        inputIdentifiacionJuridica.classList.add('error_input');
-        error = true;
-    } else {
-        inputIdentifiacionJuridica.classList.remove('error_input');
-        error = false
-    }
+    // if (inputIdentifiacionJuridica.value == '' || (regexCedulaJuridica.test(inputIdentifiacionJuridica.value) == false)) {
+    //     inputIdentifiacionJuridica.classList.add('error_input');
+    //     error = true;
+    // } else {
+    //     inputIdentifiacionJuridica.classList.remove('error_input');
+    //     error = false
+    // }
 
     if (selectEstadoProyecto.value == '') {
         selectEstadoProyecto.classList.add('error_input');
@@ -200,7 +205,7 @@ function agregarProyectoCliente() {
 
 
     let id = selectNombreCliente.value;
-    let idP ;
+    let idP;
     let nombreProyecto = inputNombreProyecto.value;
     let fechaEntrega = dateFechaEntrega.value;
     let estadoProyecto = selectEstadoProyecto.value;
@@ -224,6 +229,24 @@ function agregarProyectoCliente() {
 
 
 }
+
+function recorrerTecnologias() {
+    let listaProyectos = [];
+
+    $("input[type=checkbox]").each(function (index) {
+        if ($(this).is(':checked')) {
+            listaProyectos.push(($(this).val()));
+
+        }
+    });
+
+
+
+    return listaProyectos;
+
+}
+
+
 
 
 // function llenarCedulaJuridica() {
