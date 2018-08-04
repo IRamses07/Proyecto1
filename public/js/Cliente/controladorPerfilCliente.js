@@ -37,9 +37,9 @@ function infoPersonal(infoCliente){
     datos.innerHTML=contenido;
 
     contenido2+='<h4> </h4>\n';
-    contenido2+='<div class="icono"><i class="fas fa-id-badge"></i><h4>Cédula Jurídica: '+infoCliente[0]['cedula_juridica']+'</h4></div>';
-    contenido2+='<div class="icono"><i class="fas fa-map-marker-alt"></i><h4>'+infoCliente[0]['provincia']+', '+infoCliente[0]['canton']+', '+infoCliente[0]['distrito']+'</h4></div>';
-    contenido2+='<div class="icono"><i class="fas fa-thumbtack"></i><h4>'+infoCliente[0]['direccion_exacta']+'</h4></div>';
+    contenido2+='<h4>Cédula Jurídica: '+infoCliente[0]['cedula_juridica']+'</h4>';
+    contenido2+='<h4>'+infoCliente[0]['provincia']+', '+infoCliente[0]['canton']+', '+infoCliente[0]['distrito']+'</h4>';
+    contenido2+='<h4>Dirección: '+infoCliente[0]['direccion_exacta']+'</h4>';
 
     extraDatos.innerHTML=contenido2;
 }
@@ -48,15 +48,15 @@ function infoContacto(infoCliente){
     let contenido='';
 
     if(infoCliente[0]['segundo_apellido'] !== ''){
-        contenido+='<div class="icono2"><i class="fas fa-id-card"></i><h5>Nombre: '+infoCliente[0]['primer_nombre']+' '+infoCliente[0]['primer_apellido']+' '+infoCliente[0]['segundo_apellido']+'</h5></div>\n';
+        contenido+='<h5>Nombre: '+infoCliente[0]['primer_nombre']+' '+infoCliente[0]['primer_apellido']+' '+infoCliente[0]['segundo_apellido']+'</h5>\n';
     }else{
-        contenido+='<div class="icono2"><i class="fas fa-id-card"></i><h5>Nombre: '+infoCliente[0]['primer_nombre']+' '+infoCliente[0]['primer_apellido']+'</h5></div>\n';
+        contenido+='<h5>Nombre: '+infoCliente[0]['primer_nombre']+' '+infoCliente[0]['primer_apellido']+'</h5>\n';
     }   
 
     contenido+='<hr class="list">\n';
-    contenido+='<div class="icono2"><i class="fas fa-phone-square"></i><h5>Teléfono: '+infoCliente[0]['telefono']+'</h5></div>\n';
+    contenido+='<h5>Teléfono: '+infoCliente[0]['telefono']+'</h5>\n';
     contenido+='<hr class="list">\n';
-    contenido+='<div class="icono2"><i class="far fa-envelope"></i><h5>Correo: '+infoCliente[0]['correo_electronico']+'</h5></div>\n';
+    contenido+='<h5>Correo: '+infoCliente[0]['correo_electronico']+'</h5>\n';
     contenido+='<h4 class="subtitulo">Dirección:</h4>';
     contenido+='<h4 id="ubicacionMapa">'+infoCliente[0]['provincia']+', '+infoCliente[0]['canton']+', '+infoCliente[0]['distrito']+'</h4>';
 

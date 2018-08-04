@@ -1,6 +1,6 @@
 h2, h1 {
     font-size: 23px;
-    margin-bottom: 45px;
+    margin-bottom: 25px;
     text-align: center;
     margin-top: 40px;
 }
@@ -54,9 +54,9 @@ textarea{
     border: 0px;
     border-radius: 5px;
     outline: none;
+    height: 22px;
     margin: -1%;
     margin-top: 2px;
-    text-align: center;
 }
 
 .btnPestanaSig, .btnActualizar{
@@ -70,8 +70,8 @@ textarea{
     position: absolute;
     bottom: 3%;
     left: 3%;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 .btnCancelar{
     float: left;
@@ -80,9 +80,9 @@ textarea{
     left: 3%;
 }
 
-/*.disablesInput{
+.disablesInput{
     background: #a3a3a3;
-}*/
+}
 
 .btnPar{
     margin-bottom: 0%;
@@ -106,8 +106,8 @@ input::placeholder, .letraItalic{
     top: -1000%;
     border: 2px solid #fbb876;
     width: 80%;
-    min-height: 700px;
-    border-radius: 35px;
+    min-height: 600px;
+    border-radius: 5%;
     border-top-left-radius: 0%;
 }
 .activePanel{
@@ -167,8 +167,6 @@ input::placeholder, .letraItalic{
 
 .tableContainer{
     width: 98%;
-    height: 34px;
-    border: width border-style color;
     display: block;
     margin: 0 auto;
     text-align: center;
@@ -181,40 +179,3 @@ input::placeholder, .letraItalic{
 tbody{
     max-height: 150px;
 }
-
-/*recomendaciones del profe: 30/7/2018 || temporales hasta confirmacion*/
-
-input, textarea {
-    height: 30px;
-    border: 2px solid #fff;
-}
-select {
-    height: 34px;
-}
-label{
-    font-size: 18px;
-}
-.btnRegistro {
-    font-weight: bold;
-    padding: 7px 3%;
-}
-.btnRegistro i {
-    vertical-align: middle;
-    font-size: 25px;
-    margin-left: 5px;
-    margin-right: -5px;
-    font-weight: none;
-}
-.btnPestanaAtr i{
-    margin-left: -5px;
-    margin-right: 5px;
-}
-.tabs__item{
-    font-weight: bold;
-}
-#atras1, #atras2{
-    padding-left: 44px;
-    padding-right: 44px;
-}
-
-/*Cambios de boton siguiente*/

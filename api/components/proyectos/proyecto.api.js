@@ -11,9 +11,7 @@ module.exports.registrar = function (req, res) {
         identificacion_juridica: req.body.identificacion_juridica,
         estado_proyecto: req.body.estado_proyecto,
         fecha_Entrega: req.body.fecha_Entrega,
-        descripcion: req.body.descripcion,
-        tecnologias: req.body.tecnologias
-
+        descripcion: req.body.descripcion
 
     });
 
@@ -52,26 +50,5 @@ module.exports.listarDesarrollo = function(req, res){
     proyectoModel.find({estado_proyecto :"desarrollo"}).then(
         function(proyecto){
             res.send(proyecto);
-        });
-};
-
-
-module.exports.buscar_proyecto_id = function (req, res) {
-    proyectoModel.findById({ _id: req.body.id }).then(
-        function (proyecto) {
-            res.send(proyecto);
-        });
-};
-
-
-module.exports.actualizarProyecto = function (req, res) {
-    proyectoModel.findByIdAndUpdate(req.body._id, { $set: req.body },
-        function (err, user) {
-            if (err) {
-                res.json({ success: false, msg: 'No se ha actualizado.' + handleError(err) });
-
-            } else {
-                res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
-            }
         });
 };

@@ -6,8 +6,7 @@ $(function() {
     $.cloudinary.config({ cloud_name: 'koffeedev', api_key: '697584759616556'});
 
     // Upload button
-    // let uploadButton = $('#btnSeleccionarImagen');
-    let uploadButton = $('#changeImg');
+    let uploadButton = $('#btnSeleccionarImagen');
 
     // Upload button event
     uploadButton.on('click', function(e){

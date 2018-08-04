@@ -2,11 +2,11 @@
   input{
       border: 1px solid #ffffff;
   }
- main .frmRegistrarProyectos .TituloPrincipal H1{
-     margin-bottom: 15px;
+ header .TituloPrincipal{
+     margin-bottom: 20px;
      text-align: center;
      font-size: 30px;
-     margin-left: 32%;
+     margin-left: 41%;
      margin-right:40%; 
      width: 30%;
  }
@@ -14,8 +14,6 @@
  .frmRegistrarProyectos {
     margin: 0 auto;
     width: 85%;
-    margin-top: 50px;
-    margin-left: 10%;
  }
 
  main .colupna1{
@@ -71,7 +69,6 @@ main .colupna2 input{
 main .colupna2 .fecha input{
   
     display: block;
-    height: 24px;
     
 }
 
@@ -82,7 +79,7 @@ button{
 
 textarea {
     width: 90%;
-    height: 156.5px;
+    height: 150px;
     margin-top: 5px;
     margin-bottom:21px;
     border: 0px ;
@@ -100,87 +97,8 @@ main .colupna2 select{
 
  main .button button{
     margin: 0 auto;
-        margin-left: 39.5%;
-    width: 20%;
-    margin-top: 20px; 
-    margin-bottom: 15px;
- }
-
- .Tegnologias{
-     width: 100%;
-     margin: 0 auto;
- }
-
-   h2{
-    display: inline-block;
-    font-size: 25px;
-    width: 60%;
-    margin-top: 20px;
-    margin-bottom: 25px;
-    margin-left:38.5%; 
-   
- }
-
- 
-
- .Tegnologias input{
-     height: 12px;
-     
- }
-
- .Tegnologias h3{
-     margin-top:10px;
-     margin-bottom: 5px;
-     text-align: center;
- }
-
-  
- .tecWed {
-    float: left;
-    width: 20%;
-    border: #fbb803 solid;
-    height: 250px;
-    margin-right: 9%; 
-    border-radius: 10px;
-    margin-left: 10%;
-
- }
-
- .tecMovil{
-     float: left;
-     width: 20%;
-     border: #fbb803 solid;
-     height: 250px;
-     margin-right: 9.5%; 
-     border-radius: 10px;
- }
- .tecBd{
-    float: left;
-    width: 20%;
-    border: #fbb803 solid;
-    height: 250px;
-    margin-right: 10%; 
-    border-radius: 10px;
-
- }
-
- .op{
-     margin-top: 5px;
-     margin-right: 0%;
-     margin-bottom: 5px; 
-     /* margin-left:36% ; */
-
- }
-
- .c1{
-    float: left;
-    margin-left: 3%;
-
- }
-
- .c2{
-    float: right;
-    margin-right: 3%;    
+        margin-left: 31%;
+    width: 30%;
  }
 
 

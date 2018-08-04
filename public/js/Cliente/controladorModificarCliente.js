@@ -18,7 +18,11 @@ function llenarFormulario() {
     fmrCliente.nombre.value = client.nombre;
     fmrCliente.direccionExacta.value = client.direccion_exacta;
     let ubicacion = client.ubicacion.split(',');
-    mapCenter(ubicacion[0], ubicacion[1])
+    mapCenter(ubicacion[0], ubicacion[1]);
+    listener(fmrCliente.actualizarCliente, 'click', function () {
+        actualizarCliente();
+        // window.location.href='listarClientes.html';
+    });
 }
 llenarFormulario();
 function actualizarCliente() {
@@ -41,5 +45,20 @@ function actualizarCliente() {
     console.log(inputs);
     if (registro(inputs)) {
         actualizarCliente(data)
+        registrarCliente(data);
+        swal({
+            type: 'success',
+            title: 'Registro exitoso',
+            text: 'El usuario se registró adecuadamente',
+            confirmButtonText: 'Entendido'
+        });
+        fmrCliente.reset();
+    } else {
+        swal({
+            type: 'warning',
+            title: 'No se pudo registrar el usuario',
+            text: 'Por favor revise los campos en rojo',
+            confirmButtonText: 'Entendido'
+        });
     }
 }

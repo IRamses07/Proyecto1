@@ -40,12 +40,14 @@ select {
     width: 100%;
     resize: none;
 }
+output{
+    border: 2px;
+}
 .fmr output{
     color: #ffffff;
     border-radius: 3px;
-    /* outline: none; */
-    height: 30px;
     vertical-align: middle;
+    padding: 7px 0 ;
 }
 
 .fmr label {
@@ -80,4 +82,7 @@ select {
     margin-left: auto;
     margin-right: auto;
     width: 30%;
+}
+.fmr #btnModificar + #btnRegistrar{
+    display: none;
 }
