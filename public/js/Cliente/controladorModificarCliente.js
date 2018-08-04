@@ -21,8 +21,8 @@ function llenarFormulario() {
     mapCenter(ubicacion[0], ubicacion[1])
 }
 llenarFormulario();
-function actualizarCliente(){
-    let inputs=[fmrCliente.nombre, fmrCliente.primerNombre, fmrCliente.segundoNombre, fmrCliente.cedulaJuridica,fmrCliente.primerApellido,fmrCliente.segundoApellido, fmrCliente.provincia,fmrCliente.canton,fmrCliente.distrito,fmrCliente.direccionExacta, fmrCliente.correoElectronico,fmrCliente.telefono];
+function actualizarCliente() {
+    let inputs = [fmrCliente.nombre, fmrCliente.primerNombre, fmrCliente.segundoNombre, fmrCliente.cedulaJuridica, fmrCliente.primerApellido, fmrCliente.segundoApellido, fmrCliente.provincia, fmrCliente.canton, fmrCliente.distrito, fmrCliente.direccionExacta, fmrCliente.correoElectronico, fmrCliente.telefono];
     let data = {
         cedula_juridica: inputs[0].value,
         nombre: inputs[1].value,
@@ -39,7 +39,7 @@ function actualizarCliente(){
         ubicacion: fmrCliente.registrarCliente.dataset.ubucacion
     }
     console.log(inputs);
-    if(registro(inputs)){
+    if (registro(inputs)) {
         actualizarCliente(data)
     }
 }
