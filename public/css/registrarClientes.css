@@ -32,7 +32,7 @@ select {
     margin-bottom: 20px;
 }
 
-.fmr label+input, .fmr label+select, .fmr label+textarea,.fmr label+output {
+.fmr label+input, .fmr label+select, .fmr label+textarea, .fmr label+output {
     display: block;
     border-radius: 3px;
     padding-left: 5px;
@@ -40,14 +40,20 @@ select {
     width: 100%;
     resize: none;
 }
-output{
-    border: 2px;
+
+output {
+    border: 2px solid
 }
-.fmr output{
+
+.fmr output {
     color: #ffffff;
     border-radius: 3px;
     vertical-align: middle;
-    padding: 7px 0 ;
+    height: 30px;
+    /* padding: 7px 0 ; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .fmr label {
@@ -83,6 +89,7 @@ output{
     margin-right: auto;
     width: 30%;
 }
-.fmr #btnModificar + #btnRegistrar{
+
+.fmr #btnModificar+#btnRegistrar {
     display: none;
 }
