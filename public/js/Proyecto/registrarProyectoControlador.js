@@ -160,12 +160,12 @@ function obtenerDatosr() {
             break;
         default:
 
-        swal({
-            type: 'info',
-            title: 'Algo salio mal',
-            text: 'Por favor intenete de nuevo',
-            confirmButtonText: 'Entendido'
-        });
+            swal({
+                type: 'info',
+                title: 'Algo salio mal',
+                text: 'Por favor intenete de nuevo',
+                confirmButtonText: 'Entendido'
+            });
 
 
 
@@ -196,36 +196,36 @@ function validarCampos() {
     let regexNombreDelProyecto = /^[a-z A-ZáéíóúÁÉÍÓÚñÑ 1234567890]+$/;
     let regexCedulaJuridica = /^[1234567890 ]+$/;
 
-    if (inputNombreProyecto.value == ''|| (regexNombreDelProyecto.test(inputNombreProyecto.value) == false)) {
+    if (inputNombreProyecto.value == '' || (regexNombreDelProyecto.test(inputNombreProyecto.value) == false)) {
         inputNombreProyecto.classList.add('error_input');
         error = 1;
+        inputNombreProyecto.classList.add('error_input');
 
     } else {
-        inputNombreProyecto.classList.remove('error_input');
-        error = 2
-    }
+        for (let i = 0; i < Proyectos.length; i++) {
 
-    for (let i = 0; i < Proyectos.length; i++) {
+            if (Proyectos[i]['nombre_proyecto'] == inputNombreProyecto.value) {
+                inputNombreProyecto.classList.add('error_input');
+                error = 3;
+                return error;
+                break;
 
-        if (Proyectos[i]['nombre_proyecto'] == inputNombreProyecto.value) {
-            inputNombreProyecto.classList.add('error_input');
-            error = 3;
-            return error;
-            break;
+            } else {
+                inputNombreProyecto.classList.remove('error_input');
+                error = 2
+            }
 
-        } else {
-            inputNombreProyecto.classList.remove('error_input');
-            error = 2;
         }
     }
-    
 
 
 
 
 
 
-    if (selectNombreCliente.value == '') {
+
+
+    if (selectNombreCliente.value == '' || selectNombreCliente.value == 'Seleccione un cliente') {
         selectNombreCliente.classList.add('error_input');
         error = 1;
     } else {
@@ -235,15 +235,15 @@ function validarCampos() {
 
     }
 
-    // if (inputIdentifiacionJuridica.value == '' || (regexCedulaJuridica.test(inputIdentifiacionJuridica.value) == false)) {
-    //     inputIdentifiacionJuridica.classList.add('error_input');
-    //     error = true;
-    // } else {
-    //     inputIdentifiacionJuridica.classList.remove('error_input');
-    //     error = false
-    // }
+    if (inputIdentifiacionJuridica.value == '') {
+        inputIdentifiacionJuridica.classList.add('error_input');
+        error = true;
+    } else {
+        inputIdentifiacionJuridica.classList.remove('error_input');
+        error = false
+    }
 
-    if (selectEstadoProyecto.value == '') {
+    if (selectEstadoProyecto.value == '' || selectEstadoProyecto.value =='defecto') {
         selectEstadoProyecto.classList.add('error_input');
         error = 1;
     } else {
