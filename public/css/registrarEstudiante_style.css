@@ -56,7 +56,7 @@ textarea{
     outline: none;
     margin: -1%;
     margin-top: 2px;
-    text-align: center;
+    /*text-align: center;*/
 }
 
 .btnPestanaSig, .btnActualizar{
@@ -184,21 +184,21 @@ tbody{
 
 /*recomendaciones del profe: 30/7/2018 || temporales hasta confirmacion*/
 
-input, textarea {
-    height: 30px;
+textarea {
+    height: 60px;
     border: 2px solid #fff;
 }
-select {
+/*select {
     height: 34px;
-}
-label{
+}*/
+/*label{
     font-size: 18px;
 }
 .btnRegistro {
     font-weight: bold;
     padding: 7px 3%;
-}
-.btnRegistro i {
+}*/
+/*.btnRegistro i {
     vertical-align: middle;
     font-size: 25px;
     margin-left: 5px;
@@ -208,7 +208,7 @@ label{
 .btnPestanaAtr i{
     margin-left: -5px;
     margin-right: 5px;
-}
+}*/
 .tabs__item{
     font-weight: bold;
 }
