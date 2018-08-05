@@ -62,33 +62,7 @@ function listarTickets(){
 }
 
 
-function listarProyectos(){
-    let proyectos = [];
 
-    let respuesta = '';
-    let peticion = $.ajax({
-        url : 'http://localhost:4000/api/listar_Proyectos',
-        type : 'get',
-        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
-        dataType : 'json',
-        async : false,
-        data:{
-
-        }
-    });
-
-    peticion.done(function(response){
-        respuesta = response;
-       });
-     
-       peticion.fail(function(response){
-        
-       });
- 
-       return respuesta;
-
-    return proyectos;
-}
 
 function mostrarTicket(id){
     let tickets = [];
@@ -101,7 +75,7 @@ function mostrarTicket(id){
         dataType : 'json',
         async : false,
         data:{
-            _id:id
+            _id : id
         }
     });
 
@@ -117,3 +91,60 @@ function mostrarTicket(id){
 
     return proyectos;
 }
+
+function idTicketModificar(pid){
+    let ticket = '';
+
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/buscar_id_modificar_ticket',
+        type : 'post',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            _id : pid
+        }
+      });
+    
+      peticion.done(function(response){
+       ticket = response;
+      });
+    
+      peticion.fail(function(response){
+       
+      });
+      return ticket;
+};
+
+function actualizarTicket(id, nombreCliente, urgencia, proyecto, imagenErr, referenciaTicket, descripcionError){
+    console.log(id, nombreCliente, urgencia, proyecto, imagenErr, referenciaTicket, descripcionError);
+    let respuesta = '' ;
+    let peticion = $.ajax({
+        url: 'http://localhost:4000/api/modificar_ticket',
+        type: 'post',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            _id : id,
+            nombre_cliente : nombreCliente,
+            urgencia : urgencia,
+            proyecto : proyecto,
+            imagen_error : imagenErr,
+            referencia_ticket : referenciaTicket,
+            descripcion :descripcionError
+        }
+    });
+    peticion.done(function(response){
+        respuesta = response;
+       
+       });
+     
+       peticion.fail(function(response){
+           
+        
+       });
+ 
+       return respuesta;
+}
+
