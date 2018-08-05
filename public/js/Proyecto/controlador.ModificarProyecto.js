@@ -43,7 +43,12 @@ function llenarFormulario() {
 
 
 function tomarDatosA() {
-    let infoA = [];
+
+
+
+
+
+    let error = 0;
 
     let sNombreProyecto = inputNombreProyectoM.value;
 
@@ -64,19 +69,65 @@ function tomarDatosA() {
             cliente = lista[i]['nombre'];
         }
     }
-    let id = localStorage.getItem('idP')
-
-    let tecnologiasWed = recorrerTecnologiasWed();
-    let tecnologiasMovil = recorrerTecnologiasMovil();
-    let tecologiasBd = recorrerTecnologiasBD();
-
-    infoA.push(id, sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion, info);
-
-    modificarProyecto(id, sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion, tecnologiasWed, tecnologiasMovil, tecologiasBd);
 
 
+    error = validarCampos();
+    error = verificarEstado();
+
+    mensajesDeRetroAlimentacion(error);
 
 
+}
+
+function mensajesDeRetroAlimentacion(error) {
+
+    switch (error) {
+        case 1:
+            swal({
+                type: 'warning',
+                title: 'No se pudo registrar el usuario',
+                text: 'Por favor revise los campos en rojo',
+                confirmButtonText: 'Entendido'
+            });
+            break;
+        case 2:
+            let id = localStorage.getItem('idP')
+            let tecnologiasWed = recorrerTecnologiasWed();
+            let tecnologiasMovil = recorrerTecnologiasMovil();
+            let tecologiasBd = recorrerTecnologiasBD();
+
+           
+
+            modificarProyecto(id, sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion, tecnologiasWed, tecnologiasMovil, tecologiasBd);
+
+            swal({
+                type: 'success',
+                title: 'Registro exitoso',
+                text: 'El Proyecto se registró adecuadamente',
+                confirmButtonText: 'Entendido'
+            });
+            break;
+
+        case 3:
+            swal({
+                type: 'warning',
+                title: 'No se pudo registrar el Proyecto',
+                text: 'Por favor establesca otra fecha para le plazo de mantemiento',
+                confirmButtonText: 'Entendido'
+            });
+            break;
+        default:
+
+            swal({
+                type: 'info',
+                title: 'Algo salio mal',
+                text: 'Por favor intenete de nuevo',
+                confirmButtonText: 'Entendido'
+            });
+
+
+
+    }
 }
 
 
@@ -134,6 +185,85 @@ function recorrerTecnologiasBD() {
     });
 
     return listaProyectos;
+
+}
+
+function validarCampos() {
+    let error = 0;
+    // let Proyectos = obtenerListaProyectos();
+    let regexNombreDelProyecto = /^[a-z A-ZáéíóúÁÉÍÓÚñÑ 1234567890]+$/;
+    let regexCedulaJuridica = /^[1234567890 ]+$/;
+
+    if (inputNombreProyectoM.value == '' || (regexNombreDelProyecto.test(inputNombreProyectoM.value) == false)) {
+        inputNombreProyectoM.classList.add('error_input');
+        error = 1;
+        inputNombreProyectoM.classList.add('error_input');
+
+    }
+    else {
+        inputNombreProyectoM.classList.remove('error_input');
+        error = 2
+    }
+
+    if (selectNombreClienteM.value == '' || selectNombreClienteM.value == 'Seleccione un cliente') {
+        selectNombreClienteM.classList.add('error_input');
+        error = 1;
+    } else {
+
+        selectNombreClienteM.classList.remove('error_input');
+        error = 2
+
+    }
+
+    if (inputIdentifiacionJuridicaM.value == '') {
+        inputIdentifiacionJuridicaM.classList.add('error_input');
+        error = true;
+    } else {
+        inputIdentifiacionJuridicaM.classList.remove('error_input');
+        error = false
+    }
+
+    if (selectEstadoProyectoM.value == '' || selectEstadoProyectoM.value == 'defecto') {
+        selectEstadoProyectoM.classList.add('error_input');
+        error = 1;
+    } else {
+        selectEstadoProyectoM.classList.remove('error_input');
+        error = 2;
+    }
+    if (dateFechaEntregaM.value == '') {
+        dateFechaEntregaM.classList.add('error_input');
+        error = 1;
+    } else {
+        dateFechaEntregaM.classList.remove('error_input');
+        error = 2;
+    }
+
+    if (txtaDescripcionM.value == '') {
+        txtaDescripcionM.classList.add('error_input');
+        error = 1;
+    } else {
+        txtaDescripcionM.classList.remove('error_input');
+        error = 2;
+    }
+
+
+    return error;
+}
+
+
+function verificarEstado() {
+
+    let error = 0;
+    let proyectos = obtenerListaProyectos();
+    for (let i = 0; i < proyectos.length; i++) {
+        if (selectEstadoProyectoM.value == 'mantenimento' && dateFechaEntregaM.value == proyectos[i]['fecha_Entrega']) {
+            error = 3;
+            break;
+        }else{
+            error = 2;
+        }
+    }
+    return error;
 
 }
 

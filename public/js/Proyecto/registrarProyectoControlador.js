@@ -223,13 +223,6 @@ function validarCampos() {
         }
     }
 
-
-
-
-
-
-
-
     if (selectNombreCliente.value == '' || selectNombreCliente.value == 'Seleccione un cliente') {
         selectNombreCliente.classList.add('error_input');
         error = 1;
