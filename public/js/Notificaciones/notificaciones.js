@@ -1,5 +1,28 @@
 'user strict';
 
+let rol = getCurrentUserData()['rol'];
+let usuario = "";
+let nombreUsuario = document.querySelector('#txtnombreCliente');
+
+
+
+if (rol == "estudiante") {
+    usuario = getCurrentUserData()['Nombre1'];
+    nombreUsuario.value = usuario;
+}
+if (rol == "cliente") {
+    usuario = getCurrentUserData()['nombre'];
+    nombreUsuario.value = usuario;
+}
+if (rol == "profesor") {
+    usuario = getCurrentUserData()['nombre1'];
+    nombreUsuario.value = usuario;
+} 
+if (rol == "administrador") {
+    usuario = "Administrador";
+    nombreUsuario.value = usuario;
+} 
+
 
 let modal = document.querySelector('#modal');
 let notificacion = document.querySelector('#notificacion');

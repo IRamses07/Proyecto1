@@ -1,5 +1,7 @@
 'use strict';
 moveUser(true);
+let tickets = listarTickets();
+let idTicket = '';
 
 listarTicketsCliente();
 
@@ -61,12 +63,12 @@ function listarTicketsCliente(pinptBuscar, selectUrgencia) {
             mostrarDatosTicketseleccionado(tickets[i]['_id']);
         });
 
-        btnEditar.addEventListener('click', function(){
-            let id = this.dataset._id;
-            console.log(id);
-            modificarTicketSlt(tickets[i]['_id'], id);
+        btnEditar.addEventListener('click', modificarTCicketSlt);
+            // 
+            // console.log(id);
+            // // modificarTicketSlt(id);
             
-        })
+        
     }
 }
 
@@ -82,6 +84,15 @@ function mostrarDatosTicketseleccionado(par){
     //del url para tomar parametro que envié para q busque el ticket que debe mostrar
     }
 
-function modificarTicketSlt(par, id){
-    document.location.href = './registroTicket.html?_id='+par+'btnid='+id ;
+function modificarTCicketSlt(){
+
+    let _id = this.dataset._id;
+    console.log(_id);
+  let ticketslct = idTicketModificar(_id);
+    console.log(ticketslct);
+    // ticketslct.forEach( function(elem){
+        // let ticketLS = elem.value;
+        localStorage.setItem('ticketLS',JSON.stringify(ticketslct));
+        // sessionStorage.setItem('update', 1);
+        document.location.href = 'modificarTicket.html';
 }
