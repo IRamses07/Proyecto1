@@ -38,20 +38,21 @@ module.exports.mostrarDatosTicketSlt = function(req, res){
 
 module.exports.buscarTicketModificar = function(req, res){
     ticketModel.findById({
-        _id : req.query._id
+        _id : req.body._id
     }).then(
         function(ticket){
             res.send(ticket);
         });
 };
 
+
 module.exports.modificarTicket = function(req, res){
-    ticketModel.findByIdAndUpdate(req.query._id, {$set: req.body},
+    ticketModel.findByIdAndUpdate(req.body._id, {$set: req.body},
         function(error, ticket){
             if (error) {
-                res.json({ success: false, msg: 'No se pudo modificar el usuario, ocurrió el siguiente error' + error });
+                res.json({ success: false, msg: 'No se pudo modificar el usuario, ocurrió el siguiente error' + handleError(error) });
             } else {
-                res.json({ success: true, msg: 'El usuario se modificó con éxito' });
+                res.json({ success: true, msg: 'El usuario se modificó con éxito' + res });
             }
         });
 };
