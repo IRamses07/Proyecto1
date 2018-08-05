@@ -8,7 +8,9 @@ let proyectoSchema = new mongoose.Schema({
     estado_proyecto: { type: String, required: true },
     fecha_Entrega: { type: String, required: true },
     descripcion: { type: String, required: true },
-    tecnologias:{ type:String ,required: true}
+    tecnologia_wed: { type: String, required: true },
+    tecnologia_movil: { type: String, required: true },
+    tecnologia_bd: { type: String, required: true }
 
 
 });

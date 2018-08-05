@@ -66,10 +66,13 @@ function tomarDatosA() {
     }
     let id = localStorage.getItem('idP')
 
-    let info = recorrerTecnologias();
+    let tecnologiasWed = recorrerTecnologiasWed();
+    let tecnologiasMovil = recorrerTecnologiasMovil();
+    let tecologiasBd = recorrerTecnologiasBD();
+
     infoA.push(id, sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion, info);
 
-    modificarProyecto(id, sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion, info);
+    modificarProyecto(id, sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion, tecnologiasWed, tecnologiasMovil, tecologiasBd);
 
 
 
@@ -91,17 +94,44 @@ function listarSelectClientesM() {
 }
 
 
-function recorrerTecnologias() {
+function recorrerTecnologiasWed() {
     let listaProyectos = [];
 
-    $("input[type=checkbox]").each(function (index) {
+    $("input[name=wed]").each(function (index) {
         if ($(this).is(':checked')) {
             listaProyectos.push(($(this).val()));
 
         }
     });
 
+    return listaProyectos;
 
+}
+
+
+function recorrerTecnologiasMovil() {
+    let listaProyectos = [];
+
+    $("input[name=movil]").each(function (index) {
+        if ($(this).is(':checked')) {
+            listaProyectos.push(($(this).val()));
+
+        }
+    });
+
+    return listaProyectos;
+
+}
+
+function recorrerTecnologiasBD() {
+    let listaProyectos = [];
+
+    $("input[name=baseDatos]").each(function (index) {
+        if ($(this).is(':checked')) {
+            listaProyectos.push(($(this).val()));
+
+        }
+    });
 
     return listaProyectos;
 

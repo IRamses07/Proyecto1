@@ -12,7 +12,9 @@ module.exports.registrar = function (req, res) {
         estado_proyecto: req.body.estado_proyecto,
         fecha_Entrega: req.body.fecha_Entrega,
         descripcion: req.body.descripcion,
-        tecnologias: req.body.tecnologias
+        tecnologia_wed: req.body.tecnologia_wed,
+        tecnologia_movil: req.body.tecnologia_movil,
+        tecnologia_bd: req.body.tecnologia_bd
 
 
     });

@@ -65,7 +65,9 @@ function obtenerDatosr() {
 
     let infoProyecto = [];
     let error = false;
-    let tecnologiasT;
+    let tecnologiasWed;
+    let tecnologiasMovil;
+    let tecologiasBd;
 
     let sNombreProyecto = inputNombreProyecto.value;
 
@@ -136,11 +138,14 @@ function obtenerDatosr() {
             });
             break;
         case 2:
-            tecnologiasT = recorrerTecnologias();
+                tecnologiasWed = recorrerTecnologiasWed();
+                tecnologiasMovil = recorrerTecnologiasMovil();
+                tecologiasBd = recorrerTecnologiasBD();
 
-            registrarProyecto(sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion, tecnologiasT);
+            registrarProyecto(sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion, tecnologiasWed, tecnologiasMovil, tecologiasBd);
             agregarProyectoCliente();
             limpiarFormulairo();
+        
 
             swal({
                 type: 'success',
@@ -243,7 +248,7 @@ function validarCampos() {
         error = false
     }
 
-    if (selectEstadoProyecto.value == '' || selectEstadoProyecto.value =='defecto') {
+    if (selectEstadoProyecto.value == '' || selectEstadoProyecto.value == 'defecto') {
         selectEstadoProyecto.classList.add('error_input');
         error = 1;
     } else {
@@ -305,21 +310,52 @@ function agregarProyectoCliente() {
 
 }
 
-function recorrerTecnologias() {
+function recorrerTecnologiasWed() {
     let listaProyectos = [];
 
-    $("input[type=checkbox]").each(function (index) {
+    $("input[name=wed]").each(function (index) {
         if ($(this).is(':checked')) {
             listaProyectos.push(($(this).val()));
 
         }
     });
 
+    return listaProyectos;
 
+}
+
+
+function recorrerTecnologiasMovil() {
+    let listaProyectos = [];
+
+    $("input[name=movil]").each(function (index) {
+        if ($(this).is(':checked')) {
+            listaProyectos.push(($(this).val()));
+
+        }
+    });
 
     return listaProyectos;
 
 }
+
+function recorrerTecnologiasBD() {
+    let listaProyectos = [];
+
+    $("input[name=baseDatos]").each(function (index) {
+        if ($(this).is(':checked')) {
+            listaProyectos.push(($(this).val()));
+
+        }
+    });
+
+    return listaProyectos;
+
+}
+
+
+
+
 
 
 
