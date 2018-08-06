@@ -20,39 +20,38 @@ function llenarFormulario() {
     let ubicacion = client.ubicacion.split(',');
     mapCenter(ubicacion[0], ubicacion[1]);
     listener(fmrCliente.actualizarCliente, 'click', function () {
-        actualizarCliente();
+        actualizar();
         // window.location.href='listarClientes.html';
     });
 }
 llenarFormulario();
-function actualizarCliente() {
-    let inputs = [fmrCliente.nombre, fmrCliente.primerNombre, fmrCliente.segundoNombre, fmrCliente.cedulaJuridica, fmrCliente.primerApellido, fmrCliente.segundoApellido, fmrCliente.provincia, fmrCliente.canton, fmrCliente.distrito, fmrCliente.direccionExacta, fmrCliente.correoElectronico, fmrCliente.telefono];
+function actualizar() {
+    console.log('actualiza')
+    let inputs = [fmrCliente.nombre, fmrCliente.primerNombre, fmrCliente.segundoNombre, fmrCliente.primerApellido, fmrCliente.segundoApellido, fmrCliente.provincia, fmrCliente.canton, fmrCliente.distrito, fmrCliente.direccionExacta, fmrCliente.correoElectronico, fmrCliente.telefono];
     let data = {
-        cedula_juridica: inputs[0].value,
-        nombre: inputs[1].value,
-        provincia: inputs[2].value,
-        canton: inputs[3].value,
-        distrito: inputs[4].value,
-        direccion_exacta: inputs[5].value,
-        segundo_nombre: inputs[6].value,
-        primer_nombre: inputs[7].value,
-        primer_apellido: inputs[8].value,
-        segundo_apellido: inputs[9].value,
-        telefono: inputs[10].value,
-        correo_electronico: inputs[11].value,
+        cedula_juridica: fmrCliente.cedulaJuridica.value,
+        nombre: fmrCliente.nombre.value,
+        provincia: fmrCliente.provincia.value,
+        canton: fmrCliente.canton.value,
+        distrito: fmrCliente.distrito.value,
+        direccion_exacta: fmrCliente.direccionExacta.value,
+        segundo_nombre: fmrCliente.segundoNombre.value,
+        primer_nombre: fmrCliente.primerNombre.value,
+        primer_apellido: fmrCliente.primerApellido.value,
+        segundo_apellido: fmrCliente.segundoNombre.value,
+        telefono: fmrCliente.telefono.value,
+        correo_electronico: fmrCliente.correoElectronico.value,
         ubicacion: fmrCliente.registrarCliente.dataset.ubucacion
     }
-    console.log(inputs);
+    // console.log(inputs);
     if (registro(inputs)) {
         actualizarCliente(data)
-        registrarCliente(data);
         swal({
             type: 'success',
             title: 'Registro exitoso',
             text: 'El usuario se registró adecuadamente',
             confirmButtonText: 'Entendido'
         });
-        fmrCliente.reset();
     } else {
         swal({
             type: 'warning',

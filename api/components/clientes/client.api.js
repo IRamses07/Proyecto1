@@ -113,25 +113,29 @@ module.exports.cambiarFoto = function (req, res) {
             res.send(clientes);
         });
 };
-module.exports.actualizar=function (req,res) {
+module.exports.actualizar = function (req, res) {
     clientModel.where({
-        cedula_juridica:req.body.cedulaJuridica
+        cedula_juridica: req.body.cedulaJuridica
     }).update(req.body).then(
-        function(clientes){
-            res.send(clientes);
+        function (err, clientes) {
+            if (err) {
+                res.json({ success: false, msg: 'No se ha actualizado.' + err });
+            }else{                
+                res.json({ success: true, msg: 'Se ha actualizado correctamente.' + err });
+            }
         }
     )
 }
 
 
-module.exports.cambiar_contrasenna_cliente = function(req, res){
-    clientModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
-        function(err) {
+module.exports.cambiar_contrasenna_cliente = function (req, res) {
+    clientModel.findByIdAndUpdate(req.body._id, { $set: req.body },
+        function (err) {
             if (err) {
-                res.json({ success: false, msg: 'No se ha actualizado.'});
-        
+                res.json({ success: false, msg: 'No se ha actualizado.' });
+
             } else {
-            res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
+                res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
             }
-      });
+        });
 };

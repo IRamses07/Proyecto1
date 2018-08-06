@@ -40,7 +40,9 @@ select {
     width: 100%;
     resize: none;
 }
-
+textarea{
+    font-family: inherit;
+}
 output {
     border: 2px solid
 }
