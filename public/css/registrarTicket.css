@@ -110,15 +110,11 @@ h1 {
 
 .filtroTicket input[type='radio'] {
     /* display: none; */
-     width: 24px; 
-     height: 24px;
+     width: 14px; 
+     height: 14px;
      margin: 5px 0px;
 }
 
-.filtroTicket input[type='radio']:hover {
-    border: #fff 1px solid;
-    -moz-border: #fff 1px solid; 
-}
 
 .filtroTicket label {
     padding-bottom: 5px; 

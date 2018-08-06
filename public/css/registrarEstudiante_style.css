@@ -57,6 +57,7 @@ textarea{
     height: 22px;
     margin: -1%;
     margin-top: 2px;
+    /*text-align: center;*/
 }
 
 .btnPestanaSig, .btnActualizar{
@@ -179,3 +180,40 @@ input::placeholder, .letraItalic{
 tbody{
     max-height: 150px;
 }
+
+/*recomendaciones del profe: 30/7/2018 || temporales hasta confirmacion*/
+
+textarea {
+    height: 60px;
+    border: 2px solid #fff;
+}
+/*select {
+    height: 34px;
+}*/
+/*label{
+    font-size: 18px;
+}
+.btnRegistro {
+    font-weight: bold;
+    padding: 7px 3%;
+}*/
+/*.btnRegistro i {
+    vertical-align: middle;
+    font-size: 25px;
+    margin-left: 5px;
+    margin-right: -5px;
+    font-weight: none;
+}
+.btnPestanaAtr i{
+    margin-left: -5px;
+    margin-right: 5px;
+}*/
+.tabs__item{
+    font-weight: bold;
+}
+#atras1, #atras2{
+    padding-left: 44px;
+    padding-right: 44px;
+}
+
+/*Cambios de boton siguiente*/

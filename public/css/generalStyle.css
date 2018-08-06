@@ -160,7 +160,13 @@ input {
     border: 2px solid #fff;
     border-radius: 3px;
     /* outline: none; */
+    /*height: 22px;*/
     height: 30px;
+    border: 2px solid #fff;
+}
+
+textarea{
+    border: 2px solid #fff;
 }
 
 /* estilos generales de todos lo selects, igualemente ignoren el width  */
@@ -168,7 +174,8 @@ input {
 select {
     border: 2px solid #fff;
     border-radius: 3px;
-    height: 27px;
+    /*height: 27px;*/
+    height: 34px;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     color: #454545;
@@ -176,19 +183,21 @@ select {
  }
 
  /* estilo general de los botones de los registros...  */
- .btnRegistro {
+ .btnRegistro, .btnVerMas, .btnLista {
      background-color: #fbb803;
      border-radius: 3px;
      border: none;
-     padding: 5px 3%;
+     padding: 7px 3%;
+     /*font-weight: bold;*/
      font-family: 'Roboto', sans-serif;
      color: #454545;
      font-size: 1em;
      outline: none;
  }
 
- .btnRegistro:hover {
+ .btnRegistro:hover, .btnVerMas:hover , .btnLista:hover {
     background-color: #ff8e1d;
+    cursor: pointer;
  }
 
 .swal-button {
@@ -251,6 +260,7 @@ th {
 .lblInput, .lblDatos{
     display: block;
     margin-bottom: 5px;
+    font-size: 18px;
 }
 
 .lblError{
