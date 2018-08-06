@@ -42,11 +42,18 @@ function infoPersonal(infoProfe) {
     datos.innerHTML = contenido;
 
    /* contenido2 += '<h4></h4\n>';*/
-    contenido2 += '<h4>Cédula: ' + infoProfe['cedula'] + '</h4>';
+    /*contenido2 += '<h4>Cédula: ' + infoProfe['cedula'] + '</h4>';
     contenido2 += '<h4>Teléfono: ' + infoProfe['telefono'] + '</h4>';
     contenido2 += '<h4>Correo: ' + infoProfe['correo'] + '</h4>';
     contenido2 += '<h4>Trabajo: ' + infoProfe['trabajo_anterior'] + '</h4>';
-    contenido2 += '<h4>Años de experiencia: ' + infoProfe['experiencia_docente'] + '</h4>';
+    contenido2 += '<h4>Años de experiencia: ' + infoProfe['experiencia_docente'] + '</h4>';*/
+
+    contenido2 += '<h4></h4\n>';
+    contenido2 += '<div class="icono"><i class="fas fa-id-badge"></i><h4>Cédula: ' + infoProfe['cedula'] + '</h4></div>';
+    contenido2 += '<div class="icono"><i class="fas fa-phone-square"></i><h4>Teléfono: ' + infoProfe['telefono'] + '</h4></div>';
+    contenido2 += '<div class="icono"><i class="far fa-envelope"></i><h4>Correo: ' + infoProfe['correo'] + '</h4></div>';
+    contenido2 += '<div class="icono"><i class="far fa-envelope"></i><h4>Trabajo: ' + infoProfe['trabajo_anterior'] + '</h4></div>';
+    contenido2 += '<div class="icono"><i class="far fa-envelope"><h4>Años de experiencia: ' + infoProfe['experiencia_docente'] + '</h4></div>';
 
     extraDatos.innerHTML = contenido2;
 }

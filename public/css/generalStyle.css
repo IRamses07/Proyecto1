@@ -24,9 +24,63 @@ a {
 .mainHeader{
     max-height: 50px;
     background-color: #fbb803;
+    /* #fbb803; */
     padding: 15px 0%;
 
+    -webkit-animation-name: colors; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 50s; /* Safari 4.0 - 8.0 */
+    animation-name: colors;
+    animation-duration: 90s;
+
 }
+
+@-webkit-keyframes colors {
+    10% {background-color: #fbb803}
+    20% {background-color: #EDB319;}
+    30% {background-color: rgb(238, 140, 49);}
+    40% {background-color: rgb(224, 142, 75);}
+    50% {background-color:  #e7a861 ;}
+    60% {background-color:  #eeec60 ;}
+    70% {background-color: #e6b531;}
+    80% {background-color: #fc9e23;}
+    90% {background-color: #f19307;}
+    100% {background-color:   #fbb803  ;}
+}
+
+/* Standard syntax */
+@keyframes colors {
+    10% {background-color: #fbb803}
+    20% {background-color: #EDB319;}
+    30% {background-color: rgb(238, 140, 49);}
+    40% {background-color: rgb(224, 142, 75);}
+    50% {background-color:  #e7a861 ;}
+    60% {background-color:  #eeec60 ;}
+    70% {background-color: #e6b531;}
+    80% {background-color: #fc9e23;}
+    90% {background-color: #f19307;}
+    100% {background-color:   #fbb803  ;}
+}
+
+/* @keyframes colors {
+    10% {background-color: rgb(207, 86, 39);}
+    20% {background-color: rgb(167, 99, 73);}
+    30% {background-color: rgb(167, 150, 73);}
+    40% {background-color: rgb(214, 142, 113);}
+    50% {background-color:  #dfb865 ;}
+    60% {background-color:  #c9ba34 ;}
+    70% {background-color: #d6bd30;}
+    80% {background-color:  #e2df3f ;}
+    90% {background-color: #b7e611;}
+    100% {background-color:   #7bfb03  ;}
+    90% {background-color: #37e640;}
+    80% {background-color: rgb(80, 180, 13);}
+    70% {background-color: #0ffb69;}
+    60% {background-color: #0fb986;}
+    50% {background-color:  #14879b ;}
+    40% {background-color: rgb(18, 93, 122);}
+    30% {background-color:  #133d7c ;}
+    20% {background-color: rgb(6, 42, 88);}
+} */
 
 /* clase del cerrar sesión */
 .fRight{
@@ -93,36 +147,43 @@ input{
     border: 0px ;
     border-radius: 3px;
     /* outline: none; */
-    height: 22px;
+    /*height: 22px;*/
+    height: 30px;
+    border: 2px solid #fff;
+}
+
+textarea{
+    border: 2px solid #fff;
 }
 
 /* estilos generales de todos lo selects, igualemente ignoren el width  */
 select{
     border: 0px;
     border-radius: 3px;
-    height: 27px;
-    font-family: 'Roboto' sans-serif;
+    /*height: 27px;*/
+    height: 34px;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     color: #454545;
     letter-spacing: 0.7pt;
  }
 
  /* estilo general de los botones de los registros...  */
- .btnRegistro {
+ .btnRegistro, .btnVerMas, .btnLista {
      background-color: #fbb803;
      border-radius: 3px;
      border: none;
-     padding: 5px 2%;
-     font-family: 'Roboto' sans-serif;
-     color: #fff;
+     padding: 7px 3%;
+     /*font-weight: bold;*/
+     font-family: 'Roboto', sans-serif;
+     color: #454545;
      font-size: 1em;
      outline: none;
  }
 
- .btnRegistro:hover {
-    background-color: #fbb876;
+ .btnRegistro:hover, .btnVerMas:hover , .btnLista:hover {
+    background-color: #ff8e1d;
     cursor: pointer;
-
  }
 
  /* estilos de los botones del sweetaler  */
@@ -156,7 +217,7 @@ th {
     border-radius: 3px;
     border:  #fbb803 1px solid;
     padding: 5px 2%;
-    font-family: 'Roboto' sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #fff;
     font-size: 1em;
 }
@@ -185,6 +246,7 @@ th {
 .lblInput, .lblDatos{
     display: block;
     margin-bottom: 5px;
+    font-size: 18px;
 }
 
 .lblError{
