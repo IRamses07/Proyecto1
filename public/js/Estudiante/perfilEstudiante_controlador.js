@@ -6,23 +6,13 @@ let extraDatos = document.querySelector('#infoUsuario');
 let infoContacto2 = document.querySelector('#infoContacto2');
 
 getInfo();
-document.querySelector('#btnContrasenna').addEventListener('click', function () { document.location.href = 'passwordChange.html' });
 
 function getInfo(){
-    let thisStudent = [];
     let infoEstudiante = getInfoEstudiante();
-    if (getCurrentUserData()['rol'] == "estudiante") {
-        document.querySelector('#btnContrasenna').classList.remove('lblHide');
-        thisStudent.push(getCurrentUserData());
-        infoPersonal(thisStudent);
-    } else {
-        document.querySelector('#btnContrasenna').classList.add('lblHide');
-        infoPersonal(infoEstudiante);
-    }
+    infoPersonal(infoEstudiante);
     infoContacto(infoEstudiante);
     imprimirListaCursos (infoEstudiante)
-}
-
+};
 
 function infoPersonal(infoEstudiante){
     let contenido ='';
