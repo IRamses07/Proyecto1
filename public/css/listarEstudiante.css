@@ -19,7 +19,8 @@ thead th {
     text-align: center;
     border-bottom: 2px solid white;
 }
-.btnVerMas{
+
+/*.btnVerMas{
     background-color: #fbb803;
     border-radius: 3px;
     border: none;
@@ -29,10 +30,13 @@ thead th {
     font-size: 1em;
     outline:none;
 }
+
 .btnVerMas:hover{
     background-color: #fbb876;
     cursor: pointer;
-}
+}*/
+
+
 .contFormulario2{
     width: 85%;
     margin: 0 auto;
@@ -43,10 +47,10 @@ thead th {
     padding: 3px 0 3px 5px;
 }
 
-.cambioEstado{
+/*.cambioEstado{
     width: 70px;
     font-size: 1em;;
-}
+}*/
 
 /*input[type='radio'] {
     display: none; 
@@ -54,3 +58,8 @@ thead th {
     height: 24px; 
     margin: 5px 0px; 
 }*/
+
+#btnContrasenna{
+    display: block;
+    margin: 0 auto;
+}

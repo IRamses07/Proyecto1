@@ -505,7 +505,7 @@ function llenarDatosFormulario(){
     let estudiante = getInfoEstudiante()[0];
 
     tittleReg.innerHTML = 'Actualizar Estudiante';
-    h1reg.innerHTML = 'Información del estudiante: '+estudiante['Nombre1']+' '+estudiante['apellido1']+' - Ced: '+estudiante['cedula'];
+    h1reg.innerHTML = 'Información del estudiante: '+estudiante['Nombre1']+' '+estudiante['apellido1'];
     inputCedula.disabled=true;
     inputCedula.classList.add('disablesInput');
 
