@@ -21,8 +21,8 @@
         <div class="mainHeader">
             <a id="notificacion" class="fLeft">
                 <i class="fas fa-bell"></i> Notificaciones</a>
-                <label for="">Bienvenido: </label>
-                <output id="txtnombreCliente" value=""></output>
+            <label for="">Bienvenido: </label>
+            <output id="txtnombreCliente" value=""></output>
             <a href="javascript:logOut();" class="fRight">Cerrar sesión
                 <i class="fas fa-cog"></i>
             </a>
@@ -34,18 +34,18 @@
     </header>
 
     <main id="content">
-            <div class="modal none" id="modal">
-                    <div class="ModalNotificaciones">
-                        <a>X</a>
-                        <table id="tblNotificacion">
-                            <thead>
-                                <th>Notificaciones</th>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-        
-                </div>
+        <div class="modal none" id="modal">
+            <div class="ModalNotificaciones">
+                <a>X</a>
+                <table id="tblNotificacion">
+                    <thead>
+                        <th>Notificaciones</th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+        </div>
         <div class="card">
             <div class="img_container">
                 <img id="perfiImagen" src="https://image.ibb.co/iHyp6o/perfil.png" alt="Foto">
@@ -62,7 +62,10 @@
             </button>-->
         </div>
         <hr class="underline">
-        <button class="btnRegistro lblHide" id="btnPerfil">Actualizar Perfil</button>
+        <div class="divCentrado">
+            <button class="btnRegistro lblHide" id="btnPerfil">Actualizar Perfil</button>
+            <button type="button" class="btnRegistro lblHide" id="btnContrasenna">Cambiar contraseña</button>
+        </div>
         <!--<div class="infoContacto">
             <h4 class="subtitulo">Contacto de Emegencia:</h4>
             <div id="infoContacto2">
@@ -73,13 +76,15 @@
         <div class="tableContainer">
 
             <table class="hide tamannoMaxL tamannoMinL" id="tblCursosImpartidos">
+                <span class="tablaTitulo">Cursos impartidos</span>
                 <thead>
-                    <th>Cursos impartidos</th>
+                    <th>Cursos</th>
                 </thead>
                 <tbody></tbody>
             </table>
 
             <table class="hide tamannoMaxR tamannoMinR" id="tblPrepAcademica">
+                <span class="tablaTitulo">Preparación academica</span>
                 <thead>
                     <th>Carrera</th>
                     <th>Grado académico</th>

@@ -3,11 +3,22 @@
 }
 
 #btnPerfil{
-    display: block;
-    margin: 0 auto;
+    width: 45%;
+    float: left;
 }
 
-.tamannoMinL{
+#btnContrasenna{
+    float: right;
+    width: 45%;
+}
+
+.divCentrado{
+    display: flow-root;
+    margin: 0 auto;
+    width: 30%;
+}
+
+/*.tamannoMinL{
     float: left;
     width: 44%;
 }
@@ -25,10 +36,10 @@
 .tamannoMaxR{
     float: right;
     width: 100%;
-}
+}*/
 
 #content .tableContainer{
-width: 80%;
+width: 55%;
 margin: 50px auto 0 auto;
 display: flow-root;
 }
@@ -63,3 +74,13 @@ table{
 .fa-edit:before {
     content: "\f044";
 }
+ .tablaTitulo{
+     font-size: 20px;
+     display: block;
+     text-align: center;
+     margin-bottom: 15px;
+ }
+
+ #tblCursosImpartidos, #tblPrepAcademica{
+     margin-bottom: 55px;
+ }

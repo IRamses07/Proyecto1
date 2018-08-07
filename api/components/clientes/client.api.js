@@ -23,7 +23,6 @@ module.exports.registrar = function (req, res) {
         passwordChange: req.body.passwordChange,
         foto : req.body.foto
     });
-
     nuevoCliente.save(function (error) {
         if (error) {
             res.json({
