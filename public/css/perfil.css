@@ -1,6 +1,6 @@
 .card{
-    width: 470px;
-   /* height: 545px;*/
+    width: 400px;
+    height: 487px;
     display: block;
     margin: 0 auto;
     border-radius: 30px;
@@ -48,8 +48,7 @@ h5{
 }
 .infoUsuario{
     background: #2f3030;
-    /*height: 225px;*/
-    padding-bottom: 10px;
+    height: 175px;
     border-bottom-right-radius: 30px;
     border-bottom-left-radius: 30px;
 }
@@ -111,89 +110,11 @@ thead th {
 #perfiImagen{
     border-radius: 50%;
     border: 5px solid #fbb803;
-    cursor: pointer;
-}
-
-
-
-
-
-.overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 15px;
-  right: 0;
-  width: 226px;
-  height: 226px;
-  border-radius: 50%;
-  opacity: 0;
-  transition: .5s ease;
-  background-color: #454545;
-  margin-top: 19px;
-  margin-left: 107px;
-  cursor: pointer;
-}
-.text {
-  color: white;
-  font-size: 35px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  padding-top: 15px;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-.img_container:hover .overlay {
-  opacity: 0.5;
-}
-
-
-
-
-
-.icono, icono2{
-    display: flow-root;
-    height: 45px;
-    padding-top: 7px;
-}
-.icono h4 {
-    width: 75%;
-    font-size: 17px;
-    font-weight: normal;
-    float: left;
-    margin: 0 auto;
-    padding-top: 0;
-    margin-top: 17px;
-    padding-right: 10%;
 }
 #btnSeleccionarImagen{
     border: 1px solid #000000;
     float: right;
     background: #ffffff;
     margin: 0 auto;
-}
-.icono i, .icono2 i{
-    font-size: 20px;
-    float: left;
-    margin-left: 7%;
-    margin-right: 3%;
-    margin-top: 12px;
-}
-.icono2 h5{
-    margin-left: 5%;
-    margin-bottom: 15px;
-    padding-top: 4px;
-}
-.icono2 i{
-    margin-bottom: 0px;
-    margin-top: 0;
-}
-
-#littleMargin{
-margin-bottom: 16px;
+    border-radius: 15%;
 }
