@@ -71,7 +71,7 @@ main .colupna2 input{
 main .colupna2 .fecha input{
   
     display: block;
-    height: 24px;
+   
     
 }
 
@@ -82,7 +82,7 @@ button{
 
 textarea {
     width: 90%;
-    height: 156.5px;
+    height: 183px;
     margin-top: 5px;
     margin-bottom:21px;
     border: 0px ;

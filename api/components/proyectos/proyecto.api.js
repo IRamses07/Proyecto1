@@ -77,3 +77,10 @@ module.exports.actualizarProyecto = function (req, res) {
             }
         });
 };
+
+module.exports.listaMantenimento = function(req, res){
+    proyectoModel.find({estado_proyecto :"mantenimento"}).then(
+        function(proyecto){
+            res.send(proyecto);
+        });
+};

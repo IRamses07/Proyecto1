@@ -74,12 +74,12 @@ function tomarDatosA() {
     error = validarCampos();
     error = verificarEstado();
 
-    mensajesDeRetroAlimentacion(error);
+    mensajesDeRetroAlimentacion(error, sNombreProyecto, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion, cliente);
 
 
 }
 
-function mensajesDeRetroAlimentacion(error) {
+function mensajesDeRetroAlimentacion(error, sNombreProyecto, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion, cliente) {
 
     switch (error) {
         case 1:
@@ -96,7 +96,7 @@ function mensajesDeRetroAlimentacion(error) {
             let tecnologiasMovil = recorrerTecnologiasMovil();
             let tecologiasBd = recorrerTecnologiasBD();
 
-           
+
 
             modificarProyecto(id, sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion, tecnologiasWed, tecnologiasMovil, tecologiasBd);
 
@@ -259,8 +259,14 @@ function verificarEstado() {
         if (selectEstadoProyectoM.value == 'mantenimento' && dateFechaEntregaM.value == proyectos[i]['fecha_Entrega']) {
             error = 3;
             break;
-        }else{
-            error = 2;
+        } else {
+            if (dateFechaEntregaM.value < proyectos[i]['fecha_Entrega']) {
+                error = 3;
+                return error;
+                break;
+            } else {
+                error = 2;
+            }
         }
     }
     return error;
