@@ -1,4 +1,5 @@
 'use strict';
+const nodeMailer = require('nodemailer');
 const profesorModel = require('./profesores.model');
 
 //Función para registrar un usuario
@@ -19,9 +20,9 @@ module.exports.registrar = function (req, res) {
         trabajo_anterior: req.body.trabajo_anterior,
         experiencia_docente: req.body.experiencia_docente,
         cursos_impartidos: req.body.cursos_impartidos,
-        foto : req.body.foto,
+        foto: req.body.foto,
         estado: req.body.estado
-        
+
     });
 
     nuevoProfesor.save(function (error) {
@@ -51,8 +52,8 @@ module.exports.listar = function (req, res) {
 module.exports.asignar_proyecto = function (req, res) {
 
     profesorModel.update({
-            _id: req.body._id
-        }, {
+        _id: req.body._id
+    }, {
             $push: {
                 'proyecto': {
 
@@ -80,11 +81,13 @@ module.exports.asignar_proyecto = function (req, res) {
     )
 };
 
-module.exports.agregar_preparacion_academica = function(req, res){
-    
-    profesorModel.update({_id: req.body._id}, 
-        {$push: 
-            {'preparacion_academica':
+module.exports.agregar_preparacion_academica = function (req, res) {
+
+    profesorModel.update({ _id: req.body._id },
+        {
+            $push:
+            {
+                'preparacion_academica':
                 {
                     grado_academico: req.body.grado_academico,
                     titulo_fecha: req.body.titulo_fecha,
@@ -92,38 +95,38 @@ module.exports.agregar_preparacion_academica = function(req, res){
                 }
             }
         },
-        function(error){
-            if(error){
-                res.json({success : false, msg : 'No se pudo registrar el título, ocurrió el siguiente error' + error});
-            }else{
-                res.json({success : true, msg : 'El título se registró con éxito'});
+        function (error) {
+            if (error) {
+                res.json({ success: false, msg: 'No se pudo registrar el título, ocurrió el siguiente error' + error });
+            } else {
+                res.json({ success: true, msg: 'El título se registró con éxito' });
             }
         }
     )
 };
 
-module.exports.agregar_cursos_impartidos = function(req, res){
-    profesorModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
-        function(err) {
+module.exports.agregar_cursos_impartidos = function (req, res) {
+    profesorModel.findByIdAndUpdate(req.body._id, { $set: req.body },
+        function (err) {
             if (err) {
                 res.json({ success: false, msg: 'No se ha actualizado.' + handleError(err) });
-        
+
             } else {
-            res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
+                res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
             }
-      });
+        });
 };
 
-module.exports.agregar_info_extra_profesor = function(req, res){
-    profesorModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
-        function(err) {
+module.exports.agregar_info_extra_profesor = function (req, res) {
+    profesorModel.findByIdAndUpdate(req.body._id, { $set: req.body },
+        function (err) {
             if (err) {
                 res.json({ success: false, msg: 'No se ha actualizado.' + handleError(err) });
-        
+
             } else {
-            res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
+                res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
             }
-      });
+        });
 };
 
 module.exports.cambiar_foto_profesores = function (req, res) {
@@ -142,16 +145,16 @@ module.exports.cambiar_foto_profesores = function (req, res) {
         });
 };
 
-module.exports.cambiar_contrasenna_profesor = function(req, res){
-    profesorModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
-        function(err) {
+module.exports.cambiar_contrasenna_profesor = function (req, res) {
+    profesorModel.findByIdAndUpdate(req.body._id, { $set: req.body },
+        function (err) {
             if (err) {
-                res.json({ success: false, msg: 'No se ha actualizado.'});
-        
+                res.json({ success: false, msg: 'No se ha actualizado.' });
+
             } else {
-            res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
+                res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
             }
-      });
+        });
 };
 
 module.exports.getProfessorById = function (req, res) {
@@ -163,26 +166,80 @@ module.exports.getProfessorById = function (req, res) {
         });
 };
 
-module.exports.actualizar_profesor = function(req, res){
-    profesorModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
-        function(err,profe) {
+module.exports.actualizar_profesor = function (req, res) {
+    profesorModel.findByIdAndUpdate(req.body._id, { $set: req.body },
+        function (err, profe) {
             if (err) {
-                res.json({ success: false, msg: 'No se ha actualizado.'+ handleError(err)});
-        
+                res.json({ success: false, msg: 'No se ha actualizado.' + handleError(err) });
+
             } else {
-            res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
+                res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
             }
-      });
+        });
 };
 
-module.exports.cambiar_estado_profesor = function(req, res){
-    profesorModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
-        function(err,profe) {
+module.exports.cambiar_estado_profesor = function (req, res) {
+    profesorModel.findByIdAndUpdate(req.body._id, { $set: req.body },
+        function (err, profe) {
             if (err) {
-                res.json({ success: false, msg: 'No se ha actualizado.'+ handleError(err)});
-        
+                res.json({ success: false, msg: 'No se ha actualizado.' + handleError(err) });
+
             } else {
-            res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
+                res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
             }
-      });
+        });
 };
+
+const transporter = nodeMailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'codeanalytics79@gmail.com',
+        pass: 'sincontrasenna'
+    }
+});
+
+module.exports.reset_password = function (req, res) {
+
+    profesorModel.find({
+        'correo': req.body.correo
+    }).then(
+
+        function (error) {
+            /*if (error) {*/
+            res.json({ success: false, msg: 'Mal' + error });
+            /*} else {*/
+            let mailOptions = {
+                from: 'codeanalytics@gmail.com',
+                to: req.body.correo,
+                subject: 'Cenfotec Software House',
+                html: `
+                    <html>
+                    <head>
+                        <style>
+                            .tituloPrincipal{
+                                background: #6c5ce7;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <h1 class='tituloPrincipal'>Bienvenido ${req.body.nombre1}</h1>
+                        <p>Puedes restablecer tu contraseña de Cenfotec Software House haciendo clic en el enlace de abajo:</p>
+                        <a href=passwordReset2.html>Restablecer contraseña</a>
+                        <p> Si no solicitaste restablecer tu contraseña, no dudes en eliminar este mensaje. </p>
+                    </body>
+                </html>
+                            `
+            };
+
+            transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log('Email sent: ' + info.response);
+                }
+            });
+            res.json({ success: true, msg: 'Bien.' });
+            /*}*/
+        });
+};
+
