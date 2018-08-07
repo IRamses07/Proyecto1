@@ -1,4 +1,4 @@
-moveUser(false);
+moveUser(true);
 document.querySelector('#btnChange').addEventListener('click', passwordChange);
 
 function passwordChange() {
