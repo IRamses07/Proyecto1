@@ -21,8 +21,8 @@
         <div class="mainHeader">
             <a id="notificacion" class="fLeft">
                 <i class="fas fa-bell"></i> Notificaciones</a>
-                <label for="">Bienvenido: </label>
-                <output id="txtnombreCliente" value=""></output>
+            <label for="">Bienvenido: </label>
+            <output id="txtnombreCliente" value=""></output>
             <a href="javascript:logOut();" class="fRight">Cerrar sesión
                 <i class="fas fa-cog"></i>
             </a>
@@ -34,18 +34,18 @@
     </header>
 
     <main id="content">
-            <div class="modal none" id="modal">
-                    <div class="ModalNotificaciones">
-                        <a>X</a>
-                        <table id="tblNotificacion">
-                            <thead>
-                                <th>Notificaciones</th>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-        
-                </div>
+        <div class="modal none" id="modal">
+            <div class="ModalNotificaciones">
+                <a>X</a>
+                <table id="tblNotificacion">
+                    <thead>
+                        <th>Notificaciones</th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+        </div>
         <div class="card">
             <div class="img_container">
                 <img id="perfiImagen" src="https://image.ibb.co/iHyp6o/perfil.png" alt="Foto">
@@ -57,18 +57,15 @@
             </div>
             <div id="infoUsuario" class="infoUsuario">
             </div>
-<<<<<<< HEAD
-            
-            <button type="button" id="btnSeleccionarImagen">
-=======
             <!--<button type="button" id="btnSeleccionarImagen">
->>>>>>> master
                 <i class="fas fa-edit"></i>
             </button>-->
         </div>
         <hr class="underline">
-        <button class="btnRegistro lblHide" id="btnPerfil">Actualizar Perfil</button>
-        <button type="button" class="btnRegistro lblHide" id="btnContrasenna">Cambiar contraseña</button>
+        <div class="divCentrado">
+            <button class="btnRegistro lblHide" id="btnPerfil">Actualizar Perfil</button>
+            <button type="button" class="btnRegistro lblHide" id="btnContrasenna">Cambiar contraseña</button>
+        </div>
         <!--<div class="infoContacto">
             <h4 class="subtitulo">Contacto de Emegencia:</h4>
             <div id="infoContacto2">

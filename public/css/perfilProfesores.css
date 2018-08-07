@@ -3,8 +3,19 @@
 }
 
 #btnPerfil{
-    display: block;
+    width: 45%;
+    float: left;
+}
+
+#btnContrasenna{
+    float: right;
+    width: 45%;
+}
+
+.divCentrado{
+    display: flow-root;
     margin: 0 auto;
+    width: 30%;
 }
 
 /*.tamannoMinL{
