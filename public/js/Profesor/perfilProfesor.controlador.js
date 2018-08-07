@@ -6,19 +6,15 @@ let extraDatos = document.querySelector('#infoUsuario');
 let thisProfessor = "";
 if (getCurrentUserData()['rol'] == "profesor") {
     document.querySelector('#btnPerfil').classList.remove('lblHide');
-    document.querySelector('#btnContrasenna').classList.remove('lblHide');
     thisProfessor = getCurrentUserData();
     infoPersonal(thisProfessor);
 } else {
     document.querySelector('#btnPerfil').classList.add('lblHide');
-    document.querySelector('#btnContrasenna').classList.add('lblHide');
     thisProfessor = getVerMasLS();
     getInfo();
 }
-document.querySelector('#btnPerfil').addEventListener('click', function () { document.location.href = 'agregarDatosProfesores.html' });
-document.querySelector('#btnContrasenna').addEventListener('click', function () { document.location.href = 'passwordChange.html' });
 
-/*showExtraData();*/
+showExtraData();
 listadoCursosImpartidos();
 listadoPrepAcademica();
 function getInfo() {
@@ -43,24 +39,18 @@ function infoPersonal(infoProfe) {
 
     datos.innerHTML = contenido;
 
-   /* contenido2 += '<h4></h4\n>';*/
-    /*contenido2 += '<h4>Cédula: ' + infoProfe['cedula'] + '</h4>';
+    contenido2 += '<h4></h4\n>';
+    contenido2 += '<h4>Cédula: ' + infoProfe['cedula'] + '</h4>';
     contenido2 += '<h4>Teléfono: ' + infoProfe['telefono'] + '</h4>';
     contenido2 += '<h4>Correo: ' + infoProfe['correo'] + '</h4>';
-    contenido2 += '<h4>Trabajo: ' + infoProfe['trabajo_anterior'] + '</h4>';
-    contenido2 += '<h4>Años de experiencia: ' + infoProfe['experiencia_docente'] + '</h4>';*/
-
-    /*contenido2 += '<h4></h4\n>';*/
-    contenido2 += '<div class="icono"><i class="fas fa-id-badge"></i><h4>Cédula: ' + infoProfe['cedula'] + '</h4></div>';
-    contenido2 += '<div class="icono"><i class="fas fa-phone-square"></i><h4>Teléfono: ' + infoProfe['telefono'] + '</h4></div>';
-    contenido2 += '<div class="icono"><i class="far fa-envelope"></i><h4>Correo: ' + infoProfe['correo'] + '</h4></div>';
-    contenido2 += '<div class="icono"><i class="far fa-envelope"></i><h4>Trabajo: ' + infoProfe['trabajo_anterior'] + '</h4></div>';
-    contenido2 += '<div class="icono"><i class="far fa-envelope"></i><h4>Años de experiencia: ' + infoProfe['experiencia_docente'] + '</h4></div>';
 
     extraDatos.innerHTML = contenido2;
 }
 
-/*function showExtraData(){
+document.querySelector('#btnPerfil').addEventListener('click', function () { document.location.href = 'agregarDatosProfesores.html' });
+
+
+function showExtraData(){
     let extraDataContainer = document.querySelector('#extraDataContainer');
 
     let trabajoAnterior = document.createElement('label');
@@ -73,11 +63,11 @@ function infoPersonal(infoProfe) {
 
     extraDataContainer.appendChild(trabajoAnterior);
     extraDataContainer.appendChild(annosExperiencia);
-}*/
+}
 
 function listadoCursosImpartidos() {
 
-   /* acomodarEspacios();*/
+    acomodarEspacios();
 
     if (thisProfessor['cursos_impartidos'] == "") {
         document.querySelector('#tblCursosImpartidos').classList.add('hide');
@@ -95,7 +85,7 @@ function listadoCursosImpartidos() {
     }
 }
 
-/*function acomodarEspacios() {
+function acomodarEspacios() {
     if (thisProfessor['preparacion_academica'].length == 0) {
         if (thisProfessor['cursos_impartidos'] == "") {
             document.querySelector('#tblPrepAcademica').classList.remove('tamannoMaxR');
@@ -121,11 +111,11 @@ function listadoCursosImpartidos() {
             document.querySelector('#tblCursosImpartidos').classList.add('tamannoMinL');
         }
     }
-}*/
+}
 
 function listadoPrepAcademica() {
 
-   /* acomodarEspacios();*/
+    acomodarEspacios();
 
     if (thisProfessor['preparacion_academica'].length == 0) {
         document.querySelector('#tblPrepAcademica').classList.add('hide');
