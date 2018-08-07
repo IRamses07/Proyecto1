@@ -1,6 +1,7 @@
 'use strict';
 const nodeMailer = require('nodemailer');
 const profesorModel = require('./profesores.model');
+/*const smtp = require('nodemailer-smtp-transport');*/
 
 //Función para registrar un usuario
 module.exports.registrar = function (req, res) {
@@ -190,56 +191,106 @@ module.exports.cambiar_estado_profesor = function (req, res) {
         });
 };
 
-const transporter = nodeMailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: 'codeanalytics79@gmail.com',
-        pass: 'sincontrasenna'
-    }
-});
+// const transporter = nodeMailer.createTransport({ profe
+//     service: 'gmail',
+//     auth: {
+//         user: 'codeanalytics79@gmail.com',
+//         pass: 'sincontrasenna'
+//     }
+// });
+
+
 
 module.exports.reset_password = function (req, res) {
 
-    profesorModel.find({
+    /*profesorModel.find({
         'correo': req.body.correo
-    }).then(
+    });*//*.then(*/
 
-        function (error) {
-            /*if (error) {*/
-            res.json({ success: false, msg: 'Mal' + error });
-            /*} else {*/
-            let mailOptions = {
-                from: 'codeanalytics@gmail.com',
-                to: req.body.correo,
-                subject: 'Cenfotec Software House',
-                html: `
-                    <html>
-                    <head>
-                        <style>
-                            .tituloPrincipal{
-                                background: #6c5ce7;
-                            }
-                        </style>
-                    </head>
-                    <body>
-                        <h1 class='tituloPrincipal'>Bienvenido ${req.body.nombre1}</h1>
-                        <p>Puedes restablecer tu contraseña de Cenfotec Software House haciendo clic en el enlace de abajo:</p>
-                        <a href=passwordReset2.html>Restablecer contraseña</a>
-                        <p> Si no solicitaste restablecer tu contraseña, no dudes en eliminar este mensaje. </p>
-                    </body>
-                </html>
-                            `
-            };
+    /* function (error) { profe
+         //if (error) {
+         //res.json({ success: false, msg: 'Mal' + error });
+         //} else {
+         let mailOptions = {
+             from: 'codeanalytics@gmail.com',
+             to: req.body.correo,
+             subject: 'Cenfotec Software House',
+             html: `
+                 <html>
+                 <head>
+                     <style>
+                         .tituloPrincipal{
+                             background: #6c5ce7;
+                         }
+                     </style>
+                 </head>
+                 <body>
+                     <h1 class='tituloPrincipal'>Bienvenido ${req.body.nombre1}</h1>
+                     <p>Puedes restablecer tu contraseña de Cenfotec Software House haciendo clic en el enlace de abajo:</p>
+                     <a href=passwordReset2.html>Restablecer contraseña</a>
+                     <p> Si no solicitaste restablecer tu contraseña, no dudes en eliminar este mensaje. </p>
+                 </body>
+             </html>
+                         `
+         };*/
 
-            transporter.sendMail(mailOptions, function (error, info) {
+    let transporter = nodeMailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'codeanalytics79@gmail.com',
+            pass: 'sincontrasenna'
+        },
+        sendmail: true,
+        newline: 'unix',
+        /*path: '/usr/sbin/sendmail'*/
+        logger: true,
+        debug: true,
+    });
+    transporter.sendMail({
+        from: 'codeanalytics79@gmail.com',
+        to: 'lramsesmc07@gmail.com',
+        subject: 'Message',
+        text: 'I hope this message gets delivered!'
+    }, (err, info) => {
+        /*console.log(info.envelope);
+        console.log(info.messageId);*/
+    });
+
+    /****let options = {*****
+    service: 'gmail',
+    auth: {
+        user: 'username',
+        pass: 'password'
+    },
+    logger: true,
+    debug: true
+};*/
+
+/*let transport = nodemailer.createTransport(smtp(options));*/ 
+
+    /*var mailer = function (options) {*****
+        return new Promise(function (resolve, reject) {
+            transport.sendMail(options, function (error, response) {
                 if (error) {
-                    console.log(error);
+                    reject(error);
                 } else {
-                    console.log('Email sent: ' + info.response);
+                    resolve(response);
                 }
             });
-            res.json({ success: true, msg: 'Bien.' });
-            /*}*/
         });
-};
+};*/
+
+    /* transporter.sendMail(mailOptions, function (error, info) { profe
+         if (error) {
+             console.log(error);
+         } else {
+             console.log('Email sent: ' + info.response);
+         }
+     });
+     res.json({ success: true, msg: 'Bien.' });*/
+    // }
+}
+/*);
+
+};*/
 
