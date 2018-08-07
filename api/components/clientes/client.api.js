@@ -139,3 +139,11 @@ module.exports.cambiar_contrasenna_cliente = function (req, res) {
             }
         });
 };
+module.exports.buscar = function (req, res) {
+    clientModel.find(
+        req.query
+    ).then(
+        function (clientes) {
+            res.send(clientes);
+        });
+};

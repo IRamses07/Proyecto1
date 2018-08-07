@@ -95,7 +95,7 @@ function registro(inputs) {
                     console.log('entra0');
                     labelCed.innerHTML = 'Cédula jurídica';
                     labelCed.classList.remove('cedRepetida');
-                    if (validarCedulaRepetida(element.value)) {
+                    if (buscar({ cedula_juridica: element.value }).length > 0) {
                         addClass(element, 'error');
                         valido = false;
                         labelCed.innerHTML = 'Cédula jurídica --------> *Cédula Existente!';
@@ -110,25 +110,6 @@ function registro(inputs) {
                     console.log('entra2');
                 }
                 break;
-
-
-
-
-            // if (blanck(element)){
-            //     addClass(element, 'error');
-            //     valido = false;
-            // } else if (validarCedulaRepetida(element)) {
-            //     console.log('aqui estamos mop');
-            //     addClass(element, 'error');
-            //     labelCed.innerHTML = 'Cédula jurídica -> *Cédula Existente!';
-            //     labelCed.addClass('cedRepetida');
-            //     valido = false;
-            //     //cosas que pasan si esta repetida -> labelCed
-            // } else {
-            //     classList.remove(element, 'error');
-            // }
-            // break;
-
             case 'correoElectronico':
                 if (blanck(element)) {
                     if (!test(eEmail, element) || test(eSpace, element)) {
@@ -143,9 +124,13 @@ function registro(inputs) {
             case 'password':
 
                 break;
+            case 'nombre':
+                if (buscar({ nombre }).length > 0) {
+
+                }
+                break;
             case 'cedula':
             case 'direccionExacta':
-            case 'nombre':
             case 'canton':
             case 'provincia':
             case 'distrito':
