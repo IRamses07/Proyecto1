@@ -21,7 +21,7 @@ function listarSelectClientes() {
     select.options[0] = new Option("Seleccione un cliente...", "");
 
     for (let i = 0; i < slProyecto.length; i++) {
-        select.options[i+1] = new Option(slProyecto[i]['nombre_proyecto'], slProyecto[i]['_id']);
+        select.options[i] = new Option(slProyecto[i]['nombre_proyecto'], slProyecto[i]['_id']);
 
     }
 }
@@ -32,7 +32,7 @@ function listarSelectProfe1() {
     select.options[0] = new Option("Seleccione un profesor...", );
 
     for (let i = 0; i < selectProfe1.length; i++) {
-        select.options[i+1] = new Option(selectProfe1[i]['nombre1'], selectProfe1[i]['_id']);
+        select.options[i] = new Option(selectProfe1[i]['nombre1'], selectProfe1[i]['_id']);
 
     }
 }
@@ -43,7 +43,7 @@ function listarSelectProfe2() {
     select.options[0] = new Option("Seleccione un profesor...", );
 
     for (let i = 0; i < selectProfe2.length; i++) {
-        select.options[i+1] = new Option(selectProfe2[i]['nombre1'], selectProfe2[i]['_id']);
+        select.options[i] = new Option(selectProfe2[i]['nombre1'], selectProfe2[i]['_id']);
 
     }
 }

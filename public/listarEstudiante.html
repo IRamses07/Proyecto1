@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
     <link rel="stylesheet" href="css/reset.css">
@@ -18,10 +17,10 @@
     <header>
 
         <div class="mainHeader">
-                <a id="notificacion" class="fLeft">
-                        <i class="fas fa-bell"></i> Notificaciones</a>
-                        <label for="">Bienvenido: </label>
-                        <output id="txtnombreCliente" value=""></output>
+            <a id="notificacion" class="fLeft">
+                <i class="fas fa-bell"></i> Notificaciones</a>
+            <label for="">Bienvenido: </label>
+            <output id="txtnombreCliente" value=""></output>
             <a href="javascript:logOut();" class="fRight">Cerrar sesión
                 <i class="fas fa-cog"></i>
             </a>
@@ -33,27 +32,29 @@
 
     </header>
     <main id="content">
-            <div class="modal none" id="modal">
-                    <div class="ModalNotificaciones">
-                        <a>X</a>
-                        <table id="tblNotificacion">
-                            <thead>
-                                <th>Notificaciones</th>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-                </div>
+        <div class="modal none" id="modal">
+            <div class="ModalNotificaciones">
+                <a>X</a>
+                <table id="tblNotificacion">
+                    <thead>
+                        <th>Notificaciones</th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
         <h1>Listado de estudiantes</h1>
 
         <div class="filtrarEstudiante">
             <form action="" class="contFormulario2" id="form">
-                    <label for="cliente">Buscar por:</label>
-                    <input type="radio" checked="checked" value="Nombre1" name="radioSelect"/><label for="cliente">Nombre</label>
-                    <input type="radio" value="cedula" name="radioSelect"/><label for="cliente">Cédula</label>
-                    <input type="text" id="inputBuscar" />
-                    <label id="errorInput"></label>
-                    <button type="button" id="butBuscarEstudiante" class="btnRegistro">Buscar</button>
+                <label for="cliente">Buscar por:</label>
+                <input type="radio" checked="checked" value="Nombre1" name="radioSelect" />
+                <label for="cliente">Nombre</label>
+                <input type="radio" value="cedula" name="radioSelect" />
+                <label for="cliente">Cédula</label>
+                <input type="text" id="inputBuscar" />
+                <label id="errorInput"></label>
+                <button type="button" id="butBuscarEstudiante" class="btnRegistro">Buscar</button>
             </form>
         </div>
 
@@ -78,7 +79,7 @@
     <script src="js/jquery-3.3.1.js"></script>
     <!--<script src="js/Estudiante/registrarEstudiante_servicio.js"></script>-->
     <!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
     <script src="js/Login/login.js"></script>
     <script src="js/Notificaciones/notificaciones.js"></script>
     <script src="js/Estudiante/registrarEstudiante_servicio.js"></script>

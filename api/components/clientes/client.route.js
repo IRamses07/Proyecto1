@@ -27,10 +27,16 @@ router.route('/cambiarfoto_clientes')
     .put(function(req, res){
     clients.cambiarFoto(req, res);
 });
+router.route('/actualizar')
+.post(function(req,res){
+    clients.actualizar(req,res);
+});
 
 router.route('/cambiar_contrasenna_cliente')
     .post(function(req, res){
     clients.cambiar_contrasenna_cliente(req, res);
 });
-
+router.route('/buscar').get(function(req,res){
+    clients.buscar(req,res);
+})
 module.exports = router;

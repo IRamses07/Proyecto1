@@ -35,11 +35,11 @@ h2 {
 }
 
 .modal {
-    position: absolute;
-    width: 82%;
+    position: fixed;
+    width:99%;
     height: 100%;
-    top: 47px;
-    left: 18%;
+    left: 1%;
+    top: 0;
     background-color: #0000003a;
     padding-top: 60px;
 }

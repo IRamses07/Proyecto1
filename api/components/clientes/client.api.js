@@ -1,6 +1,7 @@
 'use strict';
 
 const clientModel = require('./client.model');
+const correos = require('../correos/correos.js');
 
 module.exports.registrar = function (req, res) {
 
@@ -21,7 +22,7 @@ module.exports.registrar = function (req, res) {
         ubicacion: req.body.ubicacion,
         password: req.body.password,
         passwordChange: req.body.passwordChange,
-        foto : req.body.foto
+        foto: req.body.foto
     });
 
     nuevoCliente.save(function (error) {
@@ -35,6 +36,21 @@ module.exports.registrar = function (req, res) {
                 succes: true,
                 msj: 'El cliente fue registrado con éxito'
             });
+            correos.envio(
+                {
+                    head: `
+                    <style>
+                        h1{
+                            bacground:tomatoe;
+                        }
+                    </style>`,
+                    body: `
+                    <h1>Nuevo cliente registrado ${nuevoCliente.nombre} </h1>
+                    `,
+                    to: nuevoCliente.correo_electronico,
+                    subject: 'Prueba'
+                }
+            )
         }
     });
 };
@@ -48,8 +64,8 @@ module.exports.listar = function (req, res) {
 module.exports.asignar_proyecto = function (req, res) {
 
     clientModel.update({
-            _id: req.body._id
-        }, {
+        _id: req.body._id
+    }, {
             $push: {
                 'proyectos': {
                     id: req.body.id,
@@ -84,28 +100,50 @@ module.exports.getInfoCliente = function (req, res) {
         });
 };
 
-module.exports.cambiarFoto = function(req, res){
+module.exports.cambiarFoto = function (req, res) {
     clientModel.findOneAndUpdate(
         {
             cedula_juridica: req.body.cedula_juridica
         },
-        {  
+        {
             foto: req.body.foto
         }
-        ).then(
-        function(clientes){
+    ).then(
+        function (clientes) {
             res.send(clientes);
-    });
+        });
 };
-
-module.exports.cambiar_contrasenna_cliente = function(req, res){
-    clientModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
-        function(err) {
+module.exports.actualizar = function (req, res) {
+    clientModel.where({
+        cedula_juridica: req.body.cedula_juridica
+    }).update({$set:req.body}).then(
+        function (err, clientes) {
             if (err) {
-                res.json({ success: false, msg: 'No se ha actualizado.'});
-        
-            } else {
-            res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
+                res.json({ success: false, msg: 'No se ha actualizado.' + err });
+            }else{                
+                res.json({ success: true, msg: 'Se ha actualizado correctamente.' + err });
             }
-      });
+        }
+    )
+}
+
+
+module.exports.cambiar_contrasenna_cliente = function (req, res) {
+    clientModel.findByIdAndUpdate(req.body._id, { $set: req.body },
+        function (err) {
+            if (err) {
+                res.json({ success: false, msg: 'No se ha actualizado.' });
+
+            } else {
+                res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
+            }
+        });
+};
+module.exports.buscar = function (req, res) {
+    clientModel.find(
+        req.query
+    ).then(
+        function (clientes) {
+            res.send(clientes);
+        });
 };

@@ -1,6 +1,6 @@
 'use strict';
 
-function registrarProyecto(sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion,tecnologias) {
+function registrarProyecto(paInfoProyecto) {
     let respuesta = '';
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/registrar',
@@ -9,13 +9,12 @@ function registrarProyecto(sNombreProyecto, cliente, nIdentifiacionJuridica, sEs
         dataType: 'json',
         async: false,
         data: {
-            nombre_proyecto: sNombreProyecto,
-            nombre_cliente: cliente,
-            identificacion_juridica: nIdentifiacionJuridica,
-            estado_proyecto: sEstadoProyecto,
-            fecha_Entrega:sFechaEntrega,
-            descripcion: sDescripcion,
-            tecnologias: JSON.stringify(tecnologias)
+            nombre_proyecto: paInfoProyecto[0],
+            nombre_cliente: paInfoProyecto[1],
+            identificacion_juridica: paInfoProyecto[2],
+            estado_proyecto: paInfoProyecto[3],
+            fecha_Entrega: paInfoProyecto[4],
+            descripcion: paInfoProyecto[5]
 
 
         }
@@ -114,64 +113,5 @@ function getProfessorData() {
 
     return respuesta;
 }
-
-function obtenerProyectoId(id){
-    let persona = '';
-
-    let peticion = $.ajax({
-        url : 'http://localhost:4000/api/buscar_proyecto_id',
-        type : 'post',
-        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
-        dataType : 'json',
-        async : false,
-        data:{
-            id : id
-        }
-      });
-    
-      peticion.done(function(response){
-       persona = response;
-      });
-    
-      peticion.fail(function(response){
-       
-      });
-      return persona;
-};
-
-
-
-
-function modificarProyecto(id, sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion, info){
-    let respuesta = '';
-    let peticion = $.ajax({
-        url : 'http://localhost:4000/api//actualizar_proyecto',
-        type : 'post',
-        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
-        dataType : 'json',
-        async : false,
-        data:{
-            _id : id,
-            nombre_proyecto: sNombreProyecto,
-            nombre_cliente: cliente,
-            identificacion_juridica: nIdentifiacionJuridica,
-            estado_proyecto: sEstadoProyecto,
-            fecha_Entrega:sFechaEntrega,
-            descripcion: sDescripcion,
-            tecnologias: JSON.stringify(info)
-        }
-      });
-    
-      peticion.done(function(response){
-       respuesta = response;
-      });
-    
-      peticion.fail(function(response){
-       
-      });
-
-      return respuesta;
-};
-
 
 
