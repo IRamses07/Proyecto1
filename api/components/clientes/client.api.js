@@ -115,8 +115,8 @@ module.exports.cambiarFoto = function (req, res) {
 };
 module.exports.actualizar = function (req, res) {
     clientModel.where({
-        cedula_juridica: req.body.cedulaJuridica
-    }).update(req.body).then(
+        cedula_juridica: req.body.cedula_juridica
+    }).update({$set:req.body}).then(
         function (err, clientes) {
             if (err) {
                 res.json({ success: false, msg: 'No se ha actualizado.' + err });

@@ -21,7 +21,7 @@ function llenarFormulario() {
     mapCenter(ubicacion[0], ubicacion[1]);
     listener(fmrCliente.actualizarCliente, 'click', function () {
         actualizar();
-        // window.location.href='listarClientes.html';
+        window.location.href='listarClientes.html';
     });
 }
 llenarFormulario();
@@ -41,9 +41,9 @@ function actualizar() {
         segundo_apellido: fmrCliente.segundoNombre.value,
         telefono: fmrCliente.telefono.value,
         correo_electronico: fmrCliente.correoElectronico.value,
-        ubicacion: fmrCliente.registrarCliente.dataset.ubucacion
+        ubicacion: marker.getPosition().lat() + ',' + marker.getPosition().lng()
     }
-    // console.log(inputs);
+    // console.log(data);
     if (registro(inputs)) {
         actualizarCliente(data)
         swal({

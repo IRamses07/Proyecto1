@@ -1,6 +1,6 @@
 'use strict'
 moveUser(true);
-let modalMapa = elm('#modal');
+let modalMapa = elm('#modalMapa');
 listener(modalMapa.querySelector('a'), 'click', function () {
     addClass(modalMapa, 'none');
 });
@@ -30,11 +30,15 @@ function llenarTabla(filro) {
             cedula_juridica.innerHTML = lista[i]['cedula_juridica'];
             nombre.innerHTML = lista[i]['nombre'];
             contacto.innerHTML = `${lista[i]['primer_nombre']}  ${lista[i]['primer_apellido']}`;
-            proyectos.innerHTML = 'Comming soon';
+            // proyectos.innerHTML = 'Comming soon';
             let verUbicacion = createElm('a'),
                 btnModificar = createElm('button'),
-                btnEstado = createElm('button');
+                btnEstado = createElm('button'),
+                verMas = createElm('a');
+            verMas.innerHTML='Ver más';
+            verMas.dataset.cedulaJuridica=lista[i].cedula_juridica;
             verUbicacion.dataset.ubicacion = lista[i].ubicacion;
+            proyectos.appendChild(verMas);
             verUbicacion.innerHTML = 'Ver ubicación';
             listener(verUbicacion, 'click', function () {
                 modalMapa.classList.remove('none');
