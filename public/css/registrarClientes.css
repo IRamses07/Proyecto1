@@ -1,10 +1,12 @@
 .fmr {
     display: flow-root;
-    width: 700px;
+    width: 85%;
     margin-left: auto;
     margin-right: auto;
 }
-
+select {
+    min-width: 100%;
+}
 input, select {
     border: 1px solid #ffffff;
 }
@@ -25,10 +27,10 @@ h2 {
 
 .fmr div {
     width: 48%;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 }
 
-.fmr label+input, .fmr label+select, .fmr label+textarea {
+.fmr label+input, .fmr label+select, .fmr label+textarea, .fmr label+output {
     display: block;
     border-radius: 3px;
     padding-left: 5px;
@@ -36,7 +38,23 @@ h2 {
     width: 100%;
     resize: none;
 }
+textarea{
+    font-family: inherit;
+}
+output {
+    border: 2px solid
+}
 
+.fmr output {
+    color: #ffffff;
+    border-radius: 3px;
+    vertical-align: middle;
+    height: 30px;
+    /* padding: 7px 0 ; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .fmr label {
     display: block;
     margin-bottom: 5px;
@@ -64,4 +82,12 @@ h2 {
 
 .fmr .btnRegistro {
     margin-top: 15px;
+    margin-bottom: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+.fmr #btnModificar+#btnRegistrar {
+    display: none;
 }

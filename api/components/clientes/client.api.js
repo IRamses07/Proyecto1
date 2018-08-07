@@ -108,3 +108,24 @@ module.exports.cambiar_contrasenna_cliente = function(req, res){
             }
       });
 };
+module.exports.actualizar = function (req, res) {
+    clientModel.where({
+        cedula_juridica: req.body.cedula_juridica
+    }).update({$set:req.body}).then(
+        function (err, clientes) {
+            if (err) {
+                res.json({ success: false, msg: 'No se ha actualizado.' + err });
+            }else{                
+                res.json({ success: true, msg: 'Se ha actualizado correctamente.' + err });
+            }
+        }
+    )
+}
+module.exports.buscar = function (req, res) {
+    clientModel.find(
+        req.query
+    ).then(
+        function (clientes) {
+            res.send(clientes);
+        });
+};
