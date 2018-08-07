@@ -38,10 +38,11 @@ function infoPersonal(infoEstudiante){
 
     datos.innerHTML=contenido;
 
-    contenido2+='<h4>Cédula: '+infoEstudiante[0]['cedula']+'</h4>';
-    contenido2+='<h4>'+infoEstudiante[0]['provincia']+', '+infoEstudiante[0]['canton']+', '+infoEstudiante[0]['distrito']+'</h4>';
-    contenido2+='<h4>Teléfono: '+infoEstudiante[0]['telefono']+'</h4>';
-    contenido2+='<h4>Correo: '+infoEstudiante[0]['correo']+'</h4>';
+    
+    contenido2+='<div class="icono"><i class="fas fa-id-badge"></i><h4>Cédula: '+infoEstudiante[0]['cedula']+'</h4></div>';
+    contenido2+='<div class="icono"><i class="fas fa-map-marker-alt"></i><h4>'+infoEstudiante[0]['provincia']+', '+infoEstudiante[0]['canton']+', '+infoEstudiante[0]['distrito']+'</h4></div>';
+    contenido2+='<div class="icono"><i class="fas fa-phone-square"></i><h4>Teléfono: '+infoEstudiante[0]['telefono']+'</h4></div>';
+    contenido2+='<div class="icono"><i class="far fa-envelope"></i><h4>Correo: '+infoEstudiante[0]['correo']+'</h4></div>';
 
     extraDatos.innerHTML=contenido2;
 }
@@ -50,15 +51,15 @@ function infoContacto(infoEstudiante){
     let contenido='';
 
     if(infoEstudiante[0]['contApellido2'] !== ''){
-        contenido+='<h5>Nombre: '+infoEstudiante[0]['contNombre1']+' '+infoEstudiante[0]['contApellido1']+' '+infoEstudiante[0]['contApellido2']+'</h5>\n';
+        contenido+='<div class="icono2"><i class="fas fa-id-card"></i><h5>Nombre: '+infoEstudiante[0]['contNombre1']+' '+infoEstudiante[0]['contApellido1']+' '+infoEstudiante[0]['contApellido2']+'</h5></div>\n';
     }else{
-        contenido+='<h5>Nombre: '+infoEstudiante[0]['contNombre1']+' '+infoEstudiante[0]['contApellido1']+'</h5>\n';
+        contenido+='<div class="icono2"><i class="fas fa-id-card"></i><h5>Nombre: '+infoEstudiante[0]['contNombre1']+' '+infoEstudiante[0]['contApellido1']+'</h5></div>\n';
     }   
 
     contenido+='<hr class="list">\n';
-    contenido+='<h5>Teléfono: '+infoEstudiante[0]['contTelefono']+'</h5>\n';
+    contenido+='<div class="icono2"><i class="fas fa-phone-square"></i><h5>Teléfono: '+infoEstudiante[0]['contTelefono']+'</h5></div>\n';
     contenido+='<hr class="list">\n';
-    contenido+='<h5>Correo: '+infoEstudiante[0]['contCorreo']+'</h5>\n';
+    contenido+='<div class="icono2"><i class="far fa-envelope"></i><h5>Correo: '+infoEstudiante[0]['contCorreo']+'</h5></div>\n';
     infoContacto2.innerHTML = contenido;
 }
 
