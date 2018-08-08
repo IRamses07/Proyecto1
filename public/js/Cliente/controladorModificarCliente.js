@@ -21,7 +21,6 @@ function llenarFormulario() {
     mapCenter(ubicacion[0], ubicacion[1]);
     listener(fmrCliente.actualizarCliente, 'click', function () {
         actualizar();
-        window.location.href='listarClientes.html';
     });
 }
 llenarFormulario();
@@ -45,17 +44,29 @@ function actualizar() {
     }
     // console.log(data);
     if (registro(inputs)) {
-        actualizarCliente(data)
-        swal({
-            type: 'success',
-            title: 'Registro exitoso',
-            text: 'El usuario se registró adecuadamente',
-            confirmButtonText: 'Entendido'
-        });
+        let verificacion = buscar({ nombre: data.nombre });
+        if (verificacion.length >0 && verificacion[0].cedula_juridica != data.cedula_juridica) {
+            addClass(fmrCliente.nombre, 'error');
+            swal({
+                type: 'warning',
+                title: 'No se pudo registrar el usuario',
+                text: 'El nombre del cliente ya existe',
+                confirmButtonText: 'Entendido'
+            });
+        } else {
+            actualizarCliente(data)
+            swal({
+                type: 'success',
+                title: 'Información modificada',
+                text: 'Los cambios se guardaron adecuadamente',
+                confirmButtonText: 'Entendido'
+            });
+            window.location.href = 'listarClientes.html';
+        }
     } else {
         swal({
             type: 'warning',
-            title: 'No se pudo registrar el usuario',
+            title: '¡Algo va mal!',
             text: 'Por favor revise los campos en rojo',
             confirmButtonText: 'Entendido'
         });

@@ -84,3 +84,6 @@ h2 {
     cursor: pointer;
     margin: 2px
 }
+.tbl .btnFiltro{
+    width: 85px;
+}

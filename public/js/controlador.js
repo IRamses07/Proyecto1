@@ -225,7 +225,8 @@ function registro(inputs) {
 
                 break;
             case 'nombre':
-                if (buscar({ nombre: element.value }).length > 0) {
+                if (buscar({ nombre: element.value }).length > 1) {
+                    addClass(element, 'error');
                     valido = false;
                 }
                 break;
