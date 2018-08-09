@@ -12,29 +12,43 @@ let cliente = document.querySelector('#cliente');
 
 let btnModificar = document.querySelector('#editar');
 btnModificar.addEventListener('click', modificarTCicketSlt);
+btnModificar.hidden = true;
+
+let btnCerrar = document.querySelector('#btnCerrar');
+btnCerrar.addEventListener('click', function() {
+    let idparC =   tickDa[0]['_id'];
+    document.location.href = './cerrarTicket.html?_id='+idparC ;
+});
+btnCerrar.hidden = true;
 
 let btnAprobar = document.querySelector('#btnAprobar');
 btnAprobar.hidden = true ;
 btnAprobar.addEventListener('click', function(){
-    
+    if(estado == "Inactivo"){
     swal({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
+        title: 'Seguro que desea aprobar el ticket?',
+        text: "El ticket estará activo",
         type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'Aprobar!'
+        
       }).then((result) => {
         if (result.value) {
+            aprobarTicket(),
           swal(
-            'Deleted!',
-            'Your file has been deleted.',
+            'Ticket aprobado!',
+            'El ticket fue aprobado',
             'success'
           )
+          btnAprobar.hidden = true;
         }
+        else{
+        cancelar();
+    }
       })
-
+    }
 });
 
 let btnrechazar = document.querySelector('#btnRechazar');
@@ -91,6 +105,17 @@ cliente.value = nombreCliente;
 img.src = imgn;
  usuario = getCurrentUserData()['rol'];
 
+ if(estado == "Activo"){
+    optEst.classList.add("color");
+ }
+ if( usuario == "administrador"){
+    btnModificar.hidden = true;
+}
+
+if( usuario == "estudiante"){
+    btnModificar.hidden = true;
+    btnCerrar.hidden = false;
+}
 
 if( usuario == "administrador" && estado == 'Inactivo'){
     btnAprobar.hidden = false ;
@@ -100,8 +125,13 @@ if( usuario == "administrador" && estado == 'Inactivo'){
     estado = "Activo";
     let idpar =   tickDa[0]['_id']  ;
     optEst.value = estado;
+    optEst.classList.add("color");
     cambiarEstadoTicket(idpar, estado);
-    console.log(idpar);
+}
+
+function cancelar(){
+    let estado = tickDa[0]['estado'];
+    optEst.value = estado;
 }
 
 // function cambiarEstado(){

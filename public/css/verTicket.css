@@ -57,3 +57,42 @@
      margin: 0 auto;
      padding-left: 5%; 
  }
+
+ .color {
+     color: #fbb308;
+ }
+
+ .boton {
+     margin: 15px 4%;
+ }
+
+ .botones {
+     width: 100%;
+     margin: 10px auto;
+ }
+
+.disabled {
+    background-color: #f5c658 !important;
+    color: #454545;
+    padding: 8px 3%;
+    border: #f5c658 1px solid;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1em;
+
+ }
+
+ textarea {
+    width: 100%;
+    height: 85px;
+    border: 0px ;
+    border-radius: 5px;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    margin: 10px 0px;
+}
+
+textarea::-moz-placeholder,
+textarea::-webkit-input-placeholder {
+     font-family: 'Roboto', sans-serif, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial;
+    }
+
