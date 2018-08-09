@@ -36,7 +36,7 @@ function llenarTabla(filro) {
                 btnEstado = createElm('button'),
                 verMas = createElm('a');
             verMas.innerHTML = 'Ver más';
-            verMas.dataset.cedulaJuridica = lista[i].cedula_juridica;
+            verMas.href='perfilCliente.html?cedula_juridica='+lista[i].cedula_juridica;
             verUbicacion.dataset.ubicacion = lista[i].ubicacion; 
             proyectos.appendChild(verMas);
             verUbicacion.innerHTML = 'Ver ubicación';
