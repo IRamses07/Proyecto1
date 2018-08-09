@@ -32,5 +32,16 @@ router.route('/cambiar_contrasenna_cliente')
     .post(function(req, res){
     clients.cambiar_contrasenna_cliente(req, res);
 });
+router.route('/actualizar')
+.post(function(req,res){
+    clients.actualizar(req,res);
+});
+router.route('/buscar').get(function(req,res){
+    clients.buscar(req,res);
+})
+router.route('/reset_client_password')
+.post(function(req,res){
+    clients.reset_client_password(req,res);
+});
 
 module.exports = router;

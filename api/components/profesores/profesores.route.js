@@ -63,9 +63,9 @@ router.route('/cambiar_estado_profesor')
         profesores.cambiar_estado_profesor(req, res);
     });
 
-router.route('/reset_password')
+router.route('/reset_professor_password')
     .post(function (req, res) {
-        profesores.reset_password(req, res);
+        profesores.reset_professor_password(req, res);
     });
 
 module.exports = router;

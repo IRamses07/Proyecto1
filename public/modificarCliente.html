@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="css/generalStyle.css">
+    <link rel="stylesheet" href="css/notificaciones.css">
+    <link rel="stylesheet" href="css/registrarClientes.css">
+    <title>Modificar</title>
+</head>
+
+<body>
+    <header>
+        <div class="mainHeader">
+            <a id="notificacion" class="fLeft">
+                <i class="fas fa-bell"></i> Notificaciones</a>
+            <a href="javascript:logOut();" class="fRight">Cerrar sesión
+                <i class="fas fa-cog"></i>
+            </a>
+        </div>
+
+        <div class="menuLateral" id="divMenuLateral">
+            <i class="fas fa-align-justify"></i>
+        </div>
+    </header>
+
+    <main id=content>
+        <div class="modal none" id="modal">
+            <div class="ModalNotificaciones">
+                <a>X</a>
+                <table id="tblNotificacion">
+                    <thead>
+                        <th>Notificaciones</th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+        </div>
+        <form class="fmr" id="fmrRegistroCliente">
+
+            <h2>Cliente</h2>
+            <div>
+                <label id="cedExt" for="">Cédula jurídica</label>
+                <output type="text" id="txtCedulaJuridica" class="" name="cedulaJuridica"></output>
+            </div>
+            <div>
+                <label for="">Nombre</label>
+                <input type="text" id="txtNombre" value='' required name="nombre">
+            </div>
+            <div>
+                <label for="provincia">Provincia</label>
+                <select id="sltProvincia" required name="provincia">
+                    <option value="">-Seleccione una provincia-</option>
+                    <option value="San José">San José</option>
+                    <option value="Cartago">Cartago</option>
+                    <option value="Alajuela">Alajuela</option>
+                    <option value="Heredia">Heredia</option>
+                    <option value="Guanacaste">Guanacaste</option>
+                    <option value="Puntarenas">Puntarenas</option>
+                    <option value="Limón">Limón</option>
+                </select>
+            </div>
+            <div>
+                <label for="">Cantón</label>
+                <select id="sltCanton" required name="canton">
+                    <option value="">-Seleccione un cantón-</option>
+                </select>
+            </div>
+            <div>
+                <label for="" class="">Distrito</label>
+                <select id="sltDistrito" required name="distrito">
+                    <option value="">-Seleccione un distrito-</option>
+                </select>
+            </div>
+            <div>
+                <label for="" class="">Dirección exacta</label>
+                <textarea name="direccionExacta" id="txtDireccion"></textarea>
+            </div>
+
+            <h2>Contacto del cliente</h2>
+            <div>
+                <label for="">Segundo nombre</label>
+                <input type="text" id="txtSegundoNombre" value='' name="segundoNombre">
+            </div>
+            <div>
+                <label for="">Primer nombre</label>
+                <input type="text" id="txtPrimerNombre" value='' required name="primerNombre">
+            </div>
+            <div>
+
+                <label for="">Segundo apellido</label>
+                <input type="text" id="txtSegundoApellido" value='' name="segundoApellido">
+            </div>
+            <div>
+                <label for="">Primer apellido</label>
+                <input type="text" id="txtPrimerApellido" value='' required name="primerApellido">
+            </div>
+            <div>
+
+                <label for="">Teléfono</label>
+                <input type="text" id="txtTelefono" value='' required name="telefono">
+            </div>
+            <div>
+                <label for="">Correo electrónico</label>
+                <input type="text" id="txtCorreo" value='' required name="correoElectronico">
+            </div>
+            <h2>Ubicación</h2>
+            <div id="map" style="width: 100%;height: 300px"></div>
+
+            <button type="button" id="btnModificar" class='btnRegistro' name="actualizarCliente">Modificar</button>
+            <button hidden type="button" id="btnRegistrar" class='btnRegistro' name="registrarCliente">Registrar</button>
+        </form>
+
+    </main>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/Login/login.js"></script>
+    <script src="js/Notificaciones/notificaciones.js"></script>
+    <script src="./js/Cliente/servicioCliente.js"></script>
+    <script src="js/controlador.js"></script>
+    <script src="./js/Cliente/controladorRegistroCliente.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqwnxPeSYz_PuUWckCDE54K9GX448uD2k&callback=initMap" asyncdefer></script>
+    <script src="./js/Cliente/controladorModificarCliente.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+</body>
+
+</html>

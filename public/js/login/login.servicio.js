@@ -13,7 +13,7 @@ function setAdmin() {
             apellido1: 'Bonilla',
             apellido2: 'Alfaro',
             cedula: '123',
-            correo: 'estebanba@gmail.com',
+            correo: 'lramsesmc07@gmail.com',
             telefono: 88948243,
             profesion: 'Administración de empresas',
             rol: 'administrador',
@@ -182,16 +182,16 @@ function getUserPassword(pId) {
     return thisUserPassword;
 }
 
-function setNewPassword(_id, newPassword) {
+function setNewPassword(_id, newPassword, rol) {
 
     let sUrl = ''
-    if (getCurrentUserData()['rol'] == 'administrador') {
+    if (getCurrentUserData()['rol'] == 'administrador'|| rol == 'administrador') {
         sUrl = 'http://localhost:4000/api/cambiar_contrasenna_admin'
-    } else if (getCurrentUserData()['rol'] == 'cliente') {
+    } else if (getCurrentUserData()['rol'] == 'cliente' || rol == 'cliente') {
         sUrl = 'http://localhost:4000/api/cambiar_contrasenna_cliente'
-    } else if (getCurrentUserData()['rol'] == 'profesor') {
+    } else if (getCurrentUserData()['rol'] == 'profesor' || rol == 'profesor') {
         sUrl = 'http://localhost:4000/api/cambiar_contrasenna_profesor'
-    } else if (getCurrentUserData()['rol'] == 'estudiante') {
+    } else if (getCurrentUserData()['rol'] == 'estudiante' || rol == 'estudiante') {
         sUrl = 'http://localhost:4000/api/cambiar_contrasenna_estudiante'
     }
 
