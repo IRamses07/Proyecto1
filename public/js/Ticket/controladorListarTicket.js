@@ -67,8 +67,8 @@ function listarTicketsAdmin(pinptBuscarCliente, selectUrgencia, radioSelected) {
 
 
 
-function mostrarDatosTicketseleccionado(par){
-document.location('verTicket.html?_id='+par);
-//dentro del controlador de ver ticket tomo el url para tomar el parametro que envié y buscar como tomarlo para que con ese parámetro busque el ticket que debe mostrar
 
-}
+function mostrarDatosTicketseleccionado(par){
+    document.location.href = './verTicket.html?_id='+par ;
+    //del url para tomar parametro que envié para q busque el ticket que debe mostrar
+    }

@@ -18,28 +18,41 @@
 
 <body>
     <header>
-        <div class="mainHeader">
-            <a class="fLeft">
-                <i class="fas fa-bell"></i> Notificaciones</a>
-                <label for="">Bienvenido: </label>
-                <output id="txtnombreCliente" value=""></output>
-            <a href="javascript:logOut();" class="fRight">Cerrar sesión
-                <i class="fas fa-cog"></i>
-            </a>
-        </div>
+            <div class="mainHeader">
+                    <a id="notificacion" class="fLeft">
+                        <i class="fas fa-bell"></i> Notificaciones</a>
+                        <label for="">Bienvenido: </label>
+                        <output id="txtnombreCliente" value=""></output>
+                    <a href="javascript:logOut();" class="fRight">Cerrar sesión
+                        <i class="fas fa-cog"></i>
+                    </a>
+                </div>
 
-        <div class="menuLateral" id="divMenuLateral">
+        
+
+    </header>
+    <div class="menuLateral" id="divMenuLateral">
             <i class="fas fa-align-justify"></i>
         </div>
 
-    </header>
-
     <main id="content">
+            <div class="modal none" id="modal">
+                    <div class="ModalNotificaciones">
+                        <a>X</a>
+                        <table id="tblNotificacion">
+                            <thead>
+                                <th>Notificaciones</th>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+        
+                </div>
         <section id="viewTicket">
             <h1>Ticket</h1>
             <div class="info">
-            <label for="">Urgencia:</label>
-            <output id="urgencia"></output>
+            <label for="">Código:</label>
+            <output id="cod"></output>
         </div>
         <div class="bigOne">
             <div class="datos">
@@ -49,10 +62,20 @@
                             <output id="proyecto"></output>
                         </div>
                         <div class="dos">
-                        <label for="">Estado:</label>
-                <output id="estado"></output>
+                        <label for="">Urgencia:</label>
+                <output id="urgencia"></output>
             </div>
             </div>
+            <div class="dato">
+                    <div class="uno">
+                        <label for="">Cliente:</label>
+                        <output id="cliente"></output>
+                    </div>
+                    <div class="dos">
+                    <label for="">Estado:</label>
+            <output id="estado"></output>
+        </div>
+        </div>
 
                 <div class="dato">
                 <div class="uno">
@@ -65,17 +88,32 @@
             </div>
 
             <div class="datos">
-                    <div class="dato">
+                    <div class="dato boxImg">
                         <img alt="Foto" class="imgErrorContainer" id="imgErr">
                     </div>
                 </div>
             </div>
+
+            <div class="botones">
+                    <div class="editar">
+                        <button type="button" id="editar" class="btnRegistro">Modificar</button>
+                    </div>
+    
+                    <div class="aprobar">
+                            <button type="button" id="btnAprobar" class="btnRegistro">Aprobar</button>
+                    </div>
+    
+                    <div class="rechazar">
+                            <button type="button" id="btnRechazar" class="btnRegistro">Rechazar</button>
+                    </div>
+                </div>
         </section>
     </main>
 
     <script src="js/jquery-3.3.1.js"></script>
     <script src='https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js' type='text/javascript'></script>
     <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
 
     <script src="js/Login/login.js"></script>
     <script src="js/Notificaciones/notificaciones.js"></script>

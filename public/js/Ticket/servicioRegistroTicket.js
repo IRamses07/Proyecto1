@@ -1,7 +1,7 @@
 'use strict';
 
-function registrarTicket(nombreCliente, urgencia, proyecto, imagenErr, referenciaTicket, descripcionError){
-    console.log(nombreCliente, urgencia, proyecto, imagenErr, referenciaTicket, descripcionError);
+function registrarTicket(nombreCliente, urgencia, proyecto, imagenErr, referenciaTicket, descripcionError,estado, codigoT ){
+    console.log(nombreCliente, urgencia, proyecto, imagenErr, referenciaTicket, descripcionError, estado, codigoT );
     let respuesta = '' ;
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/registrar_ticket',
@@ -15,7 +15,9 @@ function registrarTicket(nombreCliente, urgencia, proyecto, imagenErr, referenci
             proyecto : proyecto,
             imagen_error : imagenErr,
             referencia_ticket : referenciaTicket,
-            descripcion :descripcionError
+            descripcion :descripcionError,
+            estado : estado,
+            codigo : codigoT
         }
     });
     peticion.done(function(response){
@@ -148,3 +150,29 @@ function actualizarTicket(id, nombreCliente, urgencia, proyecto, imagenErr, refe
        return respuesta;
 }
 
+function cambiarEstadoTicket (id, estado){
+    console.log(id, estado);
+    let respuesta = '' ;
+    let peticion = $.ajax({
+        url: 'http://localhost:4000/api/cambiar_estado',
+        type: 'post',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            _id : id,
+           estado : estado
+        }
+    });
+    peticion.done(function(response){
+        respuesta = response;
+       
+       });
+     
+       peticion.fail(function(response){
+           
+        
+       });
+ 
+       return respuesta;
+}

@@ -32,8 +32,25 @@
 
 
  .imgErrorContainer {
-     width: 90%;
- }
+    background-color:#454545;
+    width: 100%;
+
+}
+
+@supports(object-fit: contain){
+    .imgErrorContainer{
+    height: 85%;
+    object-fit: contain;
+    object-position:  center;
+    }
+}
+
+.boxImg {
+    /* border: #fbb308 1px solid; */
+    width: 90%;
+    height: 235px;
+    /* margin-top: 6px; */
+}
 
  .bigOne {
      width: 100%;
