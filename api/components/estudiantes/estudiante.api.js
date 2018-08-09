@@ -26,7 +26,7 @@ module.exports.registrar = function (req, res) {
         password: req.body.password,
         passwordChange: req.body.passwordChange,
         foto: req.body.foto,
-        rol : req.body.rol
+        rol: req.body.rol
     });
 
     estudianteNuevo.save(function (error) {
@@ -84,7 +84,7 @@ module.exports.asignar_proyecto = function (req, res) {
                     nombre_proyecto: req.body.nombre_proyecto,
                     fecha_Entrega: req.body.fecha_Entrega,
                     estado_proyecto: req.body.estado_proyecto,
-                    
+
 
                 }
             }
@@ -132,24 +132,34 @@ module.exports.actualizar = function (req, res) {
         });
 };
 
-module.exports.cambiar_contrasenna_estudiante = function(req, res){
-    estudianteSchema.findByIdAndUpdate(req.body._id, { $set: req.body }, 
-        function(err) {
+module.exports.cambiar_contrasenna_estudiante = function (req, res) {
+    estudianteSchema.findByIdAndUpdate(req.body._id, { $set: req.body },
+        function (err) {
             if (err) {
-                res.json({ success: false, msg: 'No se ha actualizado.'});
-        
+                res.json({ success: false, msg: 'No se ha actualizado.' });
+
             } else {
-            res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
+                res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
             }
-      });
+        });
 };
 
 
 module.exports.agregarHoras = function (req, res) {
-    proyectoModel.findByIdAndUpdate(req.body._id, { $set: req.body },
+    estudianteSchema.where({
+        _id: req.body._id,
+        proyectos: [{
+            _id: req.body.id
+        }]
+    }).update({
+        $push: {
+            proyectos: [req.body]
+        }
+    }).then(
         function (err, user) {
             if (err) {
-                res.json({ success: false, msg: 'No se ha actualizado.' + handleError(err) });
+                res.json({ success: false, msg: 'No se ha actualizado.' + (err.toString()) });
+      console.log(err.toString());
 
             } else {
                 res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
