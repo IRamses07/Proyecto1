@@ -115,7 +115,7 @@ module.exports.actualizar = function (req, res) {
     }).update({ $set: req.body }).then(
         function (err, clientes) {
             if (err) {
-                res.json({ success: false, msg: 'No se ha actualizado.' + err });
+                res.json({ success: false, msg: 'No se ha actualizado.' + JSON.stringify(err)});
             } else {
                 res.json({ success: true, msg: 'Se ha actualizado correctamente.' + err });
             }
