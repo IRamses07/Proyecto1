@@ -167,19 +167,11 @@ module.exports.cambiar_contrasenna_estudiante = function (req, res) {
 // };
 
 module.exports.agregarHoras = function (req, res) {
-    estudianteSchema.find({
-        _id: req.body._id,
-        proyectos: [{
-            _id: req.body.id
-        }]
-    }).update(req.body._id, {
-            proyectos: { $set: { horas: req.body.horas } }
-        }
+    estudianteSchema.update(req.body._id, {
+        proyectos: { $set: { horas: req.body.horas } }
+    }
 
-        )
-
-
-        .then(
+    ).then(
             function (err, user) {
                 if (err) {
                     res.json({ success: false, msg: 'No se actualizo' + err });
