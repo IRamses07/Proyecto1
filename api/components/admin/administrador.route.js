@@ -16,7 +16,12 @@ router.route('/get_info_admin')
 
 router.route('/cambiar_contrasenna_admin')
     .post(function (req, res) {
-        admin.cambiar_contrasenna(req, res);
+        admin.cambiar_contrasenna_admin(req, res);
+    });
+
+router.route('/reset_admin_password')
+    .post(function (req, res) {
+        admin.reset_admin_password(req, res);
     });
 
 module.exports = router;

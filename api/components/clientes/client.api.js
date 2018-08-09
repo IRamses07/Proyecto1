@@ -1,5 +1,5 @@
 'use strict';
-
+const nodeMailer = require('nodemailer');
 const clientModel = require('./client.model');
 
 module.exports.registrar = function (req, res) {
@@ -130,3 +130,53 @@ module.exports.buscar = function (req, res) {
             res.send(clientes);
         });
 };
+
+const transporter = nodeMailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'codeanalytics79@gmail.com',
+        pass: 'sincontrasenna'
+    },
+    tls: {
+        rejectUnauthorized: false
+    }
+});
+
+module.exports.reset_client_password = function(req,res){
+    clientModel.findById(req.body._id).then(function(client){
+
+            let mailOptions = {
+                from: 'codeanalytics79@gmail.com',
+                to: client.correo_electronico,
+                subject: 'Bievenido a Cenfo App',
+                html: `
+                <html>
+                <head>
+                    <style>
+                        .tituloPrincipal{
+                            background: #6c5ce7;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <h1 class='tituloPrincipal'>Bienvenido ${client.nombre}</h1>
+                    <p>Puedes restablecer tu contraseña de Cenfotec Software House haciendo clic en el enlace de abajo:</p>
+                    <a href='http://localhost:3000/public/passwordRecovery.html?id=${client._id}'>Recuperación de la contraseña</a>
+                    <p>Si no solicitaste restablecer tu contraseña, no dudes en eliminar este mensaje. </p>
+                </body>
+            </html>
+                        `
+            };
+
+            transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log('Email sent: ' + info.response+error);
+                }
+            });
+
+            res.json({ success: true, msg: 'El usuario se registró con éxito' });
+    })
+    
+}

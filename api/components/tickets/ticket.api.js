@@ -8,7 +8,9 @@ module.exports.registrar = function (req, res) {
         proyecto : req.body.proyecto,
         imagen_error : req.body. imagen_error,
         referencia_ticket : req.body.referencia_ticket,
-        descripcion : req.body.descripcion
+        descripcion : req.body.descripcion,
+        estado : req.body.estado,
+        codigo : req.body.codigo
     });
 
     nuevoTicket.save(function (error) {
@@ -47,6 +49,17 @@ module.exports.buscarTicketModificar = function(req, res){
 
 
 module.exports.modificarTicket = function(req, res){
+    ticketModel.findByIdAndUpdate(req.body._id, {$set: req.body},
+        function(error, ticket){
+            if (error) {
+                res.json({ success: false, msg: 'No se pudo modificar el usuario, ocurrió el siguiente error' + handleError(error) });
+            } else {
+                res.json({ success: true, msg: 'El usuario se modificó con éxito' + res });
+            }
+        });
+};
+
+module.exports.estadoTicket = function(req, res){
     ticketModel.findByIdAndUpdate(req.body._id, {$set: req.body},
         function(error, ticket){
             if (error) {

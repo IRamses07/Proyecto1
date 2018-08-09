@@ -1,6 +1,7 @@
 'use strict';
 const nodeMailer = require('nodemailer');
 const profesorModel = require('./profesores.model');
+/*const smtp = require('nodemailer-smtp-transport');*/
 
 //Función para registrar un usuario
 module.exports.registrar = function (req, res) {
@@ -195,40 +196,36 @@ const transporter = nodeMailer.createTransport({
     auth: {
         user: 'codeanalytics79@gmail.com',
         pass: 'sincontrasenna'
+    },
+    tls: {
+        rejectUnauthorized: false
     }
 });
 
-module.exports.reset_password = function (req, res) {
+module.exports.reset_professor_password = function(req,res){
+    profesorModel.findById(req.body._id).then(function(profe){
 
-    profesorModel.find({
-        'correo': req.body.correo
-    }).then(
-
-        function (error) {
-            /*if (error) {*/
-            res.json({ success: false, msg: 'Mal' + error });
-            /*} else {*/
             let mailOptions = {
-                from: 'codeanalytics@gmail.com',
-                to: req.body.correo,
-                subject: 'Cenfotec Software House',
+                from: 'codeanalytics79@gmail.com',
+                to: profe.correo,
+                subject: 'Bievenido a Cenfo App',
                 html: `
-                    <html>
-                    <head>
-                        <style>
-                            .tituloPrincipal{
-                                background: #6c5ce7;
-                            }
-                        </style>
-                    </head>
-                    <body>
-                        <h1 class='tituloPrincipal'>Bienvenido ${req.body.nombre1}</h1>
-                        <p>Puedes restablecer tu contraseña de Cenfotec Software House haciendo clic en el enlace de abajo:</p>
-                        <a href=passwordReset2.html>Restablecer contraseña</a>
-                        <p> Si no solicitaste restablecer tu contraseña, no dudes en eliminar este mensaje. </p>
-                    </body>
-                </html>
-                            `
+                <html>
+                <head>
+                    <style>
+                        .tituloPrincipal{
+                            background: #6c5ce7;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <h1 class='tituloPrincipal'>Bienvenido ${profe.nombre1} ${profe.apellido1}</h1>
+                    <p>Puedes restablecer tu contraseña de Cenfotec Software House haciendo clic en el enlace de abajo:</p>
+                    <a href='http://localhost:3000/public/passwordRecovery.html?id=${profe._id}'>Recuperación de la contraseña</a>
+                    <p>Si no solicitaste restablecer tu contraseña, no dudes en eliminar este mensaje. </p>
+                </body>
+            </html>
+                        `
             };
 
             transporter.sendMail(mailOptions, function (error, info) {
@@ -238,8 +235,9 @@ module.exports.reset_password = function (req, res) {
                     console.log('Email sent: ' + info.response);
                 }
             });
-            res.json({ success: true, msg: 'Bien.' });
-            /*}*/
-        });
-};
+
+            res.json({ success: true, msg: 'El usuario se registró con éxito' });
+    })
+    
+}
 

@@ -96,7 +96,25 @@ div .blockLeft {
 #tblTicketAdmin {
     width: 100%;
     margin: 0 auto;
+    max-height: 200px;
 }
+
+#tblTicketAdmin thead  tbody { display: block; }
+#tblTicketAdmin tbody {
+    height: 315px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+#tblTicketAdmin thead {
+    height: 37px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#tblTicketCliente cuerpoTbla {
+display: none;
+}
+
 
 h1 {
     text-align: center;
