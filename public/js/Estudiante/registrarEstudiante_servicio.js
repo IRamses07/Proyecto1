@@ -280,7 +280,7 @@ function actualizarEstudianteId(pid, infoEstudiante) {
 };
 
 
-function agregarHorasProyecto(idE, id, idp, nombreProyecto, fechaEntrega, estadoProyecto, hora) {
+function agregarHorasProyecto(idE, id, hora) {
     let respuesta = '';
 
     let peticion = $.ajax({
@@ -293,10 +293,6 @@ function agregarHorasProyecto(idE, id, idp, nombreProyecto, fechaEntrega, estado
 
             _id: idE,
             id: id,
-            idp :idp,
-            nombre_proyecto: nombreProyecto,
-            fecha_Entrega: fechaEntrega,
-            estado_proyecto: estadoProyecto,
             horas: hora
 
 

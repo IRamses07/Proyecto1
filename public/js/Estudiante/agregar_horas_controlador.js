@@ -32,24 +32,13 @@ function optenerDatos() {
 
     let idE = getCurrentUserData()['_id'];
     let id = selectNombreProyecto.value;
-    let idp;
-    let nombreProyecto;
-    let fechaEntrega;
-    let estadoProyecto;
+   
     let horas = inputHoras.value;
 
 
-    for (let i = 0; i < info.length; i++) {
+   
 
-        if (info[i]['_id'] == id) {
-            idp = info[i]['id']
-            nombreProyecto = info[i]['nombre_proyecto'];
-            fechaEntrega = info[i]['fecha_Entrega'];
-            estadoProyecto = info[i]['estado_proyecto'];
-        }
-    }
-
-    agregarHorasProyecto(idE, id, idp, nombreProyecto, fechaEntrega, estadoProyecto, horas);
+    agregarHorasProyecto(idE, id, horas);
 
 
 

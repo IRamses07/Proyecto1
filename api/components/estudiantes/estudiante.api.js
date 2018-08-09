@@ -167,16 +167,16 @@ module.exports.cambiar_contrasenna_estudiante = function (req, res) {
 // };
 
 module.exports.agregarHoras = function (req, res) {
-    estudianteSchema.where({
+    estudianteSchema.find({
         _id: req.body._id,
         proyectos: [{
             _id: req.body.id
         }]
-    }).insert(req.body._id, {
-        proyectos: { $set: { horas: req.body.horas } }
-    }
+    }).update(req.body._id, {
+            proyectos: { $set: { horas: req.body.horas } }
+        }
 
-    )
+        )
 
 
         .then(
@@ -190,7 +190,7 @@ module.exports.agregarHoras = function (req, res) {
                 }
             });
 };
-     
+
 
 
 const transporter = nodeMailer.createTransport({
@@ -204,14 +204,14 @@ const transporter = nodeMailer.createTransport({
     }
 });
 
-module.exports.reset_student_password = function(req,res){
-    estudianteSchema.findById(req.body._id).then(function(student){
+module.exports.reset_student_password = function (req, res) {
+    estudianteSchema.findById(req.body._id).then(function (student) {
 
-            let mailOptions = {
-                from: 'codeanalytics79@gmail.com',
-                to: student.correo,
-                subject: 'Bievenido a Cenfo App',
-                html: `
+        let mailOptions = {
+            from: 'codeanalytics79@gmail.com',
+            to: student.correo,
+            subject: 'Bievenido a Cenfo App',
+            html: `
                 <html>
                 <head>
                     <style>
@@ -228,17 +228,17 @@ module.exports.reset_student_password = function(req,res){
                 </body>
             </html>
                         `
-            };
+        };
 
-            transporter.sendMail(mailOptions, function (error, info) {
-                if (error) {
-                    console.log(error);
-                } else {
-                    console.log('Email sent: ' + info.response);
-                }
-            });
+        transporter.sendMail(mailOptions, function (error, info) {
+            if (error) {
+                console.log(error);
+            } else {
+                console.log('Email sent: ' + info.response);
+            }
+        });
 
-            res.json({ success: true, msg: 'El usuario se registró con éxito' });
+        res.json({ success: true, msg: 'El usuario se registró con éxito' });
     })
-    
+
 }
