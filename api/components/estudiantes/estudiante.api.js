@@ -190,8 +190,8 @@ module.exports.agregarHoras = function (req, res) {
                 }
             });
 };
-      });
-};
+     
+
 
 const transporter = nodeMailer.createTransport({
     service: 'gmail',
