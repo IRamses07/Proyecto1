@@ -19,6 +19,11 @@ router.route('/listar_Proyectos_desarrollo')
         proyecto.listarDesarrollo(req, res);
     });
 
+    router.route('/listar_Proyectos_mantenimento')
+    .get(function (req, res) {
+        proyecto.listaMantenimento(req, res);
+    });
+
 router.route('/buscar_id')
     .get(function (req, res) {
         proyecto.buscarPorId(req, res);
@@ -33,6 +38,8 @@ router.route('/actualizar_proyecto')
     .post(function (req, res) {
         proyecto.actualizarProyecto(req, res);
     });
+
+
 
 
 

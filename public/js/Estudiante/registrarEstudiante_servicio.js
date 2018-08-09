@@ -35,9 +35,9 @@ function registrarEstudiante(infoEstudiante) {
                 let pw = Math.random().toString(36).substring(2, 10);
                 return pw;
             }),
-            passwordChange: 0 ,
-            foto : 'http://res.cloudinary.com/dtz8agoc3/image/upload/v1531452055/perfil.png',
-            rol : 'estudiante'
+            passwordChange: 0,
+            foto: 'http://res.cloudinary.com/dtz8agoc3/image/upload/v1531452055/perfil.png',
+            rol: 'estudiante'
         }
     });
 
@@ -82,11 +82,11 @@ function obtenerListaEstudiantes() {
     return respuesta;
 }
 
-function validarCedulaRepetida(cedula){
+function validarCedulaRepetida(cedula) {
 
     let listaEstudiantes = obtenerListaEstudiantes();
     for (let i = 0; i < listaEstudiantes.length; i++) {
-        if(listaEstudiantes[i]['cedula']==cedula){
+        if (listaEstudiantes[i]['cedula'] == cedula) {
             return true;
         }
     }
@@ -119,19 +119,19 @@ function filtrarNombreEstudiantes(inputDatoBuscar) {
 function getInfoEstudiante() {
     let respuesta = 'respuesta';
     let ced = '';
-    if (getCurrentUserData()['rol']=='estudiante'){
+    if (getCurrentUserData()['rol'] == 'estudiante') {
         ced = getCurrentUserData()['cedula'];
     } else {
         ced = localStorage.getItem('ced');
     }
     let peticion = $.ajax({
-        url : 'http://localhost:4000/api/getInfo_estudiantes',
-        type : 'get',
-        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
-        dataType : 'json',
-        async : false,
-        data:{
-            cedula : ced
+        url: 'http://localhost:4000/api/getInfo_estudiantes',
+        type: 'get',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
+            cedula: ced
             //let datos = getCurrentUserData()['cedula'];
             //cedula : '304870951'
         }
@@ -149,7 +149,7 @@ function getInfoEstudiante() {
 function cambiarFoto(imagenUrl) {
     let respuesta = '';
     let ced = '';
-    if (getCurrentUserData()['rol']=='estudiante'){
+    if (getCurrentUserData()['rol'] == 'estudiante') {
         ced = getCurrentUserData()['cedula'];
     } else {
         ced = localStorage.getItem('ced');
@@ -178,10 +178,10 @@ function cambiarFoto(imagenUrl) {
     return respuesta;
 }
 
-   
+
 function asignarProyecto(id, idProyecto, nombreProyecto, fechaEntrega, estadoProyecto) {
     let respuesta = '';
-    
+
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/asignar_proyecto_e',
         type: 'post',
@@ -193,7 +193,7 @@ function asignarProyecto(id, idProyecto, nombreProyecto, fechaEntrega, estadoPro
 
             _id: id,
             id: idProyecto,
-            nombre_proyecto:nombreProyecto,
+            nombre_proyecto: nombreProyecto,
             fecha_Entrega: fechaEntrega,
             estado_proyecto: estadoProyecto
 
@@ -211,7 +211,7 @@ function asignarProyecto(id, idProyecto, nombreProyecto, fechaEntrega, estadoPro
     return respuesta;
 }
 
-function cambiarEstadoS(ced,estadoEnt) {
+function cambiarEstadoS(ced, estadoEnt) {
     let respuesta = '';
 
     let peticion = $.ajax({
@@ -237,17 +237,17 @@ function cambiarEstadoS(ced,estadoEnt) {
     return respuesta;
 }
 
-function actualizarEstudianteId(pid,infoEstudiante){
+function actualizarEstudianteId(pid, infoEstudiante) {
     let respuesta = '';
     let cursos = JSON.stringify(listaCursos);
     let peticion = $.ajax({
-        url : 'http://localhost:4000/api/actualizar_estudiantes',
-        type : 'post',
-        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
-        dataType : 'json',
-        async : false,
-        data:{
-            _id : pid,
+        url: 'http://localhost:4000/api/actualizar_estudiantes',
+        type: 'post',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
+            _id: pid,
             Nombre1: infoEstudiante[1],
             Nombre2: infoEstudiante[2],
             apellido1: infoEstudiante[3],
@@ -267,16 +267,46 @@ function actualizarEstudianteId(pid,infoEstudiante){
             contTelefono: infoEstudiante[16],
             contCorreo: infoEstudiante[17],
         }
-      });
-    
-      peticion.done(function(response){
-       respuesta = response;
-      });
-    
-      peticion.fail(function(response){
-       
-      });
-      return respuesta;
+    });
+
+    peticion.done(function (response) {
+        respuesta = response;
+    });
+
+    peticion.fail(function (response) {
+
+    });
+    return respuesta;
+};
+
+
+function agregarHorasProyecto(idE, id, hora) {
+    let respuesta = '';
+
+    let peticion = $.ajax({
+        url: 'http://localhost:4000/api/agregar_horas',
+        type: 'post',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
+
+            _id: idE,
+            id: id,
+            horas: hora
+
+
+        }
+    });
+
+    peticion.done(function (response) {
+        respuesta = response;
+    });
+
+    peticion.fail(function (response) {
+
+    });
+    return respuesta;
 };
 
 function resetStudentPassword(_id) {

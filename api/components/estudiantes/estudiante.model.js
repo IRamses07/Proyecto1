@@ -30,7 +30,8 @@ let estudianteSchema = new mongoose.Schema({
             id: { type: String },
             nombre_proyecto: { type: String },
             fecha_Entrega: { type: String },
-            estado_proyecto: { type: String }
+            estado_proyecto: { type: String },
+            horas: {type:String}
         
         }
 

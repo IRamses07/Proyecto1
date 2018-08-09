@@ -1,49 +1,24 @@
 /* esto agregra una barra de sroll */
 
-/* #tabla{
-    width: 70%;
-    height: 400px;
-    overflow: auto;
+#tabla{
+    width: 80%;
+    height: 500px;
+    margin: 0 auto;
  }
  
- tbody {
+ /* tbody {
     width: 70%;
     height: 400px;
     overflow: auto;
    } */
- .tabla .tblPersonas{
-    margin: 0 auto;
-    width: 70%;
-    /* overflow:scroll;  */
-   
-}
-/* 
-.tabla{
-    overflow:scroll; 
-    width: 70%;
-} */
 
-main h1{
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 30px;
-   
-    
-}
-
-main .tabla table {
   
-    margin: 0 auto;
-
-    width: 75%;
-
-
+  #tblProyectos{
+    max-height: 400px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
-/*td{
-padding-left:5%;
-
-}*/
 
 .flitrarProyectos{
     width: 45%;
@@ -83,10 +58,6 @@ padding-left:5%;
     outline: none;
     border: none;
 } */
-
-
-
-
 
 
 
