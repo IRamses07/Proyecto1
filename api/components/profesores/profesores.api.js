@@ -191,106 +191,53 @@ module.exports.cambiar_estado_profesor = function (req, res) {
         });
 };
 
-// const transporter = nodeMailer.createTransport({ profe
-//     service: 'gmail',
-//     auth: {
-//         user: 'codeanalytics79@gmail.com',
-//         pass: 'sincontrasenna'
-//     }
-// });
-
-
-
-module.exports.reset_password = function (req, res) {
-
-    /*profesorModel.find({
-        'correo': req.body.correo
-    });*//*.then(*/
-
-    /* function (error) { profe
-         //if (error) {
-         //res.json({ success: false, msg: 'Mal' + error });
-         //} else {
-         let mailOptions = {
-             from: 'codeanalytics@gmail.com',
-             to: req.body.correo,
-             subject: 'Cenfotec Software House',
-             html: `
-                 <html>
-                 <head>
-                     <style>
-                         .tituloPrincipal{
-                             background: #6c5ce7;
-                         }
-                     </style>
-                 </head>
-                 <body>
-                     <h1 class='tituloPrincipal'>Bienvenido ${req.body.nombre1}</h1>
-                     <p>Puedes restablecer tu contraseña de Cenfotec Software House haciendo clic en el enlace de abajo:</p>
-                     <a href=passwordReset2.html>Restablecer contraseña</a>
-                     <p> Si no solicitaste restablecer tu contraseña, no dudes en eliminar este mensaje. </p>
-                 </body>
-             </html>
-                         `
-         };*/
-
-    let transporter = nodeMailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: 'codeanalytics79@gmail.com',
-            pass: 'sincontrasenna'
-        },
-        sendmail: true,
-        newline: 'unix',
-        /*path: '/usr/sbin/sendmail'*/
-        logger: true,
-        debug: true,
-    });
-    transporter.sendMail({
-        from: 'codeanalytics79@gmail.com',
-        to: 'lramsesmc07@gmail.com',
-        subject: 'Message',
-        text: 'I hope this message gets delivered!'
-    }, (err, info) => {
-        /*console.log(info.envelope);
-        console.log(info.messageId);*/
-    });
-
-    /****let options = {*****
+const transporter = nodeMailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'username',
-        pass: 'password'
+        user: 'codeanalytics79@gmail.com',
+        pass: 'sincontrasenna'
     },
-    logger: true,
-    debug: true
-};*/
+    tls: {
+        rejectUnauthorized: false
+    }
+});
 
-/*let transport = nodemailer.createTransport(smtp(options));*/ 
+module.exports.reset_professor_password = function(req,res){
+    profesorModel.findById(req.body._id).then(function(profe){
 
-    /*var mailer = function (options) {*****
-        return new Promise(function (resolve, reject) {
-            transport.sendMail(options, function (error, response) {
+            let mailOptions = {
+                from: 'codeanalytics79@gmail.com',
+                to: profe.correo,
+                subject: 'Bievenido a Cenfo App',
+                html: `
+                <html>
+                <head>
+                    <style>
+                        .tituloPrincipal{
+                            background: #6c5ce7;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <h1 class='tituloPrincipal'>Bienvenido ${profe.nombre1} ${profe.apellido1}</h1>
+                    <p>Puedes restablecer tu contraseña de Cenfotec Software House haciendo clic en el enlace de abajo:</p>
+                    <a href='http://localhost:3000/public/passwordRecovery.html?id=${profe._id}'>Recuperación de la contraseña</a>
+                    <p>Si no solicitaste restablecer tu contraseña, no dudes en eliminar este mensaje. </p>
+                </body>
+            </html>
+                        `
+            };
+
+            transporter.sendMail(mailOptions, function (error, info) {
                 if (error) {
-                    reject(error);
+                    console.log(error);
                 } else {
-                    resolve(response);
+                    console.log('Email sent: ' + info.response);
                 }
             });
-        });
-};*/
 
-    /* transporter.sendMail(mailOptions, function (error, info) { profe
-         if (error) {
-             console.log(error);
-         } else {
-             console.log('Email sent: ' + info.response);
-         }
-     });
-     res.json({ success: true, msg: 'Bien.' });*/
-    // }
+            res.json({ success: true, msg: 'El usuario se registró con éxito' });
+    })
+    
 }
-/*);
-
-};*/
 

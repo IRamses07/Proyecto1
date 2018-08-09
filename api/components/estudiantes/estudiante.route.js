@@ -46,6 +46,11 @@ router.route('/cambiar_contrasenna_estudiante')
     .post(function(req, res){
     estudiantes.cambiar_contrasenna_estudiante(req, res);
 });
+router.route('/reset_student_password')
+    .post(function(req, res){
+    estudiantes.reset_student_password(req, res);
+});
+
 
 
 module.exports = router;

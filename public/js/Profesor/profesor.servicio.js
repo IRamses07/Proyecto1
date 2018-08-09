@@ -107,7 +107,7 @@ function validarCedula(psCedula) {
 
     let aProfesorData = getUsers();
     let repetido = false;
-    if (psCedula != getProfessorUpdate()[0]['cedula']) {
+    //if (psCedula != getProfessorUpdate()[0]['cedula']) {
         for (let i = 0; i < aProfesorData.length && !repetido; i++) {
             for (let j = 0; j < aProfesorData[i].length && !repetido; j++) {
                 if (aProfesorData[i][j]['cedula'] == psCedula || aProfesorData[i][j]['cedula_juridica'] == psCedula) {
@@ -115,7 +115,7 @@ function validarCedula(psCedula) {
                 }
             }
         }
-    }
+    //}
     return repetido;
 }
 
@@ -380,16 +380,16 @@ function updateProfessorStatus(id, estado) {
     return respuesta;
 }
 
-function resetPassword(email) {
+function resetProfessorPassword(_id) {
     let respuesta = 'respuesta';
     let peticion = $.ajax({
-        url: 'http://localhost:4000/api/reset_password',
+        url: 'http://localhost:4000/api/reset_professor_password',
         type: 'post',
         contentType: 'application/x-www-form-urlencoded; charset=utf-8',
         dataType: 'json',
         async: false,
         data: {
-            correo: email
+            _id: _id
         }
     });
     peticion.done(function (response) {
