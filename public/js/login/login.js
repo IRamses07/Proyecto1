@@ -152,7 +152,7 @@ function loadOptionsMenu() {
             "Listar estudiantes",
             "Registrar profesores",
             "Listar profesores",
-            "Listar tiquetes",
+            "Listar tickets",
             //    "Ver ticket"
         ];
         menuURL = [

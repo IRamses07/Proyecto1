@@ -50,9 +50,10 @@
                 </div>
         <section id="viewTicket">
             <h1>Ticket</h1>
+          
             <div class="info">
-            <label for="">Código:</label>
-            <output id="cod"></output>
+                <label for="">Tiempo</label>
+                <output id="tiempo"></output>
         </div>
         <div class="bigOne">
             <div class="datos">
@@ -60,6 +61,8 @@
                         <div class="uno">
                             <label for="">Proyecto:</label>
                             <output id="proyecto"></output>
+                            <label for="">Código:</label>
+            <output id="cod"></output>
                         </div>
                         <div class="dos">
                         <label for="">Urgencia:</label>
@@ -94,25 +97,14 @@
                 </div>
             </div>
 
-            <div class="botones">
-                    <div class="editar boton">
-                        <button type="button" id="editar" class="btnRegistro">Modificar</button>
-                    </div>
-    
-                    <div class="aprobar boton">
-                            <button type="button" id="btnAprobar" class="btnRegistro">Aprobar</button>
-                    </div>
-    
-                    <div class="rechazar boton">
-                            <button type="button" id="btnRechazar" class="btnRegistro">Rechazar</button>
-                    </div>
-
-                    <div class="comentar boton">
-                        <button type="button" id="btnComentar" class="btnRegistro">Comentar ticket</button>
-                </div>
-                <div class="cerrar boton">
-                    <button type="button" id="btnCerrar" class="btnRegistro">Cerrar ticket</button>
+            <div class="comentar">
+                <label for="">Descripción de la solución</label>
+                <textarea name="" id="txtsolucion" placeholder="Solución del error del proyecto..."></textarea>
             </div>
+            <div class="botones">    
+                    <div class="cerrar">
+                            <button type="button" id="btnCerrar" class="btnRegistro">Cerrar Ticket</button>
+                    </div>
                 </div>
         </section>
     </main>
@@ -126,7 +118,7 @@
     <script src="js/Notificaciones/notificaciones.js"></script>
     <script src="js/Ticket/servicioImagen.js"></script>
     <script src="js/Ticket/servicioRegistroTicket.js"></script>
-    <script src="js/Ticket/controladorVerTicket.js"></script>
+    <script src="js/Ticket/controladorCerrarTicket.js"></script>
 </body>
 
 </html>
