@@ -51,6 +51,12 @@ border-left: #fbb803 3px solid;
     margin-bottom: 15px;
 } 
 
+#recuperarClave{
+    display: block;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
 /*.fLeft{
     margin-left: 15px;
 }*/

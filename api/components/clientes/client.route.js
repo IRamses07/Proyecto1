@@ -39,4 +39,9 @@ router.route('/actualizar')
 router.route('/buscar').get(function(req,res){
     clients.buscar(req,res);
 })
+router.route('/reset_client_password')
+.post(function(req,res){
+    clients.reset_client_password(req,res);
+});
+
 module.exports = router;

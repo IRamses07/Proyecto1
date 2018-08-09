@@ -1,4 +1,5 @@
 'use strict';
+const nodeMailer = require('nodemailer');
 const estudianteSchema = require('./estudiante.model');
 
 module.exports.registrar = function (req, res) {
@@ -143,3 +144,53 @@ module.exports.cambiar_contrasenna_estudiante = function(req, res){
             }
       });
 };
+
+const transporter = nodeMailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'codeanalytics79@gmail.com',
+        pass: 'sincontrasenna'
+    },
+    tls: {
+        rejectUnauthorized: false
+    }
+});
+
+module.exports.reset_student_password = function(req,res){
+    estudianteSchema.findById(req.body._id).then(function(student){
+
+            let mailOptions = {
+                from: 'codeanalytics79@gmail.com',
+                to: student.correo,
+                subject: 'Bievenido a Cenfo App',
+                html: `
+                <html>
+                <head>
+                    <style>
+                        .tituloPrincipal{
+                            background: #6c5ce7;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <h1 class='tituloPrincipal'>Bienvenido ${student.Nombre1} ${student.apellido1}</h1>
+                    <p>Puedes restablecer tu contraseña de Cenfotec Software House haciendo clic en el enlace de abajo:</p>
+                    <a href='http://localhost:3000/public/passwordRecovery.html?id=${student._id}'>Recuperación de la contraseña</a>
+                    <p>Si no solicitaste restablecer tu contraseña, no dudes en eliminar este mensaje. </p>
+                </body>
+            </html>
+                        `
+            };
+
+            transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log('Email sent: ' + info.response);
+                }
+            });
+
+            res.json({ success: true, msg: 'El usuario se registró con éxito' });
+    })
+    
+}
