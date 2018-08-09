@@ -2,7 +2,7 @@
 llenarSelectEstudiantes();
 
 let botonRegistrar = document.querySelector('#btnHoras');
-botonRegistrar.addEventListener('click',optenerDatos);
+botonRegistrar.addEventListener('click', optenerDatos);
 let selectNombreProyecto = document.querySelector('#nombreProyecto');
 
 let inputHoras = document.querySelector('#cantHoras');
@@ -27,17 +27,43 @@ function llenarSelectEstudiantes() {
 
 
 function optenerDatos() {
-    let idE =getCurrentUserData()['_id'];
+
+    let info = getCurrentUserData()['proyectos'];
+
+    let idE = getCurrentUserData()['_id'];
     let id = selectNombreProyecto.value;
+    let idp;
+    let nombreProyecto;
+    let fechaEntrega;
+    let estadoProyecto;
     let horas = inputHoras.value;
 
-    agregarHorasProyecto(idE, id,horas);
+
+    for (let i = 0; i < info.length; i++) {
+
+        if (info[i]['_id'] == id) {
+            idp = info[i]['id']
+            nombreProyecto = info[i]['nombre_proyecto'];
+            fechaEntrega = info[i]['fecha_Entrega'];
+            estadoProyecto = info[i]['estado_proyecto'];
+        }
+    }
+
+    agregarHorasProyecto(idE, id, idp, nombreProyecto, fechaEntrega, estadoProyecto, horas);
 
 
 
 
 
 }
+
+
+// id: { type: String },
+// nombre_proyecto: { type: String },
+// fecha_Entrega: { type: String },
+// estado_proyecto: { type: String },
+// horas: {type:String}
+
 
 
 

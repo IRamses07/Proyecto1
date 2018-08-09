@@ -145,24 +145,47 @@ module.exports.cambiar_contrasenna_estudiante = function (req, res) {
 };
 
 
+// module.exports.agregarHoras = function (req, res) {
+//     estudianteSchema.where({
+//         _id: req.body._id,
+//         proyectos: [{
+//             _id: req.body.id
+//         }]
+//     }).insertOne()({
+
+//     }).then(
+//         function (err, user) {
+//             if (err) {
+//                 res.json({ success: false, msg: 'No se actualizo'+ err });
+//       console.log(err.toString());
+
+//             } else {
+//                 res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
+//             }
+//         });
+// };
+
 module.exports.agregarHoras = function (req, res) {
     estudianteSchema.where({
         _id: req.body._id,
         proyectos: [{
             _id: req.body.id
         }]
-    }).update({
-        $push: {
-            proyectos: [req.body]
-        }
-    }).then(
-        function (err, user) {
-            if (err) {
-                res.json({ success: false, msg: 'No se ha actualizado.' + (err.toString()) });
-      console.log(err.toString());
+    }).insert(req.body._id, {
+        proyectos: { $set: { horas: req.body.horas } }
+    }
 
-            } else {
-                res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
-            }
-        });
+    )
+
+
+        .then(
+            function (err, user) {
+                if (err) {
+                    res.json({ success: false, msg: 'No se actualizo' + err });
+                    console.log(err.toString());
+
+                } else {
+                    res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
+                }
+            });
 };

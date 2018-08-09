@@ -71,7 +71,7 @@ module.exports.actualizarProyecto = function (req, res) {
         function (err, user) {
             if (err) {
                 res.json({ success: false, msg: 'No se ha actualizado.' + handleError(err) });
-
+console.error(JSON.stringify(err));
             } else {
                 res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
             }
@@ -84,6 +84,9 @@ module.exports.listaMantenimento = function(req, res){
             res.send(proyecto);
         });
 };
+
+
+// 
 
 
 
