@@ -18,7 +18,7 @@ console.log()
        
 
 
-            if (infoProyecto[i]['estado_proyecto'] == 'mantenimento') {
+            if (infoProyecto[i]['estado_proyecto'] == 'mantenimiento') {
                 let fila = tbody.insertRow();
 
                 let cCedulaJuridica = fila.insertCell();

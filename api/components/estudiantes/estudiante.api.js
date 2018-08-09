@@ -143,3 +143,16 @@ module.exports.cambiar_contrasenna_estudiante = function(req, res){
             }
       });
 };
+
+
+module.exports.agregarHoras = function (req, res) {
+    proyectoModel.findByIdAndUpdate(req.body._id, { $set: req.body },
+        function (err, user) {
+            if (err) {
+                res.json({ success: false, msg: 'No se ha actualizado.' + handleError(err) });
+
+            } else {
+                res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
+            }
+        });
+};

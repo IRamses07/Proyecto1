@@ -96,8 +96,6 @@ function mensajesDeRetroAlimentacion(error, sNombreProyecto, nIdentifiacionJurid
             let tecnologiasMovil = recorrerTecnologiasMovil();
             let tecologiasBd = recorrerTecnologiasBD();
 
-
-
             modificarProyecto(id, sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion, tecnologiasWed, tecnologiasMovil, tecologiasBd);
 
             swal({
@@ -256,7 +254,7 @@ function verificarEstado() {
     let error = 0;
     let proyectos = obtenerListaProyectos();
     for (let i = 0; i < proyectos.length; i++) {
-        if (selectEstadoProyectoM.value == 'mantenimento' && dateFechaEntregaM.value == proyectos[i]['fecha_Entrega']) {
+        if (selectEstadoProyectoM.value == 'mantenimiento' && dateFechaEntregaM.value == proyectos[i]['fecha_Entrega']) {
             error = 3;
             break;
         } else {

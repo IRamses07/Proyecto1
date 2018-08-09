@@ -280,6 +280,33 @@ function actualizarEstudianteId(pid,infoEstudiante){
 };
 
 
+function agregarHorasProyecto(id,horas){
+    let respuesta = '';
+  
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/agregar_horas',
+        type : 'post',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            _id : id,
+            horas :horas
+        
+        }
+      });
+    
+      peticion.done(function(response){
+       respuesta = response;
+      });
+    
+      peticion.fail(function(response){
+       
+      });
+      return respuesta;
+};
+
+
 
 
 

@@ -10,15 +10,21 @@ botonAgregar.addEventListener('click', obtenrDatos);
 
 function llenarSelecProyectos() {
     let infoPrfeIL = getCurrentUserData()['proyecto'];
+    let lista = obtenerListaProyectos();
 
     let select = document.querySelector('#slProyecto');
     select.options[0] = new Option("Seleccione un profesor...", );
 
     for (let i = 0; i < infoPrfeIL.length; i++) {
-        select.options[i+1] = new Option(infoPrfeIL[i]['nombre_proyecto'], infoPrfeIL[i]['id']);
+        // for (let j = 0; j < lista.length; j++) {
+        //     if (infoPrfeIL[i]['_id'] == lista[i]['_id']) {
+                 select.options[i + 1] = new Option(infoPrfeIL[i]['nombre_proyecto'], infoPrfeIL[i]['id']);
+            }
 
-    }
-}
+        }
+
+
+
 
 
 function llenarSelectEstudiantes() {
@@ -29,7 +35,7 @@ function llenarSelectEstudiantes() {
     select.options[0] = new Option("Seleccione un profesor...", );
 
     for (let i = 0; i < infoEstudiante.length; i++) {
-        select.options[i+1] = new Option(infoEstudiante[i]['Nombre1'], infoEstudiante[i]['_id']);
+        select.options[i + 1] = new Option(infoEstudiante[i]['Nombre1'] + ' ' + infoEstudiante[i]['apellido1'], infoEstudiante[i]['_id']);
 
     }
 
@@ -84,7 +90,7 @@ function agregarProyectoE() {
         }
     }
 
-    
+
 
 
     // infoProyecto.push(id, idProyecto, nombreProyecto, fechaEntrega, estadoProyecto)

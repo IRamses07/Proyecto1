@@ -46,6 +46,11 @@ router.route('/cambiar_contrasenna_estudiante')
     .post(function(req, res){
     estudiantes.cambiar_contrasenna_estudiante(req, res);
 });
+router.route('/agregar_horas')
+    .post(function(req, res){
+    estudiantes.agregarHoras(req, res);
+});
+
 
 
 module.exports = router;
