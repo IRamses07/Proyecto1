@@ -95,14 +95,15 @@ main .colupna2 select{
     margin-top: 5px;
     margin-bottom:20px;
     width: 91%;
+    
          
 }
 
  main .button button{
     margin: 0 auto;
-        margin-left: 39.5%;
+        margin-left: 39.6%;
     width: 20%;
-    margin-top: 20px; 
+    margin-top: 25px; 
     margin-bottom: 15px;
  }
 
@@ -129,7 +130,7 @@ main .colupna2 select{
  }
 
  .Tegnologias h3{
-     margin-top:10px;
+     margin-top:20px;
      margin-bottom: 5px;
      text-align: center;
  }
@@ -139,7 +140,7 @@ main .colupna2 select{
     float: left;
     width: 20%;
     border: #fbb803 solid;
-    height: 250px;
+    height: 200px;
     margin-right: 9%; 
     border-radius: 10px;
     margin-left: 10%;
@@ -150,7 +151,7 @@ main .colupna2 select{
      float: left;
      width: 20%;
      border: #fbb803 solid;
-     height: 250px;
+     height: 200px;
      margin-right: 9.5%; 
      border-radius: 10px;
  }
@@ -158,7 +159,7 @@ main .colupna2 select{
     float: left;
     width: 20%;
     border: #fbb803 solid;
-    height: 250px;
+    height: 200px;
     margin-right: 10%; 
     border-radius: 10px;
 
@@ -174,13 +175,15 @@ main .colupna2 select{
 
  .c1{
     float: left;
-    margin-left: 3%;
+    margin-left: 4%;
+    margin-top: 15px;
 
  }
 
  .c2{
     float: right;
-    margin-right: 3%;    
+    margin-right: 4%;    
+    margin-top: 15px;
  }
 
 
