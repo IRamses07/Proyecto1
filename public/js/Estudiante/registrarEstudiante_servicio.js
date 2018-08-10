@@ -282,7 +282,6 @@ function actualizarEstudianteId(pid, infoEstudiante) {
 
 function agregarHorasProyecto(idE, id, hora) {
     let respuesta = '';
-
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/agregar_horas',
         type: 'post',
