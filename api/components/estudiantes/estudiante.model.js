@@ -31,12 +31,18 @@ let estudianteSchema = new mongoose.Schema({
             nombre_proyecto: { type: String },
             fecha_Entrega: { type: String },
             estado_proyecto: { type: String },
-            horas: {type:String}
-        
+
+
+
         }
 
     ],
-    rol : {type : String, required : true}
+    rol: { type: String, required: true },
+    horas: [{
+        id: { type: String },
+        tiempo: { type: String },
+        fecha: { type: String }
+    }]
 });
 
 module.exports = mongoose.model('Estudiante', estudianteSchema);

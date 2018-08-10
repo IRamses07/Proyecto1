@@ -7,7 +7,7 @@ let selectNombreProyecto = document.querySelector('#nombreProyecto');
 
 let inputHoras = document.querySelector('#cantHoras');
 
-
+let dtfecha = document.querySelector('#dtFecha');
 
 function llenarSelectEstudiantes() {
 
@@ -20,38 +20,24 @@ function llenarSelectEstudiantes() {
         // if (listaProyecto[i]['estado_proyecto'] == 'desarrollo' || listaProyecto[i]['estado_proyecto'] == 'desarrollo') {
         select.options[i + 1] = new Option(listaProyecto[i]['nombre_proyecto'], listaProyecto[i]['_id']);
     }
-
-
 }
 
 
 
 function optenerDatos() {
 
-    let info = getCurrentUserData()['proyectos'];
-
     let idE = getCurrentUserData()['_id'];
     let id = selectNombreProyecto.value;
-   
     let horas = inputHoras.value;
+    let fecha = dtfecha.value;
 
-
-   
-
-    agregarHorasProyecto(idE, id, horas);
-
-
-
-
-
+    agregarHorasProyecto(idE, id, horas, fecha);
 }
 
 
 // id: { type: String },
-// nombre_proyecto: { type: String },
-// fecha_Entrega: { type: String },
-// estado_proyecto: { type: String },
-// horas: {type:String}
+// tiempo: { type: String },
+// fecha: { type: String }
 
 
 

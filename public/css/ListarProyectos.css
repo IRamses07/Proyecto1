@@ -1,66 +1,14 @@
-/* esto agregra una barra de sroll */
-
-#tabla{
-    width: 80%;
-    height: 500px;
-    margin: 0 auto;
- }
- 
- /* tbody {
-    width: 70%;
-    height: 400px;
-    overflow: auto;
-   } */
-
-  
-  #tblProyectos{
-    max-height: 400px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-}
-
-
-.flitrarProyectos{
-    width: 45%;
-    margin: auto;
-    margin-top: 25px;
-    margin-bottom: 55px;
-}
-#tblProyectosE thead, #tblProyectosE tbody {
+.tblProyectos th, .tblProyectos td{
     text-align: center;
 }
 
-.opFliltrado {
-    margin-bottom: 10px; 
-    
+
+.tabla{
+    margin: 0 auto; 
+    width: 65%;
+    overflow-y:auto;
+     height:700px;
+     
+
 }
 
-
-.opFliltrado .radio{
-    margin-left:20%;
-    margin-bottom: 2px;
-  
-    width: 40%;
-    float: left;
-    
-}
-
-
-.opFliltrado .busqueda{
-    width: 100%;
-}
-
-/* .opFliltrado .radio label{
-    margin: 0 auto;
-    width: 50%;
-    padding-bottom: 5px;
-    border-radius: 3px;
-    outline: none;
-    border: none;
-} */
-
-
-
-/* main .tabla table th{
-    padding-right: 10px;
-} */
