@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ticket</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/generalStyle.css">
+    <link rel="stylesheet" href="css/notificaciones.css">
+    <link rel="stylesheet" href="css/verTicket.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+            <div class="mainHeader">
+                    <a id="notificacion" class="fLeft">
+                        <i class="fas fa-bell"></i> Notificaciones</a>
+                        <label for="">Bienvenido: </label>
+                        <output id="txtnombreCliente" value=""></output>
+                    <a href="javascript:logOut();" class="fRight">Cerrar sesión
+                        <i class="fas fa-cog"></i>
+                    </a>
+                </div>
+
+        
+
+    </header>
+    <div class="menuLateral" id="divMenuLateral">
+            <i class="fas fa-align-justify"></i>
+        </div>
+
+    <main id="content">
+            <div class="modal none" id="modal">
+                    <div class="ModalNotificaciones">
+                        <a>X</a>
+                        <table id="tblNotificacion">
+                            <thead>
+                                <th>Notificaciones</th>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+        
+                </div>
+        <section id="viewTicket">
+            <h1>Ticket</h1>
+            <div class="info">
+            <label for="">Código:</label>
+            <output id="cod"></output>
+        </div>
+        <div class="bigOne">
+            <div class="datos">
+                    <div class="dato">
+                        <div class="uno">
+                            <label for="">Proyecto:</label>
+                            <output id="proyecto"></output>
+                        </div>
+                        <div class="dos">
+                        <label for="">Urgencia:</label>
+                <output id="urgencia"></output>
+            </div>
+            </div>
+            <div class="dato">
+                    <div class="uno">
+                        <label for="">Cliente:</label>
+                        <output id="cliente"></output>
+                    </div>
+                    <div class="dos">
+                    <label for="">Estado:</label>
+            <output id="estado"></output>
+        </div>
+        </div>
+
+                <div class="dato">
+                <div class="uno">
+                    <label for="" class="descripcion">Descripción</label>
+                </div>
+                <div class="dos">
+                <output id="descripcion"></output>
+            </div>
+            </div>
+            </div>
+</div>
+</section>
+<section>
+
+    <div class="asignacionE">
+        <label for="">Asigne estudiantes al ticket</label>
+        <select name="" id="sltEstudiante">
+            <option value="">-Seleccione un estudiante-</option>
+        </select>
+        <button type="button" id="asignarE" class="btnFiltro">Agregar</button>
+    </div>
+
+    <div class="asignacionP">
+        <label for="">Asigne profesores al ticket</label>
+        <select name="" id="sltProfesor">
+            <option value="">-Seleccione un profesor-</option>
+        </select>
+        <button type="button" id="asignarP" class="btnFiltro">Agregar</button>
+    </div>
+
+    <div class="muestraEstudiantes">
+        <table id="tblAsignacion">
+            <thead>
+                <th>Nombre</th>
+                <th>Rol</th>
+                <th>Ver</th>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+            <div class="botones">
+                    <div class="asignar boton">
+                        <button type="button" id="asignarDatos" class="btnRegistro">Finalizar</button>
+                    </div>
+                </div>
+        </section>
+    </main>
+
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src='https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js' type='text/javascript'></script>
+    <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
+
+    <script src="js/Login/login.js"></script>
+    <script src="js/Notificaciones/notificaciones.js"></script>
+    <script src="js/Ticket/servicioImagen.js"></script>
+    <script src="js/Ticket/servicioRegistroTicket.js"></script>
+    <script src="js/Ticket/controladorAsignarTicket.js"></script>
+</body>
+
+</html>

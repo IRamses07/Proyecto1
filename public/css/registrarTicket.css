@@ -167,7 +167,7 @@ h1 {
     width: 65%;
     height: 29px;
     padding: 5px 0px 5px 0;
-    background-color: #fbb308;
+    background-color: #f27a1a;
     color: #fff;
     /* margin-bottom: 10px; */
 }
@@ -176,16 +176,16 @@ h1 {
     width: 100%;
     padding: 7px 0px;
     content: 'Subir imagen';
-    background-color: #fbb308;
-    color: #454545;
-    border:  #fbb803 1px solid;
+    background-color: #f27a1a;
+    color: #ffffff;
+    border:  #f27a1a 1px solid;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
 }
 
 .btnImgErr:hover {
-    background-color: #ff8e1d;
-    border:  #ff8e1d 1px solid;
+    background-color: #f19346;
+    border:  #f19346 1px solid;
 }
 
 .imgErrorContainer {
@@ -203,7 +203,7 @@ h1 {
 }
 
 .boxImg {
-    border: #fbb308 1px solid;
+    border: #f27a1a 1px solid;
     width: 100%;
     height: 235px;
     margin-top: 6px;

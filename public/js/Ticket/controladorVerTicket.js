@@ -117,6 +117,13 @@ if( usuario == "estudiante"){
     btnCerrar.hidden = false;
 }
 
+if( usuario == "cliente"){
+    btnModificar.hidden = false;
+    btnCerrar.hidden = true;
+    btnAprobar.hidden = true ;
+
+}
+
 if( usuario == "administrador" && estado == 'Inactivo'){
     btnAprobar.hidden = false ;
     btnModificar.hidden = true;
@@ -127,6 +134,7 @@ if( usuario == "administrador" && estado == 'Inactivo'){
     optEst.value = estado;
     optEst.classList.add("color");
     cambiarEstadoTicket(idpar, estado);
+    document.location.href = 'asignarTicket.html?_id='+ idpar;
 }
 
 function cancelar(){
