@@ -80,7 +80,7 @@ module.exports.asignar_proyecto = function (req, res) {
         _id: req.body._id
     }, {
             $push: {
-                'proyectos': {
+                'horas': {
                     id: req.body.id,
                     nombre_proyecto: req.body.nombre_proyecto,
                     fecha_Entrega: req.body.fecha_Entrega,
@@ -147,7 +147,7 @@ module.exports.cambiar_contrasenna_estudiante = function (req, res) {
 // module.exports.agregarHoras = function (req, res) {
 //     estudianteSchema.where({
 //         _id: req.body._id,
-//         proyectos: [{
+//         horas: [{
 //             _id: req.body.id
 //         }]
 //     }).insertOne()({
@@ -165,21 +165,33 @@ module.exports.cambiar_contrasenna_estudiante = function (req, res) {
 // };
 
 module.exports.agregarHoras = function (req, res) {
-    estudianteSchema.update(req.body._id, {
-        proyectos: { $set: { horas: req.body.horas } }
-    }
+    estudianteSchema.update({
+        _id: req.body._id
+    }, {
+            $push: {
+                'horas': {
+                    id: req.body.id,
+                    tiempo: req.body.horas,
+                    fecha: req.body.fecha
 
-    ).then(
-            function (err, user) {
-                if (err) {
-                    res.json({ success: false, msg: 'No se actualizo' + err });
-                    console.log(err.toString());
-
-                } else {
-                    res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
                 }
-            });
-};
+            }
+        },
+        function (error) {
+            if (error) {
+                res.json({
+                    success: false,
+                    msg: 'No se pudo asignar el proyecto, ocurrió el siguiente error' + error
+                });
+            } else {
+                res.json({
+                    success: true,
+                    msg: 'El Proyecto se asignó con éxito'
+                });
+            }
+        }
+    )
+};;
 
 
 
