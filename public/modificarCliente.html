@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/generalStyle.css">
     <link rel="stylesheet" href="css/notificaciones.css">
     <link rel="stylesheet" href="css/registrarClientes.css">
+    <link rel="stylesheet" href="css/chat.css">
     <title>Modificar</title>
 </head>
 
@@ -113,9 +114,14 @@
             <button type="button" id="btnModificar" class='btnRegistro' name="actualizarCliente">Modificar</button>
             <button hidden type="button" id="btnRegistrar" class='btnRegistro' name="registrarCliente">Registrar</button>
         </form>
-
+        <div class="chatContainer" id="chatContainer"></div>
+        <div id="minimizarChat" class="btnChat">Chat</div>
     </main>
     <script src="js/jquery-3.3.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/public/js/Chat/chat.service.js"></script>
+    <script type="text/javascript" src="/public/js/Chat/chat.controlador.js"></script>
     <script src="js/Login/login.js"></script>
     <script src="js/Notificaciones/notificaciones.js"></script>
     <script src="./js/Cliente/servicioCliente.js"></script>

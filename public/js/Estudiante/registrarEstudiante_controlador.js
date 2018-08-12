@@ -571,7 +571,7 @@ function getDatosActualizar(){
         actualizarEstudianteId(infoUser['_id'],infoEstudiante);
         swal({
             type : 'Success',
-            title : 'Registro exitoso',
+            title : 'Modificación exitosa',
             text: 'La información del estudiante '+inputNombre1.value+' fue actualizada exitosamente',
             icon: 'success',
             confirmButtonText : 'OK'

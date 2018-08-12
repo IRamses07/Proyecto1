@@ -2,10 +2,10 @@
     width: 15%;
     height: 402px;
     background-color: #fbb803;
-    position: absolute;
+    position: fixed;
     bottom: 0%;
     right: 0%;
-    z-index: 15;
+    z-index: 31;
     border-radius: 3px;
 }
 
@@ -70,7 +70,7 @@
     /* background-color: #454545; */
     width: 1200px;
     height: 40px;
-    z-index:-1;
+    z-index:30;
 }
 .pestanaChat{
     background-color: #fbb803;
@@ -142,11 +142,12 @@
     height: 26px;
     text-align: center;
     font-size: 1.2em;
-    position: absolute;
+    position: fixed;
     bottom: 0%;
     right: 0%;
-    z-index: 17;
+    z-index: 32;
     width: 9%;
+    /*border: 1px solid #454545;*/
 }
 
 .btnChatEnnviar{
