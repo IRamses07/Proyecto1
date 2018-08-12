@@ -2,6 +2,17 @@
 const nodeMailer = require('nodemailer');
 const estudianteSchema = require('./estudiante.model');
 
+const transporter = nodeMailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'codeanalytics79@gmail.com',
+        pass: 'sincontrasenna'
+    },
+    tls: {
+        rejectUnauthorized: false
+    }
+});
+
 module.exports.registrar = function (req, res) {
     let estudianteNuevo = new estudianteSchema({
         cedula: req.body.cedula,
@@ -34,6 +45,38 @@ module.exports.registrar = function (req, res) {
         if (error) {
             res.json({ success: false, msg: 'No se pudo registrar el estudiante, ocurrió el siguiente error' + error });
         } else {
+			let mailOptions2 = {
+                from: 'codeanalytics79@gmail.com',
+                to: estudianteNuevo.correo,
+                subject: 'Bievenido a Cenfo App',
+                html: `
+                <html>
+                <head>
+                    <style>
+                        .tituloPrincipal{
+                            text-decoration: underline;                          
+                        }
+                    </style>
+                </head>
+                <body>
+                    <h1 class='tituloPrincipal'>Bienvenido ${estudianteNuevo.Nombre1} ${estudianteNuevo.apellido1}</h1>
+                    <p>Usted ha sido registrado en la plataforma de Cenfotec Software House como ${estudianteNuevo.rol}, para acceder le brindaremos su respectiva contraseña a continuación, esta contraseña es provisional por lo tanto deberá ser cambiada lo antes posible.</p>
+					<p>Contraseña: ${estudianteNuevo.password}</p>
+                    <p>Saludos cordiales.</p>
+                    <p>Cenfotec Software House</p>
+                </body>
+            </html>
+                        `
+            };
+        
+		
+		        transporter.sendMail(mailOptions2, function (error, info) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log('Email sent: ' + info.response);
+                }
+            });
             res.json({ success: true, msg: 'El estudiante se registró con éxito' });
         }
 
@@ -144,17 +187,6 @@ module.exports.cambiar_contrasenna_estudiante = function(req, res){
             }
       });
 };
-
-const transporter = nodeMailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: 'codeanalytics79@gmail.com',
-        pass: 'sincontrasenna'
-    },
-    tls: {
-        rejectUnauthorized: false
-    }
-});
 
 module.exports.reset_student_password = function(req,res){
     estudianteSchema.findById(req.body._id).then(function(student){

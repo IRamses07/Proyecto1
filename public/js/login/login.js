@@ -133,6 +133,7 @@ function getUsers() {
     return aAllUsers;
 }
 
+
 function loadOptionsMenu() {
     let menu = document.getElementById('divMenuLateral');
     let menuTexto = [];
