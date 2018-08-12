@@ -17,7 +17,7 @@ let selectProfe2 = document.querySelector('#slProfesorTecnico');
 function listarSelectClientes() {
     let slProyecto = obtenerListaProyectos();
     let select = document.querySelector('#slProyecto');
-    select.options[0] = new Option("Seleccione un cliente...", "");
+    select.options[0] = new Option("Seleccione un proyecto", "");
 
     for (let i = 0; i < slProyecto.length; i++) {
         select.options[i+1] = new Option(slProyecto[i]['nombre_proyecto'], slProyecto[i]['_id']);
@@ -28,7 +28,7 @@ function listarSelectClientes() {
 function listarSelectProfe1() {
     let selectProfe1 = getProfessorData();
     let select = document.querySelector('#slProfeLider');
-    select.options[0] = new Option("Seleccione un profesor...", );
+    select.options[0] = new Option("Seleccione un profesor", );
 
     for (let i = 0; i < selectProfe1.length; i++) {
         select.options[i+1] = new Option(selectProfe1[i]['nombre1']+'  '+selectProfe1[i]['apellido1'] , selectProfe1[i]['_id']);
@@ -39,7 +39,7 @@ function listarSelectProfe1() {
 function listarSelectProfe2() {
     let selectProfe2 = getProfessorData();
     let select = document.querySelector('#slProfesorTecnico');
-    select.options[0] = new Option("Seleccione un profesor...", );
+    select.options[0] = new Option("Seleccione un profesor", );
 
     for (let i = 0; i < selectProfe2.length; i++) {
         select.options[i+1] = new Option(selectProfe2[i]['nombre1']+' '+selectProfe2[i]['apellido1'], selectProfe2[i]['_id']);

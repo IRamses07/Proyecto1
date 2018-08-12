@@ -4,7 +4,8 @@ imprimirListaProyectos();
 
 
 
-const inputFiltro = document.querySelector('#txtFiltro');
+let btnBuscar = document.querySelector('#btnBuscarProyecto');
+
 
 inputFiltro.addEventListener('keyup', function () {
     imprimirListaProyectos(inputFiltro.value)
@@ -64,10 +65,10 @@ function modificaProyecto() {
     let modProyecto = document.querySelectorAll('.modProyecto');
     modProyecto.forEach(function (elem) {
         elem.addEventListener("click", function () {
-            
+
             let _id = elem.dataset._id;
-            
-            localStorage.setItem('idP',_id);
+
+            localStorage.setItem('idP', _id);
             document.location.href = 'modificarProyecto.html';
         })
     });

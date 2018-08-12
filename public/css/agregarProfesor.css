@@ -13,11 +13,78 @@ main h1 {
   padding: 50px 50px 18px 50px;
   border-radius: 20px;
   border-top-left-radius: 0%;
-  
+  height: 200px;
   width: 30%;   
 }
 
 .tabs__item{
     margin-left: 31.5%;
 }
+
+.optionProyecto {
+
+    margin-bottom: 15px;
+}
+
+.optionProfeLider{
+
+    margin-bottom: 15px;
+
+}
+
+.optionProfeTecnico{
+
+    margin-bottom: 15px;
+
+}
+
+
+.optionProyecto label{
+
+    margin-right: 14%; 
+
+}
+
+.optionProfeLider label{
+
+    margin-right: 8%;
+
+}
+
+.optionProfeTecnico label{
+
+    margin-right: 3%; 
+
+}
+
+.optionProyecto select{
+    width: 45%;
+}
+
+.optionProfeLider select{
+    width: 45%;
+}
+
+.optionProfeTecnico select{
+    width: 45%;
+}
+
+.bontonAgregar{
+
+    float: right;
+  width: 100;
+    
+
+}
+
+.bontonAgregar  button{
+ 
+    width: 100px; 
+    
+}
+
+
+
+
+
 
