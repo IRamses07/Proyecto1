@@ -8,8 +8,9 @@ const botonRegistrarTicket = document.querySelector('#btnRegistrarTicket');
 botonRegistrarTicket.addEventListener('click', obtenerDatosTicket);
 
 
-// let codigo = '';
-// let fechaReg = getDate();
+let codigo = '';
+let fechaRegistro = '';
+let fechaCierre = '';
 let inptNombreCliente = document.querySelector('#txtnombreCliente');
 let inptUrgencia = document.querySelector('#sltUrgencia');
 let inptProyecto = document.querySelector('#sltProyecto');
@@ -20,7 +21,7 @@ let inptDescripcionError = document.querySelector('#txtdescripcion');
 listarSelectProyectos();
 llenarNombreCliente();
 listarTicketsReferencia();
-
+addControl();
 
 
 function obtenerDatosTicket() {
@@ -34,8 +35,9 @@ function obtenerDatosTicket() {
     let imagenErr = imgUrl;
     let referenciaTicket = inptReferenciaTicket.value;
     let descripcionError = inptDescripcionError.value;
-    ticket.push(nombreCliente, urgencia, proyecto, imagenErr, referenciaTicket, descripcionError);
-    // imagenErr   en caso de no servir la prueba sin este dato va dentro del parentesis del push
+    let estado = "Inactivo";
+    let codigoT = codigo;
+    ticket.push(nombreCliente, urgencia, proyecto, imagenErr, referenciaTicket, descripcionError, estado, codigoT );
 
 
     if (error == true) {
@@ -47,8 +49,8 @@ function obtenerDatosTicket() {
             button: "Ok",
         });
     } else {
-        registrarTicket(nombreCliente, urgencia, proyecto, imagenErr, referenciaTicket, descripcionError);
-        // regitroNotificacion()  
+        registrarTicket(nombreCliente, urgencia, proyecto, imagenErr, referenciaTicket, descripcionError, estado, codigoT );
+        // notificacion()  
         // aquí mando el id del emisor y el rol, los datos del receptor, tipo = 'ticket',referencia: id (del ticket), verTicket.html
         swal({
             title: "Registro exitoso",
@@ -110,7 +112,10 @@ function listarSelectProyectos() {
     select.options[0] = new Option("Seleccione un proyecto...", );
 
     for (let i = 0; i < selectProy.length; i++) {
+        if(selectProy[i]['estado_proyecto'] = 'mantenimiento'){  
         select.options[i+1] = new Option(selectProy[i]['nombre_proyecto'], selectProy[i]['nombre_proyecto']);
+
+    }
 
     }
     
@@ -137,32 +142,28 @@ function listarTicketsReferencia() {
     
 }
 // Código de cada ticket registrado
-// function addZero(x, n) {
-//     while (x.toString().length < n) {
-//       x = "0" + x;
-//     }
-//     return x;
-//   }
+function addZero(x, n) {
+    while (x.toString().length < n) {
+      x = "0" + x;
+    }
+    return x;
+  }
   
 //   // Añadir control al elemento "p" principal de la página.
-//   function addControl() {
-//     let d = new Date();
-//     let x = document.getElementById("demo");
-//     let h = addZero(d.getHours(), 2);
-//     let m = addZero(d.getMinutes(), 2);
-//     let s = addZero(d.getSeconds(), 2);
-//     let ms = addZero(d.getMilliseconds(), 3);
-//     x.innerHTML += "<p id='" + h + m + s + ms + "'>ID: " + h + m + s + ms + "</p>";
-//   }
-
-//esto va en el html
-{/* <p>
-  <i>En el div de abajo, usted encontrará elementos<br/>
-HTML de tipo "p" con valores de identificación únicos:</i>
-</p>
-<p>
-  <button onclick="addControl()">Agregar control</button>
-</p>
+  function addControl() {
+    let d = new Date();
+    let x = document.getElementById("demo");
+    let f = addZero(d.getDay(), 2);
+    let ms = addZero(d.getMonth(), 2);
+    let h = addZero(d.getHours(), 2);
+    let m = addZero(d.getMinutes(), 2);
+    // x.innerHTML += "<p id='" + h + m + "'>ID: " + h + m + "</p>";
+    codigo = f+h+m;
+    let dia = d;
 
 
-<p id="demo"></p> */}
+    console.log(dia);
+    console.log(codigo);
+    let fecha = Date.parse(f);
+    console.log(fecha);
+  } 

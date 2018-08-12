@@ -33,7 +33,6 @@ llenarDatosFormulario();
 
 
 function datosActualizarTicket() {
-    let ticket = [];
     let error = false;
 
     let id =  inptId.value;
@@ -55,7 +54,7 @@ function datosActualizarTicket() {
             button: "Ok",
         });
     } else {
-        actualizarTicket(id, nombreCliente, urgencia, proyecto, urlImagenErr, referenciaTicket, descripcionError);
+        actualizarTicket(id, nombreCliente, urgencia, proyecto, urlImagenErr, referenciaTicket, descripcionError );
         swal({
             title: "Modificación exitosa",
             text: "El ticket se ha modificado correctamente",
@@ -63,7 +62,6 @@ function datosActualizarTicket() {
             button: "Ok",
         });
         document.location.href = './listarTicketsCliente.html';
-        limpiarFormulario();
 
     }
 
@@ -90,42 +88,9 @@ console.log(imagen);
 };
 
 
-function validar() {
-    let error = false;
 
 
-    if (inptUrgencia.value == '') {
-        inptUrgencia.classList.add('error');
-        error = true;
-    } else {
-        inptUrgencia.classList.remove('error');
-    }
-    if (inptProyecto.value == '') {
-        inptProyecto.classList.add('error');
-        error = true;
-    } else {
-        inptProyecto.classList.remove('error');
-    }
 
-    if (inptDescripcionError.value == '') {
-        inptDescripcionError.classList.add('error');
-        error = true;
-    } else {
-        inptDescripcionError.classList.remove('error');
-    }
-    return error;
-}
-
-
-function limpiarFormulario() {
-    inptNombreCliente.value = '';
-    inptUrgencia.value = '';
-    inptProyecto.value = '';
-    inptimagenErr.src = '';
-    inptReferenciaTicket.value = '';
-    inptDescripcionError.value = '';
-
-}
 
 function listarSelectProyectos() {
     let selectProy = getCurrentUserData()['proyectos'];
@@ -136,7 +101,6 @@ function listarSelectProyectos() {
      select.options[0].value = ticket['proyecto'];
     for (let i = 0; i < selectProy.length; i++) {
         select.options[i+1] = new Option(selectProy[i]['nombre_proyecto'], selectProy[i]['nombre_proyecto']);
-
     }
 
     
@@ -162,33 +126,3 @@ function listarTicketsReferencia() {
 }
     
 }
-// Código de cada ticket registrado
-// function addZero(x, n) {
-//     while (x.toString().length < n) {
-//       x = "0" + x;
-//     }
-//     return x;
-//   }
-  
-//   // Añadir control al elemento "p" principal de la página.
-//   function addControl() {
-//     let d = new Date();
-//     let x = document.getElementById("demo");
-//     let h = addZero(d.getHours(), 2);
-//     let m = addZero(d.getMinutes(), 2);
-//     let s = addZero(d.getSeconds(), 2);
-//     let ms = addZero(d.getMilliseconds(), 3);
-//     x.innerHTML += "<p id='" + h + m + s + ms + "'>ID: " + h + m + s + ms + "</p>";
-//   }
-
-//esto va en el html
-{/* <p>
-  <i>En el div de abajo, usted encontrará elementos<br/>
-HTML de tipo "p" con valores de identificación únicos:</i>
-</p>
-<p>
-  <button onclick="addControl()">Agregar control</button>
-</p>
-
-
-<p id="demo"></p> */}

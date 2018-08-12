@@ -5,7 +5,7 @@ let usuario = "";
 let nombreUsuario = document.querySelector('#txtnombreCliente');
 
 
-
+//nombre en la barra de notificaciones
 if (rol == "estudiante") {
     usuario = getCurrentUserData()['Nombre1'];
     nombreUsuario.value = usuario;

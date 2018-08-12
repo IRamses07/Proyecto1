@@ -1,6 +1,6 @@
 'use strict';
 
-function registrarProyecto(sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion,tecnologias) {
+function registrarProyecto(sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion, tecnologiasWed, tecnologiasMovil, tecologiasBd) {
     let respuesta = '';
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/registrar',
@@ -15,7 +15,9 @@ function registrarProyecto(sNombreProyecto, cliente, nIdentifiacionJuridica, sEs
             estado_proyecto: sEstadoProyecto,
             fecha_Entrega:sFechaEntrega,
             descripcion: sDescripcion,
-            tecnologias: JSON.stringify(tecnologias)
+            tecnologia_wed: JSON.stringify(tecnologiasWed),
+            tecnologia_movil: JSON.stringify(tecnologiasMovil),
+            tecnologia_bd:  JSON.stringify(tecologiasBd)
 
 
         }
@@ -66,6 +68,34 @@ function obtenerListaProyectosDesarrollo() {
     let respuesta = '';
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/listar_Proyectos_desarrollo',
+        type: 'get',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
+
+        }
+    });
+
+    peticion.done(function (response) {
+        respuesta = response;
+    });
+
+    peticion.fail(function (response) {
+
+    });
+
+    return respuesta;
+
+    return listaProyectos;
+}
+
+function obtenerListaProyectosDesarrollo() {
+    let listaProyectos = [];
+
+    let respuesta = '';
+    let peticion = $.ajax({
+        url: 'http://localhost:4000/api//listar_Proyectos_mantenimento',
         type: 'get',
         contentType: 'application/x-www-form-urlencoded; charset=utf-8',
         dataType: 'json',
@@ -142,7 +172,7 @@ function obtenerProyectoId(id){
 
 
 
-function modificarProyecto(id, sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion, info){
+function modificarProyecto(id, sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion, tecnologiasWed, tecnologiasMovil, tecologiasBd){
     let respuesta = '';
     let peticion = $.ajax({
         url : 'http://localhost:4000/api//actualizar_proyecto',
@@ -158,7 +188,9 @@ function modificarProyecto(id, sNombreProyecto, cliente, nIdentifiacionJuridica,
             estado_proyecto: sEstadoProyecto,
             fecha_Entrega:sFechaEntrega,
             descripcion: sDescripcion,
-            tecnologias: JSON.stringify(info)
+            tecnologia_wed: JSON.stringify(tecnologiasWed),
+            tecnologia_movil: JSON.stringify(tecnologiasMovil),
+            tecnologia_bd:  JSON.stringify(tecologiasBd)
         }
       });
     

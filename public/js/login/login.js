@@ -153,7 +153,7 @@ function loadOptionsMenu() {
             "Listar estudiantes",
             "Registrar profesores",
             "Listar profesores",
-            "Listar tiquetes",
+            "Listar tickets",
             //    "Ver ticket"
         ];
         menuURL = [
@@ -218,12 +218,14 @@ function loadOptionsMenu() {
             "Listar proyectos",
             "Listar tickets",
             "Visualizar perfil",
+            "Registrar horas"
         ];
         menuURL = [
             // "listarEstudiante.html",
             "listarProyectosEstudiante.html",
             "listarTicketsEstudiante.html",
             "perfilEstudiante.html",
+            "registrarHoras.html"
         ];
     }
 

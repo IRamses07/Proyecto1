@@ -12,7 +12,9 @@ module.exports.registrar = function (req, res) {
         estado_proyecto: req.body.estado_proyecto,
         fecha_Entrega: req.body.fecha_Entrega,
         descripcion: req.body.descripcion,
-        tecnologias: req.body.tecnologias
+        tecnologia_wed: req.body.tecnologia_wed,
+        tecnologia_movil: req.body.tecnologia_movil,
+        tecnologia_bd: req.body.tecnologia_bd
 
 
     });
@@ -69,9 +71,23 @@ module.exports.actualizarProyecto = function (req, res) {
         function (err, user) {
             if (err) {
                 res.json({ success: false, msg: 'No se ha actualizado.' + handleError(err) });
-
+console.error(JSON.stringify(err));
             } else {
                 res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
             }
         });
 };
+
+module.exports.listaMantenimento = function(req, res){
+    proyectoModel.find({estado_proyecto :"mantenimento"}).then(
+        function(proyecto){
+            res.send(proyecto);
+        });
+};
+
+
+// 
+
+
+
+

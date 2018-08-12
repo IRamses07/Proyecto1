@@ -38,7 +38,7 @@ module.exports.registrar = function (req, res) {
         password: req.body.password,
         passwordChange: req.body.passwordChange,
         foto: req.body.foto,
-        rol : req.body.rol
+        rol: req.body.rol
     });
 
     estudianteNuevo.save(function (error) {
@@ -123,12 +123,11 @@ module.exports.asignar_proyecto = function (req, res) {
         _id: req.body._id
     }, {
             $push: {
-                'proyectos': {
+                'horas': {
                     id: req.body.id,
                     nombre_proyecto: req.body.nombre_proyecto,
                     fecha_Entrega: req.body.fecha_Entrega,
                     estado_proyecto: req.body.estado_proyecto,
-                    
 
                 }
             }
@@ -176,26 +175,89 @@ module.exports.actualizar = function (req, res) {
         });
 };
 
-module.exports.cambiar_contrasenna_estudiante = function(req, res){
-    estudianteSchema.findByIdAndUpdate(req.body._id, { $set: req.body }, 
-        function(err) {
+module.exports.cambiar_contrasenna_estudiante = function (req, res) {
+    estudianteSchema.findByIdAndUpdate(req.body._id, { $set: req.body },
+        function (err) {
             if (err) {
-                res.json({ success: false, msg: 'No se ha actualizado.'});
-        
+                res.json({ success: false, msg: 'No se ha actualizado.' });
+
             } else {
-            res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
+                res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
             }
-      });
+        });
 };
 
-module.exports.reset_student_password = function(req,res){
-    estudianteSchema.findById(req.body._id).then(function(student){
 
-            let mailOptions = {
-                from: 'codeanalytics79@gmail.com',
-                to: student.correo,
-                subject: 'Bievenido a Cenfo App',
-                html: `
+// module.exports.agregarHoras = function (req, res) {
+//     estudianteSchema.where({
+//         _id: req.body._id,
+//         horas: [{
+//             _id: req.body.id
+//         }]
+//     }).insertOne()({
+
+//     }).then(
+//         function (err, user) {
+//             if (err) {
+//                 res.json({ success: false, msg: 'No se actualizo'+ err });
+//       console.log(err.toString());
+
+//             } else {
+//                 res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
+//             }
+//         });
+// };
+
+module.exports.agregarHoras = function (req, res) {
+    estudianteSchema.update({
+        _id: req.body._id
+    }, {
+            $push: {
+                'horas': {
+                    id: req.body.id,
+                    tiempo: req.body.horas,
+                    fecha: req.body.fecha
+
+                }
+            }
+        },
+        function (error) {
+            if (error) {
+                res.json({
+                    success: false,
+                    msg: 'No se pudo asignar el proyecto, ocurrió el siguiente error' + error
+                });
+            } else {
+                res.json({
+                    success: true,
+                    msg: 'El Proyecto se asignó con éxito'
+                });
+            }
+        }
+    )
+};;
+
+
+
+const transporter = nodeMailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'codeanalytics79@gmail.com',
+        pass: 'sincontrasenna'
+    },
+    tls: {
+        rejectUnauthorized: false
+    }
+});
+
+module.exports.reset_student_password = function (req, res) {
+    estudianteSchema.findById(req.body._id).then(function (student) {
+
+        let mailOptions = {
+            from: 'codeanalytics79@gmail.com',
+            to: student.correo,
+            subject: 'Bievenido a Cenfo App',
+            html: `
                 <html>
                 <head>
                     <style>
@@ -212,17 +274,17 @@ module.exports.reset_student_password = function(req,res){
                 </body>
             </html>
                         `
-            };
+        };
 
-            transporter.sendMail(mailOptions, function (error, info) {
-                if (error) {
-                    console.log(error);
-                } else {
-                    console.log('Email sent: ' + info.response);
-                }
-            });
+        transporter.sendMail(mailOptions, function (error, info) {
+            if (error) {
+                console.log(error);
+            } else {
+                console.log('Email sent: ' + info.response);
+            }
+        });
 
-            res.json({ success: true, msg: 'El usuario se registró con éxito' });
+        res.json({ success: true, msg: 'El usuario se registró con éxito' });
     })
-    
+
 }

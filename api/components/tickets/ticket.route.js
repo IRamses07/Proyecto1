@@ -28,5 +28,11 @@ router.route('/modificar_ticket')
     tickets.modificarTicket(req,res);
 });
 
+router.route('/cambiar_estado')
+.post(function(req,res){
+    tickets.estadoTicket(req,res);
+});
+
+
 
 module.exports = router;

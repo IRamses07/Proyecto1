@@ -5,3 +5,7 @@
 #tblProyectosE{
     width: 85%;
 }
+
+.tblProyectosE th, .tblProyectosE td{
+    text-align: center;
+}
