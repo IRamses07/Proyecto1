@@ -226,7 +226,7 @@ function getUserStatus(psId){
 	let userFounded = false;
 	for(let i = 0; i<allUsers.length&&!userFounded; i++){
 		for(let j = 0; j<allUsers[i].length&&!userFounded; j++){
-			if(allUsers[i][j]['cedula']==psId){
+			if(allUsers[i][j]['cedula']==psId || allUsers[i][j]['cedula_juridica']==psId){
 				userData = allUsers[i][j]['estado'];
 				userFounded = true;
 				console.log('usuario encontrado');
