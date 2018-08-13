@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Reporte de horas</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
     <link rel="stylesheet" href="css/generalStyle.css">
     <link rel="stylesheet" href="css/reporteHoras.css">
 </head>
+
 <body>
     <header>
         <div class="mainHeader">
             <a id="notificacion" class="fLeft">
                 <i class="fas fa-bell"></i> Notificaciones</a>
-                <label for="">Bienvenido: </label>
-                <output id="txtnombreCliente" value=""></output>
+            <label for="">Bienvenido: </label>
+            <output id="txtnombreCliente" value=""></output>
             <a href="javascript:logOut();" class="fRight">Cerrar sesión
                 <i class="fas fa-cog"></i>
             </a>
@@ -25,7 +30,16 @@
             <i class="fas fa-align-justify"></i>
         </div>
     </header>
-    <div id="chart"></div>
+    <main>
+        <h1 id="titulo">Reporte de horas de: </h1>
+        <div class="display">
+            <div id="chart"></div>
+            <a class="selectin" id="horas">Horas totales</a>
+            <a class="selectin" id="proyectos">Horas proyecto</a>
+            <a class="selectin" id="actividad">Actividad </a>
+        </div>
+
+    </main>
 </body>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="js/jquery-3.3.1.js"></script>
@@ -34,4 +48,5 @@
 <script src="js/login/login.js"></script>
 <script src="js/controlador.js"></script>
 <script src="js/Estudiante/controladorReporteHoras.js"></script>
+
 </html>
