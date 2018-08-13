@@ -80,7 +80,7 @@ module.exports.asignar_proyecto = function (req, res) {
         _id: req.body._id
     }, {
             $push: {
-                'horas': {
+                'proyectos': {
                     id: req.body.id,
                     nombre_proyecto: req.body.nombre_proyecto,
                     fecha_Entrega: req.body.fecha_Entrega,
