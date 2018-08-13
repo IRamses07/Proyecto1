@@ -22,7 +22,7 @@ function cambiarEstado(){
             
             swal({
                 title: 'Esta seguro de que desea realizar los cambios?',
-                text: 'El estudiante "'+info['Nombre1']+'" pasara a estar en estado '+((info['estado']=='Activo')?'"Desactivo"':'"Activo"'),
+                text: 'El estudiante "'+info['Nombre1']+'" pasara a estar en estado '+((info['estado']=='activo')?'"inactivo"':'"activo"'),
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -33,13 +33,13 @@ function cambiarEstado(){
                 if (result.value) {
                     swal(
                     'Cambio realizado!',
-                    'El estudiante "'+info['Nombre1']+'" tiene ahora un estado '+((info['estado']=='Activo')?'"Desactivo"':'"Activo"'),
+                    'El estudiante "'+info['Nombre1']+'" tiene ahora un estado '+((info['estado']=='Activo')?'"inactivo"':'"activo"'),
                     'success'
                     )
-                    if(info['estado']=='Activo'){
-                        cambiarEstadoS(ced,'Desactivo');
+                    if(info['estado']=='activo'){
+                        cambiarEstadoS(ced,'inactivo');
                     } else {
-                        cambiarEstadoS(ced,'Activo');
+                        cambiarEstadoS(ced,'activo');
                     }
                     imprimirLista();
                 }
@@ -95,7 +95,7 @@ function imprimirLista(radioSelected,inputDatoBuscar){
                 let cNombre = fila.insertCell();
                 let cApellido = fila.insertCell();
                 let cCarrera = fila.insertCell();
-                let cHoras = fila.insertCell();
+                // let cHoras = fila.insertCell();
                 let cPerfil = fila.insertCell();
                 let cEstado = fila.insertCell();
                 let cModificar = fila.insertCell();
@@ -104,7 +104,7 @@ function imprimirLista(radioSelected,inputDatoBuscar){
                 cNombre.innerHTML = listaEstudiantes[i]['Nombre1'];          
                 cApellido.innerHTML = listaEstudiantes[i]['apellido1'];
                 cCarrera.innerHTML = listaEstudiantes[i]['carrera'];
-                cHoras.innerHTML = '  0  ';                                                 
+                // cHoras.innerHTML = '  0  ';                                                 
                 cPerfil.innerHTML = '<button type="button" class="btnVerMas" value="'+listaEstudiantes[i]['cedula']+'">Ver mas</button>';
                 cEstado.innerHTML = '<button type="button" class="btnRegistro cambioEstado" value="'+listaEstudiantes[i]['cedula']+'">'+listaEstudiantes[i]['estado']+'</button>';
                 cModificar.innerHTML = '<button type="button" class="btnRegistro modEstudiante" value="'+listaEstudiantes[i]['cedula']+'">Modificar</button>';
