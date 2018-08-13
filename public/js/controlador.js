@@ -362,8 +362,8 @@ function drawChart(chart,info,options,tabla) {
     // Optional; add a title and set the width and height of the chart
     let config = {
            title: 'Test',
-           width: 550,
-           height: 350,
+        //    width: 550,
+        //    height: 350,
            bar: {groupWidth: '10%'},
            vAxis: { gridlines: { count: 4 } }
          };
