@@ -3,6 +3,17 @@ const nodeMailer = require('nodemailer');
 const profesorModel = require('./profesores.model');
 /*const smtp = require('nodemailer-smtp-transport');*/
 
+const transporter = nodeMailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'codeanalytics79@gmail.com',
+        pass: 'sincontrasenna'
+    },
+    tls: {
+        rejectUnauthorized: false
+    }
+});
+
 //Función para registrar un usuario
 module.exports.registrar = function (req, res) {
     //Crea una variable nuevoProfesor utilizando como plantilla el userModel
@@ -33,12 +44,42 @@ module.exports.registrar = function (req, res) {
                 msg: 'No se pudo registrar el usuario, ocurrió el siguiente error' + error
             });
         } else {
-            res.json({
-                success: true,
-                msg: 'El usuario se registró con éxito'
-            });
-        }
 
+            let mailOptions2 = {
+                from: 'codeanalytics79@gmail.com',
+                to: nuevoProfesor.correo,
+                subject: 'Bievenido a Cenfo App',
+                html: 
+                        `
+                <html>
+                <head>
+                    <style>
+                        .tituloPrincipal{
+                            text-decoration: underline;                          
+                        }
+                    </style>
+                </head>
+                <body>
+                    <h1 class='tituloPrincipal'>Bienvenido ${nuevoProfesor.nombre1} ${nuevoProfesor.apellido1}</h1>
+                    <p>Usted ha sido registrado en la plataforma de Cenfotec Software House como ${nuevoProfesor.rol}, para acceder le brindaremos su respectiva contraseña a continuación, esta contraseña es provisional por lo tanto deberá ser cambiada lo antes posible.</p>
+					<p>Contraseña: ${nuevoProfesor.password}</p>
+                    <p>Saludos cordiales.</p>
+                    <p>Cenfotec Software House</p>
+                </body>
+            </html>
+                        `
+            };
+
+
+            transporter.sendMail(mailOptions2, function (error, info) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log('Email sent: ' + info.response);
+                }
+            });
+            res.json({ success: true, msg: 'El usuario se registró con éxitooo' });
+        }
     });
 
 };
@@ -191,25 +232,15 @@ module.exports.cambiar_estado_profesor = function (req, res) {
         });
 };
 
-const transporter = nodeMailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: 'codeanalytics79@gmail.com',
-        pass: 'sincontrasenna'
-    },
-    tls: {
-        rejectUnauthorized: false
-    }
-});
 
-module.exports.reset_professor_password = function(req,res){
-    profesorModel.findById(req.body._id).then(function(profe){
+module.exports.reset_professor_password = function (req, res) {
+    profesorModel.findById(req.body._id).then(function (profe) {
 
-            let mailOptions = {
-                from: 'codeanalytics79@gmail.com',
-                to: profe.correo,
-                subject: 'Bievenido a Cenfo App',
-                html: `
+        let mailOptions = {
+            from: 'codeanalytics79@gmail.com',
+            to: profe.correo,
+            subject: 'Bievenido a Cenfo App',
+            html: `
                 <html>
                 <head>
                     <style>
@@ -226,18 +257,18 @@ module.exports.reset_professor_password = function(req,res){
                 </body>
             </html>
                         `
-            };
+        };
 
-            transporter.sendMail(mailOptions, function (error, info) {
-                if (error) {
-                    console.log(error);
-                } else {
-                    console.log('Email sent: ' + info.response);
-                }
-            });
+        transporter.sendMail(mailOptions, function (error, info) {
+            if (error) {
+                console.log(error);
+            } else {
+                console.log('Email sent: ' + info.response);
+            }
+        });
 
-            res.json({ success: true, msg: 'El usuario se registró con éxito' });
+        res.json({ success: true, msg: 'El usuario se registró con éxito' });
     })
-    
+
 }
 

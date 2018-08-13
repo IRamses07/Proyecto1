@@ -92,7 +92,7 @@ a {
     background-color: #2f3030;
     overflow: hidden;
     /* text-align:  right; */
-    transition: width 0.5s ease-out;
+    transition: width 0.5s ease-out;    
 
 }
 
