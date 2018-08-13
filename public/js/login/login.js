@@ -136,111 +136,279 @@ function getUsers() {
 
 function loadOptionsMenu() {
     let menu = document.getElementById('divMenuLateral');
-    let menuTexto = [];
-    let menuURL = [];
     let userRol = getCurrentUserData()['rol'];
 
     if (userRol == "administrador") {
-        menuTexto = [
-            "Registrar proyectos",
-            // "Agregar estudiantes a proyecto",
-            "Agregar proyectos a profesores",
-            "Listar proyectos",
-            "Listar proyectos en desarrollo",
-            "Registrar clientes",
-            "Listar clientes",
-            "Registrar estudiantes",
-            "Listar estudiantes",
-            "Registrar profesores",
-            "Listar profesores",
-            "Listar tickets",
-            //    "Ver ticket"
-        ];
-        menuURL = [
-            "registrarProyecto.html",
-            // "agregarEstudiantes.html",
-            "agregarProyectosProfesores.html",
-            "listarProyectos.html",
-            "listarProyectosDesarrollo.html",
-            "registroClientes.html",
-            "listarClientes.html",
-            "registrarEstudiante.html",
-            "listarEstudiante.html",
-            "registroProfesores.html",
-            "listarProfesores.html",
-            "listarTickets.html",
-            // "verTicket.html"
-        ];
+
+        let mainMenu = ["Proyectos", "Clientes", "Profesores", "Estudiantes", "Tickets"];
+        for (let i = 0; i < mainMenu.length; i++) {
+            let optionsContainer = document.createElement('div');
+            optionsContainer.id = mainMenu[i];
+            let mainOption = document.createElement('div');
+            mainOption.classList.add('option');
+            /*optionsContainer.onclick = "secundaryMenu(mainMenu[i])";*/
+            optionsContainer.addEventListener('click', function () { secundaryMenu(mainMenu[i]) });
+            let mainLabel = document.createElement('a');
+            mainLabel.classList.add('menuLabel');
+            mainLabel.innerHTML = mainMenu[i];
+            mainLabel.addEventListener('click', function () { secundaryMenu(mainMenu[i]) });
+            mainOption.appendChild(mainLabel);
+            optionsContainer.appendChild(mainOption);
+            menu.appendChild(optionsContainer);
+
+            let menuTexto = [];
+            let menuURL = [];
+
+            if (mainMenu[i] == "Proyectos") {
+                menuTexto = ["Agregar proyectos a profesores", "registrar proyecto", "Listar proyectos", "Listar proyectos en desarrollo"];
+                menuURL = ["agregarProyectosProfesores.html", "registrarProyecto.html", "listarProyectos.html", "listarProyectosDesarrollo.html"];
+            }
+            if (mainMenu[i] == "Clientes") {
+                menuTexto = ["Registrar clientes", "Listar clientes"];
+                menuURL = ["registroClientes.html", "listarClientes.html"];
+            }
+            if (mainMenu[i] == "Profesores") {
+                menuTexto = ["Registrar profesores", "Listar profesores"];
+                menuURL = ["registroProfesores.html", "listarprofesores.html"];
+            }
+            if (mainMenu[i] == "Estudiantes") {
+                menuTexto = ["Registrar estudiantes", "Listar estudiantes"];
+                menuURL = ["registrarEstudiante.html", "listarEstudiante.html"];
+            }
+            if (mainMenu[i] == "Tickets") {
+                menuTexto = ["Listar tickets"];
+                menuURL = ["listarTickets.html"];
+            }
+
+            for (let i = 0; i < menuTexto.length; i++) {
+                let newDiv = document.createElement('div');
+                newDiv.classList.add('option2');
+                /*newDiv.classList.add('hide');*/
+                let newA = document.createElement('a');
+                newA.innerHTML = menuTexto[i];
+                newA.href = menuURL[i];
+                newA.style.display = "block";
+                newA.style.width = "400px";
+                newDiv.appendChild(newA);
+                optionsContainer.appendChild(newDiv);
+
+                if (menuURL[i] == "registroProfesores.html") {
+                    newA.onclick = function () {
+                        sessionStorage.removeItem('professorUpdateLS');
+                    };
+                }
+            }
+        }
     }
 
     if (userRol == "cliente") {
-        menuTexto = [
-            "Listar proyectos",
-            // "Listar proyectos en desarrollo",
-            "Registrar tickets",
-            "Listar tickets",
-            "Visualizar perfil",
-        ];
-        menuURL = [
-            "listarProyectosCliente.html",
-            // "listarProyectosDesarrollo.html",
-            "registroTicket.html",
-            "listarTicketsCliente.html",
-            "perfilCliente.html",
-        ];
+        let mainMenu = ["Proyectos", "Tickets"];
+        for (let i = 0; i < mainMenu.length; i++) {
+            let optionsContainer = document.createElement('div');
+            optionsContainer.id = 'optionsContainer';
+            let mainOption = document.createElement('div');
+            mainOption.classList.add('option');
+            // mainOption.onclick = "secundaryMenu(userRol, mainMenu[i])";
+            /*mainOption.addEventListener('click', function () { secundaryMenu(userRol, mainMenu[i]) });*/
+            let mainLabel = document.createElement('a');
+            mainLabel.classList.add('menuLabel');
+            mainLabel.innerHTML = mainMenu[i];
+            mainOption.appendChild(mainLabel);
+            optionsContainer.appendChild(mainOption);
+            menu.appendChild(optionsContainer);
+
+
+            let menuTexto = [];
+            let menuURL = [];
+
+            if (mainMenu[i] == "Proyectos") {
+                menuTexto = ["Listar proyectos"];
+                menuURL = ["listarProyectosCliente.html"];
+            }
+            if (mainMenu[i] == "Tickets") {
+                menuTexto = ["Registrar tickets", "Listar tickets"];
+                menuURL = ["registroTicket.html", "listarTicketsCliente.html"];
+            }
+
+            for (let i = 0; i < menuTexto.length; i++) {
+                let newDiv = document.createElement('div');
+                newDiv.classList.add('option2');
+                /*newDiv.classList.add('hide');*/
+                let newA = document.createElement('a');
+                newA.innerHTML = menuTexto[i];
+                newA.href = menuURL[i];
+                newA.style.display = "block";
+                newA.style.width = "400px";
+                newA.classList.add('hide');
+                optionsContainer.appendChild(newDiv);
+                if (menuURL[i] == "registroProfesores.html") {
+                    newA.onclick = function () {
+                        sessionStorage.removeItem('professorUpdateLS');
+                    };
+                }
+            }
+        }
+        let profile = document.createElement('div');
+        profile.classList.add('option');
+        let profileLabel = document.createElement('a');
+        profileLabel.classList.add('menuLabel');
+        profileLabel.innerHTML = "Visualizar perfil";
+        profileLabel.href = "perfilCliente.html";
+        profile.appendChild(profileLabel);
+        menu.appendChild(profile);
     }
 
     if (userRol == "profesor") {
-        menuTexto = [
-            "Agregar estudiantes",
-            "Listar clientes",
-            "Listar estudiantes",
-            // "Listar proyectos en desarrollo",
-            "Listar proyectos",
-            "Listar tickets",
-            "Visualizar perfil",
-        ];
-        menuURL = [
-            "agregarEstudiantes.html",
-            "listarClientes.html",
-            "listarEstudiante.html",
-            // "listarProyectosDesarrollo.html",
-            "listarProyectosProfesor.html",
-            "listarTicketsProfesor.html",
-            "perfilProfesor.html",
-            "registroTicket.html",
-        ];
+        let mainMenu = ["Proyectos", "Clientes", "Estudiantes", "Tickets"];
+        for (let i = 0; i < mainMenu.length; i++) {
+            let optionsContainer = document.createElement('div');
+            optionsContainer.id = 'optionsContainer';
+            let mainOption = document.createElement('div');
+            mainOption.classList.add('option');
+            // mainOption.onclick = "secundaryMenu(userRol, mainMenu[i])";
+            /*mainOption.addEventListener('click', function () { secundaryMenu(userRol, mainMenu[i]) });*/
+            let mainLabel = document.createElement('a');
+            mainLabel.classList.add('menuLabel');
+            mainLabel.innerHTML = mainMenu[i];
+            mainOption.appendChild(mainLabel);
+            optionsContainer.appendChild(mainOption);
+            menu.appendChild(optionsContainer);
+
+
+            let menuTexto = [];
+            let menuURL = [];
+
+            if (mainMenu[i] == "Proyectos") {
+                menuTexto = ["Listar proyectos"];
+                menuURL = ["listarProyectosProfesor.html"];
+            }
+            if (mainMenu[i] == "Clientes") {
+                menuTexto = ["Listar clientes"];
+                menuURL = ["listarClientes.html"];
+            }
+
+            if (mainMenu[i] == "Estudiantes") {
+                menuTexto = ["Agregar estudiantes", "Listar estudiantes"];
+                menuURL = ["agregarEstudiantes.html", "listarEstudiante.html"];
+            }
+            if (mainMenu[i] == "Tickets") {
+                menuTexto = ["Listar tickets"];
+                menuURL = ["listarTickets.html"];
+            }
+
+            for (let i = 0; i < menuTexto.length; i++) {
+                let newDiv = document.createElement('div');
+                newDiv.classList.add('option2');
+                /*newDiv.classList.add('hide');*/
+                let newA = document.createElement('a');
+                newA.innerHTML = menuTexto[i];
+                newA.href = menuURL[i];
+                newA.style.display = "block";
+                newA.style.width = "400px";
+                newA.classList.add('hide');
+                optionsContainer.appendChild(newDiv);
+                if (menuURL[i] == "registroProfesores.html") {
+                    newA.onclick = function () {
+                        sessionStorage.removeItem('professorUpdateLS');
+                    };
+                }
+            }
+        }
+        let profile = document.createElement('div');
+        profile.classList.add('option');
+        let profileLabel = document.createElement('a');
+        profileLabel.classList.add('menuLabel');
+        profileLabel.innerHTML = "Visualizar perfil";
+        profileLabel.href = "perfilProfesor.html";
+        profile.appendChild(profileLabel);
+        menu.appendChild(profile);
     }
 
     if (userRol == "estudiante") {
-        menuTexto = [
-            // "Listar estudiantes",
-            "Listar proyectos",
-            "Listar tickets",
-            "Visualizar perfil",
-            "Registrar horas"
-        ];
-        menuURL = [
-            // "listarEstudiante.html",
-            "listarProyectosEstudiante.html",
-            "listarTicketsEstudiante.html",
-            "perfilEstudiante.html",
-            "registrarHoras.html"
-        ];
+        let mainMenu = ["Proyectos", "Tickets"];
+
+        for (let i = 0; i < mainMenu.length; i++) {
+            let optionsContainer = document.createElement('div');
+            optionsContainer.id = 'optionsContainer';
+            let mainOption = document.createElement('div');
+            mainOption.classList.add('option');
+            // mainOption.onclick = "secundaryMenu(userRol, mainMenu[i])";
+            mainOption.addEventListener('click', function () { secundaryMenu(userRol, mainMenu[i]) });
+            let mainLabel = document.createElement('a');
+            mainLabel.classList.add('menuLabel');
+            mainLabel.innerHTML = mainMenu[i];
+            mainOption.appendChild(mainLabel);
+            optionsContainer.appendChild(mainOption);
+            menu.appendChild(optionsContainer);
+
+            let menuTexto = [];
+            let menuURL = [];
+
+            if (mainMenu[i] == "Proyectos") {
+                menuTexto = ["Listar proyectos", "Registrar horas",];
+                menuURL = ["listarProyectosEstudiante.html", "registrarHoras.html"];
+            }
+            if (mainMenu[i] == "Tickets") {
+                menuTexto = ["Listar tickets"];
+                menuURL = ["listarTicketsEstudiante.html"];
+            }
+
+            for (let i = 0; i < menuTexto.length; i++) {
+                let newDiv = document.createElement('div');
+                newDiv.classList.add('option2');
+                /*newDiv.classList.add('hide');*/
+                let newA = document.createElement('a');
+                newA.innerHTML = menuTexto[i];
+                newA.href = menuURL[i];
+                newA.style.display = "block";
+                newA.style.width = "400px";
+                optionsContainer.appendChild(newDiv);
+                if (menuURL[i] == "registroProfesores.html") {
+                    newA.onclick = function () {
+                        sessionStorage.removeItem('professorUpdateLS');
+                    };
+                }
+            }
+        }
+        let profile = document.createElement('div');
+        profile.classList.add('option');
+        let profileLabel = document.createElement('a');
+        profileLabel.classList.add('menuLabel');
+        profileLabel.innerHTML = "Visualizar perfil";
+        profileLabel.href = "perfilEstudiante.html";
+        profile.appendChild(profileLabel);
+        menu.appendChild(profile);
+    }
+}
+
+let menuStatus = false;
+function togglMenu() {
+    let menu = document.querySelector('#divMenuLateral');
+    /*let content = document.querySelector('#content');*/
+    if (!menuStatus) {
+        menu.style.width = "18%";
+        /* content.style.padding = "0 0 0 18%";*/
+        menuStatus = true;
+    } else {
+        menu.style.width = "0px";
+        /*content.style.padding = "0 0 0 0";*/
+        menuStatus = false;
     }
 
-    for (let i = 0; i < menuTexto.length; i++) {
-        let newDiv = document.createElement('div');
-        newDiv.classList.add('option');
-        let newA = document.createElement('a');
-        newA.innerHTML = menuTexto[i];
-        newA.href = menuURL[i];
-        newDiv.appendChild(newA);
-        menu.appendChild(newDiv);
-        if (menuURL[i] == "registroProfesores.html") {
-            newA.onclick = function () {
-                sessionStorage.removeItem('professorUpdateLS');
-            };
+}
+
+let subMenuStatus = false;
+function secundaryMenu(optionContainer) {
+    let subMenu = document.querySelectorAll('#' + optionContainer + '.option2');
+    if (!subMenuStatus) {
+        for (let i = 0; i < subMenu.length; i++) {
+            submenu[i].classList.remove('hide');
+            subMenuStatus = true;
+        }
+    } else {
+        for (let i = 0; i < subMenu.length; i++) {
+            submenu[i].classList.add('hide');
+            subMenuStatus = false;
         }
     }
 }

@@ -17,6 +17,7 @@ module.exports.registrar = function (req, res) {
         rol: req.body.rol,
         password: req.body.password,
         passwordChange: req.body.passwordChange,
+        estado: req.body.estado
     });
 
     nuevoAdmin.save(function (error) {
