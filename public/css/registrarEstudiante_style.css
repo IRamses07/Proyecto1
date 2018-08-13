@@ -219,3 +219,7 @@ textarea {
 }
 
 /*Cambios de boton siguiente*/
+
+header, .mainHeader{
+    z-index: 55;
+}
