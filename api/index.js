@@ -61,13 +61,14 @@ app.use( function(req, res, next) {
  */
 const profesores = require('./components/profesores/profesores.route');
 
-const clientes= require('./components/clientes/client.route')
+const clientes= require('./components/clientes/client.route');
 const proyectos = require('./components/proyectos/proyecto.route');
 
 const estudiantes = require('./components/estudiantes/estudiante.route');
 
 const tickets = require('./components/tickets/ticket.route');
 const administrador = require('./components/admin/administrador.route');
+const chat = require('./components/chat/chat.route.js');
 /**
  * Le indicamos que le de acceso externo a las rutas inicializadas
  */
@@ -81,9 +82,42 @@ app.use('/api', administrador)
 
 app.use('/api', proyectos );
 app.use('/api', tickets);
+app.use('/api',chat);
 // Se guarda todo lo que se ha realizado
 module.exports = app;
 
 function _server(){
   console.log('Conexión con el back-end establecida en el puerto ' + port);
 };
+
+
+
+//socket.io>
+// const express2 = require('express');
+// const app2 = express();
+// const server2 = require('http').createServer(app2);
+// const io = require('socket.io').listen(server2);
+    
+//     io.sockets.on('connection', function(socket){
+//         console.log('Connected: sockets connected');
+
+//         socket.on('disconnect', function(data){
+//           connections.splice(connections.indexOf(socket),1);
+//           console.log('Disconnected: sockets disconnected');
+//         });
+//     });
+
+
+// app2.use( function(req, res, next) {
+//   res.setHeader('Access-Control-Allow-Origin', '*');
+//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+//   res.setHeader('Access-Control-Allow-Headers', 'Origin, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, X-Response-Time, X-PINGOTHER, X-CSRF-Token,Authorization');
+//   res.setHeader('Access-Control-Allow-Credentials', true);
+//   next();
+// });
+
+// const chat= require('./components/chat/chat.route.js');
+// app2.use('/api',chat);
+
+// module.exports = app2;
+
