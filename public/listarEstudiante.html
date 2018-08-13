@@ -5,16 +5,12 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/generalStyle.css">
     <link rel="stylesheet" href="css/notificaciones.css">
     <link rel="stylesheet" href="css/listarEstudiante.css">
-    <link rel="stylesheet" href="css/chat.css">
     <title>Lista de Estudiantes</title>
 </head>
 
@@ -68,7 +64,7 @@
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Carrera</th>
-                    <!--<th>Horas</th>-->
+                    <th>Horas</th>
                     <th>Perfil</th>
                     <th>Estado</th>
                     <th>Modificar</th>
@@ -77,20 +73,12 @@
                 </tbody>
             </table>
         </div>
-
-
-        <div class="chatContainer" id="chatContainer"></div>
-        <div id="minimizarChat" class="btnChat">Chat</div>
-
-
     </main>
     <footer></footer>
     <script src="js/jquery-3.3.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
-    <script type="text/javascript" src="/public/js/Chat/chat.service.js"></script>
-    <script type="text/javascript" src="/public/js/Chat/chat.controlador.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
+    <!--<script src="js/Estudiante/registrarEstudiante_servicio.js"></script>-->
+    <!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
     <script src="js/Login/login.js"></script>
     <script src="js/Notificaciones/notificaciones.js"></script>
     <script src="js/Estudiante/registrarEstudiante_servicio.js"></script>

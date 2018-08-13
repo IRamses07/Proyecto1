@@ -1,6 +1,5 @@
 'use strict';
 const ticketModel = require('./ticket.model');
-const emails = require('../correos/correos.js');
 
 module.exports.registrar = function (req, res) {
     let nuevoTicket = new ticketModel({

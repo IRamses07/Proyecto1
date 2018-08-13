@@ -102,6 +102,3 @@ function setAdmin1() {
         setAdmin();
     }
 }
-
-let listaRooms=[];
-sessionStorage.setItem("rommies", JSON.stringify(listaRooms));

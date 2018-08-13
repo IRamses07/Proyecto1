@@ -5,74 +5,60 @@ imprimirListaProyectos();
 
 
 let btnBuscar = document.querySelector('#btnBuscarProyecto');
-let inputDatoBuscar = document.querySelector('#inputBuscar');
 
 
-// inputFiltro.addEventListener('keyup', function () {
-//     imprimirListaProyectos(inputFiltro.value)
-// });
-
-btnBuscar.addEventListener('click', function () {
-    let radioSelected = document.querySelector('#form input[type="radio"]:checked');
-    imprimirListaProyectos(radioSelected.value, inputDatoBuscar.value);
+inputFiltro.addEventListener('keyup', function () {
+    imprimirListaProyectos(inputFiltro.value)
 });
 
-function imprimirListaProyectos(radioSelected, inputDatoBuscar) {
+function imprimirListaProyectos(pFiltro) {
 
     let infoProyecto = obtenerListaProyectos();
     let tbody = document.querySelector('#tblProyectos tbody');
-    tbody.innerHTML = '';
-
-    if (!radioSelected) {
-        radioSelected = 'identificacion_juridica';
+    if (!pFiltro) {
+        pFiltro = '';
     }
-    if (!inputDatoBuscar) {
-        inputDatoBuscar = '';
-    }
+    tbody.innerHTML = ' ';
 
     for (let i = 0; i < infoProyecto.length; i++) {
-        if (infoProyecto[i][radioSelected].toLowerCase().includes(inputDatoBuscar.toLowerCase())) {
-            {
-                let fila = tbody.insertRow();
+        if (infoProyecto[i]['nombre_proyecto'].toLowerCase().includes(pFiltro.toLowerCase()) || infoProyecto[i]['identificacion_juridica'].toLowerCase().includes(pFiltro.toLowerCase())) {
+            let fila = tbody.insertRow();
 
-                let cCedulaJuridica = fila.insertCell();
-                let cNombreProyecto = fila.insertCell();
-                let cNombreCliente = fila.insertCell();
-                let cFechaEntrega = fila.insertCell();
-                let verMas = fila.insertCell();
-                let Modificar = fila.insertCell();
+            let cCedulaJuridica = fila.insertCell();
+            let cNombreProyecto = fila.insertCell();
+            let cNombreCliente = fila.insertCell();
+            let cFechaEntrega = fila.insertCell();
+            let verMas = fila.insertCell();
+            let Modificar = fila.insertCell();
 
-                let boton = document.createElement("input");
-                boton.type = "button";
-                boton.value = "Ver más";
-                boton.classList.add('btnRegistro');
+            let boton = document.createElement("input");
+            boton.type = "button";
+            boton.value = "Ver más";
+            boton.classList.add('btnRegistro');
 
-                let botonM = document.createElement("input");
-                botonM.type = "button";
-                botonM.value = "Modificar";
-                botonM.classList.add('btnRegistro');
-                botonM.classList.add('modProyecto')
-                botonM.dataset._id = infoProyecto[i]['_id'];
+            let botonM = document.createElement("input");
+            botonM.type = "button";
+            botonM.value = "Modificar";
+            botonM.classList.add('btnRegistro');
+            botonM.classList.add('modProyecto')
+            botonM.dataset._id = infoProyecto[i]['_id'];
 
 
-                cCedulaJuridica.innerHTML = infoProyecto[i]['identificacion_juridica'];
-                cNombreProyecto.innerHTML = infoProyecto[i]['nombre_proyecto'];
-                cNombreCliente.innerHTML = infoProyecto[i]['nombre_cliente'];
-                cFechaEntrega.innerHTML = infoProyecto[i]['fecha_Entrega'];
-                verMas.appendChild(boton);
-                Modificar.appendChild(botonM);
-
+            cCedulaJuridica.innerHTML = infoProyecto[i]['identificacion_juridica'];
+            cNombreProyecto.innerHTML = infoProyecto[i]['nombre_proyecto'];
+            cNombreCliente.innerHTML = infoProyecto[i]['nombre_cliente'];
+            cFechaEntrega.innerHTML = infoProyecto[i]['fecha_Entrega'];
+            verMas.appendChild(boton);
+            Modificar.appendChild(botonM);
 
 
 
-            }
 
         }
 
     }
+
 }
-
-
 modificaProyecto();
 function modificaProyecto() {
 
@@ -87,4 +73,4 @@ function modificaProyecto() {
         })
     });
 
-} 
+}
