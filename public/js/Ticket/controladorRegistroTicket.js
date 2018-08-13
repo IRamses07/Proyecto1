@@ -109,7 +109,7 @@ function limpiarFormulario() {
 function listarSelectProyectos() {
     let selectProy = getCurrentUserData()['proyectos'];
     let select = document.querySelector('#sltProyecto');
-    select.options[0] = new Option("Seleccione un proyecto...", );
+    select.options[0] = new Option("Seleccione un proyecto...",'' );
 
     for (let i = 0; i < selectProy.length; i++) {
         if(selectProy[i]['estado_proyecto'] = 'mantenimiento'){  

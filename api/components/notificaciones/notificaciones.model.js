@@ -10,7 +10,8 @@ let notificiaconSchema = new mongoose.Schema({
         rol: {type: String, required: true}
     },
     tipo: {type: String, required: true},
-    referecia: {type: String, required: true}
+    referecia: {type: String, required: true},
+    texto: {type:String, required: true}
 });
 
 module.exports = mongoose.model('Notificacion',notificiaconSchema );
