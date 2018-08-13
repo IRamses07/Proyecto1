@@ -18,7 +18,8 @@ function setAdmin() {
             profesion: 'Administración de empresas',
             rol: 'administrador',
             password: 'admin',
-            passwordChange: 0
+            passwordChange: 0,
+            estado: "activo"
             /*profesion: infoProfesor.profesion*/
         }
     });
@@ -218,6 +219,24 @@ function setNewPassword(_id, newPassword, rol) {
     });
     updateCurrentUser();
 }
+
+function getUserStatus(psId){
+	let allUsers = getUsers();
+	let userData = '';
+	let userFounded = false;
+	for(let i = 0; i<allUsers.length&&!userFounded; i++){
+		for(let j = 0; j<allUsers[i].length&&!userFounded; j++){
+			if(allUsers[i][j]['cedula']==psId || allUsers[i][j]['cedula_juridica']==psId){
+				userData = allUsers[i][j]['estado'];
+				userFounded = true;
+				console.log('usuario encontrado');
+			}
+		}
+	}
+	return userData;
+}
+
+
 
 
 

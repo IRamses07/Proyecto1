@@ -16,6 +16,8 @@
     <header>
         <nav>
             <div class="mainHeader">
+                <label for="" class="menuPrincipal" onclick="togglMenu()">
+                    <i class="fas fa-align-justify"></i>Menú</label>
                 <a id="notificacion" class="fLeft">
                     <i class="fas fa-bell"></i> Notificaciones</a>
                 <label for="">Bienvenido: </label>
@@ -26,7 +28,6 @@
             </div>
 
             <div class="menuLateral" id="divMenuLateral">
-                <i class="fas fa-align-justify"></i>
             </div>
         </nav>
 
@@ -47,14 +48,14 @@
         <form id="busqueda" class="fmr">
             <div class="fLeft">
                 <div class="fLeft">
-
+                    <input type="text" id="filtro" class='' placeholder="Buscar ...">
+                    <button id="btnBuscar" class="btnFiltro" type="button" class="">Buscar</button>
+                </div>
+                <div class="fLeft">
                     <input type="radio" name="filtro" value="nombre" checked>
                     <label for="">Nombre</label>
                 </div>
-                <div class="fRight">
-                    <input type="text" id="filtro" class='' placeholder="&#xF002; ...">
-                    <button id="btnBuscar" class="btnFiltro" type="button" class="">Buscar</button>
-                </div>
+
                 <div class="fLeft">
 
                     <input type="radio" name="filtro" value="cedula_juridica">
@@ -107,7 +108,7 @@
     </footer>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <script src="js/jquery-3.3.1.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="/public/js/Chat/chat.service.js"></script>
     <script type="text/javascript" src="/public/js/Chat/chat.controlador.js"></script>

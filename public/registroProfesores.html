@@ -20,20 +20,22 @@
 <body>
     <header>
         <div class="mainHeader">
+                <label for="" class="menuPrincipal" onclick="togglMenu()">
+                        <i class="fas fa-align-justify"></i>Menú</label>
             <a id="notificacion" class="fLeft">
                 <i class="fas fa-bell"></i> Notificaciones</a>
-                <label for="">Bienvenido: </label>
-                <output id="txtnombreCliente" value=""></output>
+            <label for="">Bienvenido: </label>
+            <output id="txtnombreCliente" value=""></output>
             <a href="javascript:logOut();" class="fRight">Cerrar sesión
                 <i class="fas fa-cog"></i>
             </a>
         </div>
 
         <div class="menuLateral" id="divMenuLateral">
-            <i class="fas fa-align-justify"></i>
         </div>
 
     </header>
+
     <main id="content">
         <div class="modal none" id="modal">
             <div class="ModalNotificaciones">
@@ -50,65 +52,65 @@
 
 
 
-            <form id="fmrRegitroProfesor" class="fmr">
-                <h1 id="tituloPrincipal"></h1>
-                <ul class="tabs" id="tabs">
-                    <li id="tab1" class="tabs__item activeTab">Datos personales</li>
-                </ul>
-                <div class="mainContainer panels__item activePanel">
-                    <h2>Datos personales</h2>
-                    <div id="leftContainer">
-                        <div>
-                            <label for="nombre1" class="lblInput">Primer nombre</label>
-                            <input type="text" id="txtNombre1" placeholder="Ejm: Luis" required>
-                            <label for="" class="lblHide lblError">a</label>
-                        </div>
-                        <div>
-                            <label for="apellido1" class="lblInput">Primer apellido</label>
-                            <input type="text" id="txtApellido1" placeholder="Ejm: Chinchilla" required>
-                            <label for="" class="lblHide lblError">a</label>
-                        </div>
-                        <div>
-                            <label for="cedula" class="lblInput">Cédula</label>
-                            <input type="text" id="txtCedula" placeholder="Ejm: 116950050" required>
-                            <label for="" class="lblHide lblError" id="lblCedulaError">Número de cédula ya registrado</label>
-                        </div>
-                        <div>
-                            <label for="telefono" class="lblInput">Teléfono</label>
-                            <input type="tel" id="txtTelefono" placeholder="Ejm: 88957182" required>
-                            <label for="" class="lblHide lblError" id="lblTelError">Número inválido</label>
-                        </div>
+        <form id="fmrRegitroProfesor" class="fmr">
+            <h1 id="tituloPrincipal"></h1>
+            <ul class="tabs" id="tabs">
+                <li id="tab1" class="tabs__item activeTab">Datos personales</li>
+            </ul>
+            <div class="mainContainer panels__item activePanel">
+                <h2>Datos personales</h2>
+                <div id="leftContainer">
+                    <div>
+                        <label for="nombre1" class="lblInput">Primer nombre</label>
+                        <input type="text" id="txtNombre1" placeholder="Ejm: Luis" required>
+                        <label for="" class="lblHide lblError">a</label>
                     </div>
-                    <div id="rightContainer">
-                        <div>
-                            <label for="nombre2" class="lblInput">Segundo nombre</label>
-                            <input type="text" id="txtNombre2" placeholder="Ejm: Andrés">
-                            <label for="" class="lblHide lblError">a</label>
-                        </div>
-
-                        <div>
-                            <label for="apellido2" class="lblInput">Segundo apellido</label>
-                            <input type="text" id="txtApellido2" placeholder="Ejm: Molina">
-                            <label for="" class="lblHide lblError">a</label>
-                        </div>
-
-                        <div>
-                            <label for="correoElectronico" class="lblInput">Correo electrónico</label>
-                            <input type="email" id="txtCorreo" placeholder="Ejm: lchinchillaa@gmail.com" required>
-                            <label for="" class="lblHide lblError" id="lblCorreoError">Correo inválido</label>
-                        </div>
-
-                        <div>
-                            <label for="profesion" class="lblInput">Profesión</label>
-                            <input type="text" id="txtProfesion" placeholder="Ejm: Arquitectura" required>
-                            <label for="" class="lblHide lblError" id="lblProfesionError">Ha ingresado un caractér inválido</label>
-                        </div>
+                    <div>
+                        <label for="apellido1" class="lblInput">Primer apellido</label>
+                        <input type="text" id="txtApellido1" placeholder="Ejm: Chinchilla" required>
+                        <label for="" class="lblHide lblError">a</label>
                     </div>
-                    <button type="button" class="btnRegistro" id="btnRegistro">Registrar</button>
-                    <button type="button" class="btnRegistro" id="btnUpdate">Modificar</button>
+                    <div>
+                        <label for="cedula" class="lblInput">Cédula</label>
+                        <input type="text" id="txtCedula" placeholder="Ejm: 116950050" required>
+                        <label for="" class="lblHide lblError" id="lblCedulaError">Número de cédula ya registrado</label>
+                    </div>
+                    <div>
+                        <label for="telefono" class="lblInput">Teléfono</label>
+                        <input type="tel" id="txtTelefono" placeholder="Ejm: 88957182" required>
+                        <label for="" class="lblHide lblError" id="lblTelError">Número inválido</label>
+                    </div>
                 </div>
-                
-            </form>
+                <div id="rightContainer">
+                    <div>
+                        <label for="nombre2" class="lblInput">Segundo nombre</label>
+                        <input type="text" id="txtNombre2" placeholder="Ejm: Andrés">
+                        <label for="" class="lblHide lblError">a</label>
+                    </div>
+
+                    <div>
+                        <label for="apellido2" class="lblInput">Segundo apellido</label>
+                        <input type="text" id="txtApellido2" placeholder="Ejm: Molina">
+                        <label for="" class="lblHide lblError">a</label>
+                    </div>
+
+                    <div>
+                        <label for="correoElectronico" class="lblInput">Correo electrónico</label>
+                        <input type="email" id="txtCorreo" placeholder="Ejm: lchinchillaa@gmail.com" required>
+                        <label for="" class="lblHide lblError" id="lblCorreoError">Correo inválido</label>
+                    </div>
+
+                    <div>
+                        <label for="profesion" class="lblInput">Profesión</label>
+                        <input type="text" id="txtProfesion" placeholder="Ejm: Arquitectura" required>
+                        <label for="" class="lblHide lblError" id="lblProfesionError">Ha ingresado un caractér inválido</label>
+                    </div>
+                </div>
+                <button type="button" class="btnRegistro" id="btnRegistro">Registrar</button>
+                <button type="button" class="btnRegistro" id="btnUpdate">Modificar</button>
+            </div>
+
+        </form>
                     <div class="chatContainer" id="chatContainer"></div>
         <div id="minimizarChat" class="btnChat">Chat</div>
         
