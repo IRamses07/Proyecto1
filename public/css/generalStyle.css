@@ -8,6 +8,21 @@ body{
     
 }
 
+
+/* body    {
+    background-color: #000000;
+    color: #FFFFFF;
+    padding: 20px;
+    font: 18px Arial, Tahoma;
+    } */
+
+
+    .box {
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgb(255, 255, 255);
+    }
+
 /* id que va dentro del main. estilo del main espacio que da entre el menulateral y el contenido */
 #content{
  padding-left: 1%; 
@@ -120,7 +135,6 @@ header .menuLateral:hover ~ #content{
 
 /* estilo del error de los inputs */
 .error, .error_input{
-    border: 2px  #d63031;
     box-shadow: 0 0 1em #ff0000
 }
 

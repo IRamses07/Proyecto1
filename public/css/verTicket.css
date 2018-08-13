@@ -3,7 +3,7 @@
     margin: 20px auto;
 }
 
-#viewTicket h1 {
+#viewTicket h1 , #viewTicket2 h1 {
     font-size: 2.3em;
      text-align: center;
 }
@@ -20,7 +20,7 @@
     width: 45%;
     margin-top: 10px; 
 }
- .datos .uno , .dos {
+  .uno , .dos {
     margin-bottom: 10px;
  }
 
@@ -69,6 +69,7 @@
  .botones {
      width: 100%;
      margin: 10px auto;
+     text-align: center;
  }
 
 .disabled {
@@ -96,3 +97,92 @@ textarea::-webkit-input-placeholder {
      font-family: 'Roboto', sans-serif, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial;
     }
 
+/* Stilo paneles asignar ticket */
+.form{
+    display: flow-root;
+    width: 95%;
+    margin: 50px auto;
+}
+
+.panels__item{
+    /*left: -1000%;*/
+    top: -1000%;
+    border: 2px solid #fbb876;
+    width: 80%;
+    border-radius: 35px;
+    border-top-left-radius: 0%;
+}
+.activePanel{
+    position: relative;
+    left: 0;
+}
+
+.tabs-container{
+    position: relative;
+    /*width: 500px;*/
+    margin: 2em auto;
+    margin-left: 17%;
+}
+
+.tabs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.tabs__item{
+    border: 1px solid #fbb803;
+    border-bottom: none;
+    line-height: 2.5;
+    padding: 0 1em;
+    margin-right: 1px;
+    background: #fbb803;
+    border-radius: 5px 5px 0 0;
+    top: 1px;
+    z-index: 0;
+    cursor: pointer;
+}
+.activeTab{
+    background: #fbb876;
+    z-index: 0;
+}
+
+#viewTicket2 {
+    width: 100%;
+    margin: 40px 0;
+}
+ .first {
+     width: 60%;
+     margin: 0 auto;
+ }
+.dato1 {
+    float: left;
+}
+.dato2 {
+    float: right;
+}
+
+
+#asignacion {
+    margin: 150px 0px;
+}
+
+.muestraEstudiantes {
+    width: 70%;
+    margin: 40px auto;
+}
+
+.asignar {
+    width: 100%;
+    margin: 0 auto;
+}
+
+#asignarDatos{
+    padding: 5px 8%;
+
+}
+
+.far .fa-trash-alt {
+ color: #e6312b;
+}

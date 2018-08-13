@@ -115,7 +115,7 @@ if(desc == ""){
     let idpar =   tickDa[0]['_id']  ;
     optEst.value = estado;
     optEst.classList.add("color");
-    // cambiarEstadoTicket(idpar, estado);
+    cambiarEstadoTicket(idpar, estado);
 }
 
 function cancelar(){
