@@ -5,7 +5,7 @@ function registrarEstudiante(infoEstudiante) {
     let respuesta = '';
     let cursos = JSON.stringify(listaCursos);
     let peticion = $.ajax({
-        url: 'http://localhost:4000/api/registrar_estudiante',          //los defino en users.route.js
+        url: 'http://localhost:4000/api/registrar_estudiante', 
         type: 'post',
         contentType: 'application/x-www-form-urlencoded; charset=utf-8',
         dataType: 'json',

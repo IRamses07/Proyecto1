@@ -2,6 +2,17 @@
 const nodeMailer = require('nodemailer');
 const clientModel = require('./client.model');
 
+const transporter = nodeMailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'codeanalytics79@gmail.com',
+        pass: 'sincontrasenna'
+    },
+    tls: {
+        rejectUnauthorized: false
+    }
+});
+
 module.exports.registrar = function (req, res) {
 
     let nuevoCliente = new clientModel({
@@ -24,6 +35,7 @@ module.exports.registrar = function (req, res) {
         foto: req.body.foto,
         estado: 1
     });
+
     nuevoCliente.save(function (error) {
         if (error) {
             res.json({
@@ -31,6 +43,40 @@ module.exports.registrar = function (req, res) {
                 msj: 'El cliente no pudo ser registrado, ocurrió el siguiente error' + error
             });
         } else {
+			
+			    let mailOptions2 = {
+                from: 'codeanalytics79@gmail.com',
+                to: nuevoCliente.correo_electronico,
+                subject: 'Bievenido a Cenfo App',
+                html: 
+                        `
+                        <html>
+                        <head>
+                            <style>
+                                .tituloPrincipal{
+                                    text-decoration: underline;                          
+                                }
+                            </style>
+                        </head>
+                        <body>
+                            <h1 class='tituloPrincipal'>Bienvenido ${nuevoCliente.nombre}</h1>
+                            <p>Usted ha sido registrado en la plataforma de Cenfotec Software House como ${nuevoCliente.rol}, para acceder le brindaremos su respectiva contraseña a continuación, esta contraseña es provisional por lo tanto deberá ser cambiada lo antes posible.</p>
+                            <p>Contraseña: ${nuevoCliente.password}</p>
+                            <p>Saludos cordiales.</p>
+                            <p>Cenfotec Software House</p>
+                        </body>
+                    </html>
+                                `
+            };
+
+            transporter.sendMail(mailOptions2, function (error, info) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log('Email sent: ' + info.response+error);
+                }
+            });
+			
             res.json({
                 succes: true,
                 msj: 'El cliente fue registrado con éxito'
@@ -129,17 +175,6 @@ module.exports.buscar = function (req, res) {
             res.send(clientes);
         });
 };
-
-const transporter = nodeMailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: 'codeanalytics79@gmail.com',
-        pass: 'sincontrasenna'
-    },
-    tls: {
-        rejectUnauthorized: false
-    }
-});
 
 module.exports.reset_client_password = function(req,res){
     clientModel.findById(req.body._id).then(function(client){
