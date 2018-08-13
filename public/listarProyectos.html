@@ -23,12 +23,12 @@
 
     <header>
         <div class="mainHeader">
-                <label for="" class="menuPrincipal" onclick="togglMenu()">
-                        <i class="fas fa-align-justify"></i>Menú</label>
+            <label for="" class="menuPrincipal" onclick="togglMenu()">
+                <i class="fas fa-align-justify"></i>Menú</label>
             <a id="notificacion" class="fLeft">
                 <i class="fas fa-bell"></i> Notificaciones</a>
-                <label for="">Bienvenido: </label>
-                <output id="txtnombreCliente" value=""></output>
+            <label for="">Bienvenido: </label>
+            <output id="txtnombreCliente" value=""></output>
             <a href="javascript:logOut();" class="fRight">Cerrar sesión
                 <i class="fas fa-cog"></i>
             </a>
@@ -40,48 +40,50 @@
     </header>
 
     <main id="content">
-            <div class="modal none" id="modal">
-                    <div class="ModalNotificaciones">
-                        <a>X</a>
-                        <table id="tblNotificacion">
-                            <thead>
-                                <th>Notificaciones</th>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-                </div>
+        <div class="modal none" id="modal">
+            <div class="ModalNotificaciones">
+                <a>X</a>
+                <table id="tblNotificacion">
+                    <thead>
+                        <th>Notificaciones</th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
         <h1></h1>
         <h1>Listar Proyectos</h1>
 
         <div class="flitrarProyectos">
             <div class="filtrarEstudiante">
                 <form action="" class="contFormulario2" id="form">
-                        <label for="cliente">Buscar por:</label>
-                        <input type="radio" checked="checked" value="nombre_proyecto" name="radioSelect"/><label for="cliente">Nombre del proyecto</label>
-                        <input type="radio" value="identificacion_juridica" name="radioSelect"/><label for="cliente">Cedula juridica</label>
-                        <input type="text" id="inputBuscar" />
-                        <label id="errorInput"></label>
-                        <button type="button" id="btnBuscarProyecto" class="btnRegistro">Buscar</button>
+                    <label for="cliente">Buscar por:</label>
+                    <input type="radio" checked="checked" value="nombre_proyecto" name="radioSelect" />
+                    <label for="cliente">Nombre del proyecto</label>
+                    <input type="radio" value="identificacion_juridica" name="radioSelect" />
+                    <label for="cliente">Cedula juridica</label>
+                    <input type="text" id="inputBuscar" />
+                    <label id="errorInput"></label>
+                    <button type="button" id="btnBuscarProyecto" class="btnRegistro">Buscar</button>
                 </form>
             </div>
 
 
-           
 
 
-            </div>
 
         </div>
 
-        <div  class="tabla">
+        </div>
+
+        <div class="tabla">
             <table id="tblProyectos" class="tblProyectos">
                 <thead>
                     <th>Cédula Jurídica</th>
                     <th>Nombre del proyecto</th>
                     <th>Nombre del cliente</th>
                     <th>Fecha de entrega</th>
-                    <th>Ver más</th>
+
                     <th>Modificar</th>
                 </thead>
                 <tbody>
@@ -90,7 +92,7 @@
             </table>
         </div>
 
-                <div class="chatContainer" id="chatContainer"></div>
+        <div class="chatContainer" id="chatContainer"></div>
         <div id="minimizarChat" class="btnChat">Chat</div>
 
 
@@ -101,7 +103,7 @@
 
     </footer>
     <script src="js/Proyecto/jquery-3.3.1.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="/public/js/Chat/chat.service.js"></script>
