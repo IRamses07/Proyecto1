@@ -67,6 +67,8 @@ function imprimirListaProyectos(radioSelected, inputDatoBuscar) {
     }
 
 }
+}
+
 modificaProyecto();
 function modificaProyecto() {
 
