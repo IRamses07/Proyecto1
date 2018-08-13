@@ -33,6 +33,9 @@ router.route('/cambiar_estado')
     tickets.estadoTicket(req,res);
 });
 
-
+router.route('/comentar_ticket')
+.post(function(req,res){
+    tickets.comentarios(req,res);
+});
 
 module.exports = router;

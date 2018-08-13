@@ -9,7 +9,14 @@ let ticketSchema = new mongoose.Schema({
     referencia_ticket : {type : String},
     descripcion : {type : String, required : true},
     estado: {type: String, required: true},
-    codigo: {type: String, required: true}
+    codigo: {type: String, required: true},
+    comentarios : [
+        {
+            tipo : {type : String},
+            autor : {type : String},
+            texto : {type : String}
+        }
+    ]
 });
 
 module.exports = mongoose.model('Ticket', ticketSchema);

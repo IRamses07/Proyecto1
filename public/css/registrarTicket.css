@@ -111,8 +111,8 @@ div .blockLeft {
     overflow-x: hidden;
 }
 
-#tblTicketCliente cuerpoTbla {
-display: none;
+#tblTicketCliente td {
+    text-align: center;
 }
 
 
@@ -208,6 +208,3 @@ h1 {
     height: 235px;
     margin-top: 6px;
 }
-
-
-

@@ -30,99 +30,109 @@
                     </a>
                 </div>
 
-        
 
     </header>
     <div class="menuLateral" id="divMenuLateral">
         </div>
 
     <main id="content">
-            <div class="modal none" id="modal">
-                    <div class="ModalNotificaciones">
-                        <a>X</a>
-                        <table id="tblNotificacion">
-                            <thead>
-                                <th>Notificaciones</th>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-        
-                </div>
+        <div class="modal none" id="modal">
+            <div class="ModalNotificaciones">
+                <a>X</a>
+                <table id="tblNotificacion">
+                    <thead>
+                        <th>Notificaciones</th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+        </div>
         <section id="viewTicket1">
             <h1>Ticket</h1>
             <div class="info">
-            <label for="">Código:</label>
-            <output id="cod"></output>
-        </div>
-        <div class="bigOne">
-            <div class="datos">
+                <label for="">Código:</label>
+                <output id="cod"></output>
+            </div>
+            <div class="bigOne">
+                <div class="datos">
                     <div class="dato">
                         <div class="uno">
                             <label for="">Proyecto:</label>
                             <output id="proyecto"></output>
                         </div>
                         <div class="dos">
-                        <label for="">Urgencia:</label>
-                <output id="urgencia"></output>
-            </div>
-            </div>
-            <div class="dato">
-                    <div class="uno">
-                        <label for="">Cliente:</label>
-                        <output id="cliente"></output>
+                            <label for="">Urgencia:</label>
+                            <output id="urgencia"></output>
+                        </div>
                     </div>
-                    <div class="dos">
-                    <label for="">Estado:</label>
-            <output id="estado"></output>
-        </div>
-        </div>
+                    <div class="dato">
+                        <div class="uno">
+                            <label for="">Cliente:</label>
+                            <output id="cliente"></output>
+                        </div>
+                        <div class="dos">
+                            <label for="">Estado:</label>
+                            <output id="estado"></output>
+                        </div>
+                    </div>
 
-                <div class="dato">
-                <div class="uno">
-                    <label for="" class="descripcion">Descripción</label>
+                    <div class="dato">
+                        <div class="uno">
+                            <label for="" class="descripcion">Descripción</label>
+                        </div>
+                        <div class="dos">
+                            <output id="descripcion"></output>
+                        </div>
+                    </div>
                 </div>
-                <div class="dos">
-                <output id="descripcion"></output>
-            </div>
-            </div>
-            </div>
 
-            <div class="datos">
+                <div class="datos">
                     <div class="dato boxImg">
                         <img alt="Foto" class="imgErrorContainer" id="imgErr">
                     </div>
                 </div>
             </div>
 
-            <div class="botones">
-                    <div class="editar boton">
-                        <button type="button" id="editar" class="btnRegistro">Modificar</button>
+            <div class="bigOne2 cajaSolucion">
+                <div class="datos2">
+                    <div class="comentarOu">
+                        <h4>Descripción de la solución</h4>
+                        <output id="solucion"></output>
                     </div>
-    
-                    <div class="aprobar boton">
-                            <button type="button" id="btnAprobar" class="btnRegistro">Aprobar</button>
-                    </div>
-    
-                    <div class="rechazar boton">
-                            <button type="button" id="btnRechazar" class="btnRegistro">Rechazar</button>
-                    </div>
+                </div>
+            </div>
+        </section>
 
-                    <div class="comentar boton">
-                        <button type="button" id="btnComentar" class="btnRegistro">Comentar ticket</button>
+        <section id="buttons">
+            <div class="botones">
+                <div class="editar boton">
+                    <button type="button" id="editar" class="btnRegistro">Modificar</button>
+                </div>
+
+                <div class="aprobar boton">
+                    <button type="button" id="btnAprobar" class="btnRegistro">Aprobar</button>
+                </div>
+
+                <div class="rechazar boton">
+                    <button type="button" id="btnRechazar" class="btnRegistro">Rechazar</button>
+                </div>
+
+                <div class="comentar boton">
+                    <button type="button" id="btnComentar" class="btnRegistro">Comentar ticket</button>
                 </div>
                 <div class="cerrar boton">
                     <button type="button" id="btnCerrar" class="btnRegistro">Cerrar ticket</button>
-            </div>
-
-            <div class="asignar boton">
-                    <button type="button" id="btnAsignar" class="btnRegistro">Asignar ticket</button>
-            </div>
                 </div>
+
+                <div class="asignar boton">
+                    <button type="button" id="btnAsignar" class="btnRegistro">Asignar ticket</button>
+                </div>
+            </div>
         </section>
 
 
-       
+
     </main>
 
     <script src="js/jquery-3.3.1.js"></script>
