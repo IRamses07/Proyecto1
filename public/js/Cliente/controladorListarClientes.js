@@ -37,6 +37,7 @@ function llenarTabla(filro) {
                 verMas = createElm('a');
             verMas.innerHTML = 'Ver más';
             verMas.dataset.cedulaJuridica = lista[i].cedula_juridica;
+            verMas.classList.add('brasuca');
             verUbicacion.dataset.ubicacion = lista[i].ubicacion; 
             proyectos.appendChild(verMas);
             verUbicacion.innerHTML = 'Ver ubicación';
@@ -58,4 +59,18 @@ function llenarTabla(filro) {
         }
 
     }
+}
+
+
+
+brasucas();
+function brasucas(){
+    let brasuca = document.querySelectorAll('.brasuca');
+    brasuca.forEach(function(elem){
+        elem.addEventListener("click", function(){
+            let cedjur = elem.dataset.cedulaJuridica;
+            localStorage.setItem('cedjur',cedjur);
+            document.location.href = 'perfilCliente.html';
+        })
+    });
 }

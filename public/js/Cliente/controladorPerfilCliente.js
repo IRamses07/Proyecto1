@@ -14,6 +14,12 @@ function getInfo() {
         thisClient.push(getCurrentUserData());
         infoPersonal(thisClient);
     } else {
+        console.log('no es cliente');
+        let cedjur = localStorage.getItem('cedjur');
+
+        infoCliente = getInfoCliente(cedjur);
+        console.log(cedjur);
+        console.log(infoCliente);
         document.querySelector('#btnContrasenna').classList.add('lblHide');
         infoPersonal(infoCliente);
     }
