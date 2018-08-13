@@ -37,7 +37,7 @@ function actualizar() {
         segundo_nombre: fmrCliente.segundoNombre.value,
         primer_nombre: fmrCliente.primerNombre.value,
         primer_apellido: fmrCliente.primerApellido.value,
-        segundo_apellido: fmrCliente.segundoNombre.value,
+        segundo_apellido: fmrCliente.segundoApellido.value,
         telefono: fmrCliente.telefono.value,
         correo_electronico: fmrCliente.correoElectronico.value,
         ubicacion: marker.getPosition().lat() + ',' + marker.getPosition().lng()

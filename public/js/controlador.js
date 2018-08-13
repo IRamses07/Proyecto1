@@ -170,7 +170,7 @@ function registro(inputs) {
                 break;
             case 'telefono':
                 if (blanck(element)) {
-                    if (!test(ePhone, element)) {
+                    if (!test(ePhone, element)&& blanck(element)) {
                         valido = false;
                     }
                 } else {
@@ -337,24 +337,52 @@ function getParam() {
     }
 }
 // Load google charts
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
+google.charts.load('current', { 'packages': ['corechart'] });
+google.charts.load("current", {packages:["timeline"]});
+
+// google.charts.setOnLoadCallback(drawChart);
 
 // Draw the chart and set the chart values
-function drawChart() {
-  var data = google.visualization.arrayToDataTable([
-  ['Task', 'Hours per Day'],
-  ['Work', 8],
-  ['Eat', 2],
-  ['TV', 4],
-  ['Gym', 2],
-  ['Sleep', 8]
-]);
-
-  // Optional; add a title and set the width and height of the chart
-  var options = {'title':'My Average Day', 'width':550, 'height':400};
-
-  // Display the chart inside the <div> element with id="piechart"
-  var chart = new google.visualization.PieChart(document.getElementById('chart'));
-  chart.draw(data, options);
+function drawChart(chart,info,options,tabla) {
+    //   var data = google.visualization.arrayToDataTable([
+    //   ['Task', 'Hours per Day'],
+    //   ['Work', 8],
+    //   ['Eat', 2],
+    //   ['TV', 4],
+    //   ['Gym', 2],
+    //   ['Sleep', 8]
+    // ]);
+    let data = new google.visualization.DataTable();
+    let datos=Object.keys(tabla);
+    for (let i = 0; i < datos.length; i++) {
+        data.addColumn(tabla[datos[i]], datos[i]);
+    }
+    data.addRows(info);
+    // Optional; add a title and set the width and height of the chart
+    let config = {
+           title: 'Test',
+           width: 550,
+           height: 350,
+           bar: {groupWidth: '10%'},
+           vAxis: { gridlines: { count: 4 } }
+         };
+    // Display the chart inside the <div> element with id="piechart"
+    var chart = new google.visualization.ColumnChart(chart);
+    chart.draw(data, config);
 }
+// function drawChart2() {
+//     var chart = new google.visualization.Timeline(elm('#chart'));
+//     var dataTable = new google.visualization.DataTable();
+
+//     dataTable.addColumn({ type: 'string', id: 'Term' });
+//     dataTable.addColumn({ type: 'string', id: 'Name' });
+//     dataTable.addColumn({ type: 'date', id: 'Start' });
+//     dataTable.addColumn({ type: 'date', id: 'End' });
+
+//     dataTable.addRows([
+//       [ '1', 'George Washington', new Date(1789, 3, 30), new Date(1797, 2, 4) ],
+//       [ '2', 'John Adams',        new Date(1797, 2, 4),  new Date(1801, 2, 4) ],
+//       [ '3', 'Thomas Jefferson',  new Date(1801, 2, 4),  new Date(1809, 2, 4) ]]);
+
+//     chart.draw(dataTable);
+//   }
