@@ -140,6 +140,7 @@ function loadOptionsMenu() {
 
     if (userRol == "administrador") {
 
+
         let mainMenu = ["Proyectos", "Clientes", "Profesores", "Estudiantes", "Tickets"];
         for (let i = 0; i < mainMenu.length; i++) {
             let optionsContainer = document.createElement('div');
@@ -218,6 +219,7 @@ function loadOptionsMenu() {
             menu.appendChild(optionsContainer);
 
 
+
             let menuTexto = [];
             let menuURL = [];
 
@@ -229,6 +231,7 @@ function loadOptionsMenu() {
                 menuTexto = ["Registrar tickets", "Listar tickets"];
                 menuURL = ["registroTicket.html", "listarTicketsCliente.html"];
             }
+
 
             for (let i = 0; i < menuTexto.length; i++) {
                 let newDiv = document.createElement('div');
@@ -249,6 +252,7 @@ function loadOptionsMenu() {
                 }
             }
         }
+
         let profile = document.createElement('div');
         profile.classList.add('option');
         /*profile.classList.add('option2');*/
@@ -317,6 +321,7 @@ function loadOptionsMenu() {
                     };
                 }
             }
+            
         }
         let profile = document.createElement('div');
         profile.classList.add('option');
