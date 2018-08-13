@@ -9,6 +9,9 @@ let optDesc = document.querySelector('#descripcion');
 let img = document.querySelector('#imgErr');
 let codigo = document.querySelector('#cod');
 let cliente = document.querySelector('#cliente');
+let descSolu = document.querySelector('#descrSolu');
+let outDscSolucion = document.querySelector('#solucion');
+let cajaSolu = document.querySelector('#cajaSolucion');
 
 let btnAsignar = document.querySelector('#btnAsignar');
 btnAsignar.hidden = true;
@@ -79,7 +82,6 @@ function getURLverTicket() {
             let tmp = GET[i].split('=');
             get[tmp[0]] = unescape(decodeURI(tmp[1]));
 
-
         }
         console.log(get);
         return get;
@@ -88,7 +90,6 @@ function getURLverTicket() {
 let tickDa = mostrarTicket(getURLverTicket()._id);
 console.log(tickDa);
 
-console.log(tickDa[0]['nombre_cliente']);
 
 let proyecto = tickDa[0]['proyecto'];
 let urgencia = tickDa[0]['urgencia'];
@@ -148,8 +149,15 @@ if (usuario == "administrador" && estado == 'Inactivo') {
 
 }
 
-if( estado == 'Rechazado'){
+if (estado == 'Rechazado') {
     btnModificar.hidden = true;
+}
+
+if (estado == 'Inactivo') {
+    btnModificar.hidden =  true;
+    btnCerrar.hidden = true;
+    mostrarSolucion();
+    cajaSolu.classList.add("cajaSolucion");
 }
 
 function aprobarTicket() {
@@ -173,14 +181,11 @@ function modificarTCicketSlt() {
     console.log(_id);
     let ticketslct = idTicketModificar(_id);
     console.log(ticketslct);
-    // ticketslct.forEach( function(elem){
-    // let ticketLS = elem.value;
     localStorage.setItem('ticketLS', JSON.stringify(ticketslct));
-    // sessionStorage.setItem('update', 1);
     document.location.href = 'modificarTicket.html';
 }
 
-function rechazoTicket(){
+function rechazoTicket() {
     estado = "Rechazado";
     let idpar = tickDa[0]['_id'];
     optEst.value = estado;
@@ -192,3 +197,19 @@ function rechazoTicket(){
 //estados del ticket:  Inactivo (cuando lo cierran, cuando lo registran y no lo ha aprobado)
 // Estado Activo (cuando lo aprueban)
 // estado Rechazado, cuando es rechazado xD
+
+function mostrarSolucion() {
+    let ticket = listarTickets();
+    let comentarioTick;
+    let idTick = tickDa[0]['_id'];
+    for (let i = 0; i < ticket.length; i++) {
+        // for(let j = 0; j < comentarioTick.length; j++){
+            if (idTick == ticket[i]['_id']) {
+                comentarioTick = ticket[i].comentarios;
+            if (comentarioTick[0]['tipo'] == 'descripción solución') {
+                outDscSolucion.value = comentarioTick[0]['texto'];
+                // }
+            }
+        }
+    }
+}

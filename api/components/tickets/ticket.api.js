@@ -70,3 +70,34 @@ module.exports.estadoTicket = function(req, res){
             }
         });
 };
+
+
+module.exports.comentarios = function(req, res){
+    ticketModel.update({
+        _id: req.body._id
+    }, {
+            $push: {
+                'comentarios': {
+                    // id: req.body.id,
+                    tipo: req.body.tipo,
+                    autor: req.body.autor,
+                    texto: req.body.texto
+
+                }
+            }
+        },
+        function (error) {
+            if (error) {
+                res.json({
+                    success: false,
+                    msg: 'No se pudo almacenar el comentario, ocurrió el siguiente error' + error
+                });
+            } else {
+                res.json({
+                    success: true,
+                    msg: 'El comentario se guardó con éxito'
+                });
+            }
+        }
+    )
+};

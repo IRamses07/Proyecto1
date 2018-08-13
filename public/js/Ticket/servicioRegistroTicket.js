@@ -176,3 +176,29 @@ function cambiarEstadoTicket (id, estado){
  
        return respuesta;
 }
+
+function guardar_comentario (id, tipo, autor, comentario){
+    let respuesta = '' ;
+    let peticion = $.ajax({
+        url: 'http://localhost:4000/api/comentar_ticket',
+        type: 'post',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            _id : id,
+           tipo : tipo,
+           autor : autor,
+           texto : comentario
+        }
+    });
+    peticion.done(function(response){
+        respuesta = response;
+       
+       });
+     
+       peticion.fail(function(response){ 
+       });
+ 
+       return respuesta;
+}
