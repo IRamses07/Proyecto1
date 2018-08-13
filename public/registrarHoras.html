@@ -38,11 +38,11 @@
     <main id="content">
 
         <div class="TituloPrincipal">
-            <H1>Registrar proyecto</H1>
+            <H1>Registrar Horas</H1>
         </div>
 
         <ul class="tabs" id="tabs">
-            <li id="tab1" class="tabs__item activeTab">Sumer Horas</li>
+            <li id="tab1" class="tabs__item activeTab">Añadir Horas</li>
         </ul>
 
         <div class="formulario">
@@ -50,12 +50,13 @@
 
 
 
-                <div>
-                    <label for="">Selecione un proyecto</label>
+                <div class="proyecto">
+                    <label for="">Proyecto:</label>
                     <select name="nombreProyecto" id="nombreProyecto"></select>
                 </div>
-                <div>
-                    <label for="">Selecione la cantidad de horas</label>
+
+                <div class="horas">
+                    <label for="">Horas Trabajadas:</label>
                     <input type="time" id="cantHoras">
                 </div>
 
@@ -64,11 +65,19 @@
                     <input type="date" id="dtFecha">
                 </div>
 
-                <button type="button" class="btnRegistro" id="btnHoras">Agregar</button>
-                
+
+
             </form>
 
+            <div class="boton">
+
+                <button type="button" class="btnRegistro" id="btnHoras">Agregar</button>
+
+            </div>
+
         </div>
+
+
 
     </main>
     <footer></footer>

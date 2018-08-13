@@ -1,7 +1,7 @@
 'use strict'
 moveUser(true);
-let nomEstudianteTitulo = document.querySelector('#nomEstudiante');
-nomEstudianteTitulo.innerHTML = getCurrentUserData()['nombre1']+' '+getCurrentUserData()['apellido1'];
+// let nomEstudianteTitulo = document.querySelector('#nomEstudiante');
+// nomEstudianteTitulo.innerHTML = getCurrentUserData()['nombre1']+' '+getCurrentUserData()['apellido1'];
 let tbody = document.querySelector('#tblProyectosE tbody');
     tbody.innerHTML = '';
 

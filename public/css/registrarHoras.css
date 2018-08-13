@@ -26,3 +26,66 @@ h1{
     margin-left: 31.5%;
 
 }
+
+.proyecto{
+
+    margin-bottom: 10px; 
+
+
+}
+
+.proyecto label {
+
+    margin-right: 36.5%; 
+
+
+}
+
+
+.horas input{
+
+    margin-bottom: 10px; 
+    width: 42%;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    margin-left:7.5% 
+
+    
+
+}
+
+.horas label{
+
+    margin-right: 15%;  
+
+    
+
+}
+
+
+.fecha input{
+
+    margin-bottom: 10px; 
+    width: 42%;
+    font-family: 'Roboto', sans-serif;
+  
+    
+}
+
+.fecha label{
+
+    margin-right: 40.9%;  
+
+}
+
+.boton button{
+
+    margin-top:  15px;
+    width: 50%;
+    
+}
+
+
+
+
+
