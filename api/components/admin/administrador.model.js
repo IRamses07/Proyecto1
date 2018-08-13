@@ -13,7 +13,7 @@ let adminSchema = new mongoose.Schema({
     rol: { type: String, required: true },
     password: { type: String, required: true },
     passwordChange: { type: String, required: true },
-
+    estado: {type:String, requred:true}
 });
 
 module.exports = mongoose.model('Admin', adminSchema);
