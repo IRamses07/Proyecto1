@@ -27,6 +27,10 @@ let dateFechaEntrega = document.querySelector('#dtEntregaEstimada');
 
 let txtaDescripcion = document.querySelector('#txtDescripcion');
 
+let formulario1 = document.querySelector('#frmRegistrarProyectos');
+
+let fromulario2 = document.querySelector('#frmALlCHo');
+
 
 
 document.getElementById('#slNombredelCliente').onchange = llenarCedulaJuridica();
@@ -52,13 +56,7 @@ function llenarCedulaJuridica() {
     inputIdentifiacionJuridica.value = cedulaJuridica;
 }
 
-function limpiarFormulairo() {
-    inputNombreProyecto.value = '';
-    // inputIdentifiacionJuridica.value = '';
-    txtaDescripcion.value = '';
-    dateFechaEntrega.value = 'dd/mm/aaaa';
 
-}
 
 function obtenerDatosr() {
 
@@ -138,14 +136,13 @@ function obtenerDatosr() {
             });
             break;
         case 2:
-                tecnologiasWed = recorrerTecnologiasWed();
-                tecnologiasMovil = recorrerTecnologiasMovil();
-                tecologiasBd = recorrerTecnologiasBD();
+            tecnologiasWed = recorrerTecnologiasWed();
+            tecnologiasMovil = recorrerTecnologiasMovil();
+            tecologiasBd = recorrerTecnologiasBD();
 
             registrarProyecto(sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion, tecnologiasWed, tecnologiasMovil, tecologiasBd);
             agregarProyectoCliente();
-            limpiarFormulairo();
-        
+         
 
             swal({
                 type: 'success',
@@ -153,6 +150,9 @@ function obtenerDatosr() {
                 text: 'El usuario se registró adecuadamente',
                 confirmButtonText: 'Entendido'
             });
+
+            fromulario2.reset();
+            formulario1.reset();
             break;
 
         case 3:

@@ -280,7 +280,7 @@ function actualizarEstudianteId(pid, infoEstudiante) {
 };
 
 
-function agregarHorasProyecto(idE, id, hora) {
+function agregarHorasProyecto(idE, id, hora, fechas) {
     let respuesta = '';
 
     let peticion = $.ajax({
@@ -293,7 +293,9 @@ function agregarHorasProyecto(idE, id, hora) {
 
             _id: idE,
             id: id,
-            horas: hora
+            horas: hora,
+            fecha:fechas
+
 
 
         }

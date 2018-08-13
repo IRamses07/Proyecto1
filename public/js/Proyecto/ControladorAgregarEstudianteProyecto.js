@@ -13,7 +13,7 @@ function llenarSelecProyectos() {
     let lista = obtenerListaProyectos();
 
     let select = document.querySelector('#slProyecto');
-    select.options[0] = new Option("Seleccione un profesor...", );
+    select.options[0] = new Option("Seleccione un proyectos", );
 
     for (let i = 0; i < infoPrfeIL.length; i++) {
         // for (let j = 0; j < lista.length; j++) {
@@ -32,7 +32,7 @@ function llenarSelectEstudiantes() {
     let infoEstudiante = obtenerListaEstudiantes();
 
     let select = document.querySelector('#slEstudiante');
-    select.options[0] = new Option("Seleccione un profesor...", );
+    select.options[0] = new Option("Seleccione un estudiantes", );
 
     for (let i = 0; i < infoEstudiante.length; i++) {
         select.options[i + 1] = new Option(infoEstudiante[i]['Nombre1'] + ' ' + infoEstudiante[i]['apellido1'], infoEstudiante[i]['_id']);

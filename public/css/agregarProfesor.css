@@ -1,35 +1,90 @@
 main h1 {
-    margin-bottom: 20px;
-    margin-left: 16%;
-    margin-top: 10px;
     text-align: center;
     font-size: 30px;
+    margin-bottom: 15px;
+    margin-top: 50px;
 }
 
-main .frmAsigarProyectoProfesores {
-    padding-left: 43%;
+
+.frmAsigarProyectoProfesores {
+  text-align: center;
+  margin-left: 31.5%;
+  border: 2px solid #fbb876;
+  padding: 50px 50px 18px 50px;
+  border-radius: 20px;
+  border-top-left-radius: 0%;
+  height: 200px;
+  width: 30%;   
 }
 
-main .optionProyecto {
+.tabs__item{
+    margin-left: 31.5%;
+}
+
+.optionProyecto {
+
     margin-bottom: 15px;
 }
 
-main .optionProfeLider {
+.optionProfeLider{
+
     margin-bottom: 15px;
+
 }
 
-main .optionProfeTecnico {
+.optionProfeTecnico{
+
     margin-bottom: 15px;
+
 }
 
-main .frmAsigarProyectoProfesores .optionProyecto label {
-    margin-right: 8.5%;
+
+.optionProyecto label{
+
+    margin-right: 14%; 
+
 }
 
-main .frmAsigarProyectoProfesores .optionProfeLider label {
-    margin-right: 4.1%;
+.optionProfeLider label{
+
+    margin-right: 8%;
+
 }
 
-main .frmAsigarProyectoProfesores .optionProfeTecnico label {
-    margin-right: 1.4%;
+.optionProfeTecnico label{
+
+    margin-right: 3%; 
+
 }
+
+.optionProyecto select{
+    width: 45%;
+}
+
+.optionProfeLider select{
+    width: 45%;
+}
+
+.optionProfeTecnico select{
+    width: 45%;
+}
+
+.bontonAgregar{
+
+    float: right;
+  width: 100;
+    
+
+}
+
+.bontonAgregar  button{
+ 
+    width: 100px; 
+    
+}
+
+
+
+
+
+

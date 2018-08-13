@@ -54,27 +54,27 @@
         <h1>Listar Proyectos</h1>
 
         <div class="flitrarProyectos">
-            <div class="opFliltrado">
+            <div class="filtrarEstudiante">
+                <form action="" class="contFormulario2" id="form">
+                        <label for="cliente">Buscar por:</label>
+                        <input type="radio" checked="checked" value="Nombre1" name="radioSelect"/><label for="cliente">Nombre del proyecto</label>
+                        <input type="radio" value="cedula" name="radioSelect"/><label for="cliente">Cedula juridica</label>
+                        <input type="text" id="inputBuscar" />
+                        <label id="errorInput"></label>
+                        <button type="button" id="btnBuscarProyecto" class="btnRegistro">Buscar</button>
+                </form>
+            </div>
 
-                <div class="radio">
-                    <input type="radio" name="filtro" id="filtro">
-                    <label for="">Nombre del Proyecto</label>
 
-                    <input type="radio" name="filtro" id="filtro">
-                    <label for="">Cédula Jurídica</label>
-                </div>
-
-
-                <div class="busqueda"></div>
-                <input type="text" id="txtFiltro" placeholder="Escriba el nombre del proyecto...">
+           
 
 
             </div>
 
         </div>
 
-        <div class="tabla" id="tabla">
-            <table id="tblProyectos">
+        <div  class="tabla">
+            <table id="tblProyectos" class="tblProyectos">
                 <thead>
                     <th>Cédula Jurídica</th>
                     <th>Nombre del proyecto</th>
