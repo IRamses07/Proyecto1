@@ -36,6 +36,7 @@ main{
     width: 50%;
     margin: 0 auto;
     text-align: center;
+    margin-top: 20px;
 }
 .selectin{
     width: calc(100% / 3 - 13px);
