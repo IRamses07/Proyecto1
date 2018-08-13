@@ -5,23 +5,31 @@ imprimirListaProyectos();
 
 
 let btnBuscar = document.querySelector('#btnBuscarProyecto');
+let inputDatoBuscar = document.querySelector('#inputBuscar');
 
 
-inputFiltro.addEventListener('keyup', function () {
-    imprimirListaProyectos(inputFiltro.value)
+// inputFiltro.addEventListener('keyup', function () {
+//     imprimirListaProyectos(inputFiltro.value)
+// });
+
+btnBuscar.addEventListener('click', function () {
+    let radioSelected = document.querySelector('#form input[type="radio"]:checked');
+    imprimirListaProyectos(radioSelected.value, inputDatoBuscar.value);
 });
 
-function imprimirListaProyectos(pFiltro) {
+function imprimirListaProyectos(radioSelected, inputDatoBuscar) {
 
     let infoProyecto = obtenerListaProyectos();
     let tbody = document.querySelector('#tblProyectos tbody');
-    if (!pFiltro) {
-        pFiltro = '';
+    if (!radioSelected) {
+        radioSelected = '';
     }
-    tbody.innerHTML = ' ';
+    if (!inputDatoBuscar) {
+        inputDatoBuscar = '';
+    }
 
     for (let i = 0; i < infoProyecto.length; i++) {
-        if (infoProyecto[i]['nombre_proyecto'].toLowerCase().includes(pFiltro.toLowerCase()) || infoProyecto[i]['identificacion_juridica'].toLowerCase().includes(pFiltro.toLowerCase())) {
+        if(infoProyecto[i][radioSelected].toLowerCase().includes(inputDatoBuscar.toLowerCase())){ {
             let fila = tbody.insertRow();
 
             let cCedulaJuridica = fila.insertCell();
