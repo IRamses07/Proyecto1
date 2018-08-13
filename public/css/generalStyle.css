@@ -8,6 +8,21 @@ body{
     
 }
 
+
+/* body    {
+    background-color: #000000;
+    color: #FFFFFF;
+    padding: 20px;
+    font: 18px Arial, Tahoma;
+    } */
+
+
+    .box {
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgb(255, 255, 255);
+    }
+
 /* id que va dentro del main. estilo del main espacio que da entre el menulateral y el contenido */
 #content{
  padding-left: 1%; 
@@ -23,7 +38,7 @@ a {
 /* barra naranja del menu */
 .mainHeader{
     max-height: 50px;
-    background-color: #fbb803;
+    background-color: #f27a1a;
     /* #fbb803; */
     padding: 15px 0%;
 
@@ -33,7 +48,7 @@ a {
     animation-duration: 90s;
 
 }
-
+/* 
 @-webkit-keyframes colors {
     10% {background-color: #fbb803}
     20% {background-color: #EDB319;}
@@ -45,10 +60,10 @@ a {
     80% {background-color: #fc9e23;}
     90% {background-color: #f19307;}
     100% {background-color:   #fbb803  ;}
-}
+} */
 
 /* Standard syntax */
-@keyframes colors {
+/* @keyframes colors {
     10% {background-color: #fbb803}
     20% {background-color: #EDB319;}
     30% {background-color: rgb(238, 140, 49);}
@@ -59,28 +74,9 @@ a {
     80% {background-color: #fc9e23;}
     90% {background-color: #f19307;}
     100% {background-color:   #fbb803  ;}
-}
-
-/* @keyframes colors {
-    10% {background-color: rgb(207, 86, 39);}
-    20% {background-color: rgb(167, 99, 73);}
-    30% {background-color: rgb(167, 150, 73);}
-    40% {background-color: rgb(214, 142, 113);}
-    50% {background-color:  #dfb865 ;}
-    60% {background-color:  #c9ba34 ;}
-    70% {background-color: #d6bd30;}
-    80% {background-color:  #e2df3f ;}
-    90% {background-color: #b7e611;}
-    100% {background-color:   #7bfb03  ;}
-    90% {background-color: #37e640;}
-    80% {background-color: rgb(80, 180, 13);}
-    70% {background-color: #0ffb69;}
-    60% {background-color: #0fb986;}
-    50% {background-color:  #14879b ;}
-    40% {background-color: rgb(18, 93, 122);}
-    30% {background-color:  #133d7c ;}
-    20% {background-color: rgb(6, 42, 88);}
 } */
+
+
 
 /* clase del cerrar sesión */
 .fRight{
@@ -96,7 +92,7 @@ a {
     background-color: #2f3030;
     overflow: hidden;
     /* text-align:  right; */
-    transition: width 0.5s ease-out;
+    transition: width 0.5s ease-out;    
 
 }
 
@@ -128,7 +124,7 @@ header .menuLateral:hover ~ #content{
 }
 
 .option:hover{
- background-color: #fbb803;
+ background-color: #f27a1a;;
 }
 
 /* espacio de los anchor dentro de las opciones del menu */
@@ -139,7 +135,7 @@ header .menuLateral:hover ~ #content{
 
 /* estilo del error de los inputs */
 .error, .error_input{
-    border: 2px solid #d63031;
+    box-shadow: 0 0 1em #ff0000
 }
 
 /* estilo de los inputs en general, solo deben de eliminar el width y el height si es necesario */
@@ -170,13 +166,13 @@ select{
 
  /* estilo general de los botones de los registros...  */
  .btnRegistro, .btnVerMas, .btnLista {
-     background-color: #fbb803;
+     background-color: #f27a1a;;
      border-radius: 3px;
      border: none;
      padding: 7px 3%;
      /*font-weight: bold;*/
      font-family: 'Roboto', sans-serif;
-     color: #454545;
+     color: #ffffff;
      font-size: 1em;
      outline: none;
  }
@@ -188,11 +184,11 @@ select{
 
  /* estilos de los botones del sweetaler  */
  .swal-button {
-     background-color: #fbb803;
+     background-color: rgb(100, 202, 114);
  }
 
  .swal-button:hover {
-    background-color: #fbb876;
+    background-color: #98ee90;
 }
 
 
@@ -213,9 +209,9 @@ th {
 /* estilos del boton de filtro/buscar  */
 /* deben agregar esta clase a su boton */
 .btnFiltro {
-    background-color: #fbb803;
+    background-color: #f27a1a;
     border-radius: 3px;
-    border:  #fbb803 1px solid;
+    border:  #f27a1a 1px solid;
     padding: 5px 2%;
     font-family: 'Roboto', sans-serif;
     color: #fff;
@@ -225,6 +221,8 @@ th {
 .btnFiltro:hover{
     border: #fff 1px solid;
     background-color: #454545;
+
+
 }
 /*****************/
 /* comente de que son */
@@ -278,7 +276,7 @@ input::placeholder, .letraItalic{ /*Cursiva*/
 
 
 .tabs__item{
-    border: 1px solid #fbb803;
+    border: 1px solid #fbb803; /*FF4500*/
     border-bottom: none;
     line-height: 2.5;
     padding: 0 1em;

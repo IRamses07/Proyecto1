@@ -1,0 +1,91 @@
+h1{
+
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 15px;
+    margin-top: 50px;   
+
+}
+
+.formulario {
+
+    text-align: center;
+    margin-left: 31.5%;
+    border: 2px solid #fbb876;
+    padding: 50px 50px 18px 50px;
+    border-radius: 20px;
+    border-top-left-radius: 0%;
+    height: 200px;
+    width: 30%;  
+
+}
+
+
+.tabs{
+   
+    margin-left: 31.5%;
+
+}
+
+.proyecto{
+
+    margin-bottom: 10px; 
+
+
+}
+
+.proyecto label {
+
+    margin-right: 35%; 
+
+
+}
+
+
+.horas input{
+
+    margin-bottom: 10px; 
+   width: 42%;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+   
+
+    
+
+}
+
+.horas label{
+
+    margin-right: 21%;
+
+    
+
+}
+
+
+.fecha input{
+
+    margin-bottom: 10px; 
+    width: 42.5%;
+    font-family: 'Roboto', sans-serif;
+  
+    
+}
+
+.fecha label{
+
+    margin-right: 40% 
+
+}
+
+.boton button{
+
+    margin-top:  15px;
+    width: 50%;
+    
+}
+
+
+
+
+
