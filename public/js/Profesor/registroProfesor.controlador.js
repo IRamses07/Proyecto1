@@ -124,7 +124,7 @@ function registrarProfe() {
                 let password = generateRandomPassword();
                 swal({
                     title: "Registro exitoso",
-                    text: "El profesor se ha registrado exitosamente.\n Contraseña temporal: " + password,
+                    text: "El profesor se ha registrado exitosamente.",
                     icon: "success",
                     button: "Ok",
                 });

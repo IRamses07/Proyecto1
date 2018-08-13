@@ -187,7 +187,7 @@ function loadOptionsMenu() {
                 let newA = document.createElement('a');
                 newA.innerHTML = menuTexto[i];
                 newA.href = menuURL[i];
-                newA.style.display = "block";
+                /*newA.style.display = "block";*/
                 newA.style.width = "400px";
                 newDiv.appendChild(newA);
                 optionsContainer.appendChild(newDiv);
@@ -205,7 +205,7 @@ function loadOptionsMenu() {
         let mainMenu = ["Proyectos", "Tickets"];
         for (let i = 0; i < mainMenu.length; i++) {
             let optionsContainer = document.createElement('div');
-            optionsContainer.id = 'optionsContainer';
+            optionsContainer.id = mainMenu[i];
             let mainOption = document.createElement('div');
             mainOption.classList.add('option');
             // mainOption.onclick = "secundaryMenu(userRol, mainMenu[i])";
@@ -240,6 +240,7 @@ function loadOptionsMenu() {
                 newA.style.display = "block";
                 newA.style.width = "400px";
                 newA.classList.add('hide');
+                newDiv.appendChild(newA);
                 optionsContainer.appendChild(newDiv);
                 if (menuURL[i] == "registroProfesores.html") {
                     newA.onclick = function () {
@@ -250,6 +251,8 @@ function loadOptionsMenu() {
         }
         let profile = document.createElement('div');
         profile.classList.add('option');
+        /*profile.classList.add('option2');*/
+        profile.classList.add('optionHover');
         let profileLabel = document.createElement('a');
         profileLabel.classList.add('menuLabel');
         profileLabel.innerHTML = "Visualizar perfil";
@@ -262,7 +265,7 @@ function loadOptionsMenu() {
         let mainMenu = ["Proyectos", "Clientes", "Estudiantes", "Tickets"];
         for (let i = 0; i < mainMenu.length; i++) {
             let optionsContainer = document.createElement('div');
-            optionsContainer.id = 'optionsContainer';
+            optionsContainer.id = mainMenu[i];
             let mainOption = document.createElement('div');
             mainOption.classList.add('option');
             // mainOption.onclick = "secundaryMenu(userRol, mainMenu[i])";
@@ -273,7 +276,6 @@ function loadOptionsMenu() {
             mainOption.appendChild(mainLabel);
             optionsContainer.appendChild(mainOption);
             menu.appendChild(optionsContainer);
-
 
             let menuTexto = [];
             let menuURL = [];
@@ -305,8 +307,10 @@ function loadOptionsMenu() {
                 newA.href = menuURL[i];
                 newA.style.display = "block";
                 newA.style.width = "400px";
-                newA.classList.add('hide');
+               /* newA.classList.add('hide');*/
+               newDiv.appendChild(newA);
                 optionsContainer.appendChild(newDiv);
+
                 if (menuURL[i] == "registroProfesores.html") {
                     newA.onclick = function () {
                         sessionStorage.removeItem('professorUpdateLS');
@@ -316,6 +320,8 @@ function loadOptionsMenu() {
         }
         let profile = document.createElement('div');
         profile.classList.add('option');
+        /*profile.classList.add('option2');*/
+        profile.classList.add('optionHover');
         let profileLabel = document.createElement('a');
         profileLabel.classList.add('menuLabel');
         profileLabel.innerHTML = "Visualizar perfil";
@@ -329,7 +335,7 @@ function loadOptionsMenu() {
 
         for (let i = 0; i < mainMenu.length; i++) {
             let optionsContainer = document.createElement('div');
-            optionsContainer.id = 'optionsContainer';
+            optionsContainer.id = mainMenu[i];
             let mainOption = document.createElement('div');
             mainOption.classList.add('option');
             // mainOption.onclick = "secundaryMenu(userRol, mainMenu[i])";
@@ -362,6 +368,7 @@ function loadOptionsMenu() {
                 newA.href = menuURL[i];
                 newA.style.display = "block";
                 newA.style.width = "400px";
+                newDiv.appendChild(newA);
                 optionsContainer.appendChild(newDiv);
                 if (menuURL[i] == "registroProfesores.html") {
                     newA.onclick = function () {
@@ -372,6 +379,8 @@ function loadOptionsMenu() {
         }
         let profile = document.createElement('div');
         profile.classList.add('option');
+       /* profile.classList.add('option2');*/
+        profile.classList.add('optionHover');
         let profileLabel = document.createElement('a');
         profileLabel.classList.add('menuLabel');
         profileLabel.innerHTML = "Visualizar perfil";
