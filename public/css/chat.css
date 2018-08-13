@@ -1,7 +1,8 @@
 .chatContainer{
+    font-family: 'Roboto', sans-serif;
     width: 15%;
     height: 402px;
-    background-color: #fbb803;
+    background-color: #f27a1a;
     position: fixed;
     bottom: 0%;
     right: 0%;
@@ -10,8 +11,10 @@
 }
 
 .form-control{
-    width: 87%;
+    width: 80%;
     margin-left: 5%;
+    height: 33px;
+    float:left;
 }
 
 #users{
@@ -37,7 +40,7 @@
 }
 /* chat privado: */
 .chatPrivado{
-    min-height: 250px;
+    min-height: 265px;
     background-color: #fff;
     margin: 5% 5% 5% 5%;
 }
@@ -73,7 +76,7 @@
     z-index:30;
 }
 .pestanaChat{
-    background-color: #fbb803;
+    background-color: #f27a1a;
     height: 80%;
     width: 24.8%;
     cursor: pointer;
@@ -92,8 +95,9 @@
     top: -1000%;
     width: 300px;
     float: right;
-    background-color: #fbb803;
+    background-color: #ff8e1d;
     border-radius: 3px;
+    min-height: 350px;
 }
 
 .activeChat{
@@ -132,7 +136,11 @@
      font-size: 1em;
      outline: none;
      cursor: pointer;
-     float: right;
+     float: left;
+ }
+ .btnChat i{
+     font-size: 20px;
+     margin-top: 7px;
  }
 
 .btnChat:hover, .pestanaChat:hover {
@@ -147,13 +155,14 @@
     right: 0%;
     z-index: 32;
     width: 9%;
+    background-color: #ff8e1d;
     /*border: 1px solid #454545;*/
 }
 
 .btnChatEnnviar{
-    color: #fff;
+    color: #fff;;
     background-color: #ff8e1d;
-    margin-right: 5%;
+    float: left;
 }
 .espanto1{
     font-size: 15px;
@@ -170,4 +179,8 @@
     color: #B7B7B7;
     float: right;
     margin-right: 5px;
+}
+
+#minimizarChat:hover{
+    background-color: #ff8e1d;
 }

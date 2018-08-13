@@ -93,10 +93,12 @@ function agregarChatPrivado(id){
                             <div class="chat" id="chat">
                               <div value="${id}" class="chatPrivado" id=${'chatin'+id}></div>
                             </div>
-                            <textarea class="form-control" id="${'message'+id}" placeholder="Nuevo mensaje">
+                            <textarea class="form-control class="mytxtArea" id="${'message'+id}" placeholder="Nuevo mensaje">
                             </textarea>
-                            <br />
-                            <button type="button" class="tbn tbn-primary subsub btnChat btnChatEnnviar" value="${id}">Enviar</button>
+                            
+                            <button type="button" class="tbn tbn-primary subsub btnChat btnChatEnnviar" value="${id}"><i class="fas fa-arrow-circle-right"></i>
+
+</button>
                           </div>`;
 }
 
