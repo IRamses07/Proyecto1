@@ -21,35 +21,44 @@ function signIn() {
             document.querySelector('#txtPassword').classList.remove('error_input');
             document.querySelector('#lblCredencialesError').classList.add('lblHide');
             limpiar();
+            if (validarEstado(sId)) {
+                setCurrentUser(sId);
+                swal({
+                    title: "Inicio de sesión exitoso",
+                    text: "Será redirigido en 3 segundos.",
+                    icon: "success",
+                    button: "Ok",
+                });
 
-            swal({
-                title: "Inicio de sesión exitoso",
-                text: "Será redirigido en 3 segundos.",
-                icon: "success",
-                button: "Ok",
-            });
-
-            let infoUser = getCurrentUserData();
-            if (infoUser['passwordChange'] == 0) {
-                console.log("Primer inicio de sesión del usuario! Deberá cambiar su contraseña.");
-                window.setTimeout(function () {
-                    window.location.href = "passwordChange.html";
-                }, 3000);
+                let infoUser = getCurrentUserData();
+                if (infoUser['passwordChange'] == 0) {
+                    console.log("Primer inicio de sesión del usuario! Deberá cambiar su contraseña.");
+                    window.setTimeout(function () {
+                        window.location.href = "passwordChange.html";
+                    }, 3000);
+                } else {
+                    window.setTimeout(function () {
+                        if (getCurrentUserData()['rol'] == 'administrador') {
+                            window.location.href = "listarProyectos.html";
+                        }
+                        if (getCurrentUserData()['rol'] == 'profesor') {
+                            window.location.href = "listarProyectosProfesor.html";
+                        }
+                        if (getCurrentUserData()['rol'] == 'estudiante') {
+                            window.location.href = "listarProyectosEstudiante.html";
+                        }
+                        if (getCurrentUserData()['rol'] == 'cliente') {
+                            window.location.href = "listarProyectosCliente.html";
+                        }
+                    }, 3000);
+                }
             } else {
-                window.setTimeout(function () {
-                    if (getCurrentUserData()['rol'] == 'administrador') {
-                        window.location.href = "listarProyectos.html";
-                    }
-                    if (getCurrentUserData()['rol'] == 'profesor') {
-                        window.location.href = "listarProyectosProfesor.html";
-                    }
-                    if (getCurrentUserData()['rol'] == 'estudiante') {
-                        window.location.href = "listarProyectosEstudiante.html";
-                    }
-                    if (getCurrentUserData()['rol'] == 'cliente') {
-                        window.location.href = "listarProyectosCliente.html";
-                    }
-                }, 3000);
+                swal({
+                    title: "Advertencia",
+                    text: "Este usuario se encuentra suspendido.",
+                    icon: "warning",
+                    button: "Ok",
+                });
             }
         } else {
             document.querySelector('#txtIdentificacion').classList.add('error_input');
@@ -82,7 +91,6 @@ function validarCredenciales(psId, psPassword) {
 
     if (userPassword == psPassword) {
         //Usuario y contraseña correcta.
-        setCurrentUser(psId);
         bFound = true;
     } else {
         console.log("[startLogin] Se ingresó una contraseña incorrecta.");
@@ -95,6 +103,18 @@ function limpiar() {
     for (let i = 0; i < inputs.length; i++) {
         inputs[i].value = '';
     }
+}
+
+function validarEstado(psId) {
+    let userStatus = getUserStatus(psId);
+    let bFound = false;
+
+    if (userStatus == "Activo" || userStatus == "activo" || userStatus == 1) {
+        bFound = true;
+    } else if (userStatus == "Desactivo" || userStatus == "inactivo" || userStatus == 0) {
+        bFound = false;
+    }
+    return bFound;
 }
 
 function setAdmin1() {

@@ -53,7 +53,13 @@ thead th {
     width: 20%;
     outline: none;
     padding: 3px 0 3px 5px;
+    margin-left: 1%;
+    margin-right: 1%;
+    padding: 0 0 0 0;
 }
+
+/* 
+padding: 3px 0 3px 5px; */
 
 /*.cambioEstado{
     width: 70px;

@@ -21,7 +21,7 @@ function cambiarEstado(){
             let info = getInfoEstudiante()[0];
             
             swal({
-                title: 'Esta seguro de que desea realizar los cambios?',
+                title: '¿Esta seguro de que desea realizar los cambios?',
                 text: 'El estudiante "'+info['Nombre1']+'" pasara a estar en estado '+((info['estado']=='activo')?'"inactivo"':'"activo"'),
                 type: 'warning',
                 showCancelButton: true,

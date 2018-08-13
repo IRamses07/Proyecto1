@@ -18,22 +18,22 @@
 
 <body>
     <header>
-        <div class="mainHeader">
-            <a id="notificacion" class="fLeft">
-                <i class="fas fa-bell"></i> Notificaciones</a>
-            <label for="">Bienvenido: </label>
-            <output id="txtnombreCliente" value=""></output>
-            <a href="javascript:logOut();" class="fRight">Cerrar sesión
-                <i class="fas fa-cog"></i>
-            </a>
-        </div>
-
+            <div class="mainHeader">
+                    <label for="" class="menuPrincipal" onclick="togglMenu()">
+                            <i class="fas fa-align-justify"></i>Menú</label>
+                    <a id="notificacion" class="fLeft">
+                        <i class="fas fa-bell"></i> Notificaciones</a>
+                        <label for="">Bienvenido: </label>
+                        <output id="txtnombreCliente" value=""></output>
+                    <a href="javascript:logOut();" class="fRight">Cerrar sesión
+                        <i class="fas fa-cog"></i>
+                    </a>
+                </div>
 
 
     </header>
     <div class="menuLateral" id="divMenuLateral">
-        <i class="fas fa-align-justify"></i>
-    </div>
+        </div>
 
     <main id="content">
         <div class="modal none" id="modal">

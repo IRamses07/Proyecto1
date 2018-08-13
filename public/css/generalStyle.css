@@ -5,7 +5,6 @@ body{
     font-family: 'Roboto', sans-serif;
     background-color: #454545;
     color: #ffffff;
-    
 }
 
 
@@ -34,9 +33,15 @@ a {
     text-decoration: none;
     color: #ffffff;
 }
+header{
+    margin-bottom: 126px;
+}
 
 /* barra naranja del menu */
 .mainHeader{
+    position: fixed;
+    width: 100%;
+    top: 0;
     max-height: 50px;
     background-color: #f27a1a;
     /* #fbb803; */
@@ -85,32 +90,41 @@ a {
 }
 
 /* estilos del menu lateral (tomen el header entero y lo copian dentro del registroTicket) */
-.menuLateral {
-    position: absolute;
-    width: 1%; /*6.5%;*/
-    height: 100%;
+/*.menuLateral {
+    position: absolute;*/
+    /*width: 1%;*/ /*6.5%;*/
+    /*height: 100%;
     background-color: #2f3030;
     overflow: hidden;
-    /* text-align:  right; */
+    *//* text-align:  right; *//*
     transition: width 0.5s ease-out;    
 
-}
+}*/
+.menuLateral{
+    position: fixed;
+    background-color: #2f3030;
+    width: 0px;
+    height: 100vh;
+    top: 46px;
+    overflow: hidden;
+    transition: width 0.5s ease-out; 
+} 
 
-.menuLateral:hover{
+/*.menuLateral:hover{
     width: 18%;
-}
-header .menuLateral:hover ~ #content{
+}*/
+
+/*header .menuLateral:hover ~ #content{
     padding-left: 18%;
-}
+}*/
 .menuLateral h2 {
     font-size: 1.35em;
     color: #fff; 
 }
 
-
-.fas .fa-align-justify {
+/*.fa-align-justify:before{
     font-size: 2em;
-}
+}*/
 /* estilo de los div que contienen los anchor del menu */
 .option{
     max-width: 100%;
@@ -120,16 +134,17 @@ header .menuLateral:hover ~ #content{
     padding-left: 15px;
     margin: 1px 0px 0px 0px;
     transition: background-color 0.3s ease-in 0.1s;
+    cursor: pointer;
     /* transition: background-color 0.2s ease-in 0.1s; */
 }
 
-.option:hover{
+.option2:hover{
  background-color: #f27a1a;;
 }
 
 /* espacio de los anchor dentro de las opciones del menu */
 .option a {
-    margin: 17px 0 ;
+    margin: 10px 0 0 0 ;
     line-height: 1.2;
 }
 
@@ -292,3 +307,340 @@ input::placeholder, .letraItalic{ /*Cursiva*/
 #rbtnNombre {
     visibility: hidden;
 }
+opcionesMenu{
+    display: block;
+}
+
+.menuLabel{
+    display: block; 
+    width: 400px;
+    color: #ffffff;
+}
+
+.option2{
+    max-width: 100%;
+    min-width: 200px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    padding-left: 15px;
+    margin: 1px 0px 0px 0px;
+    transition: background-color 0.3s ease-in 0.1s;
+    cursor: pointer;
+    /* transition: background-color 0.2s ease-in 0.1s; */
+}
+
+.menuPrincipal{
+    cursor: pointer;
+    margin-left: 30px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
