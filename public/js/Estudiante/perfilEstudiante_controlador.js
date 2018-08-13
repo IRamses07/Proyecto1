@@ -1,5 +1,5 @@
 'use strict';
-//moveUser(true);
+moveUser(true);
 
 let datos = document.querySelector('#datosUsuario');
 let extraDatos = document.querySelector('#infoUsuario');
@@ -43,8 +43,9 @@ function infoPersonal(infoEstudiante){
     contenido2+='<div class="icono"><i class="fas fa-map-marker-alt"></i><h4>'+infoEstudiante[0]['provincia']+', '+infoEstudiante[0]['canton']+', '+infoEstudiante[0]['distrito']+'</h4></div>';
     contenido2+='<div class="icono"><i class="fas fa-phone-square"></i><h4>Teléfono: '+infoEstudiante[0]['telefono']+'</h4></div>';
     contenido2+='<div class="icono"><i class="far fa-envelope"></i><h4>Correo: '+infoEstudiante[0]['correo']+'</h4></div>';
-
+    contenido2+='<div class="icono"><i class="far fa-envelope"></i><h4><a id="Reporte">Reporte de horas</a></h4></div>';
     extraDatos.innerHTML=contenido2;
+    document.querySelector('#Reporte').href='reporteHoras.html?cedula='+infoEstudiante[0]['cedula'];
 }
 
 function infoContacto(infoEstudiante){

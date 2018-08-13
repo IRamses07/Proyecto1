@@ -17,7 +17,7 @@ h1 {
     padding: 50px 50px 18px 50px;
     border-radius: 20px;
     border-top-left-radius: 0%;
-    height: 200px;
+    height: 150px;
     width: 30%; 
 
 }
@@ -28,6 +28,40 @@ h1 {
 }
 
 
-.optionEstudiantes  label{
-    margin-left:35%; 
-}   
+.optionEstudiantes label{
+
+margin-right: 20%;
+
+}
+
+.optionProyecto label{
+
+    margin-right: 22%;
+
+}
+
+.optionProyecto select{
+
+    width: 48.5%;
+
+}
+
+
+.optionProyecto {
+margin-bottom: 15px;
+
+}
+
+
+.optionEstudiantes {
+
+    margin-bottom: 15px;
+
+}
+
+.boton button{
+
+    margin-top:  15px;
+    width: 50%;
+    
+}

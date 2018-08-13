@@ -1,0 +1,186 @@
+.chatContainer{
+    font-family: 'Roboto', sans-serif;
+    width: 15%;
+    height: 402px;
+    background-color: #f27a1a;
+    position: fixed;
+    bottom: 0%;
+    right: 0%;
+    z-index: 31;
+    border-radius: 3px;
+}
+
+.form-control{
+    width: 75%;
+    margin-left: 5%;
+    height: 33px;
+    float:left;
+}
+
+#users{
+    width: 100%;
+    height: 335px;
+    color: black;
+    background-color: #fff;
+    text-align: center;
+}
+
+.espanto{
+    font-size: 1.2em;
+    color: #000;
+}
+
+.titulo{
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: 'Roboto', sans-serif;
+    color: #454545;
+    font-size: 1.2em;
+}
+/* chat privado: */
+.chatPrivado{
+    min-height: 265px;
+    background-color: #fff;
+    margin: 5% 5% 5% 5%;
+}
+.listausers{
+    width: 100%;
+    padding: 5px 0 5px 0;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 5px;
+}
+
+.listausersyo{
+    width: 100%;
+    padding: 5px 0 5px 0;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 5px;
+}
+
+.listausers:hover{
+    background-color: #a9a9a9;
+    cursor: pointer;
+}
+
+#menuChat{
+    position: absolute;
+    bottom: 0%;
+    right: 101%;
+    /* background-color: #454545; */
+    /* background-color: #454545; */
+    width: 1200px;
+    height: 40px;
+    z-index:30;
+}
+.pestanaChat{
+    background-color: #f27a1a;
+    height: 80%;
+    width: 24.8%;
+    cursor: pointer;
+    float:right;
+    text-align: center;
+    font-size: 1.2em;
+    padding-top: 7px;
+     font-family: 'Roboto', sans-serif;
+     color: #454545;
+     border-radius: 5px;
+     margin-right: 2px;
+}
+
+.chatDesactivo{
+    position: absolute;
+    top: -1000%;
+    width: 300px;
+    float: right;
+    background-color: #ff8e1d;
+    border-radius: 3px;
+    min-height: 350px;
+}
+
+.activeChat{
+    position: relative;
+    top: 0;
+}
+
+.form1Chat{
+    position: absolute;
+    bottom: 11%;
+    right: 101%;
+    height: 360px;
+    width: 1200px;
+    /* background-color: #454545; */
+}
+
+.closeTab{
+    font-size: 20px;
+    font-weight: bold;
+    float: right;
+    padding: 10px 10px 10px 10px;
+}
+
+.hiddenChat {
+    visibility: hidden;
+}
+
+
+.btnChat{
+     background-color: #fbb803;
+     border-radius: 3px;
+     border: none;
+     padding: 7px 3%;
+     font-family: 'Roboto', sans-serif;
+     color: #454545;
+     font-size: 1em;
+     outline: none;
+     cursor: pointer;
+     float: left;
+ }
+ .btnChat i{
+     font-size: 20px;
+     margin-top: 7px;
+ }
+
+.btnChat:hover, .pestanaChat:hover {
+    background-color: #ff8e1d;
+ }
+ #minimizarChat{
+    height: 26px;
+    text-align: center;
+    font-size: 1.2em;
+    position: fixed;
+    bottom: 0%;
+    right: 0%;
+    z-index: 32;
+    width: 9%;
+    background-color: #ff8e1d;
+    /*border: 1px solid #454545;*/
+}
+
+.btnChatEnnviar{
+    color: #fff;;
+    background-color: #ff8e1d;
+    float: left;
+}
+.espanto1{
+    font-size: 15px;
+    color: #909090;
+    margin-top: 10px;
+}
+.espanto2{
+    font-size: 17px;
+    margin-left: 5px;
+}
+.espanto3{
+    font-size: 10px;
+    margin-left: 5px;
+    color: #B7B7B7;
+    float: right;
+    margin-right: 5px;
+}
+
+#minimizarChat:hover{
+    background-color: #ff8e1d;
+}

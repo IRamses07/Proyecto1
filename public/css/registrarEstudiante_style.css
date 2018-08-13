@@ -45,6 +45,7 @@ input, select{
     display: block;
     outline: none;
     width: 100%;
+    font-family: 'Roboto', sans-serif;
 }
 select:hover{
     cursor: pointer;
@@ -130,12 +131,12 @@ input::placeholder, .letraItalic{
 }
 
 .tabs__item{
-    border: 1px solid #fbb803;
+    border: 1px solid #f27a1a;
     border-bottom: none;
     line-height: 2.5;
     padding: 0 1em;
     margin-right: 1px;
-    background: #fbb803;
+    background: #f27a1a;
     border-radius: 5px 5px 0 0;
     top: 1px;
     z-index: 0;

@@ -162,7 +162,7 @@ btnActualizar.addEventListener('click', function(){
 function getDatos(){
     let infoEstudiante=[];
     let sError = false;
-    infoEstudiante.push(inputCedula.value,inputNombre1.value,inputNombre2.value,inputApellido1.value,inputApellido2.value,inputTelefono.value,inputCorreo.value,inputDireccion.value,$("#selecProvincia option:selected" ).text(),$("#selectCanton option:selected").text(),$("#selectDistrito option:selected").text(),selectCarrera.value,inputConNombre1.value,inputConNombre2.value,inputConApellido1.value,inputConApellido2.value,inputConTelefono.value,inputConCorreo.value,'Activo');
+    infoEstudiante.push(inputCedula.value,inputNombre1.value,inputNombre2.value,inputApellido1.value,inputApellido2.value,inputTelefono.value,inputCorreo.value,inputDireccion.value,$("#selecProvincia option:selected" ).text(),$("#selectCanton option:selected").text(),$("#selectDistrito option:selected").text(),selectCarrera.value,inputConNombre1.value,inputConNombre2.value,inputConApellido1.value,inputConApellido2.value,inputConTelefono.value,inputConCorreo.value,'activo');
 
     sError = validaCarrera();
     if(sError==true){
@@ -571,7 +571,7 @@ function getDatosActualizar(){
         actualizarEstudianteId(infoUser['_id'],infoEstudiante);
         swal({
             type : 'Success',
-            title : 'Registro exitoso',
+            title : 'Modificación exitosa',
             text: 'La información del estudiante '+inputNombre1.value+' fue actualizada exitosamente',
             icon: 'success',
             confirmButtonText : 'OK'

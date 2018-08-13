@@ -37,6 +37,7 @@ function llenarTabla(filro) {
                 verMas = createElm('a');
             verMas.innerHTML = 'Ver más';
             verMas.dataset.cedulaJuridica = lista[i].cedula_juridica;
+            verMas.classList.add('brasuca');
             verUbicacion.dataset.ubicacion = lista[i].ubicacion; 
             proyectos.appendChild(verMas);
             verUbicacion.innerHTML = 'Ver ubicación';
@@ -51,11 +52,37 @@ function llenarTabla(filro) {
                 window.location.href = `./modificarCliente.html?cedula_juridica=${lista[i]['cedula_juridica']}`;
             });
             btnEstado.classList.add('btnFiltro');
-            btnEstado.innerHTML = 'Desactivar';
+            if (lista[i].estado!=0) {
+                btnEstado.innerHTML = 'Desactivar';
+            }else{
+                btnEstado.innerHTML = 'Activar';
+            }
+            listener(btnEstado,'click',function () {
+                if (lista[i].estado!=0) {
+                    actualizarCliente({cedula_juridica:lista[i].cedula_juridica,estado:0});
+                }else{
+                    actualizarCliente({cedula_juridica:lista[i].cedula_juridica,estado:1});
+                }
+                llenarTabla(elm('#filtro').value);
+            });
             ubicacion.appendChild(verUbicacion);
             config.appendChild(btnModificar);
             config.appendChild(btnEstado);
         }
 
     }
+}
+
+
+
+brasucas();
+function brasucas(){
+    let brasuca = document.querySelectorAll('.brasuca');
+    brasuca.forEach(function(elem){
+        elem.addEventListener("click", function(){
+            let cedjur = elem.dataset.cedulaJuridica;
+            localStorage.setItem('cedjur',cedjur);
+            document.location.href = 'perfilCliente.html';
+        })
+    });
 }

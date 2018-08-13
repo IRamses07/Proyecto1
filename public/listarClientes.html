@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/generalStyle.css">
     <link rel="stylesheet" href="css/notificaciones.css">
     <link rel="stylesheet" href="css/listarClientes.css">
+    <link rel="stylesheet" href="css/chat.css">
 </head>
 
 <body>
@@ -19,8 +20,8 @@
                             <i class="fas fa-align-justify"></i>Menú</label>
                 <a id="notificacion" class="fLeft">
                     <i class="fas fa-bell"></i> Notificaciones</a>
-                    <label for="">Bienvenido: </label>
-                    <output id="txtnombreCliente" value=""></output>
+                <label for="">Bienvenido: </label>
+                <output id="txtnombreCliente" value=""></output>
                 <a href="javascript:logOut();" class="fRight">Cerrar sesión
                     <i class="fas fa-cog"></i>
                 </a>
@@ -69,7 +70,7 @@
                 <th>Cédula jurídica</th>
                 <th>Nombre</th>
                 <th>Contacto</th>
-                <th>Proyectos</th>
+                <th>Datos</th>
                 <th>Ubicación</th>
                 <th>
                     <i class="fas fa-cog"></i>
@@ -99,13 +100,18 @@
             </div>
 
         </div>
-
+        <div class="chatContainer" id="chatContainer"></div>
+        <div id="minimizarChat" class="btnChat">Chat</div>
     </main>
     <footer>
 
     </footer>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <script src="js/jquery-3.3.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/public/js/Chat/chat.service.js"></script>
+    <script type="text/javascript" src="/public/js/Chat/chat.controlador.js"></script>
     <script src="js/Login/login.js"></script>
     <script src="js/Notificaciones/notificaciones.js"></script>
     <script src="js/Cliente/servicioCliente.js"></script>
