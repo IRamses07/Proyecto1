@@ -235,20 +235,7 @@ module.exports.agregarHoras = function (req, res) {
             }
         }
     )
-};;
-
-
-
-const transporter = nodeMailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: 'codeanalytics79@gmail.com',
-        pass: 'sincontrasenna'
-    },
-    tls: {
-        rejectUnauthorized: false
-    }
-});
+};
 
 module.exports.reset_student_password = function (req, res) {
     estudianteSchema.findById(req.body._id).then(function (student) {
