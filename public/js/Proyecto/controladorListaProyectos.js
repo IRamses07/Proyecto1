@@ -46,6 +46,7 @@ function imprimirListaProyectos(radioSelected, inputDatoBuscar) {
                 boton.type = "button";
                 boton.value = "Ver más";
                 boton.classList.add('btnRegistro');
+                boton.dataset._id = infoProyecto[i]['_id'];
 
                 let botonM = document.createElement("input");
                 botonM.type = "button";
@@ -88,3 +89,20 @@ function modificaProyecto() {
     });
 
 } 
+
+verMas();
+function verMas() {
+
+    let vermas = document.querySelectorAll('.vermas');
+    vermas.forEach(function (elem) {
+        elem.addEventListener("click", function () {
+
+            let _id = elem.dataset._id;
+
+            localStorage.setItem('idP', _id);
+            document.location.href = 'perfilProyecto.html';
+        })
+    });
+
+}
+

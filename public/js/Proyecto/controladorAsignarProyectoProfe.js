@@ -20,7 +20,7 @@ function listarSelectClientes() {
     select.options[0] = new Option("Seleccione un proyecto", "");
 
     for (let i = 0; i < slProyecto.length; i++) {
-        select.options[i+1] = new Option(slProyecto[i]['nombre_proyecto'], slProyecto[i]['_id']);
+        select.options[i + 1] = new Option(slProyecto[i]['nombre_proyecto'], slProyecto[i]['_id']);
 
     }
 }
@@ -31,7 +31,7 @@ function listarSelectProfe1() {
     select.options[0] = new Option("Seleccione un profesor", );
 
     for (let i = 0; i < selectProfe1.length; i++) {
-        select.options[i+1] = new Option(selectProfe1[i]['nombre1']+'  '+selectProfe1[i]['apellido1'] , selectProfe1[i]['_id']);
+        select.options[i + 1] = new Option(selectProfe1[i]['nombre1'] + '  ' + selectProfe1[i]['apellido1'], selectProfe1[i]['_id']);
 
     }
 }
@@ -42,7 +42,7 @@ function listarSelectProfe2() {
     select.options[0] = new Option("Seleccione un profesor", );
 
     for (let i = 0; i < selectProfe2.length; i++) {
-        select.options[i+1] = new Option(selectProfe2[i]['nombre1']+' '+selectProfe2[i]['apellido1'], selectProfe2[i]['_id']);
+        select.options[i + 1] = new Option(selectProfe2[i]['nombre1'] + ' ' + selectProfe2[i]['apellido1'], selectProfe2[i]['_id']);
 
     }
 }
@@ -54,26 +54,49 @@ function obtenerDatos() {
     error = validarCampos();
 
     if (error == true) {
-        swal({
-            type: 'warning',
-            title: 'No se pudo registrar el usuario',
-            text: 'Por favor revise los campos en rojo, o que los datos no sean igulas',
-            confirmButtonText: 'Entendido'
-        });
+
         console.log('No se pudo registrar el usuario');
     } else {
 
-        asignaraProfe1();
-        asignaraProfe2();
 
+
+
+    }
+
+    switch (error) {
+        case 1:
+            asignaraProfe1();
+            asignaraProfe2();
+
+            swal({
+                type: 'success',
+                title: 'Se asigno con éxito',
+                text: 'Se han asignado los profesores a un proyecto',
+                confirmButtonText: 'Entendido'
+            });
+            break;
+
+        case 2:
+            swal({
+                type: 'warning',
+                title: 'No se pudo asignar el proyecto',
+                text: 'Por favor revisar que los profesores no sean iguales',
+                confirmButtonText: 'Entendido'
+            });
+            break;
+
+        case 3:
         swal({
-            type: 'success',
-            title: 'Registro exitoso',
-            text: 'El usuario se registró adecuadamente',
+            type: 'warning',
+            title: 'No se pudo asignar el proyecto',
+            text: 'Estos profesores ya tiene asignados este proyecto',
             confirmButtonText: 'Entendido'
         });
 
+            break;
 
+        default:
+            break;
     }
 }
 
@@ -82,6 +105,7 @@ function asignaraProfe1() {
     let infoProyecto = [];
 
     let proyecto = obtenerListaProyectos();
+
 
     let id = selectProfe1.value;
     let idProyecto;
@@ -117,6 +141,9 @@ function asignaraProfe1() {
             estadoProyecto = proyecto[i]['estado_proyecto'];
         }
     }
+
+
+
 
     infoProyecto.push(id, idProyecto, rol, nombreProyecto, fechaEntrega, estadoProyecto)
 
@@ -174,17 +201,37 @@ function asignaraProfe2() {
 }
 
 function validarCampos() {
-    let error = true;
+    let error = 1;
+    let infoProfe = getProfessorData()[0].proyecto;
 
     if (selectProfe1.value == selectProfe2.value) {
         selectProfe1.classList.add('error_input');
         selectProfe2.classList.add('error_input');
-        error = true;
+        error = 2;
+        return error;
     } else {
         selectProfe1.classList.remove('error_input');
         selectProfe2.classList.remove('error_input');
-        error = false;
+        error = 1;
     }
+
+    for (let i = 0; i < infoProfe.length; i++) {
+
+        if (infoProfe[i]['id'] == selectProyecto.value) {
+            selectProyecto.classList.add('error_input');
+            error = 3;
+
+
+            return error;
+        } else {
+
+            selectProyecto.classList.remove('error_input');
+            error = 1;
+        }
+
+    }
+
+
 
     return error;
 }
