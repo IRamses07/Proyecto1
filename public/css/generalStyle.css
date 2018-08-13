@@ -138,7 +138,8 @@ header{
     /* transition: background-color 0.2s ease-in 0.1s; */
 }
 
-.option2:hover{
+
+.option2:hover, .optionHover:hover{
  background-color: #f27a1a;;
 }
 
@@ -328,6 +329,7 @@ opcionesMenu{
     cursor: pointer;
     /* transition: background-color 0.2s ease-in 0.1s; */
 }
+
 
 .menuPrincipal{
     cursor: pointer;
