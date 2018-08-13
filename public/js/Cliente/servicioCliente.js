@@ -106,9 +106,7 @@ function asignarProyectoC(id, id1, nombreProyecto, fechaEntrega, estadoProyecto)
         contentType: 'application/x-www-form-urlencoded; charset=utf-8',
         dataType: 'json',
         async: false,
-
         data: {
-
             _id: id,
             id: id1,
             nombre_proyecto: nombreProyecto,
@@ -166,7 +164,6 @@ function validarCedulaRepetida(cedulaJuridica) {
 }
 function actualizarCliente(data) {
     let respuesta = '';
-    let cedJur = getCurrentUserData()['cedula_juridica'];
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/actualizar',
         type: 'post',
@@ -181,7 +178,7 @@ function actualizarCliente(data) {
     });
 
     peticion.fail(function (response) {
-        respuesta=response;
+        respuesta = response;
     });
 
     return respuesta;
@@ -202,7 +199,7 @@ function buscar(data) {
     });
 
     peticion.fail(function (response) {
-        respuesta=response;
+        respuesta = response;
     });
 
     return respuesta;

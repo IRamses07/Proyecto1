@@ -32,7 +32,8 @@ module.exports.registrar = function (req, res) {
         ubicacion: req.body.ubicacion,
         password: req.body.password,
         passwordChange: req.body.passwordChange,
-        foto : req.body.foto
+        foto: req.body.foto,
+        estado: 1
     });
 
     nuevoCliente.save(function (error) {
@@ -93,8 +94,8 @@ module.exports.listar = function (req, res) {
 module.exports.asignar_proyecto = function (req, res) {
 
     clientModel.update({
-            _id: req.body._id
-        }, {
+        _id: req.body._id
+    }, {
             $push: {
                 'proyectos': {
                     id: req.body.id,
@@ -129,39 +130,38 @@ module.exports.getInfoCliente = function (req, res) {
         });
 };
 
-module.exports.cambiarFoto = function(req, res){
+module.exports.cambiarFoto = function (req, res) {
     clientModel.findOneAndUpdate(
         {
             cedula_juridica: req.body.cedula_juridica
         },
-        {  
+        {
             foto: req.body.foto
         }
-        ).then(
-        function(clientes){
+    ).then(
+        function (clientes) {
             res.send(clientes);
-    });
+        });
 };
-
-module.exports.cambiar_contrasenna_cliente = function(req, res){
-    clientModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
-        function(err) {
+module.exports.cambiar_contrasenna_cliente = function (req, res) {
+    clientModel.findByIdAndUpdate(req.body._id, { $set: req.body },
+        function (err) {
             if (err) {
-                res.json({ success: false, msg: 'No se ha actualizado.'});
-        
+                res.json({ success: false, msg: 'No se ha actualizado.' });
+
             } else {
-            res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
+                res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
             }
-      });
+        });
 };
 module.exports.actualizar = function (req, res) {
     clientModel.where({
         cedula_juridica: req.body.cedula_juridica
-    }).update({$set:req.body}).then(
+    }).update({ $set: req.body }).then(
         function (err, clientes) {
             if (err) {
-                res.json({ success: false, msg: 'No se ha actualizado.' + err });
-            }else{                
+                res.json({ success: false, msg: 'No se ha actualizado.' + JSON.stringify(err)});
+            } else {
                 res.json({ success: true, msg: 'Se ha actualizado correctamente.' + err });
             }
         }

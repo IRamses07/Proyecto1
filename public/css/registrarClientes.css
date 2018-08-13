@@ -5,7 +5,7 @@
     margin-right: auto;
 }
 select {
-    min-width: 100%;
+    min-width: calc(100% + 10px);
 }
 input, select {
     border: 1px solid #ffffff;
@@ -14,7 +14,7 @@ input, select {
 h2 {
     padding-top: 20px;
     font-size: 24px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .fmr div:nth-child(2n+1) {
@@ -40,20 +40,16 @@ h2 {
 }
 textarea{
     font-family: inherit;
+    height: 26px;
 }
-output {
+.fmr output {
     border: 2px solid
 }
 
 .fmr output {
     color: #ffffff;
     border-radius: 3px;
-    vertical-align: middle;
-    height: 30px;
-    /* padding: 7px 0 ; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 7px 0 ;
 }
 .fmr label {
     display: block;

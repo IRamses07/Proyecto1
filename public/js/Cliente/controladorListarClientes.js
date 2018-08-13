@@ -52,7 +52,19 @@ function llenarTabla(filro) {
                 window.location.href = `./modificarCliente.html?cedula_juridica=${lista[i]['cedula_juridica']}`;
             });
             btnEstado.classList.add('btnFiltro');
-            btnEstado.innerHTML = 'Desactivar';
+            if (lista[i].estado!=0) {
+                btnEstado.innerHTML = 'Desactivar';
+            }else{
+                btnEstado.innerHTML = 'Activar';
+            }
+            listener(btnEstado,'click',function () {
+                if (lista[i].estado!=0) {
+                    actualizarCliente({cedula_juridica:lista[i].cedula_juridica,estado:0});
+                }else{
+                    actualizarCliente({cedula_juridica:lista[i].cedula_juridica,estado:1});
+                }
+                llenarTabla(elm('#filtro').value);
+            });
             ubicacion.appendChild(verUbicacion);
             config.appendChild(btnModificar);
             config.appendChild(btnEstado);

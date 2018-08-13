@@ -128,7 +128,6 @@ module.exports.asignar_proyecto = function (req, res) {
                     nombre_proyecto: req.body.nombre_proyecto,
                     fecha_Entrega: req.body.fecha_Entrega,
                     estado_proyecto: req.body.estado_proyecto,
-
                 }
             }
         },

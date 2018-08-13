@@ -116,13 +116,16 @@ function filtrarNombreEstudiantes(inputDatoBuscar) {
     return respuesta;
 }
 
-function getInfoEstudiante() {
+function getInfoEstudiante(id) {
     let respuesta = 'respuesta';
     let ced = '';
     if (getCurrentUserData()['rol'] == 'estudiante') {
         ced = getCurrentUserData()['cedula'];
     } else {
         ced = localStorage.getItem('ced');
+    }
+    if(id){
+        ced=id;
     }
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/getInfo_estudiantes',
@@ -282,7 +285,6 @@ function actualizarEstudianteId(pid, infoEstudiante) {
 
 function agregarHorasProyecto(idE, id, hora, fechas) {
     let respuesta = '';
-
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/agregar_horas',
         type: 'post',

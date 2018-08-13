@@ -22,11 +22,12 @@ let clientSchema = new mongoose.Schema({
     proyectos: [
         {
             id: { type: String },
-             nombre_proyecto: { type: String },
+            nombre_proyecto: { type: String },
             fecha_Entrega: { type: String },
             estado_proyecto: { type: String }
         }
     ],
-    foto : {type : String}
+    foto: { type: String },
+    estado: { type: Number, required: true }
 });
 module.exports = mongoose.model('Cliente', clientSchema);
