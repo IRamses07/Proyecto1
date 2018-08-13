@@ -11,8 +11,9 @@ module.exports.registrar = function(req, res) {
             id: _id,
             rol: '',
         },
-        tipo: 'ticket' || 'proyecto' || 'mensaje',
-        referecia: ''
+        tipo: '', //'ticket' || 'proyecto' || 'mensaje',
+        referecia: '', //a la página que lo envía
+        texto: ''
     });
 
     nuevaNotificacion.save(function (error) {

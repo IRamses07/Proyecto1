@@ -80,3 +80,10 @@ function mostrarNotificaciones() {
 
 }
 
+function cambiar_fondo_con_style(colorsel){
+    let colorB = document.getElementById(colorsel).style.backgroundColor;
+    let colorF = document.getElementById(colorsel).style.color;
+    document.body.style.backgroundColor= colorB;
+    document.body.style.color = colorF;
+    document.body.style.boxShadow = colorF;
+    }

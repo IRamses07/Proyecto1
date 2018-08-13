@@ -1,49 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!DOCTYPE html>
-    <html lang="es">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Registro de profesores</title>
-        <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
-            crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <link rel="stylesheet" href="css/reset.css">
-        <link rel="stylesheet" href="css/generalStyle.css">
-        <link rel="stylesheet" href="css/notificaciones.css">
-        <!-- <link rel="stylesheet" href="css/registroProfesores.css"> -->
-    </head>
-    
-    <body>
-        <header>
-            <div class="mainHeader">
-                <a id="notificacion" class="fLeft">
-                    <i class="fas fa-bell"></i> Notificaciones</a>
-                    <label for="">Bienvenido: </label>
-                    <output id="txtnombreCliente" value=""></output>
-                <a href="javascript:logOut();" class="fRight">Cerrar sesión
-                    <i class="fas fa-cog"></i>
-                </a>
-            </div>
-    
-            <div class="menuLateral" id="divMenuLateral">
-                <i class="fas fa-align-justify"></i>
-            </div>
-    
-        </header>
-        <main id="content">
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registro de profesores</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/generalStyle.css">
+    <link rel="stylesheet" href="css/notificaciones.css">
+    <link rel="stylesheet" href="css/registrarHoras.css">
+</head>
+
+<body>
+    <header>
+        <div class="mainHeader">
+            <a id="notificacion" class="fLeft">
+                <i class="fas fa-bell"></i> Notificaciones</a>
+            <label for="">Bienvenido: </label>
+            <output id="txtnombreCliente" value=""></output>
+            <a href="javascript:logOut();" class="fRight">Cerrar sesión
+                <i class="fas fa-cog"></i>
+            </a>
+        </div>
+
+        <div class="menuLateral" id="divMenuLateral">
+            <i class="fas fa-align-justify"></i>
+        </div>
+
+    </header>
+    <main id="content">
+
+        <div class="TituloPrincipal">
+            <H1>Registrar Horas</H1>
+        </div>
+
+        <ul class="tabs" id="tabs">
+            <li id="tab1" class="tabs__item activeTab">Añadir Horas</li>
+        </ul>
+
+        <div class="formulario">
             <form action="" name="frmHoras" id="frmHoras" class="frmHoras">
-    
-                <div>
-                    <label for="">Selecione un proyecto</label>
+
+
+
+                <div class="proyecto">
+                    <label for="">Proyecto:</label>
                     <select name="nombreProyecto" id="nombreProyecto"></select>
                 </div>
-                <div>
-                    <label for="">Selecione la cantidad de horas</label>
+
+                <div class="horas">
+                    <label for="">Horas Trabajadas:</label>
                     <input type="time" id="cantHoras">
                 </div>
 
@@ -51,26 +64,36 @@
                     <label for="">Fecha:</label>
                     <input type="date" id="dtFecha">
                 </div>
-    
-    
+
+
+
             </form>
-    
+
+            <div class="boton">
+
                 <button type="button" class="btnRegistro" id="btnHoras">Agregar</button>
-        </main>
-        <footer></footer>
-        <script src="js/Proyecto/jquery-3.3.1.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
-        <script src="js/Login/login.js"></script>
-        <!-- <script src="js/Cliente/servicioCliente.js"></script>
+
+            </div>
+
+        </div>
+
+
+
+    </main>
+    <footer></footer>
+    <script src="js/Proyecto/jquery-3.3.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
+    <script src="js/Login/login.js"></script>
+    <!-- <script src="js/Cliente/servicioCliente.js"></script>
         <script src="js/Proyecto/cotroladorAgregarProyectoCliente.js"></script> -->
-        <!-- <script src="js/Cliente/servicioListarClientes.js"></script> -->
-        <!-- <script src="js/Proyecto/cotroladorAgregarProyectoCliente.js"></script> -->
-        <script src="js/Estudiante/registrarEstudiante_servicio.js"></script>
-        <script src="js/Cliente/servicioCliente.js"></script>
-        <script src="js/Proyecto/registrarProyectoServicio.js"></script>
-        <!-- <script src="js/Proyecto/registrarProyectoControlador.js"></script> -->
-        <script src="js/Estudiante/agregar_horas_controlador.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    </body>
-    
-    </html>
+    <!-- <script src="js/Cliente/servicioListarClientes.js"></script> -->
+    <!-- <script src="js/Proyecto/cotroladorAgregarProyectoCliente.js"></script> -->
+    <script src="js/Estudiante/registrarEstudiante_servicio.js"></script>
+    <script src="js/Cliente/servicioCliente.js"></script>
+    <script src="js/Proyecto/registrarProyectoServicio.js"></script>
+    <!-- <script src="js/Proyecto/registrarProyectoControlador.js"></script> -->
+    <script src="js/Estudiante/agregar_horas_controlador.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</body>
+
+</html>

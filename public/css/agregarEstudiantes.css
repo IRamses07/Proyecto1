@@ -1,34 +1,33 @@
-main h1 {
-    margin-bottom: 20px;
-    margin-left: 16%;
-    margin-top: 20px;
+
+h1 {
+
     text-align: center;
     font-size: 30px;
-}
+    margin-bottom: 15px;
+    margin-top: 50px;
 
-.optionProyecto {
-    margin-left: 42%;
-    margin-bottom: 10px
-  
-    
-}
-
-.optionEstudiantes {
-    margin-left: 42%;
 }
 
 
-.optionEstudiantes label {
-    margin-right: 5%;
+.formulario{
+
+    text-align: center;
+    margin-left: 32%;     
+    border: 2px solid #fbb876;
+    padding: 50px 50px 18px 50px;
+    border-radius: 20px;
+    border-top-left-radius: 0%;
+    height: 200px;
+    width: 30%; 
+
+}
+
+.tabs{
+    margin-top: 30px;
+    margin-left: 32%; 
 }
 
 
-.optionProyecto label {
-    margin-right: 8%;
-    
-}
-
-button{
-    margin-left: 55%;
-    margin-top: 10px;
-}
+.optionEstudiantes  label{
+    margin-left:35%; 
+}   
