@@ -22,7 +22,7 @@ function imprimirListaProyectos(radioSelected, inputDatoBuscar) {
     let infoProyecto = obtenerListaProyectos();
     let tbody = document.querySelector('#tblProyectos tbody');
     if (!radioSelected) {
-        radioSelected = '';
+        radioSelected = 'identificacion_juridica';
     }
     if (!inputDatoBuscar) {
         inputDatoBuscar = '';
@@ -66,7 +66,8 @@ function imprimirListaProyectos(radioSelected, inputDatoBuscar) {
 
     }
 
-}
+}}
+
 modificaProyecto();
 function modificaProyecto() {
 
@@ -81,4 +82,4 @@ function modificaProyecto() {
         })
     });
 
-}
+} 
