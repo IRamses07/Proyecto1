@@ -352,6 +352,7 @@ function drawChart(chart,info,options,tabla) {
     //   ['Gym', 2],
     //   ['Sleep', 8]
     // ]);
+
     let data = new google.visualization.DataTable();
     let datos=Object.keys(tabla);
     for (let i = 0; i < datos.length; i++) {
@@ -367,7 +368,11 @@ function drawChart(chart,info,options,tabla) {
            vAxis: { gridlines: { count: 4 } }
          };
     // Display the chart inside the <div> element with id="piechart"
-    var chart = new google.visualization.ColumnChart(chart);
+
+    let keys=Object.keys(options);
+    for (let i = 0; i < keys.length; i++) {
+        config[keys[i]]=options[keys[i]];
+    }
     chart.draw(data, config);
 }
 // function drawChart2() {

@@ -5,8 +5,8 @@ function horasProyecto() {
     let horas = estudiante[0].horas;
     let proyectos = {};
     for (let i = 0; i < estudiante[0].proyectos.length; i++) {
+        proyectos[estudiante[0].proyectos[i].nombre_proyecto] = [];
         for (let j = 0; j < horas.length; j++) {
-            proyectos[estudiante[0].proyectos[i].nombre_proyecto] = [];
             if (estudiante[0].proyectos[i]._id == horas[j].id) {
                 proyectos[estudiante[0].proyectos[i].nombre_proyecto].push(horas[j]);
             }
@@ -26,7 +26,7 @@ function horasProyecto() {
         hTotales[0] = hTotales[0] + hTotales[1] / 60;
         info.push([pkeys[i], hTotales[0]]);
     }
-    drawChart(elm('#chart'), info, {}, {
+    drawChart(new google.visualization.BarChart(elm('#chart')), info, { title: 'Horas Proyecto' }, {
         Proyecto: 'string',
         Horas: 'number',
     });
