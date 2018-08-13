@@ -33,12 +33,15 @@ btnCerrar.addEventListener('click', function(){
       }).then((result) => {
         if (result.value) {
             cerrarTicket(),
+            guardarcomentario(),
           swal(
             'Cerrado!',
             'El ticket fue cerrado',
             'success'
           )
           btnCerrar.hidden = true;
+          redirige();
+         
         }
         else{
         cancelar();
@@ -72,8 +75,6 @@ let tickDa = mostrarTicket(getURLverTicket()._id);
 console.log(tickDa);
 
 
-console.log(tickDa[0]['nombre_cliente']);
-
 let proyecto = tickDa[0]['proyecto'];
 let urgencia = tickDa[0]['urgencia'];
 // let referenciaTicket = tickDa[0]['referencia_ticket'];
@@ -82,7 +83,7 @@ let descripcion = tickDa[0]['descripcion'];
 let imgn = tickDa[0]['imagen_error'];
 let codigot = tickDa[0]['codigo'];
 let nombreCliente = tickDa[0]['nombre_cliente'];
-
+let id = tickDa[0]['_id'];
 
 optProy.value = proyecto;
 optUrg.value = urgencia;
@@ -96,7 +97,6 @@ img.src = imgn;
 
  function validaDescripcion(){
 let desc = descSolucion.value;
-console.log(desc);
 if(desc == ""){
     
     btnCerrar.disabled = true;
@@ -116,9 +116,28 @@ if(desc == ""){
     optEst.value = estado;
     optEst.classList.add("color");
     cambiarEstadoTicket(idpar, estado);
+    redirige(idpar);
 }
 
 function cancelar(){
     let estado = tickDa[0]['estado'];
     optEst.value = estado;
 }
+
+
+function guardarcomentario() {
+    let comentario = descSolucion.value;
+    let autor = getCurrentUserData()['Nombre1'] + ' ' + getCurrentUserData()['apellido1'];
+    console.log(autor);
+    let tipo = 'descripción solución';
+    let id = tickDa[0]['_id'];
+    guardar_comentario(id, tipo, autor, comentario);
+};
+
+
+function redirige(id){
+    document.location.href = 'verTicket.html?_id=' + id;
+}
+
+//buscar como mostrar la descripción dentro del VER Ticket y no en el cerrar ticket
+//además debo de hacer que al cerrar redirija al ver ticket

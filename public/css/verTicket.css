@@ -3,9 +3,10 @@
     margin: 20px auto;
 }
 
-#viewTicket h1 , #viewTicket2 h1 {
+#viewTicket1 h1 , #viewTicket2 h1 {
     font-size: 2.3em;
      text-align: center;
+     margin-top: 50px;
 }
 
 .info {
@@ -20,8 +21,22 @@
     width: 45%;
     margin-top: 10px; 
 }
+
+.datos2 {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    float: left;
+}
+
+.datos2 h4 {
+   font-size: 1.5em;
+   margin: 25px 0%;
+}
+
   .uno , .dos {
     margin-bottom: 10px;
+    margin-left: 6%;
  }
 
  .dato {
@@ -53,9 +68,9 @@
 }
 
  .bigOne {
-     width: 100%;
+     width: 80%;
      margin: 0 auto;
-     padding-left: 5%; 
+     padding-left: 15%; 
  }
 
  .color {
@@ -185,4 +200,15 @@ textarea::-webkit-input-placeholder {
 
 .far .fa-trash-alt {
  color: #e6312b;
+}
+
+
+.comentarOu {
+    width: 100%;
+    height: 85px;
+    text-align: center;
+}
+
+cajaSolucion {
+    display: none;
 }

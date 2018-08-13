@@ -210,7 +210,7 @@ function loadOptionsMenu() {
             let mainOption = document.createElement('div');
             mainOption.classList.add('option');
             // mainOption.onclick = "secundaryMenu(userRol, mainMenu[i])";
-            /*mainOption.addEventListener('click', function () { secundaryMenu(userRol, mainMenu[i]) });*/
+            /*mainOption.addEventListener('click', function () { secundaryMenu(userRol, mainMenu[i]) });
             let mainLabel = document.createElement('a');
             mainLabel.classList.add('menuLabel');
             mainLabel.innerHTML = mainMenu[i];
