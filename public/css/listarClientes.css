@@ -11,7 +11,7 @@
     margin-left: auto;
     margin-right: auto;
 }
-input { font-family:FontAwesome }
+/* input { font-family:FontAwesome } */
 
 .tbl a, .tbl button {
     cursor: pointer;
@@ -72,13 +72,13 @@ h2 {
     display: flow-root;
 }
 
-.fmr div div:nth-child(2n+1) {
+/* .fmr div div:nth-child(2n+1) {
     float: left;
 }
 
 .fmr div div:nth-child(2n) {
     float: right;
-}
+} */
 .btnFiltro{
     padding: 5px;
     cursor: pointer;
@@ -86,4 +86,7 @@ h2 {
 }
 .tbl .btnFiltro{
     width: 85px;
+}
+.fmr input[type='radio']{
+    height: initial;
 }

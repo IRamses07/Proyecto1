@@ -1,37 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Reporte de horas</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
     <link rel="stylesheet" href="css/generalStyle.css">
     <link rel="stylesheet" href="css/reporteHoras.css">
+    <link rel="stylesheet" href="css/chat.css">
 </head>
+
 <body>
     <header>
         <div class="mainHeader">
+            <label for="" class="menuPrincipal" onclick="togglMenu()">
+                <i class="fas fa-align-justify"></i>Menú</label>
             <a id="notificacion" class="fLeft">
                 <i class="fas fa-bell"></i> Notificaciones</a>
-                <label for="">Bienvenido: </label>
-                <output id="txtnombreCliente" value=""></output>
+            <label for="">Bienvenido: </label>
+            <output id="txtnombreCliente" value=""></output>
             <a href="javascript:logOut();" class="fRight">Cerrar sesión
                 <i class="fas fa-cog"></i>
             </a>
         </div>
 
         <div class="menuLateral" id="divMenuLateral">
-            <i class="fas fa-align-justify"></i>
         </div>
+
     </header>
-    <div id="chart"></div>
+
+    <main>
+        <h1 id="titulo">Reporte de horas de: </h1>
+        <div class="display">
+            <div id="chart"></div>
+            <a class="selectin" id="horas">Horas totales</a>
+            <a class="selectin" id="proyectos">Horas proyecto</a>
+            <a class="selectin" id="actividad">Actividad </a>
+        </div>
+        <div class="chatContainer" id="chatContainer"></div>
+        <div id="minimizarChat" class="btnChat">Chat</div>
+    </main>
 </body>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="js/jquery-3.3.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="/public/js/Chat/chat.service.js"></script>
+<script type="text/javascript" src="/public/js/Chat/chat.controlador.js"></script>
 <script src="js/Estudiante/registrarEstudiante_servicio.js"></script>
 <script src="js/Proyecto/registrarProyectoservicio.js"></script>
 <script src="js/login/login.js"></script>
 <script src="js/controlador.js"></script>
 <script src="js/Estudiante/controladorReporteHoras.js"></script>
+
 </html>

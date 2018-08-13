@@ -1,5 +1,10 @@
 'use strict'
-let params = getParam()
+let params = getParam();
+listener(elm('#horas'), 'click', horasTotales); 
+listener(elm('#proyectos'), 'click', horasProyecto); 
+listener(elm('#actividad'), 'click', actividadProyecto);
+let estudiante = getInfoEstudiante(params.cedula);
+elm('#titulo').innerHTML+=estudiante[0].Nombre1;
 function horasProyecto() {
     let estudiante = getInfoEstudiante(params.cedula);
     let horas = estudiante[0].horas;
@@ -46,7 +51,7 @@ function horasTotales() {
     drawChart(new google.visualization.BarChart(elm('#chart')), [
         [estudiante[0].Nombre1, hTotales[0]]
     ], {
-            bar: { groupWidth: '10%' }
+            bar: { groupWidth: '40%' }
         }, {
             nombre: 'string',
             Horas: 'number'
@@ -79,11 +84,12 @@ function actividadProyecto() {
             info.push([proyectos[keys[i]][j].fecha, hTotales[0]]);
         }
         let cont = createElm('div');
+        addClass(cont, 'chart')
         drawChart(new google.visualization.BarChart(cont),
             info
             , {
                 bar: { groupWidth: '90%' },
-                title:'Actividad para proyecto "'+keys[i]+'"'
+                title: 'Actividad para proyecto "' + keys[i] + '"',height: 360,width: 640
             }, {
                 Fecha: 'string',
                 Horas: 'number'
