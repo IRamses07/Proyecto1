@@ -90,64 +90,69 @@ function obtenerDatosr() {
     // obtenerNombre();
     infoProyecto.push(sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion);
 
-    error = validarCampos();
+    tecnologiasWed = recorrerTecnologiasWed();
+    tecnologiasMovil = recorrerTecnologiasMovil();
+    tecologiasBd = recorrerTecnologiasBD();
+
+    error = validarCampos(tecnologiasWed, tecnologiasMovil, tecologiasBd);
+
+    //vieja valiladaciones 
+    {
+        // if (error == '1') {
+        //     swal({
+        //         type: 'warning',
+        //         title: 'No se pudo registrar el Proyecto',
+        //         text: 'Ya existe un Proyecto con este nombre',
+        //         confirmButtonText: 'Entendido'
+        //     });
+        //     console.log('No se pudo registrar el Proyecto');
+        // } else {
+        //     if (error = true) {
+        //         swal({
+        //             type: 'warning',
+        //             title: 'No se pudo registrar el Proyecto',
+        //             text: 'Por favor revise los campos en rojo',
+        //             confirmButtonText: 'Entendido'
+        //         });
+        //     } else {
+        //         tecnologiasT = recorrerTecnologias();
+
+        //         registrarProyecto(sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion, tecnologiasT);
+        //         agregarProyectoCliente();
+        //         limpiarFormulairo();
 
 
-    // if (error == '1') {
-    //     swal({
-    //         type: 'warning',
-    //         title: 'No se pudo registrar el usuario',
-    //         text: 'Ya existe un Proyecto con este nombre',
-    //         confirmButtonText: 'Entendido'
-    //     });
-    //     console.log('No se pudo registrar el usuario');
-    // } else {
-    //     if (error = true) {
-    //         swal({
-    //             type: 'warning',
-    //             title: 'No se pudo registrar el usuario',
-    //             text: 'Por favor revise los campos en rojo',
-    //             confirmButtonText: 'Entendido'
-    //         });
-    //     } else {
-    //         tecnologiasT = recorrerTecnologias();
 
-    //         registrarProyecto(sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion, tecnologiasT);
-    //         agregarProyectoCliente();
-    //         limpiarFormulairo();
+        //         swal({
+        //             type: 'success',
+        //             title: 'Registro exitoso',
+        //             text: 'El Proyecto se registró adecuadamente',
+        //             confirmButtonText: 'Entendido'
+        //         });
+        //     }
+        // }
 
-
-
-    //         swal({
-    //             type: 'success',
-    //             title: 'Registro exitoso',
-    //             text: 'El usuario se registró adecuadamente',
-    //             confirmButtonText: 'Entendido'
-    //         });
-    //     }
-    // }
+    }
     switch (error) {
         case 1:
             swal({
                 type: 'warning',
-                title: 'No se pudo registrar el usuario',
+                title: 'No se pudo registrar el Proyecto',
                 text: 'Por favor revise los campos en rojo',
                 confirmButtonText: 'Entendido'
             });
             break;
         case 2:
-            tecnologiasWed = recorrerTecnologiasWed();
-            tecnologiasMovil = recorrerTecnologiasMovil();
-            tecologiasBd = recorrerTecnologiasBD();
+
 
             registrarProyecto(sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion, tecnologiasWed, tecnologiasMovil, tecologiasBd);
             agregarProyectoCliente();
-         
+
 
             swal({
                 type: 'success',
                 title: 'Registro exitoso',
-                text: 'El usuario se registró adecuadamente',
+                text: 'El Proyecto se registró adecuadamente',
                 confirmButtonText: 'Entendido'
             });
 
@@ -158,11 +163,22 @@ function obtenerDatosr() {
         case 3:
             swal({
                 type: 'warning',
-                title: 'No se pudo registrar el usuario',
+                title: 'No se pudo registrar el Proyecto',
                 text: 'Ya existe un Proyecto con este nombre',
                 confirmButtonText: 'Entendido'
             });
             break;
+
+
+        case 4:
+            swal({
+                type: 'warning',
+                title: 'No se pudo registrar el Proyecto',
+                text: 'Por favor selecine una base de datos',
+                confirmButtonText: 'Entendido'
+            });
+            break;
+
         default:
 
             swal({
@@ -195,16 +211,26 @@ function listarSelectClientes() {
 
 
 
-function validarCampos() {
+function validarCampos(tecnologiasWed, tecnologiasMovil, tecologiasBd) {
     let error = true;
     let Proyectos = obtenerListaProyectos();
     let regexNombreDelProyecto = /^[a-z A-ZáéíóúÁÉÍÓÚñÑ 1234567890]+$/;
     let regexCedulaJuridica = /^[1234567890 ]+$/;
+    let cont1;
+    let cont2;
 
     if (inputNombreProyecto.value == '' || (regexNombreDelProyecto.test(inputNombreProyecto.value) == false)) {
         inputNombreProyecto.classList.add('error_input');
         error = 1;
         inputNombreProyecto.classList.add('error_input');
+
+
+        if (tecologiasBd == '') {
+
+            error = 4;
+        } else {
+            error = 2;
+        }
 
     } else {
         for (let i = 0; i < Proyectos.length; i++) {
@@ -264,8 +290,22 @@ function validarCampos() {
         error = 2;
     }
 
-    console.log(error);
+
+
+    for (let i = 0; i < tecnologiasWed.length; i++) {
+
+        cont1 = i;
+        console.log(cont1);
+    }
+
+
+
+
+
     return error;
+
+
+
 
 
 }
