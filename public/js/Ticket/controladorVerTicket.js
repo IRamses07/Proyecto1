@@ -118,7 +118,7 @@ if (estado == "Activo") {
 }
 if (usuario == "administrador") {
     btnModificar.hidden = true;
-
+    btnComentar.hidden = false;
 }
 if (usuario == "administrador" && estado == 'Activo') {
     btnAsignar.hidden = false;

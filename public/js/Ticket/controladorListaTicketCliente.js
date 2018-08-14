@@ -48,16 +48,20 @@ function listarTicketsCliente(pinptBuscar, selectUrgencia) {
                 btnEditar.value = "Modificar";
                 btnEditar.classList.add("btnLista");
                 btnEditar.dataset._id = tickets[i]['_id'];
-                btnEditar.hidden = true;
+                btnEditar.hidden = false;
                
 
                 btnEditar.addEventListener('click', modificarTCicketSlt);
                 
 
-                let boton = document.createElement("input");
-                boton.type = "button";
-                boton.value = "Ver más";
-                boton.classList.add("btnLista");
+                let boton = document.createElement("a");
+                // boton.type = "button";
+                // boton.value = "Ver más";
+                boton.classList.add("far");
+                boton.classList.add("fa-eye");
+                boton.classList.add("font-icon-listas");
+                
+                // <i class="far fa-eye"></i>
                
 
                 // codigo.innerHTML = tickets[i]['codigo'];
@@ -68,7 +72,7 @@ function listarTicketsCliente(pinptBuscar, selectUrgencia) {
                 editar.appendChild(btnEditar);
 
                 if(tickets[i]['estado'] == 'Activo'){
-                    btnEditar.hidden = false;
+                    btnEditar.hidden = true;
                 }
 
 

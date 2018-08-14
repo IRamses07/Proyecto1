@@ -1,26 +1,31 @@
 /* comenten aquí que estilos haen falta para ir agregandolos */
 /* esta hoja se irá actualizando conforme avanza elproyecto */
 /*  si se agregan nuevo estilos deben comentarlos */
+* {
+    font-size: 16px;
+}
+
 body{
     font-family: 'Roboto', sans-serif;
     background-color: #454545;
     color: #ffffff;
+
+}
+thead th {
+        font-size: 1.13em;
+}
+ a {
+ font-size: 0.8em
+}
+html, body, div, span, applet, object, iframe, p, blockquote, pre, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+
+    font-size: 1.09em;
 }
 
+td {
+    font-size: 1em;
+}
 
-/* body    {
-    background-color: #000000;
-    color: #FFFFFF;
-    padding: 20px;
-    font: 18px Arial, Tahoma;
-    } */
-
-
-    .box {
-    width: 30px;
-    height: 30px;
-    border: 2px solid rgb(255, 255, 255);
-    }
 
 /* id que va dentro del main. estilo del main espacio que da entre el menulateral y el contenido */
 #content{
@@ -175,7 +180,7 @@ select{
     /*height: 27px;*/
     height: 34px;
     font-family: 'Roboto', sans-serif;
-    font-size: 14px;
+    font-size: 0.71em;
     color: #454545;
     letter-spacing: 0.7pt;
  }
@@ -337,8 +342,14 @@ opcionesMenu{
 
 }
 
-
-
+.font-icon-listas {
+    font-size: 1.07em;
+    color: #f27a1a;
+    margin: 20px 0;
+}
+.font-icon-listas:hover {
+    color: #e7bd9a;
+}
 
 
 

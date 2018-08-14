@@ -10,6 +10,7 @@ btnFiltro.addEventListener('click', function () {
 
     let radioSelected = document.querySelector('input[type="radio"]:checked');
    
+    let desc = document.querySelector('#desc');
 
     let selectUrgencia = document.querySelector('#sltUrgencia').value;
     listarTicketsAdmin(inptBuscarCliente.value, selectUrgencia, radioSelected.value);
@@ -63,8 +64,18 @@ function listarTicketsAdmin(pinptBuscarCliente, selectUrgencia, radioSelected) {
     }
 };
 
-
-
+pruebaSubtr();
+function pruebaSubtr(){
+    let tickets = listarTickets();
+    for (let i = 0; i < tickets.length; i++) {
+        let texto = tickets[i]['descripcion'];;
+        desc.value = texto;
+        console.log(desc);
+       
+        desc.value.substr(-3,2);
+        console.log(texto.substr(0,20))
+    }
+}
 
 
 
