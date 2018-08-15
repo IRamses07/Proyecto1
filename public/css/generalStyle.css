@@ -337,7 +337,10 @@ opcionesMenu{
 
 }
 
-
+/*Para asegurarse que este sobre cualquier otro objeto con z-index*/
+.menuLateral, .mainHeader, .chatContainer{
+    z-index: 50;
+}
 
 
 

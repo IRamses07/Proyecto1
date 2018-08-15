@@ -68,7 +68,7 @@ let messageForm = document.querySelector('#messageForm');
 
 //pestanas de chat:
 function agregarPestana(id, userDestinoNombre){
-  menuChat.innerHTML+='<div value="'+id+'" class="pestanaChat" id="'+'h'+id+'">'+userDestinoNombre+'</div><span class="closeTab" value="'+id+'" id="'+'x'+id+'">X</span>';
+  menuChat.innerHTML+='<div class="entradatexto" id="'+'dad'+id+'"><div value="'+id+'" class="pestanaChat" id="'+'h'+id+'">'+userDestinoNombre+'</div><span class="closeTab" value="'+id+'" id="'+'x'+id+'"><i class="fas fa-times"></i></span></div>';
   agregarChatPrivado(id);
   addListerPestana();
   closePrivateChat();
@@ -115,11 +115,12 @@ function agregarChatPrivado(id){
                             <div class="chat" id="chat">
                               <div value="${id}" class="chatPrivado" id=${'chatin'+id}></div>
                             </div>
-                            <textarea class="form-control class="mytxtArea" id="${'message'+id}" placeholder="Nuevo mensaje">
-                            </textarea>
-                            
-                            <button type="button" class="tbn tbn-primary subsub btnChat btnChatEnnviar" value="${id}"><i class="fas fa-arrow-circle-right"></i>
-
+                            <div class="abajoChatPart">
+                              <textarea class="form-control mytxtArea" id="${'message'+id}" placeholder="Nuevo mensaje">
+                              </textarea>
+                        
+                              <button type="button" class="tbn tbn-primary subsub btnChat btnChatEnnviar" value="${id}"><i class="fas fa-arrow-circle-right"></i>
+                            </div>
 </button>
                           </div>`;
 }
@@ -170,11 +171,9 @@ function agregarChatPrivado(id){
             elem.addEventListener("click", function(){
               //esconde el chat que comparte el mismo value.
               if($(document.querySelector('#ch'+elem.attributes[0].value)).is(":visible")){
-                // document.querySelector('#ch'+elem.attributes[0].value).hidden=true;
                 document.querySelector('#ch'+elem.attributes[0].value).classList.add("hiddenChat");
                 contador_chat_abierto-=1;
               }else{
-                // document.querySelector('#ch'+elem.attributes[0].value).hidden=false;
                 document.querySelector('#ch'+elem.attributes[0].value).classList.remove("hiddenChat");
                 contador_chat_abierto+=1;
               }
@@ -200,6 +199,7 @@ function agregarChatPrivado(id){
               document.querySelector('#h'+elem.attributes[1].value).hidden=true;
               document.querySelector('#ch'+elem.attributes[1].value).hidden=true;
               document.querySelector('#x'+elem.attributes[1].value).hidden=true;
+              document.querySelector('#dad'+elem.attributes[1].value).hidden=true;
               removeRommie(elem.attributes[1].value);
               //Guardarlo en la base de datos
               contador_chats-=1;
@@ -286,20 +286,22 @@ function agregarChatPrivado(id){
                   ids.push(listaConectados[i][0]);
                   let fila = document.createElement('span');
                   fila.value = listaConectados[i][2];
-                  fila.innerHTML = listaConectados[i][1];
+                  fila.innerHTML = listaConectados[i][1]+'  <i class="fas fa-circle"></i>';
                   fila.classList.add('listausers');
                   document.querySelector('#users').appendChild(fila); 
                 }else{
                   ids.push(listaConectados[i][0]);
                   let fila = document.createElement('span');
                   fila.value = listaConectados[i][2];
-                  fila.innerHTML = listaConectados[i][1]+' (yo)';
+                  fila.innerHTML = listaConectados[i][1]+'  (yo) <i class="fas fa-circle"></i>';
                   fila.classList.add('listausersyo');
                   document.querySelector('#users').appendChild(fila); 
                 }
               }
             }
               
+
+
 
 
             // for(i=0;i<listaConectados.length;i++){
@@ -370,6 +372,7 @@ function agregarChatPrivado(id){
           // document.querySelector('#h'+elem.attributes[1].value).hidden=true;
           // document.querySelector('#ch'+elem.attributes[1].value).hidden=true;
           // document.querySelector('#x'+elem.attributes[1].value).hidden=true;
+          $('#chatin'+room).scrollTop($('#chatin'+room)[0].scrollHeight);
 
 
         });
@@ -460,9 +463,9 @@ function usuarioNombre(){
   if(currentData.rol=="administrador")
     return "Administrador";
   else if (currentData.rol=="estudiante")
-    return currentData.Nombre1;
+    return currentData.Nombre1+' '+currentData.apellido1;
   else if (currentData.rol=="cliente")
-    return currentData.nombre1;
+    return currentData.nombre1+' '+currentData.primer_apellido;
   else
-    return currentData.nombre1;
+    return currentData.nombre1+' '+currentData.apellido1;
 };

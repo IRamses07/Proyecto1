@@ -75,6 +75,7 @@ let tempConectados = [];
         });
 
         socket.on('joinroom', function(destino, userDestinoNombre) {
+          console.log('User destino: '+userDestinoNombre);
           let room = Math.floor((Math.random() * 99999) + 10000);                    //generates a random id for the room;
           let socketDest = '';
           let nombreSender = '';
@@ -89,13 +90,16 @@ let tempConectados = [];
               socketDest=conectados[i][0];
             }
           }
-
+          
           for(i=0;i<conectados.length;i++){
+            console.log(socket);
+            console.log(conectados[i]);
             if(conectados[i][0]==socket){
+              console.log('entra loop');
               nombreSender=conectados[i][1];
             }
           }
-
+          console.log('Nombre destino: '+nombreSender);
           // socket.join(room);
           // console.log('Destino: '+socketDest);
           let socket2 = io.sockets.connected[socketDest];
