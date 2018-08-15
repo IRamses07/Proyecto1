@@ -1,5 +1,16 @@
 // 'use strict';
 $(function(){
+  console.log(sessionStorage.getItem("chatMin"));
+  if (sessionStorage.getItem("chatMin")==0){
+    document.querySelector('#chatContainer').hidden=false;
+    console.log('entra hidden:0');
+  } else {
+    document.querySelector('#chatContainer').hidden=true;
+    console.log('entra hidden:1');
+  }
+});
+
+$(function(){
 
   socket = io.connect();
   $messageForm = $('#messageForm');
@@ -9,18 +20,29 @@ $(function(){
 
 let userslist = document.querySelector('#users');
 let chatContainer = document.querySelector('#chatContainer');
+
+//revisa si el chat estaba minimizado o estaba entero:
+
+
+
+//minimizar el chat entero:
 let minimizarChat = document.querySelector('#minimizarChat');
 minimizarChat.addEventListener('click',function(){
   if($(document.querySelector('#chatContainer')).is(":hidden")){
     // document.querySelector('#ch'+elem.attributes[0].value).hidden=true;
     document.querySelector('#chatContainer').hidden=false;
+    sessionStorage.setItem("chatMin", 0);
+    console.log('cambia a abierto '+sessionStorage.getItem("chatMin"));
     // contador_chat_abierto-=1;
   }else{
     // document.querySelector('#ch'+elem.attributes[0].value).hidden=false;
     document.querySelector('#chatContainer').hidden=true;
+    sessionStorage.setItem("chatMin", 1);
+     console.log('cambia a cerrado '+sessionStorage.getItem("chatMin"));
     // contador_chat_abierto+=1;          
   }
 });
+
 
 let contador_chats = 0;
 let contador_chat_abierto = 0;
