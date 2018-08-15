@@ -94,7 +94,14 @@ function obtenerDatosr() {
     tecnologiasMovil = recorrerTecnologiasMovil();
     tecologiasBd = recorrerTecnologiasBD();
 
-    error = validarCampos(tecnologiasWed, tecnologiasMovil, tecologiasBd);
+
+    let numeroWed = tecnologiasWed.length;
+
+    let numeroMovil = tecnologiasMovil.length;
+
+    error = validarCampos(numeroWed, numeroMovil, tecologiasBd);
+
+
 
     //vieja valiladaciones 
     {
@@ -211,13 +218,13 @@ function listarSelectClientes() {
 
 
 
-function validarCampos(tecnologiasWed, tecnologiasMovil, tecologiasBd) {
+function validarCampos(numeroWed, numeroMovil, tecologiasBd) {
     let error = true;
     let Proyectos = obtenerListaProyectos();
     let regexNombreDelProyecto = /^[a-z A-ZáéíóúÁÉÍÓÚñÑ 1234567890]+$/;
     let regexCedulaJuridica = /^[1234567890 ]+$/;
-    let cont1;
-    let cont2;
+
+
 
     if (inputNombreProyecto.value == '' || (regexNombreDelProyecto.test(inputNombreProyecto.value) == false)) {
         inputNombreProyecto.classList.add('error_input');
@@ -225,12 +232,7 @@ function validarCampos(tecnologiasWed, tecnologiasMovil, tecologiasBd) {
         inputNombreProyecto.classList.add('error_input');
 
 
-        if (tecologiasBd == '') {
 
-            error = 4;
-        } else {
-            error = 2;
-        }
 
     } else {
         for (let i = 0; i < Proyectos.length; i++) {
@@ -291,13 +293,13 @@ function validarCampos(tecnologiasWed, tecnologiasMovil, tecologiasBd) {
     }
 
 
+    if (tecologiasBd == '') {
 
-    for (let i = 0; i < tecnologiasWed.length; i++) {
-
-        cont1 = i;
-        console.log(cont1);
+        error = 4;
+        return error;
+    } else {
+        error = 2;
     }
-
 
 
 
