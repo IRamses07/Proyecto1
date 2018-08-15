@@ -387,17 +387,13 @@ function recorrerTecnologiasBD() {
     return listaProyectos;
 
 }
-
-
-
-
-
-
-
-
+ //algo viejo quen no se quera ya no sirve 
+{
 // function llenarCedulaJuridica() {
 //     let cedulaJuridica = listarClientes()['cedula_juridica'];
 //     let inptCedulaJuridica = document.querySelector('#txtnombreCliente');
 //     inptCedulaJuridica.value = cedulaJuridica;
 
 // }
+
+}
