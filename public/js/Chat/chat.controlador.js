@@ -256,7 +256,8 @@ function agregarChatPrivado(id){
             let contador=0;
             let bandera=false;
             let ids = [];
-            console.log('llega facil');
+            console.log('listar a la hora:');
+            console.log(listaConectados);
             for(i=0;i<listaConectados.length;i++){
 
               bandera=false;
@@ -287,6 +288,8 @@ function agregarChatPrivado(id){
                   let fila = document.createElement('span');
                   fila.value = listaConectados[i][2];
                   fila.innerHTML = listaConectados[i][1]+'  <i class="fas fa-circle"></i>';
+                                    //fila.innerHTML = '<div class="perfilImgCont"><img src="'+listaConectados[i][3]+'"></div>'+listaConectados[i][1]+'  <i class="fas fa-circle"></i>';
+
                   fila.classList.add('listausers');
                   document.querySelector('#users').appendChild(fila); 
                 }else{
@@ -390,11 +393,13 @@ function agregarChatPrivado(id){
           }else{
             let currentData = JSON.parse(sessionStorage.getItem('currentUser'));
             console.log(listaConectados);
+            socket.nickname = usuarioNombre();
+            socket.foto=usuarioFoto();
             // if(listaConectados.length==0){
               // console.log('vacio');
               //agregar a la lista xq esta vacia
               let infoUser = [];
-              infoUser.push(id.id,usuarioNombre(),(JSON.parse(sessionStorage.getItem('currentUser')))._id );
+              infoUser.push(id.id,usuarioNombre(),(JSON.parse(sessionStorage.getItem('currentUser')))._id,usuarioFoto());
               socket.emit('agregar a lista', infoUser);
             // }
             // else{
@@ -440,20 +445,12 @@ function agregarChatPrivado(id){
             // let tito = obtenerListaConectados();
             // console.log(tito);
           
-            //cuando el user cierra session o cierra la pestana, se elimina de la lista de conectados.
             //imprimir el chat asociado a esos dos users.
             //llamar a la foto del ususario uy ponerlo junto al nombre ~ llamarlo desde sessionStorage
-            //hacer una funcion desconectar que sea llamada desde el connect y desconnect para poner o no en la lista de conectados que esta en mongo
-            //user sessionStorage para guardar si hay chats abiertos.
             //user un sweetalert para avisar que se le unio a un nuevo room (tiene un nuevo mensaje)
-            //hacer que cuando toco a un user, s ya hay un chat abierto, mandarlo a ese.
             //poner una foto pequena en la pestana que habre el chat.
             //para pasar las rooms asociadas, las puedo meter en un storage o en un arreglo en el server, o actualizar un arreglo con los los room asociados pero a el _id en el server. (suena mejor)
-            //poner me o yo en la lista de conectados cuando me lista al usuario actual.
             //hacer que diga que el user tal esta escribiendo. (investigar).
-            //poner un X en la pestana del chat para cerrarlo y eliminar ese room o quitarlo de la lista de conectados.
-            //cuando toca la X, que le ponga un hidden=true a la pestana en lugar de cerrar todo.
-            //establecer la posicion dependiendo de cuantas tablas esten abiertas en la vara.
             
 
     
@@ -468,4 +465,16 @@ function usuarioNombre(){
     return currentData.nombre1+' '+currentData.primer_apellido;
   else
     return currentData.nombre1+' '+currentData.apellido1;
+};
+
+function usuarioFoto(){
+  let currentData = JSON.parse(sessionStorage.getItem('currentUser'));
+  if(currentData.rol=="administrador")
+    return "https://res.cloudinary.com/koffeedev/image/upload/mpbohtjn2dsw2iskytcy";
+  else if (currentData.rol=="estudiante")
+    return currentData.foto;
+  else if (currentData.rol=="cliente")
+    return currentData.foto;
+  else
+    return currentData.foto;
 };

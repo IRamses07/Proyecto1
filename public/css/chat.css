@@ -233,8 +233,17 @@
 
 .list-group i{
     color: #00FF00;
-    font-size: 8px;
+    font-size: 10px;
     float: right;
-    margin-right: 5%;
+    margin-right: 10%;
+    margin-left: -5%;
     margin-top: 5px;
 }
+
+#minimizarChat i, #minimizarChat span{
+    margin-top: -6px;
+}
+
+
+
+
