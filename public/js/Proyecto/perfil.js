@@ -1,18 +1,54 @@
 
-let nombreProyecto = document.querySelector('#NombreProyecto');
+let outNombreProyecto = document.querySelector('#NombreProyecto');
 
-let nombreCliente = document.querySelector('#nombreCliente');
+let outNombreCliente = document.querySelector('#nombreCliente');
 
-let juridica = document.querySelector('#juridica');
+let outJuridica = document.querySelector('#juridica');
 
-let estado = document.querySelector('#estado');
+let outEstado = document.querySelector('#estado');
 
-let fecha = documet.querySelector('#fecha');
+let outFecha = document.querySelector('#fecha');
 
-let descripcion = document.querySelector('#descripcion');
+let outDescripcion = document.querySelector('#descripcion');
 
 
-function llenarInfo(){
+
+llenarInfo();
+function llenarInfo() {
+
+    let id = localStorage.getItem('idP')
+
+    let infoProyecto = obtenerProyectoId(id);
+
+
+    let nombreProyecto = infoProyecto['nombre_proyecto'];
+    
+    let nombreCliente = infoProyecto['nombre_cliente'];
+
+    let cedulaJuridica = infoProyecto['identificacion_juridica'];
+
+    let estadoProyecto = infoProyecto['estado_proyecto'];
+
+    let fechaEntrega = infoProyecto ['fecha_Entrega'];
+
+    let descripcion = infoProyecto['descripcion'];
+    
+    outNombreProyecto.value = nombreProyecto;
+
+    outNombreCliente.value = nombreCliente;
+
+    outJuridica.value = cedulaJuridica;
+
+    outEstado.value = estadoProyecto;
+
+    outFecha.value = fechaEntrega;
+
+    outDescripcion.value = descripcion;
+
+
+
+
 
     
 }
+
