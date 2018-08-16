@@ -1,5 +1,13 @@
 moveUser(true);
 document.querySelector('#btnChange').addEventListener('click', passwordChange);
+showMenu();
+function showMenu(){
+    if(getCurrentUserData()['passwordChange'] == 0){
+        document.querySelector('.mainHeader').classList.add('hide');
+    }else{
+        document.querySelector('.mainHeader').classList.remove('hide');
+    }
+}
 
 function passwordChange() {
 
