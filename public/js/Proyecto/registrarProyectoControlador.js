@@ -186,6 +186,17 @@ function obtenerDatosr() {
             });
             break;
 
+        case 5:
+
+            swal({
+                type: 'warning',
+                title: 'No se pudo registrar el Proyecto',
+                text: 'Por favor escoja una de las opciones Móviles o Web',
+                confirmButtonText: 'Entendido'
+            });
+
+            break;
+
         default:
 
             swal({
@@ -301,6 +312,15 @@ function validarCampos(numeroWed, numeroMovil, tecologiasBd) {
         error = 2;
     }
 
+    if (numeroMovil > 0 && numeroWed > 0) {
+
+        error = 5
+        return error;
+    } else {
+
+        error = 2;
+    }
+
 
 
 
@@ -387,13 +407,13 @@ function recorrerTecnologiasBD() {
     return listaProyectos;
 
 }
- //algo viejo quen no se quera ya no sirve 
+//algo viejo quen no se quera ya no sirve 
 {
-// function llenarCedulaJuridica() {
-//     let cedulaJuridica = listarClientes()['cedula_juridica'];
-//     let inptCedulaJuridica = document.querySelector('#txtnombreCliente');
-//     inptCedulaJuridica.value = cedulaJuridica;
+    // function llenarCedulaJuridica() {
+    //     let cedulaJuridica = listarClientes()['cedula_juridica'];
+    //     let inptCedulaJuridica = document.querySelector('#txtnombreCliente');
+    //     inptCedulaJuridica.value = cedulaJuridica;
 
-// }
+    // }
 
 }
