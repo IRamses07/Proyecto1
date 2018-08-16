@@ -159,6 +159,10 @@ function agregarChatPrivado(id){
       agregarPestana(room, destino);
       document.querySelector('#ch'+room).classList.add("hiddenChat");
       socket.emit('unir a room', room);
+      //otro for para ir llenando con el n==contenido de su session.storage.
+      if(true){
+
+      }
     }
     addListerPestana();
   //mandar a agregar a este socket
@@ -285,18 +289,30 @@ function agregarChatPrivado(id){
                if(listaConectados[i][1]!=='xxx' && bandera){
                 if(listaConectados[i][1]!==nombre){
                   ids.push(listaConectados[i][0]);
-                  let fila = document.createElement('span');
+                  let fila = document.createElement('div');
                   fila.value = listaConectados[i][2];
-                  fila.innerHTML = listaConectados[i][1]+'  <i class="fas fa-circle"></i>';
-                                    //fila.innerHTML = '<div class="perfilImgCont"><img src="'+listaConectados[i][3]+'"></div>'+listaConectados[i][1]+'  <i class="fas fa-circle"></i>';
+                  //fila.innerHTML = listaConectados[i][1]+'  <i class="fas fa-circle"></i>';
+                  //fila.innerHTML = '<div class="perfilImgCont"><img src="'+listaConectados[i][3]+'"></div>'+listaConectados[i][1]+'  <i class="fas fa-circle"></i>';
+                  fila.innerHTML = '<div class=filaFilantro><div class="perfilImgCont"><img src="'+listaConectados[i][3]+'"></div><div class="contNombre">'+listaConectados[i][1]+'</div><div class="contentelemI"><i class="fas fa-circle"></i></div></div>';
+
 
                   fila.classList.add('listausers');
                   document.querySelector('#users').appendChild(fila); 
                 }else{
                   ids.push(listaConectados[i][0]);
-                  let fila = document.createElement('span');
+                  let fila = document.createElement('div');
                   fila.value = listaConectados[i][2];
-                  fila.innerHTML = listaConectados[i][1]+'  (yo) <i class="fas fa-circle"></i>';
+                  fila.innerHTML = '<div class=filaFilantro><div class="perfilImgCont"><img src="'+listaConectados[i][3]+'"></div><div class="contNombre">'+listaConectados[i][1]+'  (yo)</div><div class="contentelemI"><i class="fas fa-circle"></i></div></div>';
+
+
+
+                  // <div class="perfilImgCont"><img src="'+listaConectados[i][3]+'"></div>
+                  // <i class="fas fa-circle"></i>
+                  // listaConectados[i][1]
+                  // fila.innerHTML = ;
+                  
+                  
+
                   fila.classList.add('listausersyo');
                   document.querySelector('#users').appendChild(fila); 
                 }
@@ -359,11 +375,27 @@ function agregarChatPrivado(id){
 
         socket.on('custoMmessage', function(data, time, nombre, room) {
           //hacer que si estaba minimizada se regrese la pestana
+          
           if(data!=''){
-            $('#chatin'+room).append('<div class="well espanto espanto1">'+nombre+': </div>');
+
+            let conversacion = JSON.parse(sessionStorage.getItem(room));
+            let mensajeEnv = [];
+            mensajeEnv.push(nombre,data,time);
+            conversacion.push(mensajeEnv);
+            sessionStorage.setItem(room, JSON.stringify(conversacion));
+            console.log('toto');
+            console.log(JSON.parse(sessionStorage.getItem(room)));
+
+            if(nombre!==usuarioNombre())
+              $('#chatin'+room).append('<div class="well espanto espanto1">'+nombre+': </div>');
+            else
+              $('#chatin'+room).append('<div class="well espanto espanto1">yo: </div>');
             $('#chatin'+room).append('<div class="well espanto espanto2">'+'\''+data+'\''+'</div>');
             $('#chatin'+room).append('<div class="well espanto espanto3">'+time+'</div>');
           }
+
+
+
           // $('#ch'+room)[0].appendChild('<div class="well espanto">'+data+': </div>');
           // $('#ch'+room)[0].appendChild('<div class="well espanto">'+data+': </div>');
           // console.log(data);
@@ -382,6 +414,11 @@ function agregarChatPrivado(id){
 
         socket.on('nuevaPesnata', function(id, userDestinoNombre) {
           agregarPestana(id, userDestinoNombre);
+          if(!sessionStorage.getItem(id)){
+            console.log('entra -> no existe');
+            let room=[];
+            sessionStorage.setItem(id, JSON.stringify(room));
+          }
           //funcion para agregar el chat y luego meter los mensajes ahi; los ids de los chat se pueden hacer como 'CC'+id
         });
 

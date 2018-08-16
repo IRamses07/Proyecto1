@@ -85,7 +85,7 @@
 .pestanaChat{
     /*background-color: #f27a1a;*/
     /*height: 85%;*/
-    width: 85%;
+    width: 83%;
     cursor: pointer;
     float:left;
     text-align: center;
@@ -123,8 +123,8 @@
     height: 100%;
     font-size: 1.5em;
     font-weight: bold;
-    float: right;
-    margin-right: 7px;
+    float: left;
+    margin-right: 2%;
     padding: 10px 10px 10px 10px;
     margin-top: -5px;
 }
@@ -173,6 +173,10 @@
     /*border: 1px solid #454545;*/
 }
 
+#minimizarChat span{
+    margin-top: -6px;
+}
+
 .btnChatEnnviar{
     color: #fff;;
     background-color: #ff8e1d;
@@ -182,17 +186,18 @@
     font-size: 15px;
     color: #909090;
     margin-top: 10px;
+    margin-left: 3%;
 }
 .espanto2{
     font-size: 17px;
-    margin-left: 5px;
+    margin-left: 5%;
+    margin-top: 5px;
 }
 .espanto3{
     font-size: 10px;
-    margin-left: 5px;
     color: #B7B7B7;
+    margin-right: 3%;
     float: right;
-    margin-right: 5px;
 }
 
 .abajoChatPart{
@@ -240,10 +245,44 @@
     margin-top: 5px;
 }
 
-#minimizarChat i, #minimizarChat span{
+/*#minimizarChat i, #minimizarChat span{
     margin-top: -6px;
+}*/
+
+.perfilImgCont{
+    height: 30px;
+    width: 30px;
+    float: left;
+    margin-left: 5%;
+    border-radius: 50%;
+}
+.perfilImgCont img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
 }
 
 
+.contNombre{
+    margin-top: 4%;
+    width: 70%;
+    float: left;
+    font-size: 0.9em;
+}
+.contentelemI{
+    width: 10%;
+    margin-top: 4%;
+    float: right;
+}
+.contentelemI i{
+    float: left;
+}
+.filaFilantro{
+    width: 100%;
+    height: 35px;
+    display: flow-root;
+}
 
-
+#minimizarChat i, #minimizarChat span{
+    margin-top: -6px;
+}
