@@ -1,4 +1,5 @@
 loadOptionsMenu();
+document.querySelector("main").classList.add("mainCorrediso");
 function getCurrentUserData() {
     let currentData = JSON.parse(sessionStorage.getItem('currentUser'));
     if (currentData == null) {
@@ -142,17 +143,21 @@ function loadOptionsMenu() {
 
 
         let mainMenu = ["Proyectos", "Clientes", "Profesores", "Estudiantes", "Tickets"];
+        let iconos = ['fa-project-diagram','fa-briefcase','fa-chalkboard-teacher','fa-user-graduate','fa-ticket-alt'];
         for (let i = 0; i < mainMenu.length; i++) {
             let optionsContainer = document.createElement('div');
             optionsContainer.id = mainMenu[i];
             let mainOption = document.createElement('div');
             mainOption.classList.add('option');
-            /*optionsContainer.onclick = "secundaryMenu(mainMenu[i])";*/
-            optionsContainer.addEventListener('click', function () { secundaryMenu(mainMenu[i]) });
             let mainLabel = document.createElement('a');
             mainLabel.classList.add('menuLabel');
             mainLabel.innerHTML = mainMenu[i];
-            mainLabel.addEventListener('click', function () { secundaryMenu(mainMenu[i]) });
+            mainLabel.href = "javascript:secundaryMenu("+mainMenu[i].toString()+")";  
+            let icono = document.createElement('i');
+            icono.classList.add('iconosMenu');
+            icono.classList.add('fas');
+            icono.classList.add(iconos[i]);
+            mainLabel.appendChild(icono);
             mainOption.appendChild(mainLabel);
             optionsContainer.appendChild(mainOption);
             menu.appendChild(optionsContainer);
@@ -161,7 +166,7 @@ function loadOptionsMenu() {
             let menuURL = [];
 
             if (mainMenu[i] == "Proyectos") {
-                menuTexto = ["Agregar proyectos a profesores", "registrar proyecto", "Listar proyectos", "Listar proyectos en desarrollo"];
+                menuTexto = ["Agregar proyectos a profesores", "Registrar proyecto", "Listar proyectos", "Listar proyectos en desarrollo"];
                 menuURL = ["agregarProyectosProfesores.html", "registrarProyecto.html", "listarProyectos.html", "listarProyectosDesarrollo.html"];
             }
             if (mainMenu[i] == "Clientes") {
@@ -184,12 +189,12 @@ function loadOptionsMenu() {
             for (let i = 0; i < menuTexto.length; i++) {
                 let newDiv = document.createElement('div');
                 newDiv.classList.add('option2');
-                /*newDiv.classList.add('hide');*/
+                newDiv.classList.add('hide');
                 let newA = document.createElement('a');
                 newA.innerHTML = menuTexto[i];
                 newA.href = menuURL[i];
                 /*newA.style.display = "block";*/
-                newA.style.width = "400px";
+                newA.style.width = "270px";
                 newDiv.appendChild(newA);
                 optionsContainer.appendChild(newDiv);
 
@@ -204,16 +209,21 @@ function loadOptionsMenu() {
 
     if (userRol == "cliente") {
         let mainMenu = ["Proyectos", "Tickets"];
+        let iconos = ['fa-project-diagram','fa-ticket-alt'];
         for (let i = 0; i < mainMenu.length; i++) {
             let optionsContainer = document.createElement('div');
             optionsContainer.id = mainMenu[i];
             let mainOption = document.createElement('div');
             mainOption.classList.add('option');
-            // mainOption.onclick = "secundaryMenu(userRol, mainMenu[i])";
-            /*mainOption.addEventListener('click', function () { secundaryMenu(userRol, mainMenu[i]) });*/
             let mainLabel = document.createElement('a');
             mainLabel.classList.add('menuLabel');
             mainLabel.innerHTML = mainMenu[i];
+            mainLabel.href = "javascript:secundaryMenu("+mainMenu[i].toString()+")";
+            let icono = document.createElement('i');
+            icono.classList.add('iconosMenu');
+            icono.classList.add('fas');
+            icono.classList.add(iconos[i]);
+            mainLabel.appendChild(icono);
             mainOption.appendChild(mainLabel);
             optionsContainer.appendChild(mainOption);
             menu.appendChild(optionsContainer);
@@ -236,13 +246,12 @@ function loadOptionsMenu() {
             for (let i = 0; i < menuTexto.length; i++) {
                 let newDiv = document.createElement('div');
                 newDiv.classList.add('option2');
-                /*newDiv.classList.add('hide');*/
+                newDiv.classList.add('hide');
                 let newA = document.createElement('a');
                 newA.innerHTML = menuTexto[i];
                 newA.href = menuURL[i];
                 newA.style.display = "block";
-                newA.style.width = "400px";
-                newA.classList.add('hide');
+                newA.style.width = "270px";
                 newDiv.appendChild(newA);
                 optionsContainer.appendChild(newDiv);
                 if (menuURL[i] == "registroProfesores.html") {
@@ -255,28 +264,38 @@ function loadOptionsMenu() {
 
         let profile = document.createElement('div');
         profile.classList.add('option');
-        /*profile.classList.add('option2');*/
+        /*profile.classList.add('option2');*/ 
         profile.classList.add('optionHover');
         let profileLabel = document.createElement('a');
         profileLabel.classList.add('menuLabel');
-        profileLabel.innerHTML = "Visualizar perfil";
+        profileLabel.innerHTML = "Perfil";
         profileLabel.href = "perfilCliente.html";
+        let icono2 = document.createElement('i');
+        icono2.classList.add('iconosMenu');
+        icono2.classList.add('fas');
+        icono2.classList.add('fa-user');
+        profileLabel.appendChild(icono2);
         profile.appendChild(profileLabel);
         menu.appendChild(profile);
     }
 
     if (userRol == "profesor") {
         let mainMenu = ["Proyectos", "Clientes", "Estudiantes", "Tickets"];
+        let iconos = ['fa-project-diagram','fa-briefcase','fa-user-graduate','fa-ticket-alt'];
         for (let i = 0; i < mainMenu.length; i++) {
             let optionsContainer = document.createElement('div');
             optionsContainer.id = mainMenu[i];
             let mainOption = document.createElement('div');
             mainOption.classList.add('option');
-            // mainOption.onclick = "secundaryMenu(userRol, mainMenu[i])";
-            /*mainOption.addEventListener('click', function () { secundaryMenu(userRol, mainMenu[i]) });*/
             let mainLabel = document.createElement('a');
             mainLabel.classList.add('menuLabel');
             mainLabel.innerHTML = mainMenu[i];
+            mainLabel.href = "javascript:secundaryMenu("+mainMenu[i].toString()+")";
+            let icono = document.createElement('i');
+            icono.classList.add('iconosMenu');
+            icono.classList.add('fas');
+            icono.classList.add(iconos[i]);
+            mainLabel.appendChild(icono);
             mainOption.appendChild(mainLabel);
             optionsContainer.appendChild(mainOption);
             menu.appendChild(optionsContainer);
@@ -305,13 +324,12 @@ function loadOptionsMenu() {
             for (let i = 0; i < menuTexto.length; i++) {
                 let newDiv = document.createElement('div');
                 newDiv.classList.add('option2');
-                /*newDiv.classList.add('hide');*/
+                newDiv.classList.add('hide');
                 let newA = document.createElement('a');
                 newA.innerHTML = menuTexto[i];
                 newA.href = menuURL[i];
                 newA.style.display = "block";
-                newA.style.width = "400px";
-               /* newA.classList.add('hide');*/
+                newA.style.width = "270px";
                newDiv.appendChild(newA);
                 optionsContainer.appendChild(newDiv);
 
@@ -329,25 +347,35 @@ function loadOptionsMenu() {
         profile.classList.add('optionHover');
         let profileLabel = document.createElement('a');
         profileLabel.classList.add('menuLabel');
-        profileLabel.innerHTML = "Visualizar perfil";
+        profileLabel.innerHTML = "Perfil";
         profileLabel.href = "perfilProfesor.html";
+        let icono2 = document.createElement('i');
+        icono2.classList.add('iconosMenu');
+        icono2.classList.add('fas');
+        icono2.classList.add('fa-user');
+        profileLabel.appendChild(icono2);
         profile.appendChild(profileLabel);
         menu.appendChild(profile);
     }
 
     if (userRol == "estudiante") {
         let mainMenu = ["Proyectos", "Tickets"];
+        let iconos = ['fa-project-diagram','fa-ticket-alt'];
 
         for (let i = 0; i < mainMenu.length; i++) {
             let optionsContainer = document.createElement('div');
             optionsContainer.id = mainMenu[i];
             let mainOption = document.createElement('div');
             mainOption.classList.add('option');
-            // mainOption.onclick = "secundaryMenu(userRol, mainMenu[i])";
-            mainOption.addEventListener('click', function () { secundaryMenu(userRol, mainMenu[i]) });
             let mainLabel = document.createElement('a');
             mainLabel.classList.add('menuLabel');
             mainLabel.innerHTML = mainMenu[i];
+            mainLabel.href = "javascript:secundaryMenu("+mainMenu[i].toString()+")";
+            let icono = document.createElement('i');
+            icono.classList.add('iconosMenu');
+            icono.classList.add('fas');
+            icono.classList.add(iconos[i]);
+            mainLabel.appendChild(icono);
             mainOption.appendChild(mainLabel);
             optionsContainer.appendChild(mainOption);
             menu.appendChild(optionsContainer);
@@ -367,12 +395,12 @@ function loadOptionsMenu() {
             for (let i = 0; i < menuTexto.length; i++) {
                 let newDiv = document.createElement('div');
                 newDiv.classList.add('option2');
-                /*newDiv.classList.add('hide');*/
+                newDiv.classList.add('hide');
                 let newA = document.createElement('a');
                 newA.innerHTML = menuTexto[i];
                 newA.href = menuURL[i];
                 newA.style.display = "block";
-                newA.style.width = "400px";
+                newA.style.width = "270px";
                 newDiv.appendChild(newA);
                 optionsContainer.appendChild(newDiv);
                 if (menuURL[i] == "registroProfesores.html") {
@@ -388,8 +416,13 @@ function loadOptionsMenu() {
         profile.classList.add('optionHover');
         let profileLabel = document.createElement('a');
         profileLabel.classList.add('menuLabel');
-        profileLabel.innerHTML = "Visualizar perfil";
+        profileLabel.innerHTML = "Perfil";
         profileLabel.href = "perfilEstudiante.html";
+        let icono2 = document.createElement('i');
+        icono2.classList.add('iconosMenu');
+        icono2.classList.add('fas');
+        icono2.classList.add('fa-user');
+        profileLabel.appendChild(icono2);
         profile.appendChild(profileLabel);
         menu.appendChild(profile);
     }
@@ -401,28 +434,93 @@ function togglMenu() {
     /*let content = document.querySelector('#content');*/
     if (!menuStatus) {
         menu.style.width = "18%";
+        document.querySelector("#content").style.marginLeft = "18%";
         /* content.style.padding = "0 0 0 18%";*/
         menuStatus = true;
     } else {
         menu.style.width = "0px";
+        document.querySelector("#content").style.marginLeft = "0%";
         /*content.style.padding = "0 0 0 0";*/
         menuStatus = false;
     }
 
 }
 
-let subMenuStatus = false;
+
+let subMenuProyecto = false; 
+let subMenuCliente = false;
+let subMenuProfesor = false;
+let subMenuEstudiante = false;
+let subMenuTicket = false;
 function secundaryMenu(optionContainer) {
-    let subMenu = document.querySelectorAll('#' + optionContainer + '.option2');
-    if (!subMenuStatus) {
-        for (let i = 0; i < subMenu.length; i++) {
-            submenu[i].classList.remove('hide');
-            subMenuStatus = true;
+
+    if(optionContainer.id == "Proyectos"){
+        if (!subMenuProyecto) {
+            for (let i = 1; i<optionContainer.children.length; i++) {
+                optionContainer.children[i].classList.remove('hide');
+                subMenuProyecto = true;
+            }
+        } else {
+            for (let i = 1; i<optionContainer.children.length; i++) {
+                optionContainer.children[i].classList.add('hide');
+                subMenuProyecto = false;
+            }
         }
-    } else {
-        for (let i = 0; i < subMenu.length; i++) {
-            submenu[i].classList.add('hide');
-            subMenuStatus = false;
+    }
+
+    if(optionContainer.id == "Clientes"){
+        if (!subMenuCliente) {
+            for (let i = 1; i<optionContainer.children.length; i++) {
+                optionContainer.children[i].classList.remove('hide');
+                subMenuCliente = true;
+            }
+        } else {
+            for (let i = 1; i<optionContainer.children.length; i++) {
+                optionContainer.children[i].classList.add('hide');
+                subMenuCliente = false;
+            }
+        }
+    }
+
+    if(optionContainer.id == "Profesores"){
+        if (!subMenuProfesor) {
+            for (let i = 1; i<optionContainer.children.length; i++) {
+                optionContainer.children[i].classList.remove('hide');
+                subMenuProfesor = true;
+            }
+        } else {
+            for (let i = 1; i<optionContainer.children.length; i++) {
+                optionContainer.children[i].classList.add('hide');
+                subMenuProfesor = false;
+            }
+        }
+    }
+    
+    if(optionContainer.id == "Estudiantes"){
+        if (!subMenuEstudiante) {
+            for (let i = 1; i<optionContainer.children.length; i++) {
+                optionContainer.children[i].classList.remove('hide');
+                subMenuEstudiante = true;
+            }
+        } else {
+            for (let i = 1; i<optionContainer.children.length; i++) {
+                optionContainer.children[i].classList.add('hide');
+                subMenuEstudiante = false;
+            }
+        }
+    }
+
+    if(optionContainer.id == "Tickets"){
+        if (!subMenuTicket) {
+            for (let i = 1; i<optionContainer.children.length; i++) {
+                optionContainer.children[i].classList.remove('hide');
+                subMenuTicket = true;
+            }
+        } else {
+            for (let i = 1; i<optionContainer.children.length; i++) {
+                optionContainer.children[i].classList.add('hide');
+                subMenuTicket = false;
+            }
         }
     }
 }
