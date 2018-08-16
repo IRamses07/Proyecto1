@@ -271,3 +271,8 @@ function verificarEstado() {
 
 }
 
+
+//trata de hacer un splip 
+
+function
+
