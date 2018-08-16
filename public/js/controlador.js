@@ -363,8 +363,8 @@ function drawChart(chart,info,options,tabla) {
     let config = {
            title: 'Test',
         //    width: 550,
-        //    height: 350,
-           bar: {groupWidth: '10%'},
+           height: 446,
+           bar: {groupWidth: '40%'},
            vAxis: { gridlines: { count: 4 } }
          };
     // Display the chart inside the <div> element with id="piechart"
