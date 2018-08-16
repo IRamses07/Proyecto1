@@ -18,9 +18,14 @@ let inptimagenErr = document.querySelector('#file-upload');
 let inptReferenciaTicket = document.querySelector('#sltTicket');
 let inptDescripcionError = document.querySelector('#txtdescripcion');
 
+inptProyecto.addEventListener.handleEvent('onChange', function(){
+    listarTicketsReferencia();
+
+});
+
 listarSelectProyectos();
-llenarNombreCliente();
 listarTicketsReferencia();
+llenarNombreCliente();
 addControl();
 
 
@@ -38,7 +43,7 @@ function obtenerDatosTicket() {
     let estado = "Inactivo";
     let codigoT = codigo;
     ticket.push(nombreCliente, urgencia, proyecto, imagenErr, referenciaTicket, descripcionError, estado, codigoT );
-
+ 
 
     if (error == true) {
         console.log('aquí va un sweet alert xD ');
@@ -114,7 +119,6 @@ function listarSelectProyectos() {
     for (let i = 0; i < selectProy.length; i++) {
         if(selectProy[i]['estado_proyecto'] = 'mantenimiento'){  
         select.options[i+1] = new Option(selectProy[i]['nombre_proyecto'], selectProy[i]['nombre_proyecto']);
-
     }
 
     }
@@ -131,12 +135,11 @@ function llenarNombreCliente() {
 
 function listarTicketsReferencia() {
     let nombreUsuario = getCurrentUserData()['nombre'];
-    let sltTickets = listarTickets();
-    let sltReferenciaTicket = document.querySelector('#sltTicket');
-
-    for (let i = 0; i < sltTickets.length; i++) {
-        if(inptProyecto.value == sltTickets[i]['proyecto']){
-        sltReferenciaTicket.options[i] = new Option(sltTickets[i]['proyecto'], sltTickets[i]['proyecto'])
+    let tickets = listarTickets();
+    let ticketReferencia = document.querySelector('#sltTicket');
+    for (let i = 0; i < tickets.length; i++) {
+        if(inptProyecto.value == tickets[i]['proyecto']){
+            ticketReferencia.options[i] = new Option(tickets[i]['proyecto'], tickets[i]['proyecto']);
     }
 }
     

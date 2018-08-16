@@ -78,7 +78,6 @@ module.exports.comentarios = function(req, res){
     }, {
             $push: {
                 'comentarios': {
-                    // id: req.body.id,
                     tipo: req.body.tipo,
                     autor: req.body.autor,
                     texto: req.body.texto

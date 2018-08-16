@@ -161,7 +161,8 @@ function cambiarEstadoTicket (id, estado){
         async : false,
         data:{
             _id : id,
-           estado : estado
+           estado : estado,
+           correo :correo
         }
     });
     peticion.done(function(response){

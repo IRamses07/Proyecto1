@@ -165,7 +165,7 @@ function aprobarTicket() {
     let idpar = tickDa[0]['_id'];
     optEst.value = estado;
     optEst.classList.add("color");
-    cambiarEstadoTicket(idpar, estado);
+    // cambiarEstadoTicket(idpar, estado);
     document.location.href = 'asignarTicket.html?_id=' + idpar;
 }
 
@@ -198,18 +198,18 @@ function rechazoTicket() {
 // Estado Activo (cuando lo aprueban)
 // estado Rechazado, cuando es rechazado xD
 
-function mostrarSolucion() {
-    let ticket = listarTickets();
-    let comentarioTick;
-    let idTick = tickDa[0]['_id'];
-    for (let i = 0; i < ticket.length; i++) {
-        // for(let j = 0; j < comentarioTick.length; j++){
-            if (idTick == ticket[i]['_id']) {
-                comentarioTick = ticket[i].comentarios;
-            if (comentarioTick[0]['tipo'] == 'descripción solución') {
-                outDscSolucion.value = comentarioTick[0]['texto'];
-                // }
-            }
-        }
-    }
-}
+// function mostrarSolucion() {
+//     let ticket = listarTickets();
+//     let comentarioTick;
+//     let idTick = tickDa[0]['_id'];
+//     for (let i = 0; i < ticket.length; i++) {
+//         // for(let j = 0; j < comentarioTick.length; j++){
+//             if (idTick == ticket[i]['_id']) {
+//                 comentarioTick = ticket[i].comentarios;
+//             if (comentarioTick[0]['tipo'] == 'descripción solución') {
+//                 outDscSolucion.value = comentarioTick[0]['texto'];
+//                 // }
+//             }
+//         }
+//     }
+// }
