@@ -39,7 +39,7 @@ td {
 /* id que va dentro del main. estilo del main espacio que da entre el menulateral y el contenido */
 #content{
  padding-left: 1%; 
- transition: padding 0.5s;
+ transition: margin-left 0.5s ease-out; 
 }
 
 /* estilos de todos los anchor/links/direcciones por defecto */
@@ -118,10 +118,11 @@ header{
     position: fixed;
     background-color: #2f3030;
     width: 0px;
-    height: 100vh;
+    height: 93.5%;
     top: 46px;
     overflow: hidden;
     transition: width 0.5s ease-out; 
+    overflow-y: auto;
 } 
 
 /*.menuLateral:hover{
@@ -141,25 +142,21 @@ header{
 }*/
 /* estilo de los div que contienen los anchor del menu */
 .option{
-        max-width: 100%;
-        min-width: 200px;
-        padding-bottom: 18px;
-        padding-top: 18px;
-        padding-left: 15px;
-        margin: 1px 0px 0px 0px;
-        transition: background-color 0.3s ease-in 0.1s;
-        cursor: pointer;
-        transition: background-color 0.2s ease-in 0.1s;
+    max-width: 100%;
+    min-width: 200px;  
+    transition: background-color 0.3s ease-in 0.01s;
+    cursor: pointer;
+    /* transition: background-color 0.2s ease-in 0.1s; */
 }
 
 
-.option2:hover, .optionHover:hover{
+.option:hover, .option2:hover, .optionHover:hover{
  background-color: #f27a1a;;
 }
 
 /* espacio de los anchor dentro de las opciones del menu */
 .option a {
-    margin: 10px 0 0 0 ;
+   /* margin: 10px 0 0 0 ;*/
     line-height: 1.2;
 }
 
@@ -328,28 +325,65 @@ opcionesMenu{
 
 .menuLabel{
     display: block; 
-    width: 400px;
+    width: 260px;
     color: #ffffff;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 15px;
+
 }
 
 .option2{
     max-width: 100%;
     min-width: 200px;
-    padding-bottom: 8px;
-    padding-top: 8px;
+    padding-bottom: 11px;
+    padding-top: 11px;
     padding-left: 15px;
-    margin: 1px 0px 0px 0px;
-    transition: background-color 0.3s ease-in 0.1s;
+   /* margin: 1px 0px 0px 0px;*/
+    transition: background-color 0.3s ease-in 0.01s;
     cursor: pointer;
+    background: #494A4A;
     /* transition: background-color 0.2s ease-in 0.1s; */
 }
-
 
 .menuPrincipal{
     cursor: pointer;
     margin-left: 30px;
-
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+.iconosMenu{
+    float: left;
+    width: 25px;
+    margin-right: 10px;
+}
+
+.iconoMenu{
+    margin-right: 7px;
+}
+
+@media screen and (max-height: 450px) {
+    .menuLateral {padding-top: 15px;}
+    .menuLateral a {font-size: 18px;}
+  }
 
 .font-icon-listas {
     font-size: 1.07em;
