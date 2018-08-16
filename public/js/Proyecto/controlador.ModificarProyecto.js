@@ -273,6 +273,16 @@ function verificarEstado() {
 
 
 //trata de hacer un splip 
+prueba();
+function prueba() {
 
-function
+    let id = localStorage.getItem('idP')
+
+    let proyecto = obtenerProyectoId(id)['tecnologia_wed'];
+
+    let info = proyecto.split(',');
+
+    console.log(info);
+
+}
 
