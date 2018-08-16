@@ -107,7 +107,8 @@ function actividadProyecto() {
             info
             , {
                 bar: { groupWidth: '60%' },
-                title: 'Actividad para proyecto "' + keys[i] + '"',height:446
+                title: 'Actividad para proyecto "' + keys[i] + '"',
+                height:446
             }, {
                 Fecha: 'string',
                 Horas: 'number'
