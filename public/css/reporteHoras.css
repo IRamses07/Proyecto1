@@ -9,7 +9,7 @@ h1{
 }
 #chart{
     /* float: right; */
-    height: 360px;
+    height: 450px;
     overflow-y: auto;
     overflow-x: hidden  ;
     margin-right: 20px;
@@ -33,7 +33,7 @@ main{
 .display{
     display: flow-root;
     margin-left: 20%;
-    width: 50%;
+    width: 82%;
     margin: 0 auto;
     text-align: center;
     margin-top: 20px;
@@ -49,4 +49,7 @@ main{
     text-align: center;
     cursor: pointer;
     border-radius: 3px;
+}
+.selected{
+    background: #fbb803;
 }
