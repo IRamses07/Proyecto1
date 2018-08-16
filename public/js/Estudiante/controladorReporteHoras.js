@@ -1,5 +1,7 @@
 'use strict'
 let params = getParam();
+google.charts.load('current', { 'packages': ['corechart'] });
+google.charts.load("current", {packages:["timeline"]});
 listener(elm('#horas'), 'click', function () {
     horasTotales();
     removeClass(elm('#proyectos'),'selected');
