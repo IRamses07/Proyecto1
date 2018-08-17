@@ -19,7 +19,7 @@ function llenarSelectEstudiantes() {
     let listaProyecto = getCurrentUserData()['proyectos'];;
 
     let select = document.querySelector('#nombreProyecto');
-    select.options[0] = new Option("Seleccione un Proyecto", );
+    select.options[0] = new Option("Seleccione un Proyecto");
 
     for (let i = 0; i < listaProyecto.length; i++) {
         // if (listaProyecto[i]['estado_proyecto'] == 'desarrollo' || listaProyecto[i]['estado_proyecto'] == 'desarrollo') {
@@ -64,7 +64,6 @@ function optenerDatos() {
             break;
     }
 
-    agregarHorasProyecto(idE, id, horas, fecha);
 }
 
 
