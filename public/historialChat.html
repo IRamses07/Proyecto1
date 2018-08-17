@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/generalStyle.css">
+    <link rel="stylesheet" href="css/notificaciones.css">
+    <link rel="stylesheet" href="css/chat.css">
+    <title>Historial de Mensajería</title>
+</head>
+
+<body>
+    <header>
+
+        <div class="mainHeader">
+                <label for="" class="menuPrincipal" onclick="togglMenu()">
+                        <i class="fas fa-align-justify iconoMenu"></i>Menú</label>
+                <a id="notificacion" class="fLeft">
+                        <i class="fas fa-bell"></i> Notificaciones</a>
+                        <label for="">Bienvenido: </label>
+                        <output id="txtnombreCliente" value=""></output>
+            <a href="javascript:logOut();" class="fRight">Cerrar sesión
+                <i class="fas fa-cog"></i>
+            </a>
+        </div>
+
+        <div class="menuLateral" id="divMenuLateral">
+        </div>
+
+    </header>
+    <main id="content">
+            <div class="modal none" id="modal">
+                    <div class="ModalNotificaciones">
+                        <a>X</a>
+                        <table id="tblNotificacion">
+                            <thead>
+                                <th>Notificaciones</th>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+        
+        <div id="tableContainerChat">
+            <table cellspacing=10px id="tblChats">
+                <thead>
+                    <th>Id</th>
+                    <th>Participante 1</th>
+                    <th>Participante 2</th>
+                    <th>Historial</th>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="showChat">
+
+        </div>
+
+        <div class="chatContainer" id="chatContainer" hidden></div>
+        <div id="minimizarChat" class="btnChat"><span>Mensajería</span><i class="fas fa-comments"></i></div>
+
+
+    </main>
+    <footer></footer>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/public/js/Chat/chat.service.js"></script>
+    <script type="text/javascript" src="/public/js/Chat/chat.controlador.js"></script>
+    <script type="text/javascript" src="/public/js/Chat/historial.controlador.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
+    <script src="js/Login/login.js"></script>
+    <script src="js/Notificaciones/notificaciones.js"></script>
+
+</body>
+
+</html>
