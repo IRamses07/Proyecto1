@@ -60,7 +60,9 @@ function imprimirListaProyectos() {
 
     let tecWed = JSON.parse(infoProyecto['tecnologia_wed']);
 
- 
+    let tecMovil = JSON.parse(infoProyecto['tecnologia_movil']);
+
+
 
     // let info2 = infoWed.split('"');
 
@@ -78,7 +80,15 @@ function imprimirListaProyectos() {
 
         ifno.innerHTML = tecWed[i];
 
+        for (let i = 0; i < tecMovil.length; i++){
 
+            let fila = tbody.insertRow();
+
+            let ifno = fila.insertCell();
+    
+            ifno.innerHTML = tecMovil[i];
+
+        }
 
     }
 
