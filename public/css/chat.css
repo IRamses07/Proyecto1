@@ -129,12 +129,9 @@
     margin-top: -5px;
 }
 
-
-
 .hiddenChat {
     visibility: hidden;
 }
-
 
 .btnChat{
      background-color: #fbb803;
@@ -148,10 +145,7 @@
      cursor: pointer;
      float: left;
  }
- .btnChat i{
-     font-size: 1.3em;
-     margin-left: 2px;
- }
+
   /* .btnChat i:hover, .btnChat:hover{
      color: #454545;
  } */
@@ -283,3 +277,16 @@
     display: flow-root;
 }
 
+.btnChat i{
+    font-size: 1.7em;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+#minimizarChat i{
+    margin-top: 0px;
+    font-size: 1.3em;
+    margin-left: 2px;
+}

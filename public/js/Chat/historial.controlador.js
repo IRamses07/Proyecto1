@@ -41,10 +41,30 @@ function vermasChat(){
     let buttonsVermas = document.querySelectorAll('.btnControl');
     buttonsVermas.forEach(function(elem){
         elem.addEventListener("click", function(){
-            console.log(getInfoChat(elem.value));
+            
+            imprimirChatHistorial(getInfoChat(elem.value));
             //pasarle esto a otra funcion que lo imprima en pantalla.
 
         })
     });
 }
 
+
+
+function imprimirChatHistorial(infoChat){
+    document.querySelector('#showChat').innerHTML='';
+    console.log(infoChat[0]);
+    console.log('Speaker1: '+infoChat[0]['speaker1']);
+    console.log('Speaker2: '+infoChat[0]['speaker2']);
+    let mensajes = infoChat[0]['mensajes'];
+    console.log(mensajes);
+
+    for(i=0;i<mensajes.length;i++){
+
+        $(showChat).append('<div class="well espanto espanto1">' + mensajes[i]['sender'] + ': </div>');
+        $(showChat).append('<div class="well espanto espanto2">' + '\'' + mensajes[i]['mensaje'] + '\'' + '</div>');
+        $(showChat).append('<div class="well espanto espanto3">' + mensajes[i]['hora'] + '</div>');
+    //$('#chatin' + room).scrollTop($('#chatin' + room)[0].scrollHeight);
+
+    }
+}
