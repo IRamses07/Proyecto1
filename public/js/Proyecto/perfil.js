@@ -58,28 +58,30 @@ function imprimirListaProyectos() {
 
     let infoProyecto = obtenerProyectoId(id);
 
-    let info1 = infoProyecto['tecnologia_wed']
+    let tecWed = JSON.parse(infoProyecto['tecnologia_wed']);
 
-    let infoWed = info1.split(',');
+ 
 
+    // let info2 = infoWed.split('"');
 
+    // console.log(info2);
 
     let tbody = document.querySelector('#tecnologias tbody');
     tbody.innerHTML = '';
 
 
-    for (let i = 0; i < infoWed.length; i++) {
-        
-                let fila = tbody.insertRow();
+    for (let i = 0; i < tecWed.length; i++) {
 
-                let tecWed = fila.insertCell();
+        let fila = tbody.insertRow();
 
-                tecWed.innerHTML = infoWed[i];
+        let ifno = fila.insertCell();
 
-            
+        ifno.innerHTML = tecWed[i];
 
-        }
+
 
     }
+
 }
+
 
