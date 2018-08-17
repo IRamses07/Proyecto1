@@ -337,8 +337,8 @@ function getParam() {
     }
 }
 // Load google charts
-google.charts.load('current', { 'packages': ['corechart'] });
-google.charts.load("current", {packages:["timeline"]});
+// google.charts.load('current', { 'packages': ['corechart'] });
+// google.charts.load("current", {packages:["timeline"]});
 
 // google.charts.setOnLoadCallback(drawChart);
 
@@ -363,8 +363,8 @@ function drawChart(chart,info,options,tabla) {
     let config = {
            title: 'Test',
         //    width: 550,
-        //    height: 350,
-           bar: {groupWidth: '10%'},
+           height: 446,
+           bar: {groupWidth: '40%'},
            vAxis: { gridlines: { count: 4 } }
          };
     // Display the chart inside the <div> element with id="piechart"
@@ -375,19 +375,3 @@ function drawChart(chart,info,options,tabla) {
     }
     chart.draw(data, config);
 }
-// function drawChart2() {
-//     var chart = new google.visualization.Timeline(elm('#chart'));
-//     var dataTable = new google.visualization.DataTable();
-
-//     dataTable.addColumn({ type: 'string', id: 'Term' });
-//     dataTable.addColumn({ type: 'string', id: 'Name' });
-//     dataTable.addColumn({ type: 'date', id: 'Start' });
-//     dataTable.addColumn({ type: 'date', id: 'End' });
-
-//     dataTable.addRows([
-//       [ '1', 'George Washington', new Date(1789, 3, 30), new Date(1797, 2, 4) ],
-//       [ '2', 'John Adams',        new Date(1797, 2, 4),  new Date(1801, 2, 4) ],
-//       [ '3', 'Thomas Jefferson',  new Date(1801, 2, 4),  new Date(1809, 2, 4) ]]);
-
-//     chart.draw(dataTable);
-//   }

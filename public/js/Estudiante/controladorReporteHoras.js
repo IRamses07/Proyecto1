@@ -1,10 +1,27 @@
 'use strict'
 let params = getParam();
-listener(elm('#horas'), 'click', horasTotales); 
-listener(elm('#proyectos'), 'click', horasProyecto); 
-listener(elm('#actividad'), 'click', actividadProyecto);
+google.charts.load('current', { 'packages': ['corechart'] });
+google.charts.load("current", {packages:["timeline"]});
+listener(elm('#horas'), 'click', function () {
+    horasTotales();
+    removeClass(elm('#proyectos'),'selected');
+    removeClass(elm('#actividad'),'selected');
+    addClass(elm('#horas'),'selected');
+}); 
+listener(elm('#proyectos'), 'click', function () {
+    horasProyecto();
+    addClass(elm('#proyectos'),'selected');
+    removeClass(elm('#actividad'),'selected');
+    removeClass(elm('#horas'),'selected');
+}); 
+listener(elm('#actividad'), 'click', function () {
+    actividadProyecto();
+    removeClass(elm('#proyectos'),'selected');
+    addClass(elm('#actividad'),'selected');
+    removeClass(elm('#horas'),'selected');
+});
 let estudiante = getInfoEstudiante(params.cedula);
-elm('#titulo').innerHTML+=estudiante[0].Nombre1;
+elm('#titulo').innerHTML+=estudiante[0].Nombre1+' '+estudiante[0].apellido1;
 function horasProyecto() {
     let estudiante = getInfoEstudiante(params.cedula);
     let horas = estudiante[0].horas;
@@ -51,7 +68,7 @@ function horasTotales() {
     drawChart(new google.visualization.BarChart(elm('#chart')), [
         [estudiante[0].Nombre1, hTotales[0]]
     ], {
-            bar: { groupWidth: '40%' }
+            bar: { groupWidth: '30%' }
         }, {
             nombre: 'string',
             Horas: 'number'
@@ -84,17 +101,18 @@ function actividadProyecto() {
             info.push([proyectos[keys[i]][j].fecha, hTotales[0]]);
         }
         let cont = createElm('div');
-        addClass(cont, 'chart')
+        // addClass(cont, 'chart')
+        elm('#chart').appendChild(cont);
         drawChart(new google.visualization.BarChart(cont),
             info
             , {
-                bar: { groupWidth: '90%' },
-                title: 'Actividad para proyecto "' + keys[i] + '"',height: 360,width: 640
+                bar: { groupWidth: '60%' },
+                title: 'Actividad para proyecto "' + keys[i] + '"',
+                height:446
             }, {
                 Fecha: 'string',
                 Horas: 'number'
             });
-        elm('#chart').appendChild(cont);
     }
 
 }

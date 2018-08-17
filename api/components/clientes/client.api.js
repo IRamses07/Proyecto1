@@ -60,7 +60,8 @@ module.exports.registrar = function (req, res) {
                         </head>
                         <body>
                             <h1 class='tituloPrincipal'>Bienvenido ${nuevoCliente.nombre}</h1>
-                            <p>Usted ha sido registrado en la plataforma de Cenfotec Software House como ${nuevoCliente.rol}, para acceder le brindaremos su respectiva contraseña a continuación, esta contraseña es provisional por lo tanto deberá ser cambiada lo antes posible.</p>
+                            <p>Usted ha sido registrado en la plataforma de Cenfotec Software House como ${nuevoCliente.rol}, para acceder le brindaremos su respectiva contraseña e identificación a continuación, esta contraseña es provisional por lo tanto deberá ser cambiada lo antes posible.</p>
+                            <p>Identificación: ${nuevoCliente.cedula_juridica} </p>
                             <p>Contraseña: ${nuevoCliente.password}</p>
                             <p>Saludos cordiales.</p>
                             <p>Cenfotec Software House</p>
