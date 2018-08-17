@@ -145,6 +145,12 @@ let tempConectados = [];
           io.sockets.emit( 'list users',conectados, allConnectedClients);
         });
 
+        //mensaje viejo cargado al refrescar una imagen.
+        socket.on('mensajeViejo', function(data,time,mandado,room){
+          console.log('custom message');
+          socket.emit('custoMmessage2', data,time,mandado,room);
+        });
+
         socket.on('update socket lista', function(paso, nuevoid){
           console.log('Actualizando socket en lista');
           // console.log(conectados);

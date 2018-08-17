@@ -151,6 +151,7 @@ function agregarChatPrivado(id){
   openOldChats();                                                    //Revisar porque cuando llama a agregarPestana, solo corre el  for 1 vrz.
   function openOldChats(){
     let roomArray = JSON.parse(sessionStorage.getItem("rommies")); 
+    
     let room='';
     let destino='';
     for(j=0;j<roomArray.length;j++){
@@ -160,9 +161,16 @@ function agregarChatPrivado(id){
       document.querySelector('#ch'+room).classList.add("hiddenChat");
       socket.emit('unir a room', room);
       //otro for para ir llenando con el n==contenido de su session.storage.
-      if(true){
-
+      if(sessionStorage.getItem(room)){
+        console.log('la vara esta ahi de nuevo');
+        let conversacion = JSON.parse(sessionStorage.getItem(room));
+        console.log(conversacion.length);
+        for(n=0;n<conversacion.length;n++){
+          console.log(conversacion[n][1])
+          socket.emit('mensajeViejo', conversacion[n][1],conversacion[n][2],conversacion[n][0],room);
+        }
       }
+      $('#chatin'+room).scrollTop($('#chatin'+room)[0].scrollHeight);
     }
     addListerPestana();
   //mandar a agregar a este socket
@@ -371,11 +379,22 @@ function agregarChatPrivado(id){
         //   // $('#chatin'+room).append('<div class="well espanto">'+time+'</div>');
         // });
 
-        
+        socket.on('custoMmessage2', function(data, time, nombre, room) {
+          console.log('del lado del server');
+
+          if(nombre!==usuarioNombre())
+              $('#chatin'+room).append('<div class="well espanto espanto1">'+nombre+': </div>');
+            else
+              $('#chatin'+room).append('<div class="well espanto espanto1">yo: </div>');
+          $('#chatin'+room).append('<div class="well espanto espanto2">'+'\''+data+'\''+'</div>');
+          $('#chatin'+room).append('<div class="well espanto espanto3">'+time+'</div>');
+          $('#chatin'+room).scrollTop($('#chatin'+room)[0].scrollHeight);
+
+        });
 
         socket.on('custoMmessage', function(data, time, nombre, room) {
           //hacer que si estaba minimizada se regrese la pestana
-          
+          console.log('llega a custom');
           if(data!=''){
 
             let conversacion = JSON.parse(sessionStorage.getItem(room));
@@ -385,6 +404,7 @@ function agregarChatPrivado(id){
             sessionStorage.setItem(room, JSON.stringify(conversacion));
             console.log('toto');
             console.log(JSON.parse(sessionStorage.getItem(room)));
+            console.log(JSON.parse(sessionStorage.getItem("rommies")));
 
             if(nombre!==usuarioNombre())
               $('#chatin'+room).append('<div class="well espanto espanto1">'+nombre+': </div>');
