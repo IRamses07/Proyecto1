@@ -1,5 +1,7 @@
 'use strict'
 let params = getParam();
+google.charts.load('current', { 'packages': ['corechart'] });
+google.charts.load("current", {packages:["timeline"]});
 listener(elm('#horas'), 'click', function () {
     horasTotales();
     removeClass(elm('#proyectos'),'selected');
@@ -105,7 +107,8 @@ function actividadProyecto() {
             info
             , {
                 bar: { groupWidth: '60%' },
-                title: 'Actividad para proyecto "' + keys[i] + '"',height:446
+                title: 'Actividad para proyecto "' + keys[i] + '"',
+                height:446
             }, {
                 Fecha: 'string',
                 Horas: 'number'

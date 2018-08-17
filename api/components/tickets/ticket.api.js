@@ -69,10 +69,25 @@ module.exports.estadoTicket = function (req, res) {
                 res.json({ success: true, msg: 'El usuario se modificó con éxito' + res });
             }
         });
+    // if (req.estado!='') {
+    //     emails.envio({
+    //         to: req.coreo,
+    //         subject: 'Actualizaciión de estado de ticket',
+    //         head:`<script>
+                
+    //         </script>`,
+    //         body:`
+    //         <h2>Su ticket a cambiado</h2>
+    //         <p>Gracias por notificar su problema actualmente su Ticket a cambiado de estado a ${req.estado}</p>
+    //         <p>Cualquier consulta o reclamo favor contactar al correo de atención: codeanalytics79@gmail.com </p>
+    //         `
+    //     });
+    // }
+
 };
 
 
-module.exports.comentarios = function(req, res){
+module.exports.comentarios = function (req, res) {
     ticketModel.update({
         _id: req.body._id
     }, {
@@ -81,7 +96,6 @@ module.exports.comentarios = function(req, res){
                     tipo: req.body.tipo,
                     autor: req.body.autor,
                     texto: req.body.texto
-
                 }
             }
         },
