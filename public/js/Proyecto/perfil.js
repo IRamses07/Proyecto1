@@ -13,6 +13,10 @@ let outDescripcion = document.querySelector('#descripcion');
 
 let outTec = document.querySelector('#tec');
 
+let tabla1 = document.querySelector('#tecnologiasWed');
+
+let tabla2 = document.querySelector('#tecnologiasMovil');
+
 llenarInfo();
 function llenarInfo() {
 
@@ -50,7 +54,30 @@ function llenarInfo() {
     // outTec.value = tecnologiasW;
 
 }
-imprimirListaProyectos();
+controladorListas();
+
+function controladorListas() {
+    let id = localStorage.getItem('idP')
+
+    let infoProyecto = obtenerProyectoId(id);
+
+    let tecWed = JSON.parse(infoProyecto['tecnologia_wed']);
+
+
+    let tecMovil = JSON.parse(infoProyecto['tecnologia_movil']);
+
+  
+        if(tecWed.length>0 && tecMovil<0){
+            tabla2.classList.add('.quitar');
+            
+    
+        }
+    
+
+  
+
+}
+imprimirListaProyectos(); 
 
 function imprimirListaProyectos() {
 
@@ -60,7 +87,7 @@ function imprimirListaProyectos() {
 
     let tecWed = JSON.parse(infoProyecto['tecnologia_wed']);
 
-    let tecMovil = JSON.parse(infoProyecto['tecnologia_movil']);
+
 
 
 
@@ -68,7 +95,7 @@ function imprimirListaProyectos() {
 
     // console.log(info2);
 
-    let tbody = document.querySelector('#tecnologias tbody');
+    let tbody = document.querySelector('#tecnologiasWed tbody');
     tbody.innerHTML = '';
 
 
@@ -80,18 +107,24 @@ function imprimirListaProyectos() {
 
         ifno.innerHTML = tecWed[i];
 
-        for (let i = 0; i < tecMovil.length; i++){
-
-            let fila = tbody.insertRow();
-
-            let ifno = fila.insertCell();
-    
-            ifno.innerHTML = tecMovil[i];
-
-        }
 
     }
 
 }
+
+
+function listaMobil() {
+    let id = localStorage.getItem('idP')
+
+    let infoProyecto = obtenerProyectoId(id);
+
+    let tecMovil = JSON.parse(infoProyecto['tecnologia_movil']);
+
+
+
+
+}
+
+
 
 

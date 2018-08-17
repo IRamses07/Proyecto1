@@ -193,6 +193,8 @@ function asignaraProfe2() {
         }
     }
 
+      
+
     infoProyecto.push(id, idProyecto, rol, nombreProyecto, fechaEntrega, estadoProyecto)
 
     asignarProyecto(infoProyecto);
