@@ -284,7 +284,7 @@ module.exports.asignar_ticket_e = function (req, res) {
         _id: req.body._id
     }, {
             $push: {
-                'ticket': {
+                'tickets': {
                     id: req.body.id,
                     codigo: req.body.codigo,
                     cliente: req.body. nombre_cliente,

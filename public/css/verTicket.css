@@ -23,10 +23,10 @@
 }
 
 .datos2 {
-    width: 100%;
+    width: 63%;
     margin: 0 auto;
-    text-align: center;
-    float: left;
+    /* text-align: center; */
+    display: flow-root;
 }
 
 .datos2 h4 {
@@ -120,10 +120,9 @@ textarea::-webkit-input-placeholder {
 }
 
 .panels__item{
-    /*left: -1000%;*/
-    top: -1000%;
     border: 2px solid #fbb876;
-    width: 80%;
+    width: 63%;
+    margin: 0 auto;
     border-radius: 35px;
     border-top-left-radius: 0%;
 }
@@ -133,55 +132,39 @@ textarea::-webkit-input-placeholder {
 }
 
 .tabs-container{
-    position: relative;
-    /*width: 500px;*/
-    margin: 2em auto;
-    margin-left: 17%;
+    display: block;
 }
 
 .tabs {
     list-style: none;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     display: flex;
+    width: 63.3%;
 }
 
 .tabs__item{
-    border: 1px solid #fbb803;
     border-bottom: none;
-    line-height: 2.5;
-    padding: 0 1em;
-    margin-right: 1px;
-    background: #fbb803;
-    border-radius: 5px 5px 0 0;
-    top: 1px;
-    z-index: 0;
-    cursor: pointer;
 }
-.activeTab{
-    background: #fbb876;
-    z-index: 0;
-}
+
 
 #viewTicket2 {
     width: 100%;
     margin: 40px 0;
 }
- .first {
-     width: 60%;
-     margin: 0 auto;
- }
+
+
 .dato1 {
     float: left;
+    width: 40%;
 }
+
 .dato2 {
     float: right;
+    width: 20%;
+    
 }
 
-
-#asignacion {
-    margin: 150px 0px;
-}
 
 .muestraEstudiantes {
     width: 70%;
@@ -209,6 +192,7 @@ textarea::-webkit-input-placeholder {
     text-align: center;
 }
 
-cajaSolucion {
-    display: none;
+
+.asignar {
+    margin: 20px 5%;
 }

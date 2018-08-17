@@ -275,3 +275,39 @@ module.exports.reset_professor_password = function (req, res) {
 
 }
 
+module.exports.asignar_ticket_p = function (req, res) {
+
+    profesorModel.update({
+        _id: req.body._id
+    }, {
+            $push: {
+                'tickets': {
+                    id: req.body.id,
+                    codigo: req.body.codigo,
+                    cliente: req.body. nombre_cliente,
+                    proyecto: req.body.proyecto,
+                    urgencia: req.body.urgencia,
+                    tick_referencia: req.body.referencia_ticket,
+                    estado_ticket: req.body.estado,
+                    imagen_error: req.body.imagen_error,
+                    descripcion: req.body.descripcion 
+                }
+            
+            }
+        },
+        function (error) {
+            if (error) {
+                res.json({
+                    success: false,
+                    msg: 'No se pudo asignar el ticket, ocurrió el siguiente error' + error
+                });
+            } else {
+                res.json({
+                    success: true,
+                    msg: 'El tiket se asignó con éxito'
+                });
+            }
+        }
+    )
+};
+

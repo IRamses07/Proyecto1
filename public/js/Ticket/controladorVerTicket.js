@@ -16,6 +16,7 @@ let cajaSolu = document.querySelector('#cajaSolucion');
 let btnAsignar = document.querySelector('#btnAsignar');
 btnAsignar.hidden = true;
 
+
 let btnComentar = document.querySelector('#btnComentar');
 btnComentar.hidden = true;
 
@@ -123,6 +124,9 @@ if (usuario == "administrador") {
 if (usuario == "administrador" && estado == 'Activo') {
     btnAsignar.hidden = false;
 }
+if (usuario == "profesor" && estado == 'Activo') {
+    btnAsignar.hidden = false;
+}
 
 btnAsignar.addEventListener('click', function () {
     let parid = tickDa[0]['_id'];
@@ -146,7 +150,6 @@ if (usuario == "administrador" && estado == 'Inactivo') {
     btnAprobar.hidden = false;
     btnModificar.hidden = true;
     btnrechazar.hidden = false;
-
 }
 
 if (estado == 'Rechazado') {
@@ -156,17 +159,16 @@ if (estado == 'Rechazado') {
 if (estado == 'Inactivo') {
     btnModificar.hidden =  true;
     btnCerrar.hidden = true;
-    mostrarSolucion();
-    cajaSolu.classList.add("cajaSolucion");
 }
 
 function aprobarTicket() {
     estado = "Activo";
     let idpar = tickDa[0]['_id'];
+    let correo = '';
     optEst.value = estado;
     optEst.classList.add("color");
-    // cambiarEstadoTicket(idpar, estado);
-    document.location.href = 'asignarTicket.html?_id=' + idpar;
+    cambiarEstadoTicket(idpar, estado, correo);
+    document.location.href = "asignarTicket.html?_id=" + idpar;
 }
 
 function cancelar() {
@@ -213,3 +215,7 @@ function rechazoTicket() {
 //         }
 //     }
 // }
+
+function validarAsignacion(){
+    
+}

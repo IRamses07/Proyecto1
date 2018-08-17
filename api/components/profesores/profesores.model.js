@@ -31,7 +31,20 @@ let profesorSchema = new mongoose.Schema({
         }
     ],
     foto: { type: String },
-    estado: { type: String }
+    estado: { type: String },
+    tickets: [
+        {
+            id: { type: String },
+            codigo: { type: String },
+            cliente: { type: String },
+            proyecto: { type: String },
+            urgencia: { type: String },
+            tick_referencia: { type: String },
+            estado_ticket: { type: String },
+            imagen_error: { type: String },
+            descripcion: { type: String },
+        }
+    ]
 
 
 });

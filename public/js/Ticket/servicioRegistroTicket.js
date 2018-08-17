@@ -150,7 +150,7 @@ function actualizarTicket(id, nombreCliente, urgencia, proyecto, imagenErr, refe
        return respuesta;
 }
 
-function cambiarEstadoTicket (id, estado){
+function cambiarEstadoTicket (id, estado, correo){
     console.log(id, estado);
     let respuesta = '' ;
     let peticion = $.ajax({

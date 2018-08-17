@@ -319,6 +319,7 @@ input::placeholder, .letraItalic{ /*Cursiva*/
 #rbtnNombre {
     visibility: hidden;
 }
+
 opcionesMenu{
     display: block;
 }

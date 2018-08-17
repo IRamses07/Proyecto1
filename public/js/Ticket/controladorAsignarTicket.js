@@ -25,17 +25,14 @@ let tab2 = document.querySelector('#tab2');
 
 let btnAgregar = document.querySelector('#asignarE');
 btnAgregar.addEventListener('click', function () {
-    llenarTablaEstudiantes()
+    llenarTablaEstudiantes();
 });
 
 let btnFinalizarAsignacion = document.querySelector('#asignarDatos');
-btnFinalizarAsignacion.addEventListener('click', asignarTickets);
+btnFinalizarAsignacion.addEventListener('click', asignarTicketsE);
 
-panelE.classList.remove('activePanel');
-panelP.classList.add('activePanel');
-tab1.classList.remove('activeTab');
-tab2.classList.add('activeTab');
-panelP.hidden = true;
+let btnAsignar = document.querySelector('#asignarP');
+btnAsignar.addEventListener('click',asignarTicketsP);
 
 llenarSltEstudiantes();
 llenarSltProfes();
@@ -62,7 +59,6 @@ function getURLverTicket() {
     }
 };
 let tickDa = mostrarTicket(getURLverTicket()._id);
-console.log(tickDa);
 
 
 let proyecto = tickDa[0]['proyecto'];
@@ -86,15 +82,19 @@ if (estado == "Activo") {
     optEst.classList.add("color");
 }
 
+if (usuario == "administrador") {
+    document.querySelector('#panelE').style.display = 'none';
+    document.querySelector('#panelE').style.display = 'none';
+    document.querySelector('#tab1').style.display = 'none';
+
+}
 
 if (usuario == "profesor") {
-
+    document.querySelector('#panelP')
+    document.querySelector('#panelP').style.display = 'none';
+    document.querySelector('#tab2').style.display = 'none';
 }
 
-if (usuario == "administrador") {
-    // .hidden = false ;
-
-}
 
 
 function llenarSltEstudiantes() {
@@ -111,7 +111,7 @@ function llenarSltProfes() {
     let profesores = getProfessorData();
 
     for (let i = 0; i < profesores.length; i++) {
-        sltProfes.options[i + 1] = new Option(profesores[i]['nombre1'] + profesores[i]['apellido1'], profesores[i]['nombre1'] + profesores[i]['apellido1'])
+        sltProfes.options[i + 1] = new Option(profesores[i]['nombre1'] + profesores[i]['apellido1'], profesores[i]['_id'])
     }
 }
 
@@ -160,7 +160,7 @@ function llenarTablaEstudiantes() {
 
 }
 
-function asignarTickets() {
+function asignarTicketsE() {
     let error = false;
     estudiantesIds;
     console.log(estudiantesIds);
@@ -168,9 +168,9 @@ function asignarTickets() {
     for (let i = 0; i < estudiantesIds.length; i++) {
         let id = estudiantesIds[i];
         let idTicket = tickDa[0]['_id'];
-        asignarTicketEstudiante(id, idTicket, codigot, nombreCliente, proyecto, urgencia, referenciaTicket, estado, imgn,descripcionErr);
+        asignarTicketEstudiante(id, idTicket, codigot, nombreCliente, proyecto, urgencia, referenciaTicket, estado, imgn, descripcionErr);
 
-       
+
     }
     if (error == true) {
         console.log('aquí va un sweet alert xD ');
@@ -181,7 +181,7 @@ function asignarTickets() {
             button: "Ok",
         });
     } else {
-       
+
         // notificacion()  
         // aquí mando el id del emisor y el rol, los datos del receptor, tipo = 'ticket',referencia: id (del ticket), verTicket.html
         swal({
@@ -191,5 +191,41 @@ function asignarTickets() {
             button: "Ok",
         });
     }
-   
+
+}
+
+
+function asignarTicketsP() {
+    let error = false;
+    let profesores = getProfessorData();
+    let id = sltProfes.value;
+    let idTicket = tickDa[0]['_id'];
+    let profesor = document.querySelector('#profe');
+
+    asignarTicketProfesor(id, idTicket, codigot, nombreCliente, proyecto, urgencia, referenciaTicket, estado, imgn, descripcionErr);
+    for (let i = 0; i < profesores.length; i++) {
+        if(profesores[i]['_id'] == sltProfes.value ){
+            profesor.value = profesores[i]['nombre1'] + " " + profesores[i]['apellido1']; 
+        }
+    }
+
+    if (error == true) {
+        console.log('aquí va un sweet alert xD ');
+        swal({
+            title: "La asignación falló",
+            text: "El ticket no se pudo asignar al profesor",
+            icon: "error",
+            button: "Ok",
+        });
+    } else {
+        // notificacion()  
+        // aquí mando el id del emisor y el rol, los datos del receptor, tipo = 'ticket',referencia: id (del ticket), verTicket.html
+        swal({
+            title: "Ticket asignado",
+            text: "El ticket se ha asignado correctamente",
+            icon: "success",
+            button: "Ok",
+        });
+    }
+
 }
