@@ -203,6 +203,11 @@ function loadOptionsMenu() {
                         sessionStorage.removeItem('professorUpdateLS');
                     };
                 }
+                if (menuURL[i] == "registrarEstudiante.html") {
+                    newA.onclick = function () {
+                        sessionStorage.setItem('update', 0);
+                    };
+                }
             }
         }
     }
@@ -257,6 +262,11 @@ function loadOptionsMenu() {
                 if (menuURL[i] == "registroProfesores.html") {
                     newA.onclick = function () {
                         sessionStorage.removeItem('professorUpdateLS');
+                    };
+                }
+                if (menuURL[i] == "registrarEstudiante.html") {
+                    newA.onclick = function () {
+                        sessionStorage.setItem('update', 0);
                     };
                 }
             }
@@ -336,6 +346,11 @@ function loadOptionsMenu() {
                 if (menuURL[i] == "registroProfesores.html") {
                     newA.onclick = function () {
                         sessionStorage.removeItem('professorUpdateLS');
+                    };
+                }
+                if (menuURL[i] == "registrarEstudiante.html") {
+                    newA.onclick = function () {
+                        sessionStorage.setItem('update', 0);
                     };
                 }
             }

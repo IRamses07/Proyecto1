@@ -149,12 +149,12 @@
      float: left;
  }
  .btnChat i{
-     font-size: 30px;
+     font-size: 1.3em;
      margin-left: 2px;
  }
-  .btnChat i:hover, .btnChat:hover{
+  /* .btnChat i:hover, .btnChat:hover{
      color: #454545;
- }
+ } */
 
 .btnChat:hover, .entradatexto:hover {
     background-color: #fbb803;
@@ -264,14 +264,14 @@
 
 
 .contNombre{
-    margin-top: 4%;
+    margin-top: 2.5%;
     width: 70%;
     float: left;
-    font-size: 0.9em;
+    font-size: 1em;
 }
 .contentelemI{
     width: 10%;
-    margin-top: 4%;
+    margin-top: 2.5%;
     float: right;
 }
 .contentelemI i{
@@ -283,6 +283,3 @@
     display: flow-root;
 }
 
-#minimizarChat i, #minimizarChat span{
-    margin-top: -6px;
-}
