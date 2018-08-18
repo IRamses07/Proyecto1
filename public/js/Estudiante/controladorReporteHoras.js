@@ -87,9 +87,9 @@ function actividadProyecto() {
         }
     }
     let keys = Object.keys(proyectos);
-    let info = [];
     elm('#chart').innerHTML = "";
     for (let i = 0; i < keys.length; i++) {
+        let info = [];
         for (let j = 0; j < proyectos[keys[i]].length; j++) {
             let hTotales = [0, 0];
             let tiempo = proyectos[keys[i]][j].tiempo.split(':');
