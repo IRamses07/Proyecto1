@@ -39,13 +39,14 @@ function imprimirListaProyectos(radioSelected, inputDatoBuscar) {
                 let cNombreProyecto = fila.insertCell();
                 let cNombreCliente = fila.insertCell();
                 let cFechaEntrega = fila.insertCell();
-               
                 let Modificar = fila.insertCell();
+                let cVermas = fila.insertCell();
 
                 let boton = document.createElement("input");
                 boton.type = "button";
                 boton.value = "Ver más";
                 boton.classList.add('btnRegistro');
+                boton.classList.add('vermas');
                 boton.dataset._id = infoProyecto[i]['_id'];
 
                 let botonM = document.createElement("input");
@@ -60,9 +61,8 @@ function imprimirListaProyectos(radioSelected, inputDatoBuscar) {
                 cNombreProyecto.innerHTML = infoProyecto[i]['nombre_proyecto'];
                 cNombreCliente.innerHTML = infoProyecto[i]['nombre_cliente'];
                 cFechaEntrega.innerHTML = infoProyecto[i]['fecha_Entrega'];
-               
                 Modificar.appendChild(botonM);
-
+                cVermas.appendChild(boton);
 
 
 
@@ -88,7 +88,7 @@ function modificaProyecto() {
         })
     });
 
-} 
+}
 
 verMas();
 function verMas() {

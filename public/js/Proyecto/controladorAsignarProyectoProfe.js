@@ -10,6 +10,8 @@ botonAgregar.addEventListener('click', obtenerDatos);
 let selectProyecto = document.querySelector('#slProyecto');
 let selectProfe1 = document.querySelector('#slProfeLider');
 let selectProfe2 = document.querySelector('#slProfesorTecnico');
+let formulario = document.querySelector('#frmAP');
+
 
 
 
@@ -192,6 +194,8 @@ function asignaraProfe2() {
             estadoProyecto = proyecto[i]['estado_proyecto'];
         }
     }
+
+      
 
     infoProyecto.push(id, idProyecto, rol, nombreProyecto, fechaEntrega, estadoProyecto)
 
