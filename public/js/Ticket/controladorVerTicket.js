@@ -17,8 +17,8 @@ let btnAsignar = document.querySelector('#btnAsignar');
 btnAsignar.hidden = true;
 
 
-let btnComentar = document.querySelector('#btnComentar');
-btnComentar.hidden = true;
+// let btnComentar = document.querySelector('#btnComentar');
+// btnComentar.hidden = true;
 
 let btnModificar = document.querySelector('#editar');
 btnModificar.addEventListener('click', modificarTCicketSlt);
@@ -115,11 +115,11 @@ usuario = getCurrentUserData()['rol'];
 
 if (estado == "Activo") {
     optEst.classList.add("color");
-    btnComentar.hidden = false;
+    // btnComentar.hidden = false;
 }
 if (usuario == "administrador") {
     btnModificar.hidden = true;
-    btnComentar.hidden = false;
+    // btnComentar.hidden = false;
 }
 if (usuario == "administrador" && estado == 'Activo') {
     btnAsignar.hidden = false;

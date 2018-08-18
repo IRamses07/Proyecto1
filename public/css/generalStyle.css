@@ -27,10 +27,10 @@ html, body, span, applet, object, iframe, p, blockquote, pre, abbr, acronym, add
 
     font-size: 1.14em;
 }
-
-td {
-    font-size: 1em;
-} */
+*/
+td, a, output, label {
+    font-size: 1.3em;
+} 
 
 
 /* id que va dentro del main. estilo del main espacio que da entre el menulateral y el contenido */
@@ -185,7 +185,7 @@ select{
  }
 
  /* estilo general de los botones de los registros...  */
- .btnRegistro, .btnVerMas, .btnLista {
+ .btnRegistro, .btnVerMa {
      background-color: #f27a1a;;
      border-radius: 3px;
      border: none;
@@ -193,7 +193,7 @@ select{
      /*font-weight: bold;*/
      font-family: 'Roboto', sans-serif;
      color: #ffffff;
-     font-size: 1em;
+     font-size: 1.2em;
      outline: none;
  }
 
@@ -243,9 +243,10 @@ th {
     margin: 0 auto 10px auto; 
     width: 65%;
     height: 29px;
-    padding: 5px 0px 5px 0;
+    /* padding: 8px 0px 8px 0; */
     background-color: #f27a1a;
     color: #fff;
+    border: #f27a1a 1px solid;
 }
 
 .btnFiltro:hover{
@@ -352,7 +353,7 @@ opcionesMenu{
 
 .menuPrincipal{
     cursor: pointer;
-    margin-left: 30px;
+    margin: 0px 3%;
 }
 
 /* width */
@@ -406,8 +407,14 @@ margin-right: 17px;
     z-index: 50;
 }
 
+input[type="radio" i] {
+    max-height: 15px;
+    width: 20px;
+} 
 
-
+table a , table input{
+    font-size: 1em !important;
+}
 
 
 

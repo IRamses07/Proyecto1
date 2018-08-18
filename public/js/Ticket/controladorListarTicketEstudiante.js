@@ -37,7 +37,7 @@ function listarTicketsEstudiante(pinptBuscarCliente, selectUrgencia, radioSelect
             // let codigo = fila.insertCell();
             let urgencia = fila.insertCell();
             let proyecto = fila.insertCell();
-            let descripcion = fila.insertCell();
+            let estado = fila.insertCell();
             let verMas = fila.insertCell();
             let editar = fila.insertCell();
 
@@ -54,7 +54,7 @@ function listarTicketsEstudiante(pinptBuscarCliente, selectUrgencia, radioSelect
             // codigo.innerHTML = tickets[i]['codigo'];
             urgencia.innerHTML = tickets[i]['urgencia'];
             proyecto.innerHTML = tickets[i]['proyecto'];
-            descripcion.innerHTML = tickets[i]['descripcion'];
+            estado.innerHTML = tickets[i]['estado'];
             verMas.appendChild(boton);
             editar.appendChild(btnEditar);
 

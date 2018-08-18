@@ -39,7 +39,7 @@ function listarTicketsCliente(pinptBuscar, selectUrgencia) {
                 // let codigo = fila.insertCell();
                 let urgencia = fila.insertCell();
                 let proyecto = fila.insertCell();
-                let descripcion = fila.insertCell();
+                let estado = fila.insertCell();
                 let verMas = fila.insertCell();
                 let editar = fila.insertCell();
 
@@ -54,12 +54,13 @@ function listarTicketsCliente(pinptBuscar, selectUrgencia) {
                 btnEditar.addEventListener('click', modificarTCicketSlt);
                 
 
-                let boton = document.createElement("a");
-                // boton.type = "button";
-                // boton.value = "Ver más";
-                boton.classList.add("far");
-                boton.classList.add("fa-eye");
-                boton.classList.add("font-icon-listas");
+                let boton = document.createElement("input");
+                boton.type = "button";
+                boton.value = "Ver más";
+                boton.classList.add("btnLista");
+                // boton.classList.add("far");
+                // boton.classList.add("fa-eye");
+                // boton.classList.add("font-icon-listas");
                 
                 // <i class="far fa-eye"></i>
                
@@ -67,7 +68,7 @@ function listarTicketsCliente(pinptBuscar, selectUrgencia) {
                 // codigo.innerHTML = tickets[i]['codigo'];
                 urgencia.innerHTML = tickets[i]['urgencia'];
                 proyecto.innerHTML = tickets[i]['proyecto'];
-                descripcion.innerHTML = tickets[i]['descripcion'];
+                estado.innerHTML = tickets[i]['estado'];
                 verMas.appendChild(boton);
                 editar.appendChild(btnEditar);
 
