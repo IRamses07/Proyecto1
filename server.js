@@ -31,10 +31,10 @@ let tempConectados = [];
           tempConectados=[];
           for(j=0;j<conectados.length;j++){
             if(conectados[j][0]!==socket.id){
-              console.log('Es diferente: '+conectados[j]);
+              // console.log('Es diferente: '+conectados[j]);
               tempConectados.push(conectados[j]);
             } else{
-              console.log('Es igual a: '+conectados[j]);
+              // console.log('Es igual a: '+conectados[j]);
             }
           }
           conectados=tempConectados;
@@ -75,6 +75,7 @@ let tempConectados = [];
         });
 
         socket.on('joinroom', function(destino, userDestinoNombre) {
+          // console.log('User destino: '+userDestinoNombre);
           let room = Math.floor((Math.random() * 99999) + 10000);                    //generates a random id for the room;
           let socketDest = '';
           let nombreSender = '';
@@ -89,13 +90,16 @@ let tempConectados = [];
               socketDest=conectados[i][0];
             }
           }
-
+          
           for(i=0;i<conectados.length;i++){
+            // console.log(socket);
+            // console.log(conectados[i]);
             if(conectados[i][0]==socket){
+              // console.log('entra loop');
               nombreSender=conectados[i][1];
             }
           }
-
+          console.log('Nombre destino: '+nombreSender);
           // socket.join(room);
           // console.log('Destino: '+socketDest);
           let socket2 = io.sockets.connected[socketDest];
@@ -131,7 +135,7 @@ let tempConectados = [];
         // room = "abc123";
 
         socket.on('unir a room', function(room){
-          console.log('llega al room');
+          // console.log('llega al room');
           socket.join(room);
         });
 
@@ -141,8 +145,14 @@ let tempConectados = [];
           io.sockets.emit( 'list users',conectados, allConnectedClients);
         });
 
+        //mensaje viejo cargado al refrescar una imagen.
+        socket.on('mensajeViejo', function(data,time,mandado,room){
+          // console.log('custom message');
+          socket.emit('custoMmessage2', data,time,mandado,room);
+        });
+
         socket.on('update socket lista', function(paso, nuevoid){
-          console.log('Actualizando socket en lista');
+          // console.log('Actualizando socket en lista');
           // console.log(conectados);
           // conectados[paso][0]=nuevoid;
           io.sockets.emit( 'list users',conectados, allConnectedClients);
