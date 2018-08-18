@@ -116,8 +116,7 @@ $(function () {
                               <div value="${id}" class="chatPrivado" id=${'chatin' + id}></div>
                             </div>
                             <div class="abajoChatPart">
-                              <textarea class="form-control mytxtArea" id="${'message' + id}" placeholder="Nuevo mensaje">
-                              </textarea>
+                              <textarea class="form-control mytxtArea" id="${'message' + id}" placeholder="Nuevo mensaje"></textarea>
                         
                               <button type="button" class="tbn tbn-primary subsub btnChat btnChatEnnviar" value="${id}"><i class="fas fa-arrow-circle-right"></i>
                             </div>
