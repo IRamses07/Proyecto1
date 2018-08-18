@@ -1,12 +1,13 @@
 
 .quitar{
 
-    display: none;
+    /* display: none; */
+    display:none !important;
 }
 
 .perfil{
 
-    width: 40%;
+    width: 73%;
     margin: 0 auto;
 }
 
@@ -29,10 +30,10 @@
 
 }
 
-.nombreCliente output{
+/* .nombreCliente output{
     margin-top: 10px;
     display: block;
-}
+} */
 
 
 .juridica{
@@ -42,12 +43,12 @@
 
 }
 
-.juridica output{
+/* .juridica output{
 
     margin-top: 10px;
     display: block;
 
-}
+} */
 
 
 .estado{
@@ -57,10 +58,10 @@
     
 }
 
-.fecha output{
+/* .fecha output{
     margin-top: 10px;
     display: block; 
-}
+} */
 
 .fecha{
 
@@ -82,11 +83,11 @@
     display: inline-block   ;
 }
 
-.estado output{
+/* .estado output{
 
     margin-top: 10px;
     display: block; 
-}
+} */
 
 .descripcion output{
     margin-top: 10px;
@@ -97,8 +98,13 @@
 
     margin-top: 150px;
     text-align: center;
-    margin-bottom: 10px;
-    
+    margin-bottom: 30px;
+
+}
+
+th, td{
+    text-align: left    ;
+        border-bottom: none;
 }
 
 

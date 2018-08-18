@@ -22,7 +22,7 @@ llenarFormulario();
 
 function llenarFormulario() {
     listarSelectClientesM();
-    let id = localStorage.getItem('idP')
+    let id = localStorage.getItem('idP');
 
     let proyecto = obtenerProyectoId(id);
 
@@ -93,10 +93,22 @@ function mensajesDeRetroAlimentacion(error, sNombreProyecto, nIdentifiacionJurid
             });
             break;
         case 2:
+
+            
+            let id = localStorage.getItem('idP');
+            let proyecto = obtenerProyectoId(id);
+
+
             let id = localStorage.getItem('idP')
             let tecnologiasWed = recorrerTecnologiasWed();
             let tecnologiasMovil = recorrerTecnologiasMovil();
             let tecologiasBd = recorrerTecnologiasBD();
+            let info = tecnologiasWed.length;
+            if (info < 0) {
+
+            }
+
+
 
             modificarProyecto(id, sNombreProyecto, cliente, nIdentifiacionJuridica, sEstadoProyecto, sFechaEntrega, sDescripcion, tecnologiasWed, tecnologiasMovil, tecologiasBd);
 
