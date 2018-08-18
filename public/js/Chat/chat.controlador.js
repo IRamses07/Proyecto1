@@ -527,7 +527,7 @@ function usuarioNombre() {
   else if (currentData.rol == "estudiante")
     return currentData.Nombre1 + ' ' + currentData.apellido1;
   else if (currentData.rol == "cliente")
-    return currentData.nombre1 + ' ' + currentData.primer_apellido;
+    return currentData.primer_nombre + ' ' + currentData.primer_apellido;
   else
     return currentData.nombre1 + ' ' + currentData.apellido1;
 };
