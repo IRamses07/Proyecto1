@@ -116,8 +116,7 @@ $(function () {
                               <div value="${id}" class="chatPrivado" id=${'chatin' + id}></div>
                             </div>
                             <div class="abajoChatPart">
-                              <textarea class="form-control mytxtArea" id="${'message' + id}" placeholder="Nuevo mensaje">
-                              </textarea>
+                              <textarea class="form-control mytxtArea" id="${'message' + id}" placeholder="Nuevo mensaje"></textarea>
                         
                               <button type="button" class="tbn tbn-primary subsub btnChat btnChatEnnviar" value="${id}"><i class="fas fa-arrow-circle-right"></i>
                             </div>
@@ -527,7 +526,7 @@ function usuarioNombre() {
   else if (currentData.rol == "estudiante")
     return currentData.Nombre1 + ' ' + currentData.apellido1;
   else if (currentData.rol == "cliente")
-    return currentData.nombre1 + ' ' + currentData.primer_apellido;
+    return currentData.primer_nombre + ' ' + currentData.primer_apellido;
   else
     return currentData.nombre1 + ' ' + currentData.apellido1;
 };
