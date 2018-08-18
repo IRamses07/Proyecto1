@@ -46,12 +46,16 @@ function imprimirListaProyectos(radioSelected, inputDatoBuscar) {
                 boton.type = "button";
                 boton.value = "Ver más";
                 boton.classList.add('btnRegistro');
+                boton.classList.add('vermas');
+                boton.dataset._id = infoProyecto[i]['_id'];
 
 
                 cCedulaJuridica.innerHTML = infoProyecto[i]['identificacion_juridica'];
                 cNombreProyecto.innerHTML = infoProyecto[i]['nombre_proyecto'];
                 cNombreCliente.innerHTML = infoProyecto[i]['nombre_cliente'];
                 cFechaEntrega.innerHTML = infoProyecto[i]['fecha_Entrega'];
+                cVermas.appendChild(boton);
+
               
               
 
@@ -63,4 +67,20 @@ function imprimirListaProyectos(radioSelected, inputDatoBuscar) {
         }
 
     }
+}
+
+verMas();
+function verMas() {
+
+    let vermas = document.querySelectorAll('.vermas');
+    vermas.forEach(function (elem) {
+        elem.addEventListener("click", function () {
+
+            let _id = elem.dataset._id;
+
+            localStorage.setItem('idP', _id);
+            document.location.href = 'perfilProyecto.html';
+        })
+    });
+
 }
