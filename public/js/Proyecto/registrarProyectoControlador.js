@@ -181,7 +181,7 @@ function obtenerDatosr() {
             swal({
                 type: 'warning',
                 title: 'No se pudo registrar el Proyecto',
-                text: 'Por favor selecine una base de datos',
+                text: 'Por favor seleccione una base de datos',
                 confirmButtonText: 'Entendido'
             });
             break;
