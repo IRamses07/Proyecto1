@@ -68,7 +68,7 @@ function controladorListas() {
 
   
         if(tecWed.length>0 && tecMovil<0){
-            tabla2.classList.add('.quitar');
+            tabla2.classList.add('quitar');
             
     
         }
