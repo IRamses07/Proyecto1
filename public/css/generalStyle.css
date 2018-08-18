@@ -234,9 +234,10 @@ th {
     border: #f27a1a 1px solid;
     margin-bottom: 20px;
     margin-right: 20px;
-    padding: 10px 3%;
+    padding: 7px 3%;
     margin: 3%;
     color: #fff;
+    font-size: 1.2em;
 }
 
 .btnLista {

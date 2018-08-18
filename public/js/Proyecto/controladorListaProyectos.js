@@ -47,13 +47,15 @@ function imprimirListaProyectos(radioSelected, inputDatoBuscar) {
                 boton.value = "Ver más";
                 boton.classList.add('btnRegistro');
                 boton.classList.add('vermas');
+                boton.classList.add('btnLista');
                 boton.dataset._id = infoProyecto[i]['_id'];
 
                 let botonM = document.createElement("input");
                 botonM.type = "button";
                 botonM.value = "Modificar";
                 botonM.classList.add('btnRegistro');
-                botonM.classList.add('modProyecto')
+                botonM.classList.add('modProyecto');
+                botonM.classList.add('btnLista');
                 botonM.dataset._id = infoProyecto[i]['_id'];
 
 

@@ -76,3 +76,11 @@ padding: 3px 0 3px 5px; */
     display: block;
     margin: 0 auto;
 }
+
+.btnLista{
+    font-size: 1em;
+}
+
+.btnControl{
+    width: 75%;
+}

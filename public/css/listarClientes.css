@@ -84,7 +84,7 @@ h2 {
     font-size: 0.8em;
 }
 .tbl .btnFiltro{
-    width: 85px;
+    width: 95px;
  
 }
 .fmr input[type='radio']{
@@ -93,4 +93,8 @@ h2 {
 
 .labelFiltro {
     margin-right: 2%;
+}
+
+#btnBuscar{
+    font-size: 1em;
 }

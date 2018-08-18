@@ -105,9 +105,9 @@ function imprimirLista(radioSelected,inputDatoBuscar){
                 cApellido.innerHTML = listaEstudiantes[i]['apellido1'];
                 cCarrera.innerHTML = listaEstudiantes[i]['carrera'];
                 // cHoras.innerHTML = '  0  ';                                                 
-                cPerfil.innerHTML = '<button type="button" class="btnVerMas btnControl" value="'+listaEstudiantes[i]['cedula']+'">Ver más</button>';
-                cEstado.innerHTML = '<button type="button" class="btnRegistro cambioEstado btnControl" value="'+listaEstudiantes[i]['cedula']+'">'+listaEstudiantes[i]['estado']+'</button>';
-                cModificar.innerHTML = '<button type="button" class="btnRegistro modEstudiante btnControl" value="'+listaEstudiantes[i]['cedula']+'">Modificar</button>';
+                cPerfil.innerHTML = '<button type="button" class="btnVerMas btnControl btnLista" value="'+listaEstudiantes[i]['cedula']+'">Ver más</button>';
+                cEstado.innerHTML = '<button type="button" class=" cambioEstado btnControl btnLista" value="'+listaEstudiantes[i]['cedula']+'">'+listaEstudiantes[i]['estado']+'</button>';
+                cModificar.innerHTML = '<button type="button" class=" modEstudiante btnControl btnLista" value="'+listaEstudiantes[i]['cedula']+'">Modificar</button>';
             } 
         }
     vermas();
