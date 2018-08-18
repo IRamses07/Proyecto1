@@ -67,7 +67,7 @@ h2 {
 
 .fmr {
     margin: 0 auto;
-    width: 1000px;
+    width:85% ;
     margin-bottom: 20px;
     display: flow-root;
 }
@@ -81,9 +81,11 @@ h2 {
 } */
 .btnFiltro{
     cursor: pointer;
+    font-size: 0.8em;
 }
 .tbl .btnFiltro{
     width: 85px;
+ 
 }
 .fmr input[type='radio']{
     height: initial;

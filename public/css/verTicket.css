@@ -172,8 +172,8 @@ textarea::-webkit-input-placeholder {
 }
 
 .asignar {
-    width: 100%;
-    margin: 0 auto;
+    padding: 9px 3%;
+    margin: 0px auto;
 }
 
 #asignarDatos{
@@ -192,7 +192,20 @@ textarea::-webkit-input-placeholder {
     text-align: center;
 }
 
+#panelP {
+    width: 56%;
+    text-align: center;
+}
 
-.asignar {
-    margin: 20px 5%;
+#tab2 {
+    margin-left: 5.6%; 
+}
+
+.asignacionP {
+    float: left;
+    margin-left: 4%;
+}
+
+.filaDer {
+    margin-bottom: 50px;
 }
