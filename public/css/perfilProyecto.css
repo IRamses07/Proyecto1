@@ -1,4 +1,65 @@
+
 .quitar{
 
     display: none;
 }
+
+.perfil{
+
+    width: 63%;
+    margin: 0 auto;
+}
+
+
+
+.NombreProyecto{
+
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 15px;
+    margin-top: 50px;   
+
+}
+
+.nombreCliente {
+
+    margin-top:10px;
+    margin-bottom: 10px; 
+    /* text-align: center; */
+
+}
+
+.nombreCliente output{
+    margin-top: 10px;
+    display: block;
+}
+
+
+.juridica{
+
+    margin-top:10px;
+    margin-bottom: 10px; 
+
+}
+
+.juridica output{
+
+    margin-top: 10px;
+    display: block;
+
+}
+
+
+.estado{
+
+    margin-top:10px;
+    margin-bottom: 10px; 
+    
+}
+
+.fecha{
+
+    margin-top:10px;
+    margin-bottom: 10px; 
+}
+
