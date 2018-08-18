@@ -66,18 +66,24 @@ function controladorListas() {
 
     let tecMovil = JSON.parse(infoProyecto['tecnologia_movil']);
 
-  
-        if(tecWed.length>0 && tecMovil<0){
-            tabla2.classList.add('.quitar');
-            
-    
-        }
-    
 
-  
+    if (tecMovil == '') {
+
+      
+        imprimirListaProyectos();
+
+    } else {
+
+        if (tecWed == '') {
+            
+            listaMobil();
+
+        }
+    }
+
 
 }
-imprimirListaProyectos(); 
+
 
 function imprimirListaProyectos() {
 
@@ -87,13 +93,11 @@ function imprimirListaProyectos() {
 
     let tecWed = JSON.parse(infoProyecto['tecnologia_wed']);
 
+    let tecBd = JSON.parse(infoProyecto['tecnologia_bd']);
 
+    tecWed.push(tecBd);
 
-
-
-    // let info2 = infoWed.split('"');
-
-    // console.log(info2);
+    console.log(tecWed);
 
     let tbody = document.querySelector('#tecnologiasWed tbody');
     tbody.innerHTML = '';
@@ -120,9 +124,27 @@ function listaMobil() {
 
     let tecMovil = JSON.parse(infoProyecto['tecnologia_movil']);
 
+    let tecBd = JSON.parse(infoProyecto['tecnologia_bd']);
+
+    tecMovil.push(tecBd);
+
+    console.log(tecMovil);
 
 
+    let tbody = document.querySelector('#tecnologiasMovil tbody');
+    tbody.innerHTML = '';
 
+
+    for (let i = 0; i < tecMovil.length; i++) {
+
+        let fila = tbody.insertRow();
+
+        let ifno = fila.insertCell();
+
+        ifno.innerHTML = tecMovil[i];
+
+
+    }
 }
 
 

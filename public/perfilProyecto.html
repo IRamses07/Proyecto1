@@ -14,7 +14,7 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/generalStyle.css">
-    <link rel="stylesheet" href="css/registraProyecto.css">
+    <!-- <link rel="stylesheet" href="css/registraProyecto.css"> -->
     <link rel="stylesheet" href="css/error.css">
     <link rel="stylesheet" href="css/chat.css">
     <link rel="stylesheet" href="css/perfilProyecto.css">
@@ -43,78 +43,87 @@
     </div>
     </header>
 
-    <main>
-        <div class="NombreProyecto">
-            <output id="NombreProyecto"></output>
+    <main id=content>
+        <div class="perfil">
+            <div class="NombreProyecto">
+                <output id="NombreProyecto"></output>
+            </div>
+
+            <div class="colupna1">
+                <div class="nombreCliente">
+                    <label for="" class="info">Nombre del Cliente:</label>
+                    <output id="nombreCliente"></output>
+
+                </div>
+
+                <div class="juridica">
+
+                    <label for="">Cédula Jurídica:</label>
+                    <output id="juridica"></output>
+                </div>
+
+            </div>
+
+            <div class="colupna2">
+                <div class="estado">
+                    <label for="">Estado del proyecto:</label>
+                    <output id="estado"></output>
+
+                </div>
+
+                <div class="fecha">
+
+                    <label for="">Fecha de entrega:</label>
+                    <output id="fecha"></output>
+
+                </div>
+
+            </div class="tablas">
+
+
+            <div class="descripcion">
+                <label for="">Descripción</label>
+                <output id="descripcion"></output>
+            </div>
+            <div>
+                <div class="listaWed">
+
+                    <table id="tecnologiasWed">
+
+                        <thead>
+
+                            <th>Tecnólogas</th>
+
+
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="listaMovil">
+
+                    <table id="tecnologiasMovil" id>
+
+                        <thead>
+
+                            <th>Moviel</th>
+
+
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
         </div>
-
-        <div class="nombreCliente">
-            <label for="">Nombre del Cliente:</label>
-            <output id="nombreCliente"></output>
-
         </div>
-
-        <div class="juridica">
-
-            <label for="">Cedula Juridica:</label>
-            <output id="juridica"></output>
-
-
-        </div>
-
-        <div class="estado">
-            <label for="">Estado del proyecto:</label>
-            <output id="estado"></output>
-
-        </div>
-
-        <div class="fecha">
-
-            <label for="">Fecha de entrega</label>
-            <output id="fecha"></output>
-
-        </div>
-
-        <div class="descripcion">
-            <label for=""></label>
-            <output id="descripcion"></output>
-        </div>
-
-        <div class="listaWed">
-
-            <table id="tecnologiasWed">
-
-                <thead>
-
-                    <th>Web</th>
-
-
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
-
-        </div>
-
-        <div class="listaMovil">
-
-            <table id="tecnologiasMovil" id>
-
-                <thead>
-
-                    <th>Moviel</th>
-
-
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
-
-        </div>
-
-
 
     </main>
 
