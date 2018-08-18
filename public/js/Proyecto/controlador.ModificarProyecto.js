@@ -16,6 +16,8 @@ let dateFechaEntregaM = document.querySelector('#dtEntregaEstimada');
 
 let txtaDescripcionM = document.querySelector('#txtDescripcion');
 
+let formulario = document.querySelector('#frmModificar');
+
 llenarFormulario();
 
 function llenarFormulario() {
@@ -101,9 +103,15 @@ function mensajesDeRetroAlimentacion(error, sNombreProyecto, nIdentifiacionJurid
             swal({
                 type: 'success',
                 title: 'Registro exitoso',
-                text: 'El Proyecto se registró adecuadamente',
-                confirmButtonText: 'Entendido'
+                text: 'El Proyecto se modificao adecuadamente',
+                confirmButtonText: 'Entendido',
+                timer: '3500',
+                onClose: () => {
+                    document.location.href = 'listarProyectos.html';
+                }
             });
+
+            frmModificar.reset();
             break;
 
         case 3:
@@ -258,31 +266,21 @@ function verificarEstado() {
             error = 3;
             break;
         } else {
-            if (dateFechaEntregaM.value < proyectos[i]['fecha_Entrega']) {
-                error = 3;
-                return error;
-                break;
-            } else {
-                error = 2;
-            }
+            // if (dateFechaEntregaM.value < proyectos[i]['fecha_Entrega']) {
+            //     error = 3;
+            //     return error;
+
+            // } else {
+            error = 2;
         }
     }
     return error;
-
 }
+
+
+
 
 
 //trata de hacer un splip 
-prueba();
-function prueba() {
 
-    let id = localStorage.getItem('idP')
-
-    let proyecto = obtenerProyectoId(id)['tecnologia_wed'];
-
-    let info = proyecto.split(',');
-
-    console.log(info);
-
-}
 

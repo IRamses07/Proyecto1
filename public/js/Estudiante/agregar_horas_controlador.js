@@ -42,7 +42,12 @@ function optenerDatos() {
 
     switch (error) {
         case 1:
-
+        swal({
+            type: 'warning',
+            title: 'Registro fallido',
+            text: 'No se pudo registara horas al proyecto',
+            confirmButtonText: 'Entendido'
+        });
 
             break;
 
@@ -52,7 +57,7 @@ function optenerDatos() {
             swal({
                 type: 'success',
                 title: 'Registro exitoso',
-                text: 'El Proyecto se registró adecuadamente',
+                text: 'Se agregaron horas al proyecto',
                 confirmButtonText: 'Entendido'
             });
 

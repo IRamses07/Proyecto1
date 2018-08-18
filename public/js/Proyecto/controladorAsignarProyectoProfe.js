@@ -10,6 +10,8 @@ botonAgregar.addEventListener('click', obtenerDatos);
 let selectProyecto = document.querySelector('#slProyecto');
 let selectProfe1 = document.querySelector('#slProfeLider');
 let selectProfe2 = document.querySelector('#slProfesorTecnico');
+let formulario = document.querySelector('#frmAP');
+
 
 
 
