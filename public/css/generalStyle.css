@@ -115,8 +115,8 @@ header{
     position: fixed;
     background-color: #2f3030;
     width: 0px;
-    height: 93.5%;
-    top: 46px;
+    height: 95.5%;
+    top: 51px;
     overflow: hidden;
     transition: width 0.5s ease-out; 
     overflow-y: auto;
@@ -223,7 +223,7 @@ th , td {
 
 th {
     font-weight: 500;
-    font-size: 1.035em;
+    font-size: 1.37em;
 }
 
 /* estilos del boton de filtro/buscar  */
@@ -329,12 +329,12 @@ opcionesMenu{
 
 .menuLabel{
     z-index: auto;
-    display: block; 
+    display: block;
     width: 260px;
     color: #ffffff;
     padding-bottom: 20px;
-    padding-top: 20px;
-    padding-left: 15px;
+    padding-top: 26px;
+    padding-left: 57px;
   
 }
 

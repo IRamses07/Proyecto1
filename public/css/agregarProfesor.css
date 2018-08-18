@@ -8,33 +8,23 @@ main h1 {
 
 .frmAsigarProyectoProfesores {
   text-align: center;
-  margin-left: 31.5%;
+  /* margin-left: 31.5%; */
+  margin: 0 auto;
   border: 2px solid #fbb876;
   padding: 50px 50px 18px 50px;
   border-radius: 20px;
   border-top-left-radius: 0%;
   height: 200px;
-  width: 30%;   
+  width: 51%;   
 }
 
 .tabs__item{
-    margin-left: 31.5%;
+    margin-left: 21.22%;
 }
 
-.optionProyecto {
+.optionProyecto, .optionProfeLider, .optionProfeTecnico{
 
-    margin-bottom: 15px;
-}
-
-.optionProfeLider{
-
-    margin-bottom: 15px;
-
-}
-
-.optionProfeTecnico{
-
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 
 }
 
@@ -42,18 +32,19 @@ main h1 {
 .optionProyecto label{
 
     margin-right: 14%; 
+    
 
 }
 
 .optionProfeLider label{
 
-    margin-right: 8.4%;
+    margin-right: 9.5%;
 
 }
 
 .optionProfeTecnico label{
 
-    margin-right: 4.36%; 
+    margin-right: 6.36%; 
 
 }
 
