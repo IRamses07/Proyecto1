@@ -44,7 +44,7 @@ nav i{
 	background-size: cover;
 }
 .title {
-    padding-top: 105px;
+    padding-top: 85px;
     width: 100%;
     text-align: center;
     color: #fff;
@@ -61,7 +61,7 @@ nav i{
 #container2Intro{
     width: 80%;
     margin: 0 auto;
-    margin-top: 105px;
+    margin-top: 75px;
 }
 .descripcion{
     background-color: rgba(0,0,0,.5);
@@ -75,6 +75,10 @@ nav i{
     border-radius: 25px;
     width: 45%;
     float: left;
+}
+.descripcion h2{
+    font-size: 1.2em;
+    margin-bottom: 10px;
 }
 #CSH{
     width: 45%;
@@ -105,7 +109,7 @@ nav i{
 #menu00, #menu01, #menu02, #menu03, #menu04{
     width: 180px;
     height: 180px;
-    font-size: 25px;
+    font-size: 1.3em;
     color: #000;
     text-align: center;
     font-weight: bold;
@@ -172,13 +176,13 @@ nav i{
 }
 
 #comentariosNosotros{
-    width: 61%;
+    width: 60%;
     height: 445px;
     float: left;
 }
 
 .imgcontDer{
-    /* width: 465px; */
+    width: 35%;
     height: 420px;
     float: left;
     border-radius: 5px;
@@ -187,7 +191,7 @@ nav i{
 
 .imgcontDer img {
     width: 100%;
-    height: 485px;
+    height: 480px;
     border-radius: 5px;
     margin: 0 auto;
 }
@@ -234,7 +238,10 @@ nav i{
 }
 
 .paso p{
-    padding-top: 30px;
+    padding-top: 23px;
+    font-size: 1.2em;
+    padding-left: 7px;
+    padding-right: 7px;
 }
 
 .sigFlow{
@@ -331,11 +338,12 @@ nav i{
     margin-top: 55px;
     text-align: center; 
     font-size: 2.5em;    
-    margin-bottom: 75px;                                                           
+    margin-bottom: 75px;   
+    font-weight: bold;                                                        
 }
 #usoDeskT{
     margin-bottom: 25px;
-    margin-top: 45px;
+    margin-top: 35px;
 }
 #usoDeskT p{
     font-weight: bold;
@@ -369,26 +377,28 @@ nav i{
 #petronas{
     width: 85%;
     display: flow-root;
-    height: 500px;
+    height: 565px;
     margin: 0 auto;
 }
 
 #colizq2{
     width: 45%;
     float: left;
-    margin-top: 20px;
 }
 
 /*Boton de inicio de session*/
 #inicioS2, #inicioS{
     margin: 0 auto;
     width: 240px;
-    margin-bottom: 65px;
+    margin-bottom: 45px;
 }
 
 #inicioS{
     padding-top: 45px;
     margin-bottom: 35px;
+}
+#inicioS2{
+    margin-bottom: 65px;
 }
 
 .buttonS{

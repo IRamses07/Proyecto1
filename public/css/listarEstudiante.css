@@ -19,13 +19,12 @@ thead th {
     text-align: center;
     border-bottom: 2px solid white;
 }
-.filtrarEstudiante input[type='radio'] {
-    /* display: none; */
+/*.filtrarEstudiante input[type='radio'] {
     width: 14px;
     height: 14px;
     margin: 5px 0px;
     margin-left:    1.2%;
-}
+}*/
 
 
 /*.btnVerMas{
