@@ -25,14 +25,14 @@ let tab2 = document.querySelector('#tab2');
 
 let btnAgregar = document.querySelector('#asignarE');
 btnAgregar.addEventListener('click', function () {
-    llenarTablaEstudiantes()
-})
+    llenarTablaEstudiantes();
+});
 
-panelE.classList.remove('activePanel');
-panelP.classList.add('activePanel');
-tab1.classList.remove('activeTab');
-tab2.classList.add('activeTab');
-panelP.hidden = true;
+let btnFinalizarAsignacion = document.querySelector('#asignarDatos');
+btnFinalizarAsignacion.addEventListener('click', asignarTicketsE);
+
+let btnAsignar = document.querySelector('#asignarP');
+btnAsignar.addEventListener('click',asignarTicketsP);
 
 llenarSltEstudiantes();
 llenarSltProfes();
@@ -59,18 +59,16 @@ function getURLverTicket() {
     }
 };
 let tickDa = mostrarTicket(getURLverTicket()._id);
-console.log(tickDa);
 
-console.log(tickDa[0]['nombre_cliente']);
 
 let proyecto = tickDa[0]['proyecto'];
 let urgencia = tickDa[0]['urgencia'];
-// let referenciaTicket = tickDa[0]['referencia_ticket'];
+let referenciaTicket = tickDa[0]['referencia_ticket'];
 let estado = tickDa[0]['estado'];
 let imgn = tickDa[0]['imagen_error'];
 let codigot = tickDa[0]['codigo'];
 let nombreCliente = tickDa[0]['nombre_cliente'];
-
+let descripcionErr = tickDa[0]['descripcion'];
 
 optProy.value = proyecto;
 optUrg.value = urgencia;
@@ -84,15 +82,19 @@ if (estado == "Activo") {
     optEst.classList.add("color");
 }
 
+if (usuario == "administrador") {
+    document.querySelector('#panelE').style.display = 'none';
+    document.querySelector('#panelE').style.display = 'none';
+    document.querySelector('#tab1').style.display = 'none';
+
+}
 
 if (usuario == "profesor") {
-
+    document.querySelector('#panelP')
+    document.querySelector('#panelP').style.display = 'none';
+    document.querySelector('#tab2').style.display = 'none';
 }
 
-if (usuario == "administrador") {
-    // .hidden = false ;
-
-}
 
 
 function llenarSltEstudiantes() {
@@ -109,24 +111,23 @@ function llenarSltProfes() {
     let profesores = getProfessorData();
 
     for (let i = 0; i < profesores.length; i++) {
-        sltProfes.options[i + 1] = new Option(profesores[i]['nombre1'] + profesores[i]['apellido1'], profesores[i]['nombre1'] + profesores[i]['apellido1'])
+        sltProfes.options[i + 1] = new Option(profesores[i]['nombre1'] + profesores[i]['apellido1'], profesores[i]['_id'])
     }
 }
 
-let estudiantesTick = [];
+let estudiantesIds = [];
 
 function llenarTablaEstudiantes() {
 
     let estudiantes = obtenerListaEstudiantes();
     let estudiante = sltEstudiantes.value;
-    estudiantesTick.push(estudiante);
-    sEst = sltEstudiantes.options[sltEstudiantes.selectedIndex].text;
+    estudiantesIds.push(estudiante);
 
     let tbody = document.querySelector('#tblAsignacionE tbody');
     tbody.innerHTML = '';
-    for (let i = 0; i < estudiantesTick.length; i++) {
+    for (let i = 0; i < estudiantesIds.length; i++) {
         for (let j = 0; j < estudiantes.length; j++) {
-            if (estudiantesTick[i] == estudiantes[j]['_id']) {
+            if (estudiantesIds[i] == estudiantes[j]['_id']) {
 
 
                 let fila = tbody.insertRow();
@@ -148,7 +149,10 @@ function llenarTablaEstudiantes() {
 
                 boton.addEventListener('click', function () {
                     boton.dataset.id = estudiantes[j]['_id'];
-                    console.log(boton);
+                    if (estudiantesIds[i] == estudiantes[j]['_id']) {
+                        estudiantesIds.splice(i, 1);
+                        document.querySelector('#tblAsignacionE tbody').deleteRow(i);
+                    }
                 });
             }
         }
@@ -156,4 +160,72 @@ function llenarTablaEstudiantes() {
 
 }
 
-// asignarTickets();
+function asignarTicketsE() {
+    let error = false;
+    estudiantesIds;
+    console.log(estudiantesIds);
+
+    for (let i = 0; i < estudiantesIds.length; i++) {
+        let id = estudiantesIds[i];
+        let idTicket = tickDa[0]['_id'];
+        asignarTicketEstudiante(id, idTicket, codigot, nombreCliente, proyecto, urgencia, referenciaTicket, estado, imgn, descripcionErr);
+
+
+    }
+    if (error == true) {
+        console.log('aquí va un sweet alert xD ');
+        swal({
+            title: "La asignación falló",
+            text: "El ticket no se ha podido asignar a los estudiantes",
+            icon: "error",
+            button: "Ok",
+        });
+    } else {
+
+        // notificacion()  
+        // aquí mando el id del emisor y el rol, los datos del receptor, tipo = 'ticket',referencia: id (del ticket), verTicket.html
+        swal({
+            title: "Ticket asignado correctamente",
+            text: "El ticket se ha asignado correctamente",
+            icon: "success",
+            button: "Ok",
+        });
+    }
+
+}
+
+
+function asignarTicketsP() {
+    let error = false;
+    let profesores = getProfessorData();
+    let id = sltProfes.value;
+    let idTicket = tickDa[0]['_id'];
+    let profesor = document.querySelector('#profe');
+
+    asignarTicketProfesor(id, idTicket, codigot, nombreCliente, proyecto, urgencia, referenciaTicket, estado, imgn, descripcionErr);
+    for (let i = 0; i < profesores.length; i++) {
+        if(profesores[i]['_id'] == sltProfes.value ){
+            profesor.value = profesores[i]['nombre1'] + " " + profesores[i]['apellido1']; 
+        }
+    }
+
+    if (error == true) {
+        console.log('aquí va un sweet alert xD ');
+        swal({
+            title: "La asignación falló",
+            text: "El ticket no se pudo asignar al profesor",
+            icon: "error",
+            button: "Ok",
+        });
+    } else {
+        // notificacion()  
+        // aquí mando el id del emisor y el rol, los datos del receptor, tipo = 'ticket',referencia: id (del ticket), verTicket.html
+        swal({
+            title: "Ticket asignado",
+            text: "El ticket se ha asignado correctamente",
+            icon: "success",
+            button: "Ok",
+        });
+    }
+
+}

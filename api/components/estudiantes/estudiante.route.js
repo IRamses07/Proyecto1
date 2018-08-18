@@ -55,6 +55,9 @@ router.route('/reset_student_password')
         estudiantes.reset_student_password(req, res);
     });
 
-
+router.route('/asignar_ticket_est')
+    .post(function (req, res) {
+        estudiantes.asignar_ticket_e(req, res);
+    });
 
 module.exports = router;

@@ -68,4 +68,9 @@ router.route('/reset_professor_password')
         profesores.reset_professor_password(req, res);
     });
 
+router.route('/asignar_ticket_profe')
+    .post(function (req, res) {
+        profesores.asignar_ticket_p(req, res);
+    });
+
 module.exports = router;

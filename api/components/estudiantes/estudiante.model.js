@@ -42,7 +42,21 @@ let estudianteSchema = new mongoose.Schema({
         id: { type: String },
         tiempo: { type: String },
         fecha: { type: String }
-    }]
+    }],
+    tickets: [
+        {
+            id: { type: String },
+            codigo: { type: String },
+            cliente: { type: String },
+            proyecto: { type: String },
+            urgencia: { type: String },
+            tick_referencia: { type: String },
+            estado_ticket: { type: String },
+            imagen_error: { type: String },
+            descripcion: { type: String },
+        }
+    ]
+
 });
 
 module.exports = mongoose.model('Estudiante', estudianteSchema);

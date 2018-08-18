@@ -333,7 +333,42 @@ function resetStudentPassword(_id) {
 }
 
 
+function asignarTicketEstudiante(id, idTicket, codigot, nombreCliente, proyecto, urgencia, referenciaTicket, estado, imgn,descripcionErr) {
+    let respuesta = '';
 
+    let peticion = $.ajax({
+        url: 'http://localhost:4000/api/asignar_ticket_est',
+        type: 'post',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+
+        data: {
+
+            _id: id,
+            id: idTicket,
+            codigo : codigot,
+            nombre_cliente : nombreCliente,
+            proyecto : proyecto,
+            urgencia : urgencia,
+            referencia_ticket : referenciaTicket,
+            estado : estado,
+            imagen_error : imgn,
+            descripcion :descripcionErr
+
+        }
+    });
+
+    peticion.done(function (response) {
+        respuesta = response;
+    });
+
+    peticion.fail(function (response) {
+
+    });
+
+    return respuesta;
+}
 
 
 

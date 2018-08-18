@@ -16,6 +16,7 @@ let cajaSolu = document.querySelector('#cajaSolucion');
 let btnAsignar = document.querySelector('#btnAsignar');
 btnAsignar.hidden = true;
 
+
 let btnComentar = document.querySelector('#btnComentar');
 btnComentar.hidden = true;
 
@@ -118,9 +119,12 @@ if (estado == "Activo") {
 }
 if (usuario == "administrador") {
     btnModificar.hidden = true;
-
+    btnComentar.hidden = false;
 }
 if (usuario == "administrador" && estado == 'Activo') {
+    btnAsignar.hidden = false;
+}
+if (usuario == "profesor" && estado == 'Activo') {
     btnAsignar.hidden = false;
 }
 
@@ -146,7 +150,6 @@ if (usuario == "administrador" && estado == 'Inactivo') {
     btnAprobar.hidden = false;
     btnModificar.hidden = true;
     btnrechazar.hidden = false;
-
 }
 
 if (estado == 'Rechazado') {
@@ -156,17 +159,16 @@ if (estado == 'Rechazado') {
 if (estado == 'Inactivo') {
     btnModificar.hidden =  true;
     btnCerrar.hidden = true;
-    mostrarSolucion();
-    cajaSolu.classList.add("cajaSolucion");
 }
 
 function aprobarTicket() {
     estado = "Activo";
     let idpar = tickDa[0]['_id'];
+    let correo = '';
     optEst.value = estado;
     optEst.classList.add("color");
-    cambiarEstadoTicket(idpar, estado);
-    document.location.href = 'asignarTicket.html?_id=' + idpar;
+    cambiarEstadoTicket(idpar, estado, correo);
+    document.location.href = "asignarTicket.html?_id=" + idpar;
 }
 
 function cancelar() {
@@ -198,18 +200,22 @@ function rechazoTicket() {
 // Estado Activo (cuando lo aprueban)
 // estado Rechazado, cuando es rechazado xD
 
-function mostrarSolucion() {
-    let ticket = listarTickets();
-    let comentarioTick;
-    let idTick = tickDa[0]['_id'];
-    for (let i = 0; i < ticket.length; i++) {
-        // for(let j = 0; j < comentarioTick.length; j++){
-            if (idTick == ticket[i]['_id']) {
-                comentarioTick = ticket[i].comentarios;
-            if (comentarioTick[0]['tipo'] == 'descripción solución') {
-                outDscSolucion.value = comentarioTick[0]['texto'];
-                // }
-            }
-        }
-    }
+// function mostrarSolucion() {
+//     let ticket = listarTickets();
+//     let comentarioTick;
+//     let idTick = tickDa[0]['_id'];
+//     for (let i = 0; i < ticket.length; i++) {
+//         // for(let j = 0; j < comentarioTick.length; j++){
+//             if (idTick == ticket[i]['_id']) {
+//                 comentarioTick = ticket[i].comentarios;
+//             if (comentarioTick[0]['tipo'] == 'descripción solución') {
+//                 outDscSolucion.value = comentarioTick[0]['texto'];
+//                 // }
+//             }
+//         }
+//     }
+// }
+
+function validarAsignacion(){
+    
 }

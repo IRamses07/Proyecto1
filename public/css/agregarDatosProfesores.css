@@ -19,6 +19,7 @@ h2{
 }
 .leftContainer{
     float: left;
+    margin-bottom: 15px;
     width: 48%;
 }
 
@@ -81,13 +82,19 @@ select{
     padding: 0 0 0 5px;
     margin: 0 20px 0 0;
 }
-label{
+
+/*label{
     display: block;
-}
+}*/
 
 .hide{
     display: none;
 }
- table{
+
+table{
      text-align: center;
  }
+
+ /* .menuPrincipal{
+     display: inline-block;
+ } */

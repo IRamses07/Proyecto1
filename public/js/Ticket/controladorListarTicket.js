@@ -10,6 +10,7 @@ btnFiltro.addEventListener('click', function () {
 
     let radioSelected = document.querySelector('input[type="radio"]:checked');
    
+    let desc = document.querySelector('#desc');
 
     let selectUrgencia = document.querySelector('#sltUrgencia').value;
     listarTicketsAdmin(inptBuscarCliente.value, selectUrgencia, radioSelected.value);
@@ -40,7 +41,7 @@ function listarTicketsAdmin(pinptBuscarCliente, selectUrgencia, radioSelected) {
             let cliente = fila.insertCell();
             let urgencia = fila.insertCell();
             let proyecto = fila.insertCell();
-            let descripcion = fila.insertCell();
+            let estado = fila.insertCell();
             let verMas = fila.insertCell();
 
             let boton = document.createElement("input");
@@ -52,7 +53,7 @@ function listarTicketsAdmin(pinptBuscarCliente, selectUrgencia, radioSelected) {
             cliente.innerHTML = tickets[i]['nombre_cliente'];
             urgencia.innerHTML = tickets[i]['urgencia'];
             proyecto.innerHTML = tickets[i]['proyecto'];
-            descripcion.innerHTML = tickets[i]['descripcion'];
+            estado.innerHTML = tickets[i]['estado'];
             verMas.appendChild(boton);
 
             boton.addEventListener('click',function(){
@@ -63,8 +64,18 @@ function listarTicketsAdmin(pinptBuscarCliente, selectUrgencia, radioSelected) {
     }
 };
 
-
-
+pruebaSubtr();
+function pruebaSubtr(){
+    let tickets = listarTickets();
+    for (let i = 0; i < tickets.length; i++) {
+        let texto = tickets[i]['descripcion'];;
+        desc.value = texto;
+        console.log(desc);
+       
+        desc.value.substr(-3,2);
+        console.log(texto.substr(0,20))
+    }
+}
 
 
 

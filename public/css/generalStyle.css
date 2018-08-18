@@ -1,26 +1,37 @@
 /* comenten aquí que estilos haen falta para ir agregandolos */
 /* esta hoja se irá actualizando conforme avanza elproyecto */
 /*  si se agregan nuevo estilos deben comentarlos */
+
 body{
     font-family: 'Roboto', sans-serif;
     background-color: #454545;
     color: #ffffff;
+    font-weight: 200;
 }
 
+h1 {
+    text-align: center;
+    margin: 20px auto;
+    font-weight: 300;
+    font-size: 2em;
+}
 
-/* body    {
-    background-color: #000000;
-    color: #FFFFFF;
-    padding: 20px;
-    font: 18px Arial, Tahoma;
-    } */
+/* 
+thead th {
+        font-size: 1.13em;
+}
+ a {
+ font-size: 0.8em
+}
+html, body, span, applet, object, iframe, p, blockquote, pre, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 
+    font-size: 1.14em;
+}
 
-    .box {
-    width: 30px;
-    height: 30px;
-    border: 2px solid rgb(255, 255, 255);
-    }
+td {
+    font-size: 1em;
+} */
+
 
 /* id que va dentro del main. estilo del main espacio que da entre el menulateral y el contenido */
 #content{
@@ -155,8 +166,6 @@ header{
 input{
     border: 0px ;
     border-radius: 3px;
-    /* outline: none; */
-    /*height: 22px;*/
     height: 30px;
     border: 2px solid #fff;
 }
@@ -169,12 +178,10 @@ textarea{
 select{
     border: 0px;
     border-radius: 3px;
-    /*height: 27px;*/
     height: 34px;
     font-family: 'Roboto', sans-serif;
-    font-size: 14px;
+    font-size: 0.97em;
     color: #454545;
-    letter-spacing: 0.7pt;
  }
 
  /* estilo general de los botones de los registros...  */
@@ -224,11 +231,21 @@ th {
 .btnFiltro {
     background-color: #f27a1a;
     border-radius: 3px;
-    border:  #f27a1a 1px solid;
-    padding: 5px 2%;
-    font-family: 'Roboto', sans-serif;
+    border: #f27a1a 1px solid;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    padding: 10px 3%;
+    margin: 3%;
     color: #fff;
-    font-size: 1em;
+}
+
+.btnLista {
+    margin: 0 auto 10px auto; 
+    width: 65%;
+    height: 29px;
+    padding: 5px 0px 5px 0;
+    background-color: #f27a1a;
+    color: #fff;
 }
 
 .btnFiltro:hover{
@@ -240,9 +257,9 @@ th {
 /*****************/
 /* comente de que son */
 
-.fLeft {
+/* .fLeft {
     margin-left: 20px;
-}
+} */
 
 
 /* error debajo de los inputs */
@@ -257,7 +274,6 @@ th {
 .lblInput, .lblDatos{
     display: block;
     margin-bottom: 5px;
-    font-size: 18px;
 }
 
 .lblError{
@@ -305,18 +321,20 @@ input::placeholder, .letraItalic{ /*Cursiva*/
 #rbtnNombre {
     visibility: hidden;
 }
+
 opcionesMenu{
     display: block;
 }
 
 .menuLabel{
+    z-index: auto;
     display: block; 
     width: 260px;
     color: #ffffff;
     padding-bottom: 20px;
     padding-top: 20px;
     padding-left: 15px;
-
+  
 }
 
 .option2{
@@ -363,7 +381,11 @@ opcionesMenu{
 }
 
 .iconoMenu{
-    margin-right: 7px;
+    margin-right: 4px;
+}
+
+#notificacion{
+margin-right: 17px;
 }
 
 @media screen and (max-height: 450px) {
@@ -371,6 +393,14 @@ opcionesMenu{
     .menuLateral a {font-size: 18px;}
   }
 
+.font-icon-listas {
+    font-size: 1.07em;
+    color: #f27a1a;
+    margin: 20px 0;
+}
+.font-icon-listas:hover {
+    color: #e7bd9a;
+}
 /*Para asegurarse que este sobre cualquier otro objeto con z-index*/
 .menuLateral, .mainHeader, .chatContainer{
     z-index: 50;

@@ -21,7 +21,7 @@
     <header>
         <div class="mainHeader">
                 <label for="" class="menuPrincipal" onclick="togglMenu()">
-                        <i class="fas fa-align-justify iconoMenu"></i>Menú</label>
+                        <i class="fas fa-align-justify iconoMenu"></i></label>
             <a id="notificacion" class="fLeft">
                 <i class="fas fa-bell"></i> Notificaciones</a>
             <label for="">Bienvenido: </label>
@@ -88,7 +88,7 @@
         <section id="asignacion">
                 <div class="tabs-container">
                         <ul class="tabs" id="tabs">
-                            <li id="tab1" class="tabs__item activeTab">Asignar estudiantes</li>
+                            <li id="tab1" class="tabs__item">Asignar estudiantes</li>
                             <li id="tab2" class="tabs__item">Asignar profesores</li>
                         </ul>
             
@@ -130,7 +130,8 @@
                     </div>
                     </form>
                     </div>
-
+                </section>
+                <section id="asignacionP">
                     <div  id="panelP" class="panels__item .tabs__item">
 
                             <form action="" class="form" id="form2">
@@ -145,25 +146,13 @@
                         <label id="cursoExt" for="" class="lblError lblHide">*Sólo puede seleccionar un profesor!</label>
                     </div>
                     <div class="btnAgregar">
-                        <button type="button" id="asignarP" class="btnFiltro">Agregar</button>
+                        <button type="button" id="asignarP" class="btnFiltro asignar">Asignar</button>
                     </div>
                     <div class="muestraProfes">
-                        <table id="tblAsignacion">
-                            <thead>
-                                <th>Nombre</th>
-                                <th>Rol</th>
-                                <th>Ver</th>
-                            </thead>
-                            <tbody>
-
-                            </tbody>
-                        </table>
+                        <label for="">Profesor/Profesora</label>
+                        <output id="profe"></output>
                     </div>
-                    <div class="botones">
-                        <div class="asignar boton">
-                            <button type="button" id="asignarDatos" class="btnRegistro">Finalizar</button>
-                        </div>
-                    </div>
+                    
                     </form>
                     </div>
 
