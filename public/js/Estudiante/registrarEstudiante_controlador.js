@@ -1,12 +1,12 @@
 'use strict';
 moveUser(true);
 
-window.onbeforeunload = function(){                       //temporal! revisar <->
-    if(sessionStorage.getItem("update")==1){
-        sessionStorage.setItem('update', 0);
-        document.location.href = 'listarEstudiante.html';
-    }
-};
+// window.onbeforeunload = function(){                       //temporal! revisar <->
+//     if(sessionStorage.getItem("update")==1){
+//         sessionStorage.setItem('update', 0);
+//         document.location.href = 'listarEstudiante.html';
+//     }
+// };
 
 //Funcion para pestanas superiores del cuadro con validación
 (function(d){

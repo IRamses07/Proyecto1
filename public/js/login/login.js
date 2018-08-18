@@ -143,7 +143,7 @@ function loadOptionsMenu() {
 
 
         let mainMenu = ["Proyectos", "Clientes", "Profesores", "Estudiantes", "Tickets"];
-        let iconos = ['fa-project-diagram','fa-briefcase','fa-chalkboard-teacher','fa-user-graduate','fa-ticket-alt'];
+        let iconos = ['fa-project-diagram', 'fa-briefcase', 'fa-chalkboard-teacher', 'fa-user-graduate', 'fa-ticket-alt'];
         for (let i = 0; i < mainMenu.length; i++) {
             let optionsContainer = document.createElement('div');
             optionsContainer.id = mainMenu[i];
@@ -152,7 +152,7 @@ function loadOptionsMenu() {
             let mainLabel = document.createElement('a');
             mainLabel.classList.add('menuLabel');
             mainLabel.innerHTML = mainMenu[i];
-            mainLabel.href = "javascript:secundaryMenu("+mainMenu[i].toString()+")";  
+            mainLabel.href = "javascript:secundaryMenu(" + mainMenu[i].toString() + ")";
             let icono = document.createElement('i');
             icono.classList.add('iconosMenu');
             icono.classList.add('fas');
@@ -203,13 +203,35 @@ function loadOptionsMenu() {
                         sessionStorage.removeItem('professorUpdateLS');
                     };
                 }
+                if (menuURL[i] == "registrarEstudiante.html") {
+                    newA.onclick = function () {
+                        sessionStorage.setItem('update', 0);
+                    };
+                }
             }
+
+
         }
+        let history = document.createElement('div');
+        history.classList.add('option');
+        /*profile.classList.add('option2');*/
+        history.classList.add('optionHover');
+        let profileLabel = document.createElement('a');
+        profileLabel.classList.add('menuLabel');
+        profileLabel.innerHTML = "Mensajería";
+        profileLabel.href = "historialChat.html";
+        let icono2 = document.createElement('i');
+        icono2.classList.add('iconosMenu');
+        icono2.classList.add('fas');
+        icono2.classList.add('fa-comments');
+        profileLabel.appendChild(icono2);
+        history.appendChild(profileLabel);
+        menu.appendChild(history);
     }
 
     if (userRol == "cliente") {
         let mainMenu = ["Proyectos", "Tickets"];
-        let iconos = ['fa-project-diagram','fa-ticket-alt'];
+        let iconos = ['fa-project-diagram', 'fa-ticket-alt'];
         for (let i = 0; i < mainMenu.length; i++) {
             let optionsContainer = document.createElement('div');
             optionsContainer.id = mainMenu[i];
@@ -218,7 +240,7 @@ function loadOptionsMenu() {
             let mainLabel = document.createElement('a');
             mainLabel.classList.add('menuLabel');
             mainLabel.innerHTML = mainMenu[i];
-            mainLabel.href = "javascript:secundaryMenu("+mainMenu[i].toString()+")";
+            mainLabel.href = "javascript:secundaryMenu(" + mainMenu[i].toString() + ")";
             let icono = document.createElement('i');
             icono.classList.add('iconosMenu');
             icono.classList.add('fas');
@@ -259,12 +281,17 @@ function loadOptionsMenu() {
                         sessionStorage.removeItem('professorUpdateLS');
                     };
                 }
+                if (menuURL[i] == "registrarEstudiante.html") {
+                    newA.onclick = function () {
+                        sessionStorage.setItem('update', 0);
+                    };
+                }
             }
         }
 
         let profile = document.createElement('div');
         profile.classList.add('option');
-        /*profile.classList.add('option2');*/ 
+        /*profile.classList.add('option2');*/
         profile.classList.add('optionHover');
         let profileLabel = document.createElement('a');
         profileLabel.classList.add('menuLabel');
@@ -281,7 +308,7 @@ function loadOptionsMenu() {
 
     if (userRol == "profesor") {
         let mainMenu = ["Proyectos", "Clientes", "Estudiantes", "Tickets"];
-        let iconos = ['fa-project-diagram','fa-briefcase','fa-user-graduate','fa-ticket-alt'];
+        let iconos = ['fa-project-diagram', 'fa-briefcase', 'fa-user-graduate', 'fa-ticket-alt'];
         for (let i = 0; i < mainMenu.length; i++) {
             let optionsContainer = document.createElement('div');
             optionsContainer.id = mainMenu[i];
@@ -290,7 +317,7 @@ function loadOptionsMenu() {
             let mainLabel = document.createElement('a');
             mainLabel.classList.add('menuLabel');
             mainLabel.innerHTML = mainMenu[i];
-            mainLabel.href = "javascript:secundaryMenu("+mainMenu[i].toString()+")";
+            mainLabel.href = "javascript:secundaryMenu(" + mainMenu[i].toString() + ")";
             let icono = document.createElement('i');
             icono.classList.add('iconosMenu');
             icono.classList.add('fas');
@@ -330,7 +357,7 @@ function loadOptionsMenu() {
                 newA.href = menuURL[i];
                 newA.style.display = "block";
                 newA.style.width = "270px";
-               newDiv.appendChild(newA);
+                newDiv.appendChild(newA);
                 optionsContainer.appendChild(newDiv);
 
                 if (menuURL[i] == "registroProfesores.html") {
@@ -338,8 +365,13 @@ function loadOptionsMenu() {
                         sessionStorage.removeItem('professorUpdateLS');
                     };
                 }
+                if (menuURL[i] == "registrarEstudiante.html") {
+                    newA.onclick = function () {
+                        sessionStorage.setItem('update', 0);
+                    };
+                }
             }
-            
+
         }
         let profile = document.createElement('div');
         profile.classList.add('option');
@@ -360,7 +392,7 @@ function loadOptionsMenu() {
 
     if (userRol == "estudiante") {
         let mainMenu = ["Proyectos", "Tickets"];
-        let iconos = ['fa-project-diagram','fa-ticket-alt'];
+        let iconos = ['fa-project-diagram', 'fa-ticket-alt'];
 
         for (let i = 0; i < mainMenu.length; i++) {
             let optionsContainer = document.createElement('div');
@@ -370,7 +402,7 @@ function loadOptionsMenu() {
             let mainLabel = document.createElement('a');
             mainLabel.classList.add('menuLabel');
             mainLabel.innerHTML = mainMenu[i];
-            mainLabel.href = "javascript:secundaryMenu("+mainMenu[i].toString()+")";
+            mainLabel.href = "javascript:secundaryMenu(" + mainMenu[i].toString() + ")";
             let icono = document.createElement('i');
             icono.classList.add('iconosMenu');
             icono.classList.add('fas');
@@ -412,7 +444,7 @@ function loadOptionsMenu() {
         }
         let profile = document.createElement('div');
         profile.classList.add('option');
-       /* profile.classList.add('option2');*/
+        /* profile.classList.add('option2');*/
         profile.classList.add('optionHover');
         let profileLabel = document.createElement('a');
         profileLabel.classList.add('menuLabel');
@@ -447,77 +479,77 @@ function togglMenu() {
 }
 
 
-let subMenuProyecto = false; 
+let subMenuProyecto = false;
 let subMenuCliente = false;
 let subMenuProfesor = false;
 let subMenuEstudiante = false;
 let subMenuTicket = false;
 function secundaryMenu(optionContainer) {
 
-    if(optionContainer.id == "Proyectos"){
+    if (optionContainer.id == "Proyectos") {
         if (!subMenuProyecto) {
-            for (let i = 1; i<optionContainer.children.length; i++) {
+            for (let i = 1; i < optionContainer.children.length; i++) {
                 optionContainer.children[i].classList.remove('hide');
                 subMenuProyecto = true;
             }
         } else {
-            for (let i = 1; i<optionContainer.children.length; i++) {
+            for (let i = 1; i < optionContainer.children.length; i++) {
                 optionContainer.children[i].classList.add('hide');
                 subMenuProyecto = false;
             }
         }
     }
 
-    if(optionContainer.id == "Clientes"){
+    if (optionContainer.id == "Clientes") {
         if (!subMenuCliente) {
-            for (let i = 1; i<optionContainer.children.length; i++) {
+            for (let i = 1; i < optionContainer.children.length; i++) {
                 optionContainer.children[i].classList.remove('hide');
                 subMenuCliente = true;
             }
         } else {
-            for (let i = 1; i<optionContainer.children.length; i++) {
+            for (let i = 1; i < optionContainer.children.length; i++) {
                 optionContainer.children[i].classList.add('hide');
                 subMenuCliente = false;
             }
         }
     }
 
-    if(optionContainer.id == "Profesores"){
+    if (optionContainer.id == "Profesores") {
         if (!subMenuProfesor) {
-            for (let i = 1; i<optionContainer.children.length; i++) {
+            for (let i = 1; i < optionContainer.children.length; i++) {
                 optionContainer.children[i].classList.remove('hide');
                 subMenuProfesor = true;
             }
         } else {
-            for (let i = 1; i<optionContainer.children.length; i++) {
+            for (let i = 1; i < optionContainer.children.length; i++) {
                 optionContainer.children[i].classList.add('hide');
                 subMenuProfesor = false;
             }
         }
     }
-    
-    if(optionContainer.id == "Estudiantes"){
+
+    if (optionContainer.id == "Estudiantes") {
         if (!subMenuEstudiante) {
-            for (let i = 1; i<optionContainer.children.length; i++) {
+            for (let i = 1; i < optionContainer.children.length; i++) {
                 optionContainer.children[i].classList.remove('hide');
                 subMenuEstudiante = true;
             }
         } else {
-            for (let i = 1; i<optionContainer.children.length; i++) {
+            for (let i = 1; i < optionContainer.children.length; i++) {
                 optionContainer.children[i].classList.add('hide');
                 subMenuEstudiante = false;
             }
         }
     }
 
-    if(optionContainer.id == "Tickets"){
+    if (optionContainer.id == "Tickets") {
         if (!subMenuTicket) {
-            for (let i = 1; i<optionContainer.children.length; i++) {
+            for (let i = 1; i < optionContainer.children.length; i++) {
                 optionContainer.children[i].classList.remove('hide');
                 subMenuTicket = true;
             }
         } else {
-            for (let i = 1; i<optionContainer.children.length; i++) {
+            for (let i = 1; i < optionContainer.children.length; i++) {
                 optionContainer.children[i].classList.add('hide');
                 subMenuTicket = false;
             }

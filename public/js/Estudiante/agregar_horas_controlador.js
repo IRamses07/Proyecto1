@@ -19,7 +19,7 @@ function llenarSelectEstudiantes() {
     let listaProyecto = getCurrentUserData()['proyectos'];;
 
     let select = document.querySelector('#nombreProyecto');
-    select.options[0] = new Option("Seleccione un Proyecto", );
+    select.options[0] = new Option("Seleccione un Proyecto");
 
     for (let i = 0; i < listaProyecto.length; i++) {
         // if (listaProyecto[i]['estado_proyecto'] == 'desarrollo' || listaProyecto[i]['estado_proyecto'] == 'desarrollo') {
@@ -42,7 +42,12 @@ function optenerDatos() {
 
     switch (error) {
         case 1:
-
+        swal({
+            type: 'warning',
+            title: 'Registro fallido',
+            text: 'No se pudo registara horas al proyecto',
+            confirmButtonText: 'Entendido'
+        });
 
             break;
 
@@ -52,7 +57,7 @@ function optenerDatos() {
             swal({
                 type: 'success',
                 title: 'Registro exitoso',
-                text: 'El Proyecto se registró adecuadamente',
+                text: 'Se agregaron horas al proyecto',
                 confirmButtonText: 'Entendido'
             });
 
@@ -64,7 +69,6 @@ function optenerDatos() {
             break;
     }
 
-    agregarHorasProyecto(idE, id, horas, fecha);
 }
 
 

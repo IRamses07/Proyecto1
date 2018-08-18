@@ -202,3 +202,7 @@ thead th {
 #littleMargin{
 margin-bottom: 16px;
 }
+
+header, .mainHeader{
+    z-index: 55;
+}

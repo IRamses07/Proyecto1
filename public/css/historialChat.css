@@ -1,0 +1,82 @@
+#tableContainerChat{
+    min-height: 500px;
+    max-height: 500px;
+    width: 64%;
+    float: left;
+    margin-top: 25px;
+    overflow: auto;
+}
+#tableContainerChat tbody {
+    text-align: center;
+}
+
+#showChat{
+    min-height: 550px;
+    max-height: 550px;
+    background: #fff;
+    width: 35%;
+    float: right;
+    border-top-right-radius: 35px;
+    border-bottom-right-radius: 35px;
+    border-left: 2px solid #f27a1a;
+    overflow: auto;
+}
+
+#showChat::-webkit-scrollbar ,#tableContainerChat::-webkit-scrollbar {
+    width: 10px;
+}
+#showChat::-webkit-scrollbar-thumb ,#tableContainerChat::-webkit-scrollbar-thumb {
+    background-color: #f90;
+    background-image: #454545;
+}
+#showChat::-webkit-scrollbar-track ,#tableContainerChat::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+    
+} 
+#showChat::-webkit-scrollbar-thumb, #showChat::-webkit-scrollbar, #showChat::-webkit-scrollbar-track{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    height: 300px;
+    border-radius: 25px;
+}
+
+/* #showChat::-webkit-scrollbar {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    height: 125px;
+    border: 1px solid red;
+} */
+
+.content2{
+    width: 75%;
+    margin: 0 auto;
+    display: flow-root;
+    border: 2px solid #f27a1a;
+    border-radius: 35px;
+    margin-bottom: 75px;
+}
+
+h1 {
+    text-align: center;
+    margin: 0px auto 50px auto;
+    font-size: 24px;
+}
+
+#tblChats{
+    width: 85%;
+    margin: 0 auto;
+}
+
+.btnControl {
+    margin: 2px 0 8px 0;
+    width: 100%;
+}
+
+#tableContainerChat h2{
+    width: 100%;
+    margin: 0 auto;
+    font-size: 1.4em;
+    text-align: center;
+    margin-bottom: 25px;
+}
