@@ -125,3 +125,4 @@ function setAdmin1() {
 
 let listaRooms=[];
 sessionStorage.setItem("rommies", JSON.stringify(listaRooms));
+sessionStorage.setItem("chatMin", 0);

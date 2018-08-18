@@ -3,27 +3,31 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Listado de profesores</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/generalStyle.css">
     <link rel="stylesheet" href="css/notificaciones.css">
-    <link rel="stylesheet" href="css/listarProfesores.css">
+    <link rel="stylesheet" href="css/historialChat.css">
     <link rel="stylesheet" href="css/chat.css">
+    <title>Historial de Mensajería</title>
 </head>
 
 <body>
     <header>
+
         <div class="mainHeader">
-                <label for="" class="menuPrincipal" onclick="togglMenu()">
-                        <i class="fas fa-align-justify"></i>Menú</label>
+            <label for="" class="menuPrincipal" onclick="togglMenu()">
+                <i class="fas fa-align-justify iconoMenu"></i>Menú</label>
             <a id="notificacion" class="fLeft">
                 <i class="fas fa-bell"></i> Notificaciones</a>
-                <label for="">Bienvenido: </label>
-                <output id="txtnombreCliente" value=""></output>
+            <label for="">Bienvenido: </label>
+            <output id="txtnombreCliente" value=""></output>
             <a href="javascript:logOut();" class="fRight">Cerrar sesión
                 <i class="fas fa-cog"></i>
             </a>
@@ -45,44 +49,57 @@
                 </table>
             </div>
         </div>
-        <h2>Listado de profesores</h2>
-        <div class="floatContainer">
-            <input type="radio" id="rbtnNombre" name="botonInutil" value="nombre" checked>
-            <span class="spnRadio">Buscar por nombre:</span>
-            <input type="text" id="txtFiltro" value=''>
-            <button type="button" class="btnRegistro" id="btnFiltro">Buscar</button>
-        </div>
-        <table id="tblProfesores">
-            <thead>
-                <th>Nombre</th>
-                <th>Cédula</th>
-                <th>Correo electrónico</th>
-                <th>Teléfono</th>
-                <th>Profesión</th>
-                <th>Perfil</th>
-                <th>Estado</th>
-                <th>
-                    <i class="fas fa-cog"></i>
-                </th>
-            </thead>
-            <tbody>
 
-            </tbody>
-        </table>
+        <h1>Historial de mensajes</h1>
+
+        <div class="content2">
+            <div id="tableContainerChat">
+                <table cellspacing=10px id="tblChats">
+                    <thead>
+                        <th>Id</th>
+                        <th>Participante 1</th>
+                        <th>Participante 2</th>
+                        <th>Mensajes</th>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="showChat">
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
         <div class="chatContainer" id="chatContainer" hidden></div>
-        <div id="minimizarChat" class="btnChat"><span>Mensajería</span><i class="fas fa-comments"></i></div>
+        <div id="minimizarChat" class="btnChat">
+            <span>Mensajería</span>
+            <i class="fas fa-comments"></i>
+        </div>
+
+
     </main>
     <footer></footer>
     <script src="js/jquery-3.3.1.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="/public/js/Chat/chat.service.js"></script>
     <script type="text/javascript" src="/public/js/Chat/chat.controlador.js"></script>
+    <script type="text/javascript" src="/public/js/Chat/historial.controlador.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
     <script src="js/Login/login.js"></script>
     <script src="js/Notificaciones/notificaciones.js"></script>
-    <script src="js/Profesor/profesor.servicio.js"></script>
-    <script src="js/Profesor/listarProfesor.controlador.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </body>
 
 </html>
