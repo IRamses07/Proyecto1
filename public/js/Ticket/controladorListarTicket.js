@@ -41,7 +41,7 @@ function listarTicketsAdmin(pinptBuscarCliente, selectUrgencia, radioSelected) {
             let cliente = fila.insertCell();
             let urgencia = fila.insertCell();
             let proyecto = fila.insertCell();
-            let descripcion = fila.insertCell();
+            let estado = fila.insertCell();
             let verMas = fila.insertCell();
 
             let boton = document.createElement("input");
@@ -53,7 +53,7 @@ function listarTicketsAdmin(pinptBuscarCliente, selectUrgencia, radioSelected) {
             cliente.innerHTML = tickets[i]['nombre_cliente'];
             urgencia.innerHTML = tickets[i]['urgencia'];
             proyecto.innerHTML = tickets[i]['proyecto'];
-            descripcion.innerHTML = tickets[i]['descripcion'];
+            estado.innerHTML = tickets[i]['estado'];
             verMas.appendChild(boton);
 
             boton.addEventListener('click',function(){

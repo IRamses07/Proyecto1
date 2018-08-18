@@ -2,13 +2,13 @@
   input{
       border: 1px solid #ffffff;
   }
- main .frmRegistrarProyectos .TituloPrincipal H1{
+ main .frmRegistrarProyectos .TituloPrincipal h1{
      margin-bottom: 15px;
      text-align: center;
-     font-size: 30px;
+     /* font-size: 30px; */
      margin-left: 32%;
      margin-right:40%; 
-     width: 30%;
+     /* width: 30%; */
  }
 
  .frmRegistrarProyectos {

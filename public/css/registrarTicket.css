@@ -20,7 +20,7 @@ p {
     margin: 0 auto;
 }
 
-input, select {
+.formBox input, .formBox select {
     width: 100%;
     margin-top: 6px;
 }
@@ -93,6 +93,7 @@ div .blockLeft {
     width: 100%;
     margin: 0 auto;
     max-height: 200px;
+    text-align: center;
 }
 
 #tblTicketAdmin thead  tbody { display: block; }
@@ -114,12 +115,11 @@ div .blockLeft {
 
 
 .filtroTicket {
-    margin: 45px 0px;
+    margin: 40px 0px;
     width: 100%;
 }
 
 .filtroTicket input[type='radio'] {
-    /* display: none; */
      width: 14px; 
      height: 14px;
      margin: 5px 0px;
@@ -135,6 +135,8 @@ div .blockLeft {
 
 .filtroTicket select {
     width: 17%;
+    min-height: 36px;
+    margin-left: 2%;
 }
 
                     
@@ -144,14 +146,15 @@ div .blockLeft {
 
 .filtroTicket  .inptbuscar {
     width: 20%;
+    margin-left: 2%;
 }
 
 
-.btnFiltro {
-    float: right;
+/* .btnFiltro {
     margin-bottom: 20px;
     margin-right: 20px;
-    padding: 5px 3%;
+    padding: 9px 3%;
+    margin: 3%;
 }
 
 .btnLista {
@@ -161,8 +164,7 @@ div .blockLeft {
     padding: 5px 0px 5px 0;
     background-color: #f27a1a;
     color: #fff;
-    /* margin-bottom: 10px; */
-}
+} */
 
 .btnImgErr {
     width: 100%;

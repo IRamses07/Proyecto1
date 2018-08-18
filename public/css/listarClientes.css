@@ -1,5 +1,5 @@
 .tbl {
-    width: 1000px;
+    width: 85%;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -80,13 +80,15 @@ h2 {
     float: right;
 } */
 .btnFiltro{
-    padding: 5px;
     cursor: pointer;
-    margin: 2px
 }
 .tbl .btnFiltro{
     width: 85px;
 }
 .fmr input[type='radio']{
     height: initial;
+}
+
+.labelFiltro {
+    margin-right: 2%;
 }

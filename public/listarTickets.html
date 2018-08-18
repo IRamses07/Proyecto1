@@ -22,7 +22,7 @@
     <header>
         <div class="mainHeader">
                 <label for="" class="menuPrincipal" onclick="togglMenu()">
-                        <i class="fas fa-align-justify"></i>Menú</label>
+                        <i class="fas fa-align-justify"></i></label>
             <a id="notificacion" class="fLeft">
                 <i class="fas fa-bell"></i> Notificaciones</a>
                 <label for="">Bienvenido: </label>
@@ -53,12 +53,10 @@
 
             <div class="filtroTicket">
                 <label for="tickets">Buscar por:</label>
-                <input type="radio" name="radioSelected" checked="checked" id="cliente" value="nombre_cliente">
+                <input type="radio" class="iptRadio" name="radioSelected" checked="checked" id="cliente" value="nombre_cliente">
                 <label for="tickets">Nombre de cliente</label>
-                <input type="radio" id="proyecto" name="radioSelected" value="proyecto">
+                <input type="radio"class="iptRadio" id="proyecto" name="radioSelected" value="proyecto">
                 <label for="tickets">Proyecto</label>
-                <!-- <input type="radio" id="codigo" name="radioSelected" value="codigo"><label for="tickets">Código</label> -->
-                <!-- <input type="radio" id="profesor" name="radioSelected" value="profesor"><label for="tickets">Profesor</label> -->
                 <select name="urgencia" id="sltUrgencia">
                     <option value="">Seleccione la urgencia:</option>
                     <option value="Alta">Alta</option>
@@ -66,7 +64,7 @@
                     <option value="Baja">Baja</option>
                 </select>
                 <input type="text" id="filtrocliente" class="inptbuscar" placeholder="Escriba la opción a buscar">
-                <button type="button" id="btnFiltrar" class="btnFiltro">Filtrar</button>
+                <button type="button" id="btnFiltrar" class="btnFiltro">Buscar</button>
 
             </div>
             <table id="tblTicketAdmin">
@@ -74,7 +72,7 @@
                     <th>Nombre del cliente</th>
                     <th>Urgencia</th>
                     <th>Proyecto</th>
-                    <th>Descripción</th>
+                    <th>Estado</th>
                     <th>Ver más</th>
                 </thead>
                 <tbody id="cuerpoT">

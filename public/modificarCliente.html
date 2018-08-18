@@ -16,15 +16,17 @@
     <header>
         <div class="mainHeader">
             <label for="" class="menuPrincipal" onclick="togglMenu()">
-                <i class="fas fa-align-justify"></i>Menú</label>
+                <i class="fas fa-align-justify"></i>
+            </label>
+
+            <a id="notificacion" class="fLeft">
+                <i class="fas fa-bell"></i> Notificaciones</a>
 
             <label for="">Bienvenido: </label>
             <output id="txtnombreCliente" value=""></output>
             <a href="##" class="fLeft">
 
-                <a id="notificacion" class="fLeft">
-                    <i class="fas fa-bell"></i> Notificaciones</a>
-                    
+
                 <a href="javascript:logOut();" class="fRight">Cerrar sesión
                     <i class="fas fa-cog"></i>
                 </a>
@@ -49,7 +51,7 @@
         </div>
         <form class="fmr" id="fmrRegistroCliente">
 
-            <h2>Cliente</h2>
+            <h1>Cliente</h1>
             <div>
                 <label id="cedExt" for="">Cédula jurídica</label>
                 <output type="text" id="txtCedulaJuridica" class="" name="cedulaJuridica"></output>
@@ -125,7 +127,7 @@
         <div id="minimizarChat" class="btnChat">Chat</div>
     </main>
     <script src="js/jquery-3.3.1.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="/public/js/Chat/chat.service.js"></script>
     <script type="text/javascript" src="/public/js/Chat/chat.controlador.js"></script>

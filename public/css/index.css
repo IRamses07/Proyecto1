@@ -5,6 +5,10 @@ body {
     background-color: #fff;   
 }
 
+p {
+    font-size: 1.2em;
+}
+
 /*nav de arriba*/
 nav {
     float: left;
@@ -174,7 +178,7 @@ nav i{
 }
 
 .imgcontDer{
-    width: 465px;
+    /* width: 465px; */
     height: 420px;
     float: left;
     border-radius: 5px;
@@ -183,7 +187,7 @@ nav i{
 
 .imgcontDer img {
     width: 100%;
-    height: 400px;
+    height: 485px;
     border-radius: 5px;
     margin: 0 auto;
 }
