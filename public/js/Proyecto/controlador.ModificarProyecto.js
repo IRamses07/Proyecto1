@@ -94,7 +94,7 @@ function mensajesDeRetroAlimentacion(error, sNombreProyecto, nIdentifiacionJurid
             break;
         case 2:
 
-            
+             
             let id = localStorage.getItem('idP');
             let proyecto = obtenerProyectoId(id);
 

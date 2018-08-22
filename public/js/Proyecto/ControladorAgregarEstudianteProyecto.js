@@ -33,21 +33,21 @@ function llenarSelectEstudiantes() {
     select.options[0] = new Option("Seleccione un estudiantes");
     let lista = [];
 
-    for (let j = 0; j < infoEstudiante[j].proyectos.length; j++) {
-        for (let i = 0; i < infoEstudiante.length; i++) {
+    // for (let j = 0; j < infoEstudiante[j].proyectos.length; j++) {
+    //     for (let i = 0; i < infoEstudiante.length; i++) {
 
-            if (infoEstudiante[i].proyectos.length > 0) {
-                if (infoEstudiante[i].proyectos[j]['id'] != selectProyecto.value) {
-                    lista.push(infoEstudiante[i])
-                }
-            } else {
-                lista.push(infoEstudiante[i])
-            }
-        }
+    //         if (infoEstudiante[i].proyectos.length > 0) {
+    //             if (infoEstudiante[i].proyectos[j]['id'] != selectProyecto.value) {
+    //                 lista.push(infoEstudiante[i])
+    //             }
+    //         } else {
+    //             lista.push(infoEstudiante[i])
+    //         }
+    //     }
 
-    }
-    for (let i = 0; i < lista.length; i++) {
-        select.options[i + 1] = new Option(lista[i]['Nombre1'] + ' ' + lista[i]['apellido1'], lista[i]['_id']);
+    // }
+    for (let i = 0; i < infoEstudiante.length; i++) {
+        select.options[i + 1] = new Option(infoEstudiante[i]['Nombre1'] + ' ' + infoEstudiante[i]['apellido1'], infoEstudiante[i]['_id']);
     }
 }
 
@@ -56,7 +56,7 @@ function obtenrDatos() {
 
     let error = false;
 
-    error = validar();
+        // error = validar();
 
     if (error == true) {
         swal({
